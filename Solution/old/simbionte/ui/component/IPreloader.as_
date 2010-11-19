@@ -1,0 +1,10 @@
+﻿package simbionte.ui.component 
+{
+	
+	public interface IPreloader extends IComponent
+	{
+		function set progress(value:Number)    :void
+		function get progress()                :Number
+	}
+	
+}

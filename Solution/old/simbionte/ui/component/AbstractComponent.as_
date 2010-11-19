@@ -1,0 +1,117 @@
+﻿package simbionte.ui.component 
+{
+	import flash.display.MovieClip;
+	import flash.events.Event;
+	import simbionte.core.IDestroyable;
+	import simbionte.display.SimpleMovieClip;
+	import simbionte.events.ComponentEvent;
+	import simbionte.events.EventManager;
+	import simbionte.exceptions.AbstractException;
+	
+	public class AbstractComponent extends SimpleMovieClip implements IComponent
+	{
+		private var _initialX                              :int;
+		private var _initialY                              :int;
+		
+		private var _initialized                           :Boolean = false;
+		
+		public function AbstractComponent() 
+		{
+			
+			if (stage != null) 
+			{
+				addedToStage();
+			}
+			else 
+			{
+				addEventListener(Event.ADDED_TO_STAGE, addedToStage);
+			}
+		}
+		
+		protected function addedToStage(e:Event=null):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, addedToStage);
+			
+			initialX = this.x;
+			initialY = this.y;
+			
+			init();
+		}
+		
+		private function init():void 
+		{
+			setAssets();
+			setVariables();
+			setListeners();
+			initialize();
+			_initialized = true;
+			dispatchEvent(new ComponentEvent(ComponentEvent.INITIALIZED));
+		}
+		
+		protected function setAssets():void 
+		{
+			//throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		protected function setVariables():void 
+		{
+			throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		protected function setListeners():void 
+		{
+			throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		protected function initialize():void 
+		{
+			throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		public function get initialX()			:int	{ return _initialX; }
+		public function set initialX(value:int)	:void	{ _initialX = value; }
+		
+		public function get initialY()			:int	{ return _initialY; }
+		public function set initialY(value:int)	:void	{ _initialY = value; }
+		
+		public function show(param:Object=null):void 
+		{
+			throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		protected function show_complete():void 
+		{
+			
+		}
+		
+		public function hide(param:Object=null):void 
+		{
+			throw AbstractException.ABSTRACT_METHOD;
+		}
+		
+		protected function hide_complete():void 
+		{
+			
+		}
+		
+		override public function set enabled(value:Boolean):void 
+		{
+			mouseEnabled = mouseChildren = value;
+			
+			super.enabled = value;
+		}
+		
+		/**Retorna o valor se o componente foi inicializado.*/
+		public function get initialized():Boolean { return _initialized; }
+		
+		public function setFocus():void 
+		{
+			if (stage)
+			{
+				stage.focus = this;
+			}
+		}
+		
+	}
+
+}

@@ -1,0 +1,244 @@
+<report>
+  <scripts>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\utils\ContainerUtil.as" mod="1262743878748" size="838" optimizedsize="790">
+      <def id="simbionte.utils:ContainerUtil" />
+      <pre id="Object" />
+      <dep id="flash.system:System" />
+      <dep id="AS3" />
+      <dep id="flash.display:DisplayObjectContainer" />
+      <dep id="flash.display:DisplayObject" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_button_comboBox)" mod="1275278143670" size="824" optimizedsize="572">
+      <def id="module_asset_button_comboBox" />
+      <pre id="flash.display:MovieClip" />
+      <dep id="module_asset_sprite_comboBox_textField" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_mask_scrollBar)" mod="1275278143672" size="513" optimizedsize="286">
+      <def id="module_asset_mask_scrollBar" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\events\ComponentEvent.as" mod="1258318795046" size="574" optimizedsize="560">
+      <def id="simbionte.events:ComponentEvent" />
+      <pre id="flash.events:Event" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\form\Input.as" mod="1273624512580" size="504" optimizedsize="492">
+      <def id="simbionte.component.form:Input" />
+      <pre id="simbionte.component:Component" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_sprite_comboBox_textField)" mod="1275278143673" size="579" optimizedsize="341">
+      <def id="module_asset_sprite_comboBox_textField" />
+      <pre id="flash.display:Sprite" />
+      <dep id="flash.text:TextField" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\events\DataListEvent.as" mod="1274046267781" size="630" optimizedsize="618">
+      <def id="simbionte.events:DataListEvent" />
+      <pre id="flash.events:Event" />
+      <dep id="AS3" />
+      <dep id="simbionte.component.data:ItemTemplate" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\data\DataList.as" mod="1275256356839" size="2292" optimizedsize="2127">
+      <def id="simbionte.component.data:DataList" />
+      <pre id="simbionte.component.data:DataComponent" />
+      <dep id="simbionte.events:DataListEvent" />
+      <dep id="simbionte.utils:ContainerUtil" />
+      <dep id="AS3" />
+      <dep id="fl.data:DataProvider" />
+      <dep id="__AS3__.vec:Vector" />
+      <dep id="Math" />
+      <dep id="simbionte.component.data:ItemTemplate" />
+      <dep id="flash.display:DisplayObject" />
+      <dep id="simbionte.utils:Utils" />
+      <dep id="flash.display:Sprite" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_marker_scrollBar)" mod="1275278143670" size="515" optimizedsize="288">
+      <def id="module_asset_marker_scrollBar" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_movieClip_comboBox_arrow)" mod="1275278143672" size="537" optimizedsize="308">
+      <def id="module_asset_movieClip_comboBox_arrow" />
+      <pre id="flash.display:MovieClip" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\InputTest.as" mod="1275279527077" size="878" optimizedsize="841">
+      <def id="InputTest" />
+      <pre id="flash.display:Sprite" />
+      <dep id="flash.display:StageScaleMode" />
+      <dep id="module_asset_comboBox" />
+      <dep id="AS3" />
+      <dep id="fl.data:DataProvider" />
+      <dep id="simbionte.component.data:ItemTemplate" />
+      <dep id="simbionte.component.form.combobox:ComboBox" />
+      <dep id="ComboBoxItemTemplate" />
+      <dep id="simbionte.component.data:DataList" />
+      <dep id="flash.display:StageAlign" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\lib\FlashDataProvider.swc(fl/data/DataProvider)" mod="1221002828000" size="5980" optimizedsize="3054">
+      <def id="fl.data:DataProvider" />
+      <pre id="flash.events:EventDispatcher" />
+      <dep id="TypeError" />
+      <dep id="fl.events:DataChangeType" />
+      <dep id="RangeError" />
+      <dep id="AS3" />
+      <dep id="fl.events:DataChangeEvent" />
+      <dep id="XML" />
+      <dep id="XMLList" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_itemTemplate_comboBox)" mod="1275278143670" size="576" optimizedsize="339">
+      <def id="module_asset_itemTemplate_comboBox" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+      <dep id="module_asset_button_comboBox" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\utils\Utils.as" mod="1272846247597" size="620" optimizedsize="596">
+      <def id="simbionte.utils:Utils" />
+      <pre id="Object" />
+      <dep id="AS3" />
+      <dep id="flash.utils:Timer" />
+      <dep id="flash.events:TimerEvent" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_arrow_scrollBar)" mod="1275278143670" size="514" optimizedsize="287">
+      <def id="module_asset_arrow_scrollBar" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\Component.as" mod="1273614185848" size="833" optimizedsize="816">
+      <def id="simbionte.component:Component" />
+      <pre id="simbionte.events:SimpleEventDispatcher" />
+      <dep id="AS3" />
+      <dep id="simbionte.events:ComponentEvent" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_container_comboBox_display)" mod="1275278143670" size="580" optimizedsize="342">
+      <def id="module_asset_container_comboBox_display" />
+      <pre id="flash.display:Sprite" />
+      <dep id="module_asset_movieClip_comboBox_arrow" />
+      <dep id="flash.text:TextField" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_datalist_comboBox)" mod="1275278143670" size="516" optimizedsize="289">
+      <def id="module_asset_datalist_comboBox" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+      <dep id="module_asset_itemTemplate_comboBox" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_tracker_scrollBar)" mod="1275278143673" size="516" optimizedsize="289">
+      <def id="module_asset_tracker_scrollBar" />
+      <pre id="flash.display:Sprite" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\events\SimpleEventDispatcher.as" mod="1274650192400" size="551" optimizedsize="532">
+      <def id="simbionte.events:SimpleEventDispatcher" />
+      <pre id="simbionte.core:IDestroyable" />
+      <pre id="flash.events:EventDispatcher" />
+      <dep id="AS3" />
+      <dep id="simbionte.events:EventManager" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\form\combobox\ComboBox.as" mod="1275279490953" size="1822" optimizedsize="1778">
+      <def id="simbionte.component.form.combobox:ComboBox" />
+      <pre id="simbionte.component.form:Input" />
+      <pre id="simbionte.component.data:IBindable" />
+      <dep id="simbionte.events:DataListEvent" />
+      <dep id="AS3" />
+      <dep id="simbionte.component.data:ItemTemplate" />
+      <dep id="simbionte.component.data:DataList" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\data\DataComponent.as" mod="1272833519908" size="722" optimizedsize="701">
+      <def id="simbionte.component.data:DataComponent" />
+      <pre id="simbionte.component:Component" />
+      <pre id="simbionte.component.data:IBindable" />
+      <dep id="AS3" />
+      <dep id="simbionte.events:ComponentEvent" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\ComboBoxItemTemplate.as" mod="1275257209885" size="1145" optimizedsize="1089">
+      <def id="ComboBoxItemTemplate" />
+      <pre id="simbionte.component.data:ItemTemplate" />
+      <dep id="simbionte.events:DataListEvent" />
+      <dep id="flash.events:MouseEvent" />
+      <dep id="AS3" />
+      <dep id="module_asset_itemTemplate_comboBox" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\data\ItemTemplate.as" mod="1275256441999" size="572" optimizedsize="495">
+      <def id="simbionte.component.data:ItemTemplate" />
+      <pre id="simbionte.component.data:DataComponent" />
+      <dep id="simbionte.events:DataListEvent" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\events\EventManager.as" mod="1272825970186" size="2708" optimizedsize="2545">
+      <def id="simbionte.events:EventManager" />
+      <pre id="Object" />
+      <dep id="flash.events:IEventDispatcher" />
+      <dep id="flash.events:EventDispatcher" />
+      <dep id="AS3" />
+      <dep id="trace" />
+      <dep id="flash.utils:Dictionary" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\core\IDestroyable.as" mod="1274650642813" size="167" optimizedsize="167">
+      <def id="simbionte.core:IDestroyable" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\lib\FlashDataProvider.swc(fl/events/DataChangeType)" mod="1221002828000" size="900" optimizedsize="430">
+      <def id="fl.events:DataChangeType" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_container_comboBox_items)" mod="1275278143670" size="870" optimizedsize="575">
+      <def id="module_asset_container_comboBox_items" />
+      <pre id="flash.display:Sprite" />
+      <dep id="module_asset_tracker_scrollBar" />
+      <dep id="module_asset_mask_scrollBar" />
+      <dep id="AS3" />
+      <dep id="module_asset_arrow_scrollBar" />
+      <dep id="module_asset_marker_scrollBar" />
+      <dep id="module_asset_datalist_comboBox" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\src\simbionte\component\data\IBindable.as" mod="1272833355498" size="218" optimizedsize="218">
+      <def id="simbionte.component.data:IBindable" />
+      <pre id="Object" />
+      <dep id="AS3" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\assets\swc\Components.swc(module_asset_comboBox)" mod="1275278143670" size="645" optimizedsize="397">
+      <def id="module_asset_comboBox" />
+      <pre id="flash.display:Sprite" />
+      <dep id="module_asset_container_comboBox_items" />
+      <dep id="AS3" />
+      <dep id="module_asset_container_comboBox_display" />
+    </script>
+    <script name="C:\Users\Cristiano\Documents\Simbionte\Simbionte\Framework\ActionScript\Simbionte Framework\Desenvolvimento\Solution\ActionScriptLibrary\SimbionteFramework\lib\FlashDataProvider.swc(fl/events/DataChangeEvent)" mod="1221002828000" size="1561" optimizedsize="724">
+      <def id="fl.events:DataChangeEvent" />
+      <pre id="flash.events:Event" />
+      <dep id="AS3" />
+    </script>
+  </scripts>
+  <external-defs>
+    <ext id="flash.system:System" />
+    <ext id="Math" />
+    <ext id="flash.display:StageAlign" />
+    <ext id="XMLList" />
+    <ext id="flash.events:Event" />
+    <ext id="AS3" />
+    <ext id="XML" />
+    <ext id="flash.events:IEventDispatcher" />
+    <ext id="flash.utils:Dictionary" />
+    <ext id="RangeError" />
+    <ext id="trace" />
+    <ext id="flash.events:EventDispatcher" />
+    <ext id="flash.text:TextField" />
+    <ext id="flash.display:DisplayObject" />
+    <ext id="__AS3__.vec:Vector" />
+    <ext id="Object" />
+    <ext id="flash.display:MovieClip" />
+    <ext id="flash.utils:Timer" />
+    <ext id="flash.display:DisplayObjectContainer" />
+    <ext id="flash.events:TimerEvent" />
+    <ext id="flash.display:Sprite" />
+    <ext id="TypeError" />
+    <ext id="flash.events:MouseEvent" />
+    <ext id="flash.display:StageScaleMode" />
+  </external-defs>
+</report>

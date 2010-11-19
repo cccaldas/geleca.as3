@@ -1,0 +1,187 @@
+﻿package simbionte.ui.component 
+{
+	import fl.data.DataProvider;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.ui.Keyboard;
+	import simbionte.events.ComboBoxEvent;
+	import simbionte.events.DataListEvent;
+	
+	public class ComboBox extends AbstractDataComponent implements IInput, IComboBox
+	{
+		private var _valid                               :Boolean = false;
+		private var _selectedIndex                       :int = 0;
+		
+		public function ComboBox() 
+		{
+			
+		}
+		
+		override protected function setVariables():void 
+		{
+			dataList.columns          = 1;
+			dataList.itemSpacingY     = 0;
+			dataList.itemSpacingX     = 0;
+			
+			textDisplay.mouseEnabled  = false;
+		}
+		
+		override protected function setListeners():void 
+		{
+			display.addEventListener(MouseEvent.CLICK, display_click, false, 0, true);
+			dataList.addEventListener(DataListEvent.ITEM_CLICK, dataList_itemClick, false, 0 , true);
+			dataList.addEventListener(DataListEvent.BINDED, dataList_binded, false, 0, true);
+		}
+		
+		override protected function initialize():void 
+		{
+			
+		}
+		
+		public function set itemTemplateClass(value:ComboBoxItemTemplate):void 
+		{
+			dataList.itemTemplateClass = Class(value);
+		}
+		
+		public function get selectedIndex():int { return dataList.itemSelected.itemIndex; }
+		public function set selectedIndex(value:int):void
+		{
+			if (value >= 0 && value < dataList.length) 
+			{
+				_selectedIndex = value;
+				dataList.selectItem(value);
+				
+				textDisplay.text = dataList.itemSelected.dataItem.label;
+				
+				dispatchEvent(new ComboBoxEvent(ComboBoxEvent.ITEM_CHANGE, selectedItem));
+			}
+			
+		}
+		
+		public function get selectedItem():Object
+		{
+			return dataList.itemSelected.dataItem;
+		}
+		
+		public function get selectedData():String
+		{
+			return String(selectedItem.data);
+		}
+		
+		public function get selectedLabel():String
+		{
+			return String(selectedItem.label);
+		}
+		
+		protected function get scrollBar():ScrollBar
+		{
+			return ScrollBar(getChildByName("ctr_scrollBar"));
+		}
+		
+		protected function get dataList():DataList
+		{
+			return DataList(scrollBar.container.getChildByName("ctr_dataList"));
+		}
+		
+		protected function get display():Sprite
+		{
+			return Sprite(getChildByName("ctr_display"));
+		}
+		
+		protected function get textDisplay():TextField
+		{
+			return TextField(display.getChildByName("txt_textField"));
+		}
+		
+		override public function get dataProvider():DataProvider { return super.dataProvider; }
+		
+		override public function set dataProvider(value:DataProvider):void 
+		{
+			super.dataProvider = value;
+			
+			dataList.dataProvider = value;
+		}
+		
+		override protected function bind():void 
+		{
+			dataList.dataBind();
+		}
+		
+		public function get valid():Boolean { return _valid; }
+		
+		public function set valid(value:Boolean):void 
+		{
+			_valid = value;
+		}
+		
+		public function set itemSpacing(value:Number):void 
+		{
+			dataList.itemSpacingY = value;
+		}
+		
+		public function get itemSpacing():Number { return dataList.itemSpacingY; }
+		
+		override public function show(param:Object = null):void 
+		{
+			gotoAndPlay("show");
+		}
+		
+		override public function hide(param:Object = null):void 
+		{
+			gotoAndPlay("hide");
+			
+			stage.removeEventListener(MouseEvent.CLICK, stage_click);
+		}
+		
+		private function comboBox_keyDown(e:KeyboardEvent):void 
+		{
+			if (e.keyCode == Keyboard.DOWN) selectedIndex ++;
+			if (e.keyCode == Keyboard.UP) selectedIndex --;
+		}
+				
+		private function display_click(e:MouseEvent):void 
+		{
+			if (length > 0) 
+			{
+				if (currentFrame == 2) 
+				{
+					show();
+					stage.addEventListener(KeyboardEvent.KEY_DOWN, comboBox_keyDown);
+					e.stopImmediatePropagation();
+					stage.addEventListener(MouseEvent.CLICK, stage_click, false, 0, true);
+				}
+				else 
+				{
+					hide();
+					stage.removeEventListener(KeyboardEvent.KEY_DOWN, comboBox_keyDown);
+				}
+			}
+		}
+		
+		private function dataList_itemClick(e:DataListEvent):void 
+		{
+			selectedIndex = e.item.itemIndex;
+			
+			hide();
+		}
+			
+		private function dataList_binded(e:DataListEvent):void 
+		{
+			selectedIndex = 0;
+		}
+		
+		private function stage_click(e:MouseEvent):void 
+		{			
+			if (e.currentTarget is Stage) 
+			{
+				hide();
+				stage.removeEventListener(MouseEvent.CLICK, stage_click);
+				stage.removeEventListener(KeyboardEvent.KEY_DOWN, comboBox_keyDown);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,188 @@
+package Geleca.View
+{
+	import flash.display.LoaderInfo;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.events.FocusEvent;
+	import flash.system.System;
+	import flash.utils.Dictionary;
+	import Geleca.Component.Component;
+	import Geleca.Core.IDestroyable;
+	import Geleca.Display.HitArea;
+	import Geleca.Events.SimpleEventDispatcher;
+	import Geleca.Events.StateEvent;
+	import Geleca.Util.ContainerUtil;
+	
+	public class View extends Sprite implements IDestroyable
+	{
+		private var _enabled								:Boolean = true;
+		private var _initialized							:Boolean = false;
+		
+		private var _components								:Vector.<Component> = new Vector.<Component>();
+		
+		public function View() 
+		{
+			
+		}
+		
+		protected function setAssets():void 
+		{
+			if (this.getChildByName("sp_hitArea"))
+			{
+				var hit:Sprite = Sprite(this.getChildByName("sp_hitArea"));
+				hitArea = new HitArea(hit.width, hit.height);
+				
+				this.removeChild(hit);
+			}
+		}
+		
+		protected function setComponents():void 
+		{
+			
+		}
+		
+		protected function setVariables():void 
+		{
+			this.focusRect = false;
+		}
+		
+		protected function setListeners():void 
+		{
+			
+		}
+		
+		protected function initializeComponents():void 
+		{
+			var length:uint = _components.length;
+			
+			for (var i:int = 0; i < length; i++) 
+			{
+				_components[i].initializeComponent();
+			}
+		}
+		
+		protected function initialize():void 
+		{
+			
+		}
+		
+		public final function initializeView():View 
+		{
+			setAssets();
+			setComponents();
+			setVariables();
+			setListeners();
+			initializeComponents();
+			initialize();
+			_initialized = true;			
+			
+			return this;
+		}
+		
+		public function show(onComplete:Function=null):void 
+		{
+			
+		}
+		
+		public function hide(onComplete:Function=null):void 
+		{
+			
+		}
+		
+		protected function addComponent(component:Component):Component
+		{
+			if (_components.indexOf(component) == -1)
+				_components.push(component);
+				
+			return component;
+		}
+		
+		public function set enabled(value:Boolean):void 
+		{
+			if (value != _enabled)
+			{
+				_enabled = value;
+				
+				if (value)
+					enable();
+				else
+					disable();
+			}
+		}
+		
+		public function get enabled()			:Boolean 	{ return _enabled; }
+		public function get initialized()		:Boolean 	{ return _initialized; }
+		
+		override public function set hitArea(value:Sprite):void 
+		{
+			if (value && value.parent != this)
+			{
+				this.addChild(value);
+				super.hitArea = value;
+			}
+		}
+		
+		protected function enable():void 
+		{
+			this.mouseEnabled = this.mouseChildren = true;
+		}
+		
+		protected function disable():void 
+		{
+			this.mouseEnabled = this.mouseChildren = false;
+		}
+		
+		public function move(x:Number, y:Number):void 
+		{
+			this.x = x;
+			this.y = y;
+		}
+		
+		public function resize(width:Number, height:Number):void 
+		{
+			this.width 	= width;
+			this.height = height;
+		}
+		
+		override public function get width():Number { return (hitArea) ? hitArea.width : super.width; }
+		
+		override public function set width(value:Number):void 
+		{
+			if (hitArea)
+				hitArea.width = value;
+			else
+				super.width = value;
+			
+		}
+		
+		override public function get height():Number { return (hitArea) ? hitArea.height : super.height; }
+		
+		override public function set height(value:Number):void 
+		{
+			if (hitArea)
+				hitArea.height = value;
+			else
+				super.height = value;
+		}
+		
+		public function destroy():void 
+		{
+			if (hitArea)
+				this.removeChild(hitArea);
+				
+			var length:uint = _components.length;
+			
+			for (var i:int = 0; i < length; i++) 
+			{
+				_components[i].destroy();
+			}
+			
+			_components = null;
+			
+			ContainerUtil.removeAllChilds(this);
+			
+			System.gc();
+		}
+	}
+
+}

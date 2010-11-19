@@ -1,0 +1,84 @@
+package simbionte.component.form.combobox 
+{
+	import simbionte.component.Component;
+	import simbionte.component.data.DataList;
+	import simbionte.component.data.IBindable;
+	import simbionte.component.scrollbar.ScrollBar;
+	import simbionte.events.DataListEvent;
+	
+	public class ComboBoxItems extends Component implements IBindable
+	{
+		private var _selectedIndex					:uint = 0;
+		private var _dataList						:DataList;
+		private var _scrollBar						:ScrollBar;
+		
+		public function ComboBoxItems(dataList:DataList) 
+		{
+			_dataList 	= dataList;
+			_scrollBar 	= scrollBar;
+		}
+		
+		override protected function setVariables():void 
+		{
+			dataList.columns = 1;
+			
+			super.setVariables();
+		}
+		
+		override protected function setListeners():void 
+		{
+			dataList.addEventListener(DataListEvent.ITEM_CREATED, dataList_itemCreated);
+			
+			super.setListeners();
+		}
+		
+		override protected function initialize():void 
+		{
+			dataList.initializeComponent();
+			scrollBar.initializeComponent();
+			
+			super.initialize();
+		}
+		
+		public function get dataList()	:DataList 	{ return _dataList; }
+		public function get scrollBar()	:ScrollBar 	{ return _scrollBar; }
+		
+		
+		
+		
+		
+		
+		
+		public function open():void 
+		{
+			
+		}
+		
+		public function close():void 
+		{
+			
+		}
+		
+		/*public function get selectedIndex():uint { return _selectedIndex; }*/
+		
+		/*public function set selectedIndex(value:uint):void 
+		{
+			_selectedIndex = value;
+			
+			if (value >= 0 && value < dataList.length) 
+			{
+				_selectedIndex = value;
+				dataList.selectItem(value);
+				
+				textDisplay.text = dataList.itemSelected.dataItem.label;
+				
+				dispatchEvent(new ComboBoxEvent(ComboBoxEvent.ITEM_CHANGE, selectedItem));
+			}
+		}*/
+		
+		/*public function get itemSelected()	:Object 	{ return ; }
+		public function get length()		:uint 		{ return 0; }*/
+		
+	}
+
+}

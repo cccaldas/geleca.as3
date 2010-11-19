@@ -1,0 +1,40 @@
+﻿package simbionte.events 
+{
+	import flash.events.Event;
+	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
+	public class ComboBoxEvent extends Event 
+	{
+		private var _item                        :Object = null;
+		
+		public static const ITEM_CHANGE          :String = "changeItem";
+		
+		public function ComboBoxEvent(type:String,item:Object, bubbles:Boolean=false, cancelable:Boolean=false) 
+		{ 
+			super(type, bubbles, cancelable);
+			_item = item;
+		} 
+		
+		public override function clone():Event 
+		{ 
+			return new ComboBoxEvent(type,item, bubbles, cancelable);
+		} 
+		
+		public override function toString():String 
+		{ 
+			return formatToString("ComboBoxEvent","item", "type", "bubbles", "cancelable", "eventPhase"); 
+		}
+		
+		public function get item():Object { return _item; }
+		
+		public function set item(value:Object):void 
+		{
+			_item = value;
+		}
+		
+	}
+	
+}

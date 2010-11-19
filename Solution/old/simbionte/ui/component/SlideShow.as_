@@ -1,0 +1,159 @@
+﻿package simbionte.ui.component
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
+	import nl.demonsters.debugger.MonsterDebugger;
+	import simbionte.events.FrameEvent;
+	import simbionte.events.SlideShowEvent;
+	import simbionte.model.vo.SlideShowVO;
+	import simbionte.net.ExternalLoader;
+	import simbionte.net.IndividualLoader;
+	import simbionte.utils.ContainerUtil;
+	
+	public class SlideShow extends AbstractDataComponent implements ISlideShow
+	{		
+		private var _url                                    :String = "";
+		private var _time                                   :Number = 0;
+		private var _timer                                  :Timer = new Timer(0, 1);
+		
+		private var _currentSlide                           :int = 0;
+		
+		public function SlideShow() 
+		{
+			
+		}
+		
+		override protected function setVariables():void 
+		{
+			
+		}
+		
+		override protected function setListeners():void 
+		{			
+			addEventListener(FrameEvent.MIDDLE_FRAME, onMiddleFrame, false, 0, true);
+			addEventListener(FrameEvent.LAST_FRAME, onLastFrame, false, 0, true);
+			_timer.addEventListener(TimerEvent.TIMER, timer_onTimer, false, 0, true);
+		}
+		
+		override protected function initialize():void 
+		{
+			
+		}
+		
+		override public function show(param:Object = null):void 
+		{
+			
+		}
+		
+		override public function hide(param:Object = null):void 
+		{
+			
+		}
+				
+		public function get currentSlide():int { return _currentSlide; }
+		
+		public function get preloader():IPreloader  { return IPreloader(getChildByName("prl_slideShow")); }
+		public function get container():Sprite      { return Sprite(getChildByName("ctn_slideShow")); }
+		
+		override protected function bind():void 
+		{
+			gotoSlide(0);
+		}
+		
+		public function nextSlide():void
+		{
+			if (length > 1) 
+			{
+				if (currentSlide + 1 >= length) 
+				{
+					gotoSlide(0);
+				}
+				else 
+				{
+					gotoSlide(currentSlide + 1);
+				}
+			}
+		}
+		
+		public function prevSlide():void
+		{
+			if (length > 1) 
+			{
+				if (currentSlide == 0) 
+				{
+					gotoSlide(dataProvider.length - 1);
+				}
+				else 
+				{
+					gotoSlide(currentSlide - 1);
+				}
+			}
+		}
+		
+		public function gotoSlide(index:int):void
+		{
+			_currentSlide = index;
+			
+			var slideShowVO:SlideShowVO = SlideShowVO(dataProvider.getItemAt(index));
+			
+			loadSlide(slideShowVO.src, slideShowVO.time);
+			
+			//_currentSlide ++;
+			
+			//if (_currentSlide == dataProvider.length - 1) _currentSlide = 0;
+		}
+		
+		private function loadSlide(url:String, time:Number):void 
+		{
+			gotoAndStop(1);
+			
+			//_url = url;
+			_time = time;
+			
+			_timer.stop();
+			_timer.delay = time * 1000;
+			
+			ContainerUtil.removeAllChilds(container);
+			
+			IndividualLoader.load(url, container, preloader, loadSlide_onComplete);
+		}
+		
+		protected function loadSlide_onComplete():void 
+		{
+			dispatchEvent(new SlideShowEvent(SlideShowEvent.SLIDE_LOADED));
+			play();
+			
+			//MonsterDebugger.trace(this, "loadSlide_onComplete()");
+		}
+		
+		protected function onMiddleFrame(e:FrameEvent):void 
+		{
+			stop();
+			
+			//verifica se o provider possui mais de 1 tem para assim dar sequencia aos slides
+			if (length > 1 && _timer.delay != 0) { _timer.start(); }
+			
+			dispatchEvent(new SlideShowEvent(SlideShowEvent.SLIDE_DELAY));
+			
+			//MonsterDebugger.trace(this, "onMiddleFrame()");
+		}
+		
+		protected function onLastFrame(e:FrameEvent):void 
+		{
+			nextSlide();
+			
+			dispatchEvent(new SlideShowEvent(SlideShowEvent.SLIDE_END));
+			
+			//MonsterDebugger.trace(this, "onLastFrame()");
+		}
+		
+		private function timer_onTimer(e:TimerEvent):void 
+		{
+			play();
+		}
+		
+	}
+	
+}

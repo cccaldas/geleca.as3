@@ -1,0 +1,23 @@
+package simbionte.component.form.combobox 
+{
+	import simbionte.component.Component;
+	
+	public class ComboBoxDisplay extends Component
+	{
+		
+		
+		public function ComboBoxDisplay() 
+		{
+			
+		}
+		
+		public function set itemSelected(value:Object):void 
+		{
+			//label
+			
+			//data
+		}
+		
+	}
+
+}
