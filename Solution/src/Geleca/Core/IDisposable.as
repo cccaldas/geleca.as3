@@ -3,7 +3,7 @@ package Geleca.Core
 	
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	public interface IDisposable 
 	{
