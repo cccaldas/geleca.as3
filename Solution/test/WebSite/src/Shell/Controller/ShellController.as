@@ -1,30 +1,27 @@
 package Shell.Controller 
 {
+	import com.asual.swfaddress.SWFAddress;
+	import Geleca.Controller.Controller;
 	import Domain.PageNames;
 	import flash.events.MouseEvent;
-	import Pages.Contact.View.Page.ContactPage;
-	import Pages.Products.View.Page.ProductsPage;
-	import Simbionte.Controller.Controller;
-	import Simbionte.Website.Controller.PageSwitch;
-	import Simbionte.Website.View.Component.Page;
-	import Shell.View.MainView;
+	import Geleca.Website.Controller.PageSwitch;
+	import Shell.View.ShellView;
 	
-	public class MainController extends Controller
+	public class ShellController extends Controller
 	{
-		private var view				:MainView;
+		private var view				:ShellView;
 		
 		private var _pageSwitch			:PageSwitch = new PageSwitch();
 		
-		public function MainController(view:MainView)
+		public function ShellController(view:ShellView)
 		{
 			this.view = view;
 		}
 		
 		override protected function setVariables():void 
 		{
-			_pageSwitch.addPage(new ContactPage(view.pageContainer).initializeView() as Page);
-			_pageSwitch.addPage(new ProductsPage(view.pageContainer).initializeView() as Page);
-			
+			_pageSwitch.addPage(view.contactView);
+			_pageSwitch.addPage(view.productsView);
 			
 			super.setVariables();
 		}
@@ -39,12 +36,12 @@ package Shell.Controller
 		
 		private function btn_contact_click(e:MouseEvent):void 
 		{
-			_pageSwitch.gotoPage(PageNames.CONTACT);
+			SWFAddress.setValue("/contact/");
 		}
 		
 		private function btn_products_click(e:MouseEvent):void 
 		{
-			_pageSwitch.gotoPage(PageNames.PRODUCTS);
+			SWFAddress.setValue("/products/");
 		}
 		
 		override protected function initialize():void 

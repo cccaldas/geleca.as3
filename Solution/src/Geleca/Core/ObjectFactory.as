@@ -7,28 +7,44 @@ package Geleca.Core
 	{
 		private var _pools:Dictionary = new Dictionary();
 		
-		public function getPool(type:Class):Array
+		private function getPool(type:Class):ObjectFactoryPool
 		{
-			return type in _pools ? _pools[type] : _pools[type] = new Array();
+			return type in _pools ? _pools[type] : _pools[type] = new ObjectFactoryPool();
 		}
 		
 		public function create(type:Class, ...parameters):*
 		{
-			var pool:Array = getPool(type);
+			var pool:ObjectFactoryPool = getPool(type);
+			var obj:IDisposable;
+			
 			if(pool.length > 0)
 			{
-				return pool.pop();
+				obj = pool.get();
 			}
 			else
 			{
-				return construct(type, parameters);
+				obj = construct(type, parameters);
 			}
+			
+			obj.create();
+			
+			return obj;
 		}
 		
 		public function dispose(object:IDisposable):void
 		{
-			var pool:Array = getPool(ObjectUtil.getClassByObject(object));
-			pool.push(object);
+			object.dispose();
+			getPool(ObjectUtil.getClassByObject(object)).add(object);
+		}
+		
+		public function setMaxLength(type:Class, max:Number):void 
+		{
+			getPool(type).maxLength = max;
+		}
+		
+		public function getLength(type:Class):uint 
+		{
+			return getPool(type).length;
 		}
 		
 		private function construct(type:Class, parameters:Array):*
@@ -60,6 +76,48 @@ package Geleca.Core
 				default:
 					return null;
 			}
+		}
+	}
+}
+
+class ObjectFactoryPool
+{
+	private var _objects	:Array = [];
+	private var _maxLength	:int = 3;
+	
+	public function ObjectFactoryPool():void 
+	{
+		
+	}
+	
+	public function get length():uint { return _objects.length; }
+	
+	public function get maxLength():int { return _maxLength; }
+	
+	public function set maxLength(value:int):void 
+	{
+		_maxLength = value;
+		
+		limit();
+	}
+	
+	public function get():*
+	{
+		return _objects.pop();
+	}
+	
+	public function add(obj:*):void 
+	{
+		_objects.push(obj);
+		
+		limit();
+	}
+	
+	public function limit():void 
+	{
+		while (length > maxLength) 
+		{
+			_objects.pop();
 		}
 	}
 }

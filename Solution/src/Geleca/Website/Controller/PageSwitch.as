@@ -1,5 +1,7 @@
 package Geleca.Website.Controller 
 {
+	import com.asual.swfaddress.SWFAddress;
+	import com.asual.swfaddress.SWFAddressEvent;
 	import flash.utils.Dictionary;
 	import Geleca.Controller.Controller;
 	import Geleca.Website.View.Page;
@@ -14,6 +16,39 @@ package Geleca.Website.Controller
 		public function PageSwitch() 
 		{
 			
+		}
+		
+		override protected function setListeners():void 
+		{
+			super.setListeners();
+			
+			SWFAddress.addEventListener(SWFAddressEvent.CHANGE, swfAddress_change);
+		}
+		
+		override protected function initialize():void 
+		{
+			super.initialize();
+			
+			
+		}
+		
+		private function swfAddress_change(e:SWFAddressEvent):void 
+		{
+			checkRoute(e.pathNames);
+		}
+		
+		private function checkRoute(pathNames:Array):void 
+		{
+			var page:Page;
+			for (var name:String in _pages) 
+			{
+				page = getPage(name);
+				if (page.checkRoute(pathNames) && page != _currentPage)
+				{
+					gotoPage(page.getPageName());
+					page.navigate(pathNames);
+				}
+			}
 		}
 		
 		public function addPage(page:Page):void 

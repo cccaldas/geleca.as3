@@ -1,7 +1,7 @@
 package Shell.View.Button 
 {
 	import Asset.PageButtonAsset;
-	import Simbionte.View.Component.Button.Button;
+	import Geleca.Component.Button.Button;
 	
 	public class PageButton extends Button
 	{

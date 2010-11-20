@@ -19,6 +19,7 @@ package Geleca.View
 		private var _initialized							:Boolean = false;
 		
 		private var _components								:Vector.<Component> = new Vector.<Component>();
+		private var _views									:Vector.<View> = new Vector.<View>();
 		
 		public function View() 
 		{
@@ -36,6 +37,11 @@ package Geleca.View
 			}
 		}
 		
+		protected function setViews():void 
+		{
+			
+		}
+		
 		protected function setComponents():void 
 		{
 			
@@ -51,13 +57,19 @@ package Geleca.View
 			
 		}
 		
+		protected function initializeViews():void 
+		{
+			for each (var view:View in _views) 
+			{
+				view.initializeView();
+			}
+		}
+		
 		protected function initializeComponents():void 
 		{
-			var length:uint = _components.length;
-			
-			for (var i:int = 0; i < length; i++) 
+			for each (var comp:Component in _components) 
 			{
-				_components[i].initializeComponent();
+				comp.initializeComponent();
 			}
 		}
 		
@@ -69,6 +81,7 @@ package Geleca.View
 		public final function initializeView():View 
 		{
 			setAssets();
+			setViews();
 			setComponents();
 			setVariables();
 			setListeners();
@@ -87,6 +100,14 @@ package Geleca.View
 		public function hide(onComplete:Function=null):void 
 		{
 			
+		}
+		
+		protected function addView(view:View):View 
+		{
+			if (_views.indexOf(view) == -1)
+				_views.push(view);
+				
+			return view;
 		}
 		
 		protected function addComponent(component:Component):Component
@@ -170,13 +191,17 @@ package Geleca.View
 			if (hitArea)
 				this.removeChild(hitArea);
 				
-			var length:uint = _components.length;
-			
-			for (var i:int = 0; i < length; i++) 
+			for each (var view:View in _views) 
 			{
-				_components[i].destroy();
+				view.destroy();
 			}
 			
+			for each (var comp:Component in _components) 
+			{
+				comp.destroy();
+			}
+			
+			_views = null;
 			_components = null;
 			
 			ContainerUtil.removeAllChilds(this);

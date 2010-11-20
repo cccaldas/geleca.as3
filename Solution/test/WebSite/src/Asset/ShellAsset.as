@@ -5,14 +5,14 @@ package Asset
 	 * ...
 	 * @author 
 	 */
-	public class MainAsset extends Sprite
+	public class ShellAsset extends Sprite
 	{
 		public var btn_contact		:PageButtonAsset = new PageButtonAsset();
 		public var btn_products		:PageButtonAsset = new PageButtonAsset();
 		
 		public var ctn_pages		:Sprite = new Sprite();
 		
-		public function MainAsset() 
+		public function ShellAsset() 
 		{
 			addChild(ctn_pages);
 			

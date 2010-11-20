@@ -1,18 +1,17 @@
 package Shell
 {
-	import Shell.View.MainView;
-	import Asset.MainAsset;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import Shell.View.ShellView;
 	
 	/**
 	 * ...
 	 * @author 
 	 */
-	public class Shell extends Sprite 
+	public class Main extends Sprite 
 	{
 		
-		public function Shell():void 
+		public function Main():void 
 		{
 			if (stage) init();
 			else addEventListener(Event.ADDED_TO_STAGE, init);
@@ -23,10 +22,10 @@ package Shell
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			
-			var asset:MainAsset = new MainAsset();
-			addChild(asset);
+			var view:ShellView = new ShellView();
+			addChild(view);
 			
-			new MainView(asset).initializeView();
+			view.initializeView();
 		}
 		
 	}

@@ -7,6 +7,7 @@ package Geleca.Core
 	 */
 	public interface IDisposable 
 	{
+		function create():void
 		function dispose():void
 	}
 	

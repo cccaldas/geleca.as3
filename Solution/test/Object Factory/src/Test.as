@@ -7,7 +7,7 @@ package
 	 */
 	public class Test
 	{
-		private var length	:uint = 10000;
+		private var length	:uint = 50000;
 		private var disp	:DispObject;
 		
 		public function Test() 
