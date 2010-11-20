@@ -51,6 +51,7 @@
     <class>Geleca.Core.IDestroyable</class>
     <class>Geleca.Core.IDisposable</class>
     <class>Geleca.Core.NewClass</class>
+    <class>Geleca.Core.ObjectFactory</class>
     <class>Geleca.Core.Task</class>
     <class>Geleca.Core.TaskManager</class>
     <class>Geleca.Data.DataAdapter</class>
@@ -102,6 +103,7 @@
     <class>Geleca.Util.ObjectUtil</class>
     <class>Geleca.Util.SQLUtil</class>
     <class>Geleca.Util.StatsMonitor</class>
+    <class>Geleca.Util.TestUtil</class>
     <class>Geleca.Util.TextUtil</class>
     <class>Geleca.Util.TimeUtil</class>
     <class>Geleca.Util.TransformUtil</class>
