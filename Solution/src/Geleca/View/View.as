@@ -85,6 +85,7 @@ package Geleca.View
 			setComponents();
 			setVariables();
 			setListeners();
+			initializeViews();
 			initializeComponents();
 			initialize();
 			_initialized = true;			
@@ -105,7 +106,10 @@ package Geleca.View
 		protected function addView(view:View):View 
 		{
 			if (_views.indexOf(view) == -1)
+			{
 				_views.push(view);
+				addChild(view);
+			}
 				
 			return view;
 		}

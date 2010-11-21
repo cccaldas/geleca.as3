@@ -14,21 +14,21 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'20/11/2010'</value>
+      <value>'21/11/2010'</value>
     </define>
     <source-path append="true">
-      <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\test\WebSite\src</path-element>
-      <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\src</path-element>
-      <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\lib</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\src</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\src</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib</path-element>
       <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
     <library-path append="true">
-      <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\test\WebSite\lib\Tweener_1_33_74.swc</path-element>
-      <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\lib\SWFAddress.swc</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\lib\Tweener_1_33_74.swc</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib\SWFAddress.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Cristiano\Documents\Simbionte\Framework\ActionScript\Geleca\Solution\test\WebSite\src\Shell\Main.as</path-element>
+    <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\src\Shell\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

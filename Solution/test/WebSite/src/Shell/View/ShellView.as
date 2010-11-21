@@ -37,10 +37,7 @@ package Shell.View
 			super.setViews();
 			
 			contactView = addView(new ContactView()) as ContactView;
-			addChild(contactView);
-			
 			productsView = addView(new ProductsView()) as ProductsView;
-			addChild(productsView);
 		}
 		
 		override protected function setComponents():void 

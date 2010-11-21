@@ -14,6 +14,14 @@ package Pages.Contact.View
 			
 		}
 		
+		override protected function setVariables():void 
+		{
+			super.setVariables();
+			
+			this.visible = false;
+			this.alpha = 0;
+		}
+		
 		override public function checkRoute(pathNames:Array):Boolean 
 		{
 			return pathNames[0] == "contact";
@@ -26,6 +34,8 @@ package Pages.Contact.View
 		
 		override public function show(onComplete:Function=null):void 
 		{
+			this.visible = true;
+			
 			_asset = new ContactPageAsset();
 			
 			addChild(_asset);

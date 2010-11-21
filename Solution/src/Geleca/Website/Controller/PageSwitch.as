@@ -45,8 +45,8 @@ package Geleca.Website.Controller
 				page = getPage(name);
 				if (page.checkRoute(pathNames) && page != _currentPage)
 				{
-					gotoPage(page.getPageName());
 					page.navigate(pathNames);
+					gotoPage(page.getPageName());
 				}
 			}
 		}
