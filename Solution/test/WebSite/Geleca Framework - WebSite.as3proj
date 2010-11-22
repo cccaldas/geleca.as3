@@ -16,6 +16,7 @@
     <class path="src" />
     <class path="..\..\src" />
     <class path="..\..\lib" />
+    <class path="lib" />
   </classpaths>
   <!-- Build options -->
   <build>
@@ -39,7 +40,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="" />
+    <option additional="-frame start Website.Shell.View.ShellView" />
     <option compilerConstants="" />
     <option customSDK="" />
   </build>
@@ -49,8 +50,10 @@
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
-    <element path="lib\Tweener_1_33_74.swc" />
     <element path="..\..\lib\SWFAddress.swc" />
+    <element path="asset\swc\Shell.swc" />
+    <element path="..\..\lib\Tweener_1_33_74.swc" />
+    <element path="..\..\lib\as3corelib.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -70,7 +73,7 @@
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\Shell\Main.as" />
+    <compile path="src\Website\Main.as" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>

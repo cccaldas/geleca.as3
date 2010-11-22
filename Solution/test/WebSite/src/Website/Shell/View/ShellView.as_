@@ -1,4 +1,4 @@
-package Shell.View 
+package Website.Shell.View 
 {
 	import Asset.ShellAsset;
 	import Geleca.View.View;
