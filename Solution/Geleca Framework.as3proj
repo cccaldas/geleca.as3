@@ -49,7 +49,6 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\as3corelib.swc" />
-    <element path="assets\swc\Components.swc" />
     <element path="lib\SWFAddress.swc" />
   </libraryPaths>
   <!-- External Libraries -->

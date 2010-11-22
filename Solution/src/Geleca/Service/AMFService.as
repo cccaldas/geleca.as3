@@ -23,16 +23,19 @@
 		
 		private function netConnection_ioError(e:IOErrorEvent):void 
 		{
+			dispatchEvent(e);
 			trace(this, "netConnection_ioError", e.text);
 		}
 		
 		private function netConnection_netStatus(e:NetStatusEvent):void 
 		{
+			dispatchEvent(e);
 			trace(this, "netConnection_netStatus", e.info);
 		}
 		
 		private function netConnection_asyncError(e:AsyncErrorEvent):void 
 		{
+			dispatchEvent(e);
 			trace(this, "netConnection_asyncError", e.error.message);
 		}
 		
