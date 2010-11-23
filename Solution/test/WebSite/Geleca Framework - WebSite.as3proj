@@ -4,7 +4,7 @@
   <output>
     <movie disabled="False" />
     <movie input="" />
-    <movie path="bin\SimbionteFrameworkWebSite.swf" />
+    <movie path="bin\shell.swf" />
     <movie fps="30" />
     <movie width="800" />
     <movie height="600" />
@@ -54,10 +54,12 @@
     <element path="asset\swc\Shell.swc" />
     <element path="..\..\lib\Tweener_1_33_74.swc" />
     <element path="..\..\lib\as3corelib.swc" />
+    <element path="..\..\lib\BulkLoader.2.8.2.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
-    <!-- example: <element path="..." /> -->
+    <element path="asset\swc\Contact.swc" />
+    <element path="asset\swc\Products.swc" />
   </externalLibraryPaths>
   <!-- Runtime Shared Libraries -->
   <rslPaths>

@@ -7,6 +7,7 @@ package Website.Domain
         private static var _instance            :Facade = null;
 		
 		public var layout						:Layout = new Layout();
+		public var appConfig					:AppConfig = new AppConfig();
 		
         public function Facade(enforcer:SingletonEnforcer)
         {

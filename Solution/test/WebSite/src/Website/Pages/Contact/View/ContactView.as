@@ -1,11 +1,15 @@
 package Website.Pages.Contact.View 
 {
 	import caurina.transitions.Tweener;
+	import flash.display.Sprite;
+	import flash.utils.getDefinitionByName;
+	import Geleca.Effects.Transition.FadeTransition;
 	import Geleca.View.View;
 	import Geleca.Website.View.Page;
 	
 	public class ContactView extends View
 	{
+		private var _asset					:Sprite;
 		
 		public function ContactView() 
 		{
@@ -23,17 +27,17 @@ package Website.Pages.Contact.View
 		override public function show(onComplete:Function=null):void 
 		{
 			this.visible = true;
+			var cl:Class = getDefinitionByName("Website.Contact.Asset.ContactAsset") as Class;
 			
-			_asset = new ContactPageAsset();
-			
+			_asset = new cl() as Sprite;
 			addChild(_asset);
 			
-			Tweener.addTween(this, { alpha:1, time:1, onComplete:onComplete } );
+			FadeTransition.fadeIn(this, 0, 1, .7, onComplete);
 		}
 		
 		override public function hide(onComplete:Function=null):void 
 		{
-			Tweener.addTween(this, { alpha:0, time:1, onComplete:hide_complete } );
+			FadeTransition.fadeOut(this, 0, 0, .7, hide_complete);
 			
 			function hide_complete():void 
 			{
@@ -46,7 +50,6 @@ package Website.Pages.Contact.View
 					onComplete();
 			}
 		}
-		
 		
 	}
 

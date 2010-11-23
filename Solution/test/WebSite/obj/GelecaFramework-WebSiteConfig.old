@@ -23,11 +23,16 @@
       <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\lib</path-element>
       <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
+    <external-library-path append="true">
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\asset\swc\Contact.swc</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\asset\swc\Products.swc</path-element>
+    </external-library-path>
     <library-path append="true">
       <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib\SWFAddress.swc</path-element>
       <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\asset\swc\Shell.swc</path-element>
       <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib\Tweener_1_33_74.swc</path-element>
       <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib\as3corelib.swc</path-element>
+      <path-element>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\lib\BulkLoader.2.8.2.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

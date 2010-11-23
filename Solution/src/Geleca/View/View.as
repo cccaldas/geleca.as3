@@ -110,7 +110,24 @@ package Geleca.View
 				_views.push(view);
 				addChild(view);
 			}
+			
+			if (this.initialized && !view.initialized)
+				view.initializeView();
 				
+			return view;
+		}
+		
+		protected function removeView(view:View):View
+		{
+			var index:int = _views.indexOf(view);
+			if (index != -1)
+			{
+				_views.splice(index, 1);
+				if (view.parent == this)
+					removeChild(view);
+				view.destroy();
+			}
+			
 			return view;
 		}
 		

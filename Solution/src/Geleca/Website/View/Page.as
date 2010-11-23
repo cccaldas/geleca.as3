@@ -8,6 +8,7 @@ package Geleca.Website.View
 		private var _pathNames		:Array = [];
 		private var _loaded			:Boolean = false;
 		private var _isLoading		:Boolean = false;
+		private var _percentLoaded	:Number = 0;
 		
 		public function Page() 
 		{
@@ -46,17 +47,22 @@ package Geleca.Website.View
 		
 		protected final function pageLoadComplete():void 
 		{
-			this._isLoading = false;
-			this._loaded 	= true;
+			this._isLoading 	= false;
+			this._loaded 		= true;
+			this._percentLoaded = 1;
 			
 			dispatchEvent(new PageEvent(PageEvent.LOAD_COMPLETE));
 		}
 		
 		public final function unload():void 
 		{
+			this._isLoading 	= false;
+			this._loaded 		= false;
+			this._percentLoaded = 0;
+			
 			dispatchEvent(new PageEvent(PageEvent.UNLOAD));
 			
-			this._loaded = false;
+			page_unload();
 		}
 		
 		protected function page_unload():void 
@@ -65,11 +71,19 @@ package Geleca.Website.View
 		}
 		
 		protected final function pageUnloadComplete():void 
-		{
+		{			
 			dispatchEvent(new PageEvent(PageEvent.UNLOAD_COMPLETE));
 		}
 		
-		public function get percentLoaded()		:Number 	{ return 0; }
+		protected final function updateProgress(percent:Number):void 
+		{
+			_percentLoaded = percent;
+			dispatchEvent(new PageEvent(PageEvent.LOAD_PROGRESS));
+		}
+		
+		public function get loaded()		:Boolean 	{ return _loaded; }
+		public function get isLoading()		:Boolean 	{ return _isLoading; }
+		public function get percentLoaded()	:Number 	{ return _percentLoaded; }
 		
 		public function get pathNames():Array { return _pathNames; }
 		
@@ -78,9 +92,7 @@ package Geleca.Website.View
 			_pathNames = value;
 		}
 		
-		public function get loaded():Boolean { return _loaded; }
 		
-		public function get isLoading():Boolean { return _isLoading; }
 	}
 
 }

@@ -1,16 +1,16 @@
-package Shell.Controller 
+package Website.Shell.Controller 
 {
 	import com.asual.swfaddress.SWFAddress;
 	import Geleca.Controller.Controller;
 	import flash.events.MouseEvent;
 	import Geleca.Website.Controller.PageSwitch;
+	import Website.Shell.View.Page.ContactPage;
+	import Website.Shell.View.Page.ProductsPage;
 	import Website.Shell.View.ShellView;
 	
 	public class ShellController extends Controller
 	{
 		private var view				:ShellView;
-		
-		private var _pageSwitch			:PageSwitch = new PageSwitch();
 		
 		public function ShellController(view:ShellView)
 		{
@@ -19,8 +19,7 @@ package Shell.Controller
 		
 		override protected function setVariables():void 
 		{
-			_pageSwitch.addPage(view.pg_contact);
-			_pageSwitch.addPage(view.pg_products);
+			
 			
 			super.setVariables();
 		}
@@ -45,7 +44,6 @@ package Shell.Controller
 		
 		override protected function initialize():void 
 		{
-			_pageSwitch.initializeController();
 			
 			super.initialize();
 		}

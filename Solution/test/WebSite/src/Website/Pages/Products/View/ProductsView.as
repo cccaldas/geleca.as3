@@ -1,14 +1,15 @@
 package Website.Pages.Products.View 
 {
-	import Asset.Products.ProductsPageAsset;
 	import caurina.transitions.Tweener;
 	import flash.display.Sprite;
+	import flash.utils.getDefinitionByName;
+	import Geleca.Effects.Transition.FadeTransition;
 	import Geleca.Website.View.Page;
 	import Website.Domain.Pages;
 	
 	public class ProductsView extends Page
 	{
-		private var _asset				:ProductsPageAsset;		
+		private var _asset				:Sprite;		
 		
 		public function ProductsView() 
 		{
@@ -36,22 +37,24 @@ package Website.Pages.Products.View
 		override public function show(onComplete:Function=null):void 
 		{
 			this.visible = true;
+			var cl:Class = getDefinitionByName("Website.Products.Asset.ProductsAsset") as Class;
 			
-			_asset = new ProductsPageAsset();
-			
+			_asset = new cl() as Sprite;
 			addChild(_asset);
 			
-			Tweener.addTween(this, { alpha:1, time:1, onComplete:onComplete } );
+			FadeTransition.fadeIn(this, 0, 1, .7, onComplete);
 		}
 		
 		override public function hide(onComplete:Function=null):void 
 		{
-			Tweener.addTween(this, { alpha:0, time:1, onComplete:hide_complete } );
+			FadeTransition.fadeOut(this, 0, 0, .7, hide_complete);
 			
 			function hide_complete():void 
 			{
 				this.visible = false;
 				removeChild(_asset);
+				
+				Tweener.removeTweens(this);
 				
 				_asset = null;
 				
