@@ -9,6 +9,8 @@ package Geleca.Component.Button
 	
 	public class Button extends Component
 	{
+		private var _selected				:Boolean;
+		
 		public function Button(asset:Sprite) 
 		{
 			super(asset);
@@ -108,6 +110,8 @@ package Geleca.Component.Button
 			if(stage)
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown, false, 0, true);
 			
+			rollOver();
+				
 			super.focusIn();
 		}
 		
@@ -116,6 +120,8 @@ package Geleca.Component.Button
 			if(stage)
 				stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
 			
+			rollOut();
+				
 			super.focusOut();
 		}
 		
@@ -134,6 +140,31 @@ package Geleca.Component.Button
 		{
 			_asset.mouseEnabled = _asset.mouseChildren = true
 		}
+		
+		public function set selected(value:Boolean):void 
+		{
+			if (value != _selected)
+			{
+				_selected = value;
+				
+				if (value)
+					select();
+				else
+					unselect();
+			}
+		}
+		
+		protected function select():void 
+		{
+			
+		}
+		
+		protected function unselect():void 
+		{
+			
+		}
+		
+		public final function get selected():Boolean 	{ return _selected; }
 		
 		override public function destroy():void 
 		{
