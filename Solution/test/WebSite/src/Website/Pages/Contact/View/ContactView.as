@@ -1,14 +1,11 @@
 package Website.Pages.Contact.View 
 {
-	import Asset.Contact.ContactPageAsset;
 	import caurina.transitions.Tweener;
-	import Domain.PageNames;
 	import Geleca.View.View;
 	import Geleca.Website.View.Page;
 	
 	public class ContactView extends View
 	{
-		private var _asset				:ContactPageAsset;
 		
 		public function ContactView() 
 		{

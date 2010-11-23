@@ -26,24 +26,11 @@ package Website.Shell.View.Page
 			return Pages.CONTACT;
 		}
 		
-		override public function navigate(pathNames:Array):void 
+		override protected function page_load():void 
 		{
-			super.navigate(pathNames);
+			super.page_load();
 			
-			
-		}
-		
-		override public function show(onComplete:Function = null):void 
-		{
-			
-		}
-		
-		override public function hide(onComplete:Function = null):void 
-		{
-			if (_view)
-			{
-				
-			}
+			trace(this, "pageLoad");
 		}
 		
 	}

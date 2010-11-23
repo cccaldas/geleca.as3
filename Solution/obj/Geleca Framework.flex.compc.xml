@@ -23,6 +23,7 @@
     <library-path>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\as3corelib.swc</path-element>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\swfaddress.swc</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\tweener_1_33_74.swc</path-element>
     </library-path>
   </compiler>
   <include-classes>
@@ -66,12 +67,15 @@
     <class>Geleca.Data.Paging.Paging</class>
     <class>Geleca.Data.Paging.PagingVO</class>
     <class>Geleca.Display.HitArea</class>
+    <class>Geleca.Effects.Transition.ColorTransition</class>
+    <class>Geleca.Effects.Transition.FadeTransition</class>
     <class>Geleca.Events.BusyManagerEvent</class>
     <class>Geleca.Events.DataListEvent</class>
     <class>Geleca.Events.EventManager</class>
     <class>Geleca.Events.InputEvent</class>
     <class>Geleca.Events.ModuleEvent</class>
     <class>Geleca.Events.NotificationEvent</class>
+    <class>Geleca.Events.PageEvent</class>
     <class>Geleca.Events.SimpleEventDispatcher</class>
     <class>Geleca.Events.StateEvent</class>
     <class>Geleca.Events.TaskEvent</class>

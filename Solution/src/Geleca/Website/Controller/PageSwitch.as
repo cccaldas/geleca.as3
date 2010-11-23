@@ -4,6 +4,7 @@ package Geleca.Website.Controller
 	import com.asual.swfaddress.SWFAddressEvent;
 	import flash.utils.Dictionary;
 	import Geleca.Controller.Controller;
+	import Geleca.Events.PageEvent;
 	import Geleca.Website.View.Page;
 	
 	/**
@@ -22,6 +23,18 @@ package Geleca.Website.Controller
 			navega
 			
 		Page
+			load();
+				pageLoad();
+				pageLoadComplete();
+			unload();
+				pageUnload();
+				page_unload();
+				pageUnloadComplete();
+				page_unload_complete();
+				
+			cancel();
+				pageCancel();
+				
 			show();
 				load();
 			
@@ -66,11 +79,26 @@ package Geleca.Website.Controller
 			for (var name:String in _pages) 
 			{
 				page = getPage(name);
-				if (page.checkRoute(pathNames) && page != _currentPage)
+				if (page.checkRoute(pathNames))
 				{
-					page.navigate(pathNames);
-					gotoPage(page.getPageName());
+					page.pathNames = pathNames;
+					
+					if (page == _currentPage)
+					{
+						if (page.loaded)
+							page.navigate();
+						else 
+							page.addEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
+					}
+					else 
+						gotoPage(name);
 				}
+			}
+			
+			function page_loadComplete(e:PageEvent):void 
+			{
+				Page(e.currentTarget).navigate();
+				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
 			}
 		}
 		
@@ -87,21 +115,31 @@ package Geleca.Website.Controller
 			delete _pages[name];
 		}
 		
-		public function gotoPage(name:String, onComplete:Function=null):void 
+		private function gotoPage(name:String):void 
 		{
+			var page:Page = getPage(name);
+			page.addEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
+			
 			if (_currentPage)
 			{
-				_currentPage.hide(currentPage_hideComplete);
+				_currentPage.addEventListener(PageEvent.UNLOAD_COMPLETE, page_unloadComplete);
 				
-				function currentPage_hideComplete():void 
+				function page_unloadComplete(e:PageEvent):void 
 				{
-					getPage(name).show(onComplete);
+					Page(e.currentTarget).removeEventListener(PageEvent.UNLOAD_COMPLETE, page_unloadComplete);
+					page.load();
 				}
 			}
 			else
-				getPage(name).show(onComplete);
+				page.load();
 				
-			_currentPage = getPage(name);
+			_currentPage = page;
+			
+			function page_loadComplete(e:PageEvent):void 
+			{
+				Page(e.currentTarget).navigate();
+				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
+			}
 		}
 		
 		public function getPage(name:String):Page

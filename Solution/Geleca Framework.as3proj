@@ -50,6 +50,7 @@
   <libraryPaths>
     <element path="lib\as3corelib.swc" />
     <element path="lib\SWFAddress.swc" />
+    <element path="lib\Tweener_1_33_74.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

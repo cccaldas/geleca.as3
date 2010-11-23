@@ -72,7 +72,7 @@
 			target.y = target.stage.stageHeight - target.height;
 		}
 		
-		public static function distributeVertical(objects:Vector.<DisplayObject>, spacing:Number):void 
+		public static function distributeVertical(objects:Array, spacing:Number):void 
 		{
 			for (var i:int = 0; i < objects.length; i++) 
 			{
@@ -87,16 +87,18 @@
 			}
 		}
 		
-		public static function distributeHorizontal(objects:Vector.<DisplayObject>, spacing:Number):void 
+		public static function distributeHorizontal(objects:Array, spacing:Number):void 
 		{
+			var object:Object;
+			var px:Number;
+			
 			for (var i:int = 0; i < objects.length; i++) 
 			{
 				if (i != 0) 
 				{
-					var object:DisplayObject = objects[i];
-					var px:Number = objects[i].x = objects[i - 1].width + objects[i - 1].x + spacing;
+					object = objects[i];
+					px = objects[i].x = objects[i - 1].width + objects[i - 1].x + spacing;
 					object.x = px;
-					//if (i != 0) DisplayObject(dataList.getItemAt(i)).x = DisplayObject(dataList.getItemAt(i -1)).width + DisplayObject(dataList.getItemAt(i -1)).x + dataList.itemSpacingX;
 				}
 				
 			}
