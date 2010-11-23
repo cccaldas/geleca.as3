@@ -112,6 +112,8 @@ package Geleca.Component.Button
 				
 			rollOver();
 			
+			rollOver();
+				
 			super.focusIn();
 		}
 		
@@ -122,6 +124,8 @@ package Geleca.Component.Button
 				
 			rollOut();
 			
+			rollOut();
+				
 			super.focusOut();
 		}
 		
@@ -141,8 +145,11 @@ package Geleca.Component.Button
 			_asset.mouseEnabled = _asset.mouseChildren = true
 		}
 		
+<<<<<<< HEAD
 		public function get selected():Boolean { return _selected; }
 		
+=======
+>>>>>>> 86ca20d546b2de020c764f7003611f929c6da3ca
 		public function set selected(value:Boolean):void 
 		{
 			if (value != _selected)
@@ -166,6 +173,11 @@ package Geleca.Component.Button
 			
 		}
 		
+<<<<<<< HEAD
+=======
+		public final function get selected():Boolean 	{ return _selected; }
+		
+>>>>>>> 86ca20d546b2de020c764f7003611f929c6da3ca
 		override public function destroy():void 
 		{
 			_asset.removeEventListener(MouseEvent.CLICK, 		asset_click);
