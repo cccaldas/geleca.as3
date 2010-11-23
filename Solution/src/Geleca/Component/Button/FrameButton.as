@@ -38,6 +38,20 @@ package Geleca.Component.Button
 			super.disable();
 		}
 		
+		override protected function select():void 
+		{
+			MovieClip(_asset).gotoAndPlay("select");
+			
+			super.select();
+		}
+		
+		override protected function unselect():void 
+		{
+			MovieClip(_asset).gotoAndPlay("unselect");
+			
+			super.unselect();
+		}
+		
 	}
 
 }
