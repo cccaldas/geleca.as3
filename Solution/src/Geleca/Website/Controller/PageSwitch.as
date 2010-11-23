@@ -6,6 +6,29 @@ package Geleca.Website.Controller
 	import Geleca.Controller.Controller;
 	import Geleca.Website.View.Page;
 	
+	/**
+	 *  troca url
+		checa pagina por pagina
+		acha a pagina que bate com a url
+
+		ela esta carregada:
+			armazena o pathNames
+			navega
+
+		ela nao esta carregada:
+			armazena o pathNames
+			remove a pagina atual exibida
+			exibe a nova pagina
+			navega
+			
+		Page
+			show();
+				load();
+			
+			hide()
+				unload();
+	 * */
+	
 	public class PageSwitch extends Controller
 	{
 		private var _pages						:Dictionary = new Dictionary();

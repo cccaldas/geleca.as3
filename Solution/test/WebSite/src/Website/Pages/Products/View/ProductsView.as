@@ -1,10 +1,10 @@
-package Pages.Products.View 
+package Website.Pages.Products.View 
 {
 	import Asset.Products.ProductsPageAsset;
 	import caurina.transitions.Tweener;
 	import flash.display.Sprite;
-	import Domain.PageNames;
 	import Geleca.Website.View.Page;
+	import Website.Domain.Pages;
 	
 	public class ProductsView extends Page
 	{
@@ -30,7 +30,7 @@ package Pages.Products.View
 		
 		override public function getPageName():String 
 		{
-			return PageNames.PRODUCTS;
+			return Pages.PRODUCTS;
 		}
 		
 		override public function show(onComplete:Function=null):void 

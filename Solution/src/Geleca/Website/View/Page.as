@@ -4,6 +4,8 @@ package Geleca.Website.View
 	
 	public class Page extends View
 	{
+		private var _pathNames		:Array = [];
+		
 		public function Page() 
 		{
 			
@@ -20,13 +22,20 @@ package Geleca.Website.View
 			return false;
 		}
 		
-		public function navigate(pathNames:Array):void 
+		public function navigate():void 
 		{
 			
 		}
 		
 		public function get percentLoaded()		:Number 	{ return 0; }
 		public function get isLoaded()			:Boolean 	{ return false; }
+		
+		public function get pathNames():Array { return _pathNames; }
+		
+		public function set pathNames(value:Array):void 
+		{
+			_pathNames = value;
+		}
 	}
 
 }

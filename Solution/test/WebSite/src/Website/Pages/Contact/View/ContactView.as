@@ -1,11 +1,12 @@
-package Pages.Contact.View 
+package Website.Pages.Contact.View 
 {
 	import Asset.Contact.ContactPageAsset;
 	import caurina.transitions.Tweener;
 	import Domain.PageNames;
+	import Geleca.View.View;
 	import Geleca.Website.View.Page;
 	
-	public class ContactView extends Page
+	public class ContactView extends View
 	{
 		private var _asset				:ContactPageAsset;
 		
@@ -20,16 +21,6 @@ package Pages.Contact.View
 			
 			this.visible = false;
 			this.alpha = 0;
-		}
-		
-		override public function checkRoute(pathNames:Array):Boolean 
-		{
-			return pathNames[0] == "contact";
-		}
-		
-		override public function getPageName():String 
-		{
-			return PageNames.CONTACT;
 		}
 		
 		override public function show(onComplete:Function=null):void 
