@@ -19,6 +19,8 @@ package Geleca.Component
 		protected var _asset								:Sprite;
 		private var _hitArea								:HitArea;
 		
+		private var _components								:Vector.<Component> = new Vector.<Component>();
+		
 		public function Component(asset:Sprite) 
 		{
 			_asset = asset;
@@ -33,6 +35,11 @@ package Geleca.Component
 				
 				_asset.removeChild(hit);
 			}
+		}
+		
+		protected function setComponents():void 
+		{
+			
 		}
 		
 		protected function setVariables():void 
@@ -54,13 +61,31 @@ package Geleca.Component
 		public final function initializeComponent():Component
 		{
 			setAssets();
+			setComponents();
 			setVariables();
 			setListeners();
+			initializeComponents();
 			initialize();
 			_initialized = true;
 			
 			return this;
 			//dispatchEvent(new ComponentEvent(ComponentEvent.INITIALIZED));
+		}
+		
+		protected function addComponent(component:Component):Component
+		{
+			if (_components.indexOf(component) == -1)
+				_components.push(component);
+				
+			return component;
+		}
+		
+		protected function initializeComponents():void 
+		{
+			for each (var comp:Component in _components) 
+			{
+				comp.initializeComponent();
+			}
 		}
 		
 		public function set enabled(value:Boolean):void 
@@ -175,10 +200,24 @@ package Geleca.Component
 		public function get stage()			:Stage 			{ return _asset.stage; }
 		public function get loaderInfo()	:LoaderInfo 	{ return _asset.loaderInfo; }
 		
+		public function set visible(value:Boolean):void 
+		{
+			_asset.visible = value;
+		}
+		
+		public function get visible():Boolean { return _asset.visible; }
+		
 		override public function destroy():void 
 		{
 			_asset.removeEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
 			_asset.removeEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
+			
+			for each (var comp:Component in _components) 
+			{
+				comp.destroy();
+			}
+			
+			_components = null;
 			
 			if (_asset.parent)
 				_asset.parent.removeChild(_asset);

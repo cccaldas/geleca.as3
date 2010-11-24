@@ -6,14 +6,25 @@ package Website.Pages.Contact.View
 	import Geleca.Effects.Transition.FadeTransition;
 	import Geleca.View.View;
 	import Geleca.Website.View.Page;
+	import Geleca.Website.View.PageView;
 	
-	public class ContactView extends View
+	public class ContactView extends PageView
 	{
 		private var _asset					:Sprite;
 		
 		public function ContactView() 
 		{
 			
+		}
+		
+		override protected function setAssets():void 
+		{
+			super.setAssets();
+			
+			var cl:Class = getDefinitionByName("Website.Contact.Asset.ContactAsset") as Class;
+			
+			_asset = new cl() as Sprite;
+			addChild(_asset);
 		}
 		
 		override protected function setVariables():void 
@@ -27,10 +38,6 @@ package Website.Pages.Contact.View
 		override public function show(onComplete:Function=null):void 
 		{
 			this.visible = true;
-			var cl:Class = getDefinitionByName("Website.Contact.Asset.ContactAsset") as Class;
-			
-			_asset = new cl() as Sprite;
-			addChild(_asset);
 			
 			FadeTransition.fadeIn(this, 0, 1, .7, onComplete);
 		}

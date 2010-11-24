@@ -1,7 +1,10 @@
 package Geleca.Website.View 
 {
+	import flash.system.System;
 	import Geleca.Events.PageEvent;
+	import Geleca.Events.PageLoaderEvent;
 	import Geleca.View.View;
+	import Geleca.Website.Controller.PageLoader;
 	
 	public class Page extends View
 	{
@@ -10,9 +13,16 @@ package Geleca.Website.View
 		private var _isLoading		:Boolean = false;
 		private var _percentLoaded	:Number = 0;
 		
-		public function Page() 
+		private var _loaderClass	:Class;	
+		private var _viewClass		:Class;
+		
+		private var _loader			:PageLoader;
+		private var _view			:PageView;
+		
+		public function Page(loader:Class, view:Class) 
 		{
-			
+			_loaderClass 	= loader;
+			_viewClass 		= view;
 		}
 		
 		public function getPageName():String
@@ -26,9 +36,9 @@ package Geleca.Website.View
 			return false;
 		}
 		
-		public function navigate():void 
+		public final function navigate():void 
 		{
-			
+			_view.navigate();
 		}
 		
 		public final function load():void 
@@ -42,7 +52,32 @@ package Geleca.Website.View
 		
 		protected function page_load():void 
 		{
+			_loader = new _loaderClass();
+			_loader.addEventListener(PageLoaderEvent.PROGRESS, loader_progress);
+			_loader.addEventListener(PageLoaderEvent.COMPLETE, loader_complete);
+			_loader.load();
+		}
+		
+		private function loader_progress(e:PageLoaderEvent):void 
+		{
+			updateProgress(_loader.percentLoaded);
+		}
 			
+		private function loader_complete(e:PageLoaderEvent):void 
+		{
+			_view = addView(new _viewClass()) as PageView;
+			_view.page = this;
+			
+			_loader.removeEventListener(PageLoaderEvent.COMPLETE, loader_complete);
+			
+			this.navigate();
+			
+			_view.show(show_complete);
+		}
+			
+		private function show_complete():void 
+		{
+			pageLoadComplete();
 		}
 		
 		protected final function pageLoadComplete():void 
@@ -67,12 +102,25 @@ package Geleca.Website.View
 		
 		protected function page_unload():void 
 		{
+			_loader.destroy();
+			_loader = null;
 			
+			_view.hide(hide_complete);
+			
+			function hide_complete():void 
+			{
+				removeView(_view)
+				_view = null;
+				
+				pageUnloadComplete();
+			}
 		}
 		
 		protected final function pageUnloadComplete():void 
 		{			
 			dispatchEvent(new PageEvent(PageEvent.UNLOAD_COMPLETE));
+			
+			System.gc();
 		}
 		
 		protected final function updateProgress(percent:Number):void 
@@ -91,6 +139,8 @@ package Geleca.Website.View
 		{
 			_pathNames = value;
 		}
+		
+		public function get loader():PageLoader { return _loader; }
 		
 		
 	}

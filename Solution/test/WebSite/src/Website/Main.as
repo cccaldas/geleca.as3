@@ -4,6 +4,7 @@ package Website
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import Geleca.Util.StatsMonitor;
 	import Website.Loader.View.LoaderView;
 	/**
 	 * ...
@@ -30,8 +31,12 @@ package Website
 			stage.align 		= StageAlign.TOP_LEFT;
 			stage.scaleMode 	= StageScaleMode.NO_SCALE;
 			
+			
+			
 			var view:LoaderView = new LoaderView();
 			addChild(view);
+			
+			addChild(new StatsMonitor());
 			
 			view.initializeView();
 		}

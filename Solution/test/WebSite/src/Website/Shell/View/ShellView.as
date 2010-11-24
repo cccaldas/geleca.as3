@@ -9,6 +9,7 @@ package Website.Shell.View
 	import Website.Shell.View.Control.HeaderControl;
 	import Website.Shell.View.Page.ContactPage;
 	import Website.Shell.View.Page.ProductsPage;
+	import Website.Shell.View.Preloader.PagesPreloader;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -25,6 +26,8 @@ package Website.Shell.View
 		public var btn_contact			:Button;
 		
 		public var pgs_pages			:PageSwitcher;
+		
+		public var prl_pages			:PagesPreloader;
 		
 		public function ShellView() 
 		{
@@ -58,6 +61,8 @@ package Website.Shell.View
 			
 			btn_products 	= addComponent(new Button(_asset.ctr_header.btn_products)) as Button;
 			btn_contact 	= addComponent(new Button(_asset.ctr_header.btn_contact)) as Button;
+			
+			prl_pages		= addComponent(new PagesPreloader(_asset.prl_pages)) as PagesPreloader;
 		}
 		
 		override protected function setVariables():void 

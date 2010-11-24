@@ -13,6 +13,7 @@ package Geleca.Events
 		public static const LOAD_PROGRESS	:String = "LOAD_PROGRESS";
 		public static const UNLOAD			:String = "UNLOAD";
 		public static const UNLOAD_COMPLETE	:String = "UNLOAD_COMPLETE";
+		public static const CHANGE			:String = "CHANGE";
 		
 		public function PageEvent(type:String, bubbles:Boolean=false, cancelable:Boolean=false) 
 		{ 

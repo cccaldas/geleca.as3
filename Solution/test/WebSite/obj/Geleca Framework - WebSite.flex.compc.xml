@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <flex-config xmlns="http://www.adobe.com/2006/flex-config">
-  <output>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\.\bin\Geleca.1.0.swc</output>
+  <output>D:\Simbionte\Framework\ActionScript\Geleca Framework\Solution\test\WebSite\.\bin\Geleca Framework - WebSite.swc</output>
   <use-network>true</use-network>
   <target-player>10</target-player>
   <warnings>true</warnings>
@@ -8,7 +8,7 @@
   <compiler>
     <accessible>false</accessible>
     <allow-source-path-overlap>false</allow-source-path-overlap>
-    <optimize>false</optimize>
+    <optimize>true</optimize>
     <strict>true</strict>
     <es>false</es>
     <show-actionscript-warnings>true</show-actionscript-warnings>
@@ -17,16 +17,41 @@
     <use-resource-bundle-metadata>true</use-resource-bundle-metadata>
     <verbose-stacktraces>false</verbose-stacktraces>
     <source-path>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\test\website\src</path-element>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\src</path-element>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\test\website\lib</path-element>
     </source-path>
     <library-path>
-      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\as3corelib.swc</path-element>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\swfaddress.swc</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\test\website\asset\swc\shell.swc</path-element>
       <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\tweener_1_33_74.swc</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\as3corelib.swc</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\lib\bulkloader.2.8.2.swc</path-element>
     </library-path>
+    <external-library-path append="true">
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\test\website\asset\swc\contact.swc</path-element>
+      <path-element>d:\simbionte\framework\actionscript\geleca framework\solution\test\website\asset\swc\products.swc</path-element>
+    </external-library-path>
   </compiler>
   <include-classes>
+    <class>Website.Main</class>
+    <class>Website.Loader.Controller.LoaderController</class>
+    <class>Website.Loader.Controller.ShellLoader</class>
+    <class>Website.Loader.View.LoaderView</class>
+    <class>Website.Loader.View.Preloader.LoaderPreloader</class>
+    <class>Website.Pages.Contact.Controller.ContactLoader</class>
+    <class>Website.Pages.Contact.View.ContactView</class>
+    <class>Website.Pages.Products.Controller.ProductsLoader</class>
+    <class>Website.Pages.Products.View.ProductsView</class>
+    <class>Website.Shell.Controller.ShellController</class>
+    <class>Website.Shell.View.ShellView</class>
+    <class>Website.Shell.View.Button.PageButton</class>
+    <class>Website.Shell.View.Control.FooterControl</class>
+    <class>Website.Shell.View.Control.HeaderControl</class>
+    <class>Website.Shell.View.Page.ContactPage</class>
+    <class>Website.Shell.View.Page.ProductsPage</class>
+    <class>Website.Shell.View.Preloader.PagesPreloader</class>
     <class>Geleca.Component.Component</class>
     <class>Geleca.Component.Button.Button</class>
     <class>Geleca.Component.Button.FrameButton</class>
@@ -76,7 +101,6 @@
     <class>Geleca.Events.ModuleEvent</class>
     <class>Geleca.Events.NotificationEvent</class>
     <class>Geleca.Events.PageEvent</class>
-    <class>Geleca.Events.PageLoaderEvent</class>
     <class>Geleca.Events.SimpleEventDispatcher</class>
     <class>Geleca.Events.StateEvent</class>
     <class>Geleca.Events.TaskEvent</class>
@@ -104,7 +128,6 @@
     <class>Geleca.Util.MySqlUtil</class>
     <class>Geleca.Util.NumberUtil</class>
     <class>Geleca.Util.ObjectUtil</class>
-    <class>Geleca.Util.SimpleTimer</class>
     <class>Geleca.Util.SQLUtil</class>
     <class>Geleca.Util.StatsMonitor</class>
     <class>Geleca.Util.TestUtil</class>
@@ -115,13 +138,14 @@
     <class>Geleca.Util.VectorUtil</class>
     <class>Geleca.Validation.FormValidation</class>
     <class>Geleca.View.View</class>
-    <class>Geleca.Website.Controller.PageLoader</class>
     <class>Geleca.Website.Controller.PageSwitch</class>
     <class>Geleca.Website.Controller.Router.URLRouter</class>
     <class>Geleca.Website.View.Page</class>
     <class>Geleca.Website.View.PageSwitcher</class>
-    <class>Geleca.Website.View.PageView</class>
     <class>com.gskinner.geom.ColorMatrix</class>
     <class>fluorinefx.data.FluorineDataTable</class>
+    <class>Website.Domain.AppConfig</class>
+    <class>Website.Domain.Facade</class>
+    <class>Website.Domain.Pages</class>
   </include-classes>
 </flex-config>

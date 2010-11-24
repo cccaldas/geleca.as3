@@ -60,7 +60,7 @@ package Geleca.Website.View
 			
 			function page_loadComplete(e:PageEvent):void
 			{
-				Page(e.currentTarget).navigate();
+				//Page(e.currentTarget).navigate();
 				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
 			}
 		}
@@ -75,9 +75,12 @@ package Geleca.Website.View
 		
 		private function gotoPage(name:String):void 
 		{
+			dispatchEvent(new PageEvent(PageEvent.CHANGE));
+			
 			//trace(this, "gotoPage", name);
 			var page:Page = getPage(name);
 			page.addEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
+			page.addEventListener(PageEvent.LOAD_PROGRESS, dispatchEvent);
 			
 			if (_currentPage)
 			{
@@ -91,17 +94,26 @@ package Geleca.Website.View
 					//trace(this, "page_unloadComplete", e.currentTarget);
 					Page(e.currentTarget).removeEventListener(PageEvent.UNLOAD_COMPLETE, page_unloadComplete);
 					page.load();
+					dispatchEvent(new PageEvent(PageEvent.LOAD));
 				}
 			}
 			else
+			{
 				page.load();
+				dispatchEvent(new PageEvent(PageEvent.LOAD));
+			}
 				
 			_currentPage = page;
+			dispatchEvent(new PageEvent(PageEvent.CHANGE));
 			
 			function page_loadComplete(e:PageEvent):void 
 			{
-				Page(e.currentTarget).navigate();
+				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_PROGRESS, dispatchEvent);
+				
+				//Page(e.currentTarget).navigate();
 				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
+				
+				dispatchEvent(e);
 			}
 		}
 		
