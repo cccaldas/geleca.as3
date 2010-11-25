@@ -1,0 +1,2 @@
+﻿Button - Implementar o releaseOutSide
+Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.

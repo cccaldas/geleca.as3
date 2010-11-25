@@ -4,6 +4,16 @@
 	
 	public class LayoutSettings
 	{		
+		public static const NONE			:String = "NONE";
+		
+		public static const LEFT			:String = "LEFT";
+		public static const RIGHT			:String = "RIGHT";
+		public static const CENTER			:String = "CENTER";
+		
+		public static const TOP				:String = "TOP";
+		public static const BOTTOM			:String = "BOTTOM";
+		public static const MIDDLE			:String = "MIDDLE";
+		
 		private var _width					:Object;
 		private var _height					:Object;
 		

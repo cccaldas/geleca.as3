@@ -15,17 +15,7 @@
 	import Geleca.Events.SimpleEventDispatcher;
 	
 	public class Layout extends SimpleEventDispatcher
-	{
-		public static const NONE		:String = "NONE";
-		
-		public static const LEFT		:String = "LEFT";
-		public static const RIGHT		:String = "RIGHT";
-		public static const CENTER		:String = "CENTER";
-		
-		public static const TOP			:String = "TOP";
-		public static const BOTTOM		:String = "BOTTOM";
-		public static const MIDDLE		:String = "MIDDLE";
-		
+	{	
 		private var _container   		:DisplayObjectContainer;
 		private var _stage				:Stage;
 		private var _elements    		:Dictionary = new Dictionary();
@@ -110,9 +100,7 @@
 					element.width  		= containerWidth * (percent / 100);
 				}
 				else //caso seja fixa
-				{
 					element.width = Number(settings.width);
-				}
 			}
 			
 			//**********************************************************
@@ -122,27 +110,25 @@
 				if (String(settings.height).indexOf("%") != -1) //verifica se a altura é em percentual 
 				{
 					percent             = int(String(settings.height).replace("%", ""));
-					element.height = containerHeight * (percent / 100);
+					element.height 		= containerHeight * (percent / 100);
 				}
 				else //caso seja fixa
-				{
 					element.height = Number(settings.height);
-				}
 			}
 			
 			//**********************************************************
 			//horizontalAlignment
 			switch (settings.horizontalAlignment) 
 			{
-				case LEFT:
+				case LayoutSettings.LEFT:
 					element.x = 0;
 				break;
 				
-				case RIGHT:
+				case LayoutSettings.RIGHT:
 					AlignUtil.toRightStage(element);
 				break;
 				
-				case CENTER:
+				case LayoutSettings.CENTER:
 					AlignUtil.toCenterStage(element);
 				break;
 			}
@@ -151,15 +137,15 @@
 			//verticalAlignment
 			switch (settings.verticalAlignment) 
 			{
-				case TOP:
+				case LayoutSettings.TOP:
 					element.y = 0;
 				break;
 				
-				case BOTTOM:
+				case LayoutSettings.BOTTOM:
 					AlignUtil.toBottomStage(element);
 				break;
 				
-				case MIDDLE:
+				case LayoutSettings.MIDDLE:
 					AlignUtil.toMiddleStage(element);
 				break;
 			}
@@ -177,24 +163,20 @@
 			//**********************************************************
 			//margin
 			if (settings.minX != null) 
-			{
-				if (element.x < settings.minX) element.x = Number(settings.minX);
+				if (element.x < settings.minX)
+					element.x = Number(settings.minX);
 				
-			}
 			if (settings.maxX != null) 
-			{
-				if (element.x > settings.maxX) element.x = Number(settings.maxX);
-			}
+				if (element.x > settings.maxX)
+					element.x = Number(settings.maxX);
 			
 			if (settings.minY != null) 
-			{
-				if (element.y < settings.minY) element.y = Number(settings.minY);
-			}
+				if (element.y < settings.minY)
+					element.y = Number(settings.minY);
 			
 			if (settings.maxY != null) 
-			{
-				if (element.y > settings.maxY) element.y = Number(settings.maxY);
-			}
+				if (element.y > settings.maxY)
+					element.y = Number(settings.maxY);
 		}
 		
 		public function removeElement(element:Object):void 
@@ -206,13 +188,13 @@
 		
 		override public function destroy():void 
 		{
-			for each(var element:DisplayObject in _elements) 
+			for (var element:Object in _elements) 
 			{
 				removeElement(element);
 			}
 			
 			stage.removeEventListener(Event.RESIZE, 	stage_resize);
-			stage.removeEventListener(Event.ADDED, 	stage_resize);
+			stage.removeEventListener(Event.ADDED, 		stage_resize);
 			
 			_elements	= null;
 			stage		= null;

@@ -19,7 +19,7 @@ package Geleca.View
 		private var _initialized							:Boolean = false;
 		
 		private var _components								:Vector.<Component> = new Vector.<Component>();
-		private var _views									:Vector.<View> = new Vector.<View>();
+		private var _views									:Vector.<View> 		= new Vector.<View>();
 		
 		public function View() 
 		{
@@ -136,6 +136,18 @@ package Geleca.View
 			if (_components.indexOf(component) == -1)
 				_components.push(component);
 				
+			return component;
+		}
+		
+		protected function removeComponent(component:Component):Component
+		{
+			var index:int = _components.indexOf(component);
+			if (index != -1)
+			{
+				_components.splice(index, 1);
+				component.destroy();
+			}
+			
 			return component;
 		}
 		

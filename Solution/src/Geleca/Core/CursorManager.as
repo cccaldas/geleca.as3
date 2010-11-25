@@ -24,6 +24,9 @@
 		
 		public function registerCursor(name:String, cursor:CustomCursor):void 
 		{
+			if (!cursor.initialized)
+				cursor.initializeComponent();
+				
 			_cursors[name] = cursor;
 		}
 		
@@ -39,6 +42,16 @@
 		
 		public function set cursor(name:String):void 
 		{
+			if (name == null)
+			{
+				if (_cursor != null)
+					_cursor.hide();
+				
+				_cursor = null;
+					
+				return;
+			}
+					
 			if (_cursor != null)
 				_cursor.hide();
 				
@@ -54,9 +67,7 @@
 		private function stage_mouseMove(e:MouseEvent):void 
 		{
 			if (_cursor != null)
-			{
 				_cursor.move(stage.mouseX, stage.mouseY);
-			}
 		}
 		
 		public function set stage(value:Stage):void 

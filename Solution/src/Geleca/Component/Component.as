@@ -34,6 +34,7 @@ package Geleca.Component
 				hitArea = new HitArea(hit.width, hit.height);
 				
 				_asset.removeChild(hit);
+				_asset.removeChild(hit);
 			}
 		}
 		
@@ -77,6 +78,18 @@ package Geleca.Component
 			if (_components.indexOf(component) == -1)
 				_components.push(component);
 				
+			return component;
+		}
+		
+		protected function removeComponent(component:Component):Component
+		{
+			var index:int = _components.indexOf(component);
+			if (index != -1)
+			{
+				_components.splice(index, 1);
+				component.destroy();
+			}
+			
 			return component;
 		}
 		
@@ -214,7 +227,7 @@ package Geleca.Component
 			
 			for each (var comp:Component in _components) 
 			{
-				comp.destroy();
+				removeComponent(comp);
 			}
 			
 			_components = null;
