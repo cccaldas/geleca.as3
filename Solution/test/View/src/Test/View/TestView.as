@@ -38,12 +38,22 @@ package Test.View
 			
 			addLoaderItem(new LoaderInfoLoaderItem(loaderInfo));
 			addLoaderItem(new ViewLoaderItem("photos", photos));
+<<<<<<< HEAD
 			addLoaderItem(new AssetLoaderItem("photo-4", 	"upld/Acdsee-Photo-Editor_1.png"));
 			addLoaderItem(new FileLoaderItem("photo-5", 	"upld/photo_collage-34262-1.jpeg"));
 			addLoaderItem(new FileLoaderItem("photo-6", 	"upld/photo_montage_symbols.jpg"));
 			addLoaderItem(new FileLoaderItem("photo-7", 	"upld/photo-editing.jpg"));
 			addLoaderItem(new FileLoaderItem("photo-8", 	"upld/slide_show_organize_photo.gif"));
 			addLoaderItem(new FileLoaderItem("data", 		"xml/data.xml"));
+=======
+			addLoaderItem(new AssetLoaderItem("photo-1", "http://www.mattstow.com/images/articles/symbol_photo_montage/photo_montage_symbols.jpg"));
+			addLoaderItem(new AssetLoaderItem("photo-2", "http://www.dancewithshadows.com/motor/wp-content/uploads/2009/02/danica-patrick-si-bikini-photo.jpg"));
+			addLoaderItem(new AssetLoaderItem("photo-3", "http://www.filetransit.com/images/screen/b600f6078c45627745068fcdb47a7d47_Morpheus_Photo_Animation_Suite.png"));
+			addLoaderItem(new AssetLoaderItem("photo-4", "http://img.brothersoft.com/screenshots/softimage/p/photo_collage-34262-1.jpeg"));
+			addLoaderItem(new FileLoaderItem("data", "http://www.geleca.com.br"));
+			addLoaderItem(new FileLoaderItem("data 2", "http://www.simbionte.com.br"));
+			addLoaderItem(new FileLoaderItem("data 3", "http://www.brunozanet.com.br"));
+>>>>>>> af6a28de2320ecc2bd71f7c151dc8b15ae536eea
 			
 			_asset = new TestAsset();
 			addChild(_asset);
