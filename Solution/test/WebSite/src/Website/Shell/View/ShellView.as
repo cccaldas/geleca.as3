@@ -34,27 +34,17 @@ package Website.Shell.View
 			
 		}
 		
-		override protected function setAssets():void 
+		override protected function setup():void 
 		{
-			super.setAssets();
+			super.setup();
 			
 			addChild(_asset);
-		}
-		
-		override protected function setViews():void 
-		{
-			super.setViews();
 			
 			pgs_pages = addView(new PageSwitcher()) as PageSwitcher;
 			pgs_pages.move(50, 120);
 			
 			pgs_pages.addPage(new ContactPage());
 			pgs_pages.addPage(new ProductsPage());
-		}
-		
-		override protected function setComponents():void 
-		{
-			super.setComponents();
 			
 			ctr_header = addComponent(new HeaderControl(_asset.ctr_header)) as HeaderControl;
 			ctr_footer = addComponent(new FooterControl(_asset.ctr_footer)) as FooterControl;
@@ -63,11 +53,6 @@ package Website.Shell.View
 			btn_contact 	= addComponent(new Button(_asset.ctr_header.btn_contact)) as Button;
 			
 			prl_pages		= addComponent(new PagesPreloader(_asset.prl_pages)) as PagesPreloader;
-		}
-		
-		override protected function setVariables():void 
-		{
-			super.setVariables();
 			
 			_controller = new ShellController(this);
 		}

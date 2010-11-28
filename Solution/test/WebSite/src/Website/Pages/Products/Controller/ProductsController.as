@@ -17,9 +17,9 @@ package Website.Pages.Products.Controller
 			_view = view;
 		}
 		
-		override protected function setListeners():void 
+		override protected function setup():void 
 		{
-			super.setListeners();
+			super.setup();
 			
 			_view.btn_detail.addEventListener(MouseEvent.CLICK, btn_detail_click);
 			_view.btn_list.addEventListener(MouseEvent.CLICK, btn_list_click);

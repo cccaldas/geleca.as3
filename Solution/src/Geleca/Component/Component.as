@@ -26,7 +26,7 @@ package Geleca.Component
 			_asset = asset;
 		}
 		
-		protected function setAssets():void 
+		protected function setup():void 
 		{
 			if (_asset.getChildByName("sp_hitArea"))
 			{
@@ -36,20 +36,9 @@ package Geleca.Component
 				_asset.removeChild(hit);
 				_asset.removeChild(hit);
 			}
-		}
-		
-		protected function setComponents():void 
-		{
 			
-		}
-		
-		protected function setVariables():void 
-		{
 			_asset.focusRect = false;
-		}
-		
-		protected function setListeners():void 
-		{
+			
 			_asset.addEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
 			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
 		}
@@ -61,10 +50,7 @@ package Geleca.Component
 		
 		public final function initializeComponent():Component
 		{
-			setAssets();
-			setComponents();
-			setVariables();
-			setListeners();
+			setup();
 			initializeComponents();
 			initialize();
 			_initialized = true;
@@ -93,7 +79,7 @@ package Geleca.Component
 			return component;
 		}
 		
-		protected function initializeComponents():void 
+		private function initializeComponents():void 
 		{
 			for each (var comp:Component in _components) 
 			{

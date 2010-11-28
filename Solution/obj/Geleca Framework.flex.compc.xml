@@ -51,8 +51,9 @@
     <class>Geleca.Core.IDestroyable</class>
     <class>Geleca.Core.IDisposable</class>
     <class>Geleca.Core.ObjectFactory</class>
-    <class>Geleca.Core.Task</class>
-    <class>Geleca.Core.TaskManager</class>
+    <class>Geleca.Core.Process</class>
+    <class>Geleca.Core.ProcessGroup</class>
+    <class>Geleca.Core.ProcessManager</class>
     <class>Geleca.Data.DataAdapter</class>
     <class>Geleca.Data.DataQuery</class>
     <class>Geleca.Data.DataRow</class>
@@ -77,9 +78,9 @@
     <class>Geleca.Events.NotificationEvent</class>
     <class>Geleca.Events.PageEvent</class>
     <class>Geleca.Events.PageLoaderEvent</class>
+    <class>Geleca.Events.ProcessEvent</class>
     <class>Geleca.Events.SimpleEventDispatcher</class>
     <class>Geleca.Events.StateEvent</class>
-    <class>Geleca.Events.TaskEvent</class>
     <class>Geleca.Exception.AbstractException</class>
     <class>Geleca.Exception.CursorManagerException</class>
     <class>Geleca.Exception.DataListException</class>
@@ -90,7 +91,7 @@
     <class>Geleca.Service.AMFService</class>
     <class>Geleca.Service.SoapResponse</class>
     <class>Geleca.Type.Currency</class>
-    <class>Geleca.UI.SimbionteContextMenu</class>
+    <class>Geleca.UI.CustomContextMenu</class>
     <class>Geleca.Util.AlignUtil</class>
     <class>Geleca.Util.BitmapUtil</class>
     <class>Geleca.Util.ContainerUtil</class>
@@ -115,8 +116,18 @@
     <class>Geleca.Util.VectorUtil</class>
     <class>Geleca.Validation.FormValidation</class>
     <class>Geleca.View.View</class>
+    <class>Geleca.View.Loading.AssetLoaderItem</class>
+    <class>Geleca.View.Loading.FileLoaderItem</class>
+    <class>Geleca.View.Loading.LoaderInfoLoaderItem</class>
+    <class>Geleca.View.Loading.LoaderItem</class>
+    <class>Geleca.View.Loading.ServiceLoaderItem</class>
+    <class>Geleca.View.Loading.ViewLoader</class>
+    <class>Geleca.View.Loading.ViewLoaderItem</class>
     <class>Geleca.Website.Controller.PageLoader</class>
-    <class>Geleca.Website.Controller.PageSwitch</class>
+    <class>Geleca.Website.Controller.Loading.AssetLoaderItem</class>
+    <class>Geleca.Website.Controller.Loading.FileLoaderItem</class>
+    <class>Geleca.Website.Controller.Loading.LoaderItem</class>
+    <class>Geleca.Website.Controller.Loading.ServiceLoaderItem</class>
     <class>Geleca.Website.Controller.Router.URLRouter</class>
     <class>Geleca.Website.View.Page</class>
     <class>Geleca.Website.View.PageSwitcher</class>

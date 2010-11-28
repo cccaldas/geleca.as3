@@ -11,12 +11,7 @@ package Geleca.Controller
 			
 		}
 		
-		protected function setVariables():void 
-		{
-			
-		}
-		
-		protected function setListeners():void 
+		protected function setup():void 
 		{
 			
 		}
@@ -28,8 +23,7 @@ package Geleca.Controller
 		
 		public final function initializeController():void 
 		{
-			setVariables();
-			setListeners();
+			setup();
 			initialize();
 			_initialized = true;
 		}

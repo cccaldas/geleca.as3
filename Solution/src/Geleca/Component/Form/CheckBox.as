@@ -16,11 +16,11 @@
 			super(asset);
 		}
 		
-		override protected function setListeners():void 
+		override protected function setup():void 
 		{
-			_asset.addEventListener(MouseEvent.CLICK, checkBox_click);
+			super.setup();
 			
-			super.setListeners();
+			_asset.addEventListener(MouseEvent.CLICK, checkBox_click);
 		}
 		
 		public function get checked():Boolean { return _checked; }

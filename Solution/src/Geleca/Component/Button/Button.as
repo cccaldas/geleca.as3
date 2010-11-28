@@ -16,24 +16,18 @@ package Geleca.Component.Button
 			super(asset);
 		}
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
+			super.setup();
+			
 			_asset.buttonMode = true;
 			
-			
-			super.setVariables();
-		}
-		
-		override protected function setListeners():void 
-		{
 			_asset.addEventListener(MouseEvent.CLICK, 		asset_click);
 			_asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
 			_asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
 			_asset.addEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
 			_asset.addEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
 			_asset.addEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
-			
-			super.setListeners();
 		}
 		
 		private function asset_click(e:MouseEvent):void 

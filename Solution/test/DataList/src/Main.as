@@ -1,18 +1,19 @@
 package 
 {
-	import fl.data.DataProvider;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
-	import Simbionte.View.Component.Data.DataList;
+	import Geleca.Component.Data.DataList;
+	import Geleca.View.View;
 	
 	/**
 	 * ...
 	 * @author 
 	 */
-	public class Main extends Sprite 
+	public class Main extends View 
 	{
+		public var dlst_list		:DataList;
 		
 		public function Main():void 
 		{
@@ -25,7 +26,14 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			
-			stage.align = StageAlign.TOP_LEFT;
+			initializeView();
+		}
+		
+		override protected function setup():void 
+		{
+			super.setup();
+			
+			stage.align 	= StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
 			var container:Sprite = new Sprite();
@@ -33,19 +41,23 @@ package
 			
 			addChild(container);
 			
-			var dataList:DataList = new DataList(container, SquareItemTemplate);
-			dataList.direction = DataList.DIRECTION_VERTICAL;
-			dataList.columns = 5;
-			dataList.initializeView();
+			dlst_list = addComponent(new DataList(container, SquareItemTemplate)) as DataList;
+			dlst_list.direction = DataList.DIRECTION_VERTICAL;
+			dlst_list.columns = 5;			
+		}
+		
+		override protected function initialize():void 
+		{
+			super.initialize();
 			
-			var dp:DataProvider = new DataProvider();
+			var list:Array = [];
 			for (var i:int = 0; i < 10; i++) 
 			{
-				dp.addItem( { } );
+				list.push( { } );
 			}
 			
-			dataList.dataSource = dp;
-			dataList.dataBind();
+			dlst_list.dataSource = list;
+			dlst_list.dataBind();
 		}
 		
 	}

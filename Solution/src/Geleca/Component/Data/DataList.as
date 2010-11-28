@@ -33,6 +33,11 @@
 		public function DataList(container:Sprite, itemTemplateClass:Class) 
 		{
 			super(container);
+		}
+		
+		override protected function setup():void 
+		{
+			super.setup();
 			
 			_itemTemplateClass 	= itemTemplateClass;
 			if (!_itemTemplateClass)

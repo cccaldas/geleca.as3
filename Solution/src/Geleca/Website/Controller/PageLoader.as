@@ -2,9 +2,12 @@ package Geleca.Website.Controller
 {
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+	import Geleca.Core.ProcessGroup;
 	import Geleca.Events.PageLoaderEvent;
+	import Geleca.Events.ProcessEvent;
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Util.SimpleTimer;
+	import Geleca.Website.Controller.Loading.LoaderItem;
 	import Geleca.Website.View.Page;
 	/**
 	 * ...
@@ -12,19 +15,49 @@ package Geleca.Website.Controller
 	 */
 	public class PageLoader extends SimpleEventDispatcher
 	{
-		private var _timer						:SimpleTimer = new SimpleTimer(1);
-		private var _percentLoaded				:Number = 0;
+		private var _timer						:SimpleTimer 	= new SimpleTimer(1);
+		private var _percentLoaded				:Number 		= 0;
 		private var _page						:Page;
+		
+		private var _processGroup				:ProcessGroup = new ProcessGroup();
 		
 		public function PageLoader() 
 		{
+			setup();
+		}
+		
+		protected function setup():void 
+		{
+			_timer.addEventListener(TimerEvent.TIMER, 				timer_timer);
+			_processGroup.addEventListener(ProcessEvent.PROGRESS, 	processGroup_progress);
+			_processGroup.addEventListener(ProcessEvent.FINISH, 	processGroup_finish);
+		}
+		
+		public function getItem(id:String):*
+		{
+			return LoaderItem(_processGroup.get(id)).content;
+		}
+		
+		private function processGroup_progress(e:ProcessEvent):void 
+		{
+			updateProgress(_processGroup.progress);
 			
+			//trace(this, "progress", percentLoaded);
+		}
+		
+		private function processGroup_finish(e:ProcessEvent):void 
+		{
+			//trace(this, "finish");
+			loader_loadComplete();
+		}
+		
+		protected function addLoaderItem(item:LoaderItem):void 
+		{
+			_processGroup.add(item);
 		}
 		
 		public final function load():void 
-		{
-			_timer.addEventListener(TimerEvent.TIMER, timer_timer);
-			
+		{	
 			dispatchEvent(new PageLoaderEvent(PageLoaderEvent.LOAD));
 			
 			loader_load();
@@ -39,7 +72,7 @@ package Geleca.Website.Controller
 		
 		protected function loader_load():void 
 		{
-			
+			_processGroup.start();
 		}
 		
 		protected function loader_complete():void 
@@ -57,14 +90,14 @@ package Geleca.Website.Controller
 			_timer.stop();
 			_timer.removeEventListener(TimerEvent.TIMER, timer_timer);
 			
-			_percentLoaded = 1;
-			
-			dispatchEvent(new PageLoaderEvent(PageLoaderEvent.COMPLETE));
+			//_percentLoaded = 1;
 			
 			loader_complete();
+			
+			dispatchEvent(new PageLoaderEvent(PageLoaderEvent.COMPLETE));
 		}
 		
-		public function get percentLoaded():Number { return _percentLoaded; }
+		public function get percentLoaded():Number { return _processGroup.progress; }
 		
 		public function get page():Page { return _page; }
 		
@@ -78,6 +111,9 @@ package Geleca.Website.Controller
 			super.destroy();
 			
 			_percentLoaded = 0;
+			
+			_processGroup.destroy();
+			_processGroup = null;
 			
 			_timer.destroy();
 			_timer = null;

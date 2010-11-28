@@ -11,11 +11,11 @@
 			super(asset);
 		}
 		
-		override protected function setVariables():void 
+		override protected function initialize():void 
 		{
-			enabled = false;
+			super.initialize();
 			
-			super.setVariables();
+			enabled = false;
 		}
 		
 		override public function move(x:Number, y:Number):void 

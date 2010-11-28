@@ -20,11 +20,11 @@ package Website.Shell.View.Control
 		
 		protected function get asset():HeaderControlAsset { return HeaderControlAsset(_asset); }
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
-			super.setVariables();
+			super.setup();
 			
-			_facade.layout.addElement(asset.bg_header, new LayoutSettings("100%", null, Layout.NONE, Layout.NONE));
+			_facade.layout.addElement(asset.bg_header, new LayoutSettings("100%", null, LayoutSettings.NONE, LayoutSettings.NONE));
 		}
 		
 		override protected function initialize():void 

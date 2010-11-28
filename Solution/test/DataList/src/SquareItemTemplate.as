@@ -1,6 +1,6 @@
 package
 {
-	import Simbionte.View.Component.Data.ItemTemplate;
+	import Geleca.Component.Data.ItemTemplate;
 	
 	public class SquareItemTemplate extends ItemTemplate
 	{

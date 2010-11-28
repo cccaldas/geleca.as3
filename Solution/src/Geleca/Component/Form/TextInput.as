@@ -16,13 +16,17 @@ package Geleca.Component.Form
 		{
 			super(asset);
 			
+			
+		}
+		
+		override protected function setup():void 
+		{
+			super.setup();
+			
 			_background = Sprite(_asset.getChildByName("bg_textInput"));
 			_textField	= TextField(_asset.getChildByName("txt_textInput"));
 			_padding 	= (_textField.x + _textField.y) * .5;
-		}
-		
-		override protected function setAssets():void 
-		{
+			
 			var width:Number = this.width;
 			var height:Number = this.height;
 			
@@ -30,24 +34,7 @@ package Geleca.Component.Form
 			this.width 		= width;
 			this.height 	= height;
 			
-			/*_asset.removeChild(textField);
-			textField.scaleX = textField.scaleY = 1;
-			
-			background.width   = _asset.width;
-			background.height  = _asset.height;
-			
-			_asset.scaleX = _asset.scaleY = 1;
-			_asset.addChild(textField);*/
-			
-			super.setAssets();
-		}
-		
-		override protected function setListeners():void 
-		{
-			_asset.addEventListener(FocusEvent.FOCUS_IN, 	textInput_focusIn);
 			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
-			
-			super.setListeners();
 		}
 		
 		override public function set width(value:Number):void 
@@ -100,16 +87,19 @@ package Geleca.Component.Form
 			return _background;
 		}
 		
-		private function textInput_focusIn(e:FocusEvent):void 
+		override protected function focusIn():void 
 		{
+			super.focusIn();
+			
 			stage.focus = textField;
-			focusIn();
 		}
 		
 		private function textInput_focusOut(e:FocusEvent):void 
 		{
-			if (valid) focusOut();
-			else status_invalid();
+			if (valid)
+				focusOut();
+			else
+				status_invalid();
 			
 			e.stopImmediatePropagation();
 		}
@@ -134,7 +124,7 @@ package Geleca.Component.Form
 		
 		public function selectText():void 
 		{
-			textInput_focusIn(null);
+			focusIn();
 			textField.setSelection(0, textField.text.length + 1);
 		}
 		
@@ -148,7 +138,6 @@ package Geleca.Component.Form
 		
 		override public function destroy():void 
 		{
-			_asset.removeEventListener(FocusEvent.FOCUS_IN, 	textInput_focusIn);
 			_asset.removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
 			
 			_textField 		= null;

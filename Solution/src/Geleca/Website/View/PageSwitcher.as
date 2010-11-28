@@ -22,12 +22,12 @@ package Geleca.Website.View
 			
 		}
 		
-		override protected function setListeners():void 
+		override protected function setup():void 
 		{
-			super.setListeners();
+			super.setup();
 			
 			SWFAddress.addEventListener(SWFAddressEvent.CHANGE, swfAddress_change);
-		} 
+		}
 		
 		private function swfAddress_change(e:SWFAddressEvent):void 
 		{
@@ -61,6 +61,7 @@ package Geleca.Website.View
 			function page_loadComplete(e:PageEvent):void
 			{
 				//Page(e.currentTarget).navigate();
+				//dispatchEvent(new PageEvent(PageEvent.LOAD_PROGRESS));
 				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_COMPLETE, page_loadComplete);
 			}
 		}
@@ -108,6 +109,7 @@ package Geleca.Website.View
 			
 			function page_loadComplete(e:PageEvent):void 
 			{
+				//dispatchEvent(new PageEvent(PageEvent.LOAD_PROGRESS));
 				Page(e.currentTarget).removeEventListener(PageEvent.LOAD_PROGRESS, dispatchEvent);
 				
 				//Page(e.currentTarget).navigate();

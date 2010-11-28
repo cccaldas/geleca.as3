@@ -5,6 +5,7 @@ package Website.Pages.Products.View
 	import flash.utils.getDefinitionByName;
 	import Geleca.Component.Button.Button;
 	import Geleca.Effects.Transition.FadeTransition;
+	import Geleca.Util.ObjectUtil;
 	import Geleca.View.View;
 	import Geleca.Website.View.Page;
 	import Geleca.Website.View.PageView;
@@ -29,35 +30,25 @@ package Website.Pages.Products.View
 			
 		}
 		
-		override protected function setAssets():void 
+		override protected function setup():void 
 		{
-			super.setAssets();
+			super.setup();
 			
-			var cl:Class = getDefinitionByName("Website.Products.Asset.ProductsAsset") as Class;
-			_asset = new cl() as Sprite;
+			_asset = ObjectUtil.getObjectByClassName("Website.Products.Asset.ProductsAsset") as Sprite;
 			
 			addChild(_asset);
-		}
-		
-		override protected function setVariables():void 
-		{
-			super.setVariables();
 			
 			this.visible = false;
 			this.alpha = 0;
 			
 			_controller = new ProductsController(this);
-		}
-		
-		override protected function setComponents():void 
-		{
-			super.setComponents();
 			
 			ctr_grid 	= addComponent(new GridControl(_asset.getChildByName("ctr_grid") as Sprite)) as GridControl;
 			ctr_detail 	= addComponent(new DetailControl(_asset.getChildByName("ctr_detail") as Sprite)) as DetailControl;
 			
 			btn_detail 	= addComponent(new Button(_asset.getChildByName("btn_detail") as Sprite)) as Button;
 			btn_list 	= addComponent(new Button(_asset.getChildByName("btn_list") as Sprite)) as Button;
+			
 		}
 		
 		override public function navigate():void 
@@ -72,6 +63,8 @@ package Website.Pages.Products.View
 			super.initialize();
 			
 			_controller.initializeController();
+			
+			//trace(this, page.loader.getItem("produtos").serverInfo.initialData.length);
 		}
 		
 		override public function show(onComplete:Function=null):void 
@@ -88,19 +81,23 @@ package Website.Pages.Products.View
 			function hide_complete():void 
 			{
 				this.visible = false;
-				removeChild(_asset);
-				
-				_controller.destroy();
-				_controller = null;
 				
 				Tweener.removeTweens(this);
-				
-				_asset = null;
 				
 				if (onComplete != null)
 					onComplete();
 			}
-		}		
+		}
+		
+		override public function destroy():void 
+		{
+			super.destroy();
+			
+			_controller.destroy();
+			_controller = null;
+			
+			_asset = null;
+		}
 	}
 
 }

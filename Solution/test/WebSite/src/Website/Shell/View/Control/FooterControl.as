@@ -20,12 +20,12 @@ package Website.Shell.View.Control
 		
 		protected function get asset():FooterControlAsset { return FooterControlAsset(_asset); }
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
-			super.setVariables();
+			super.setup();
 			
-			_facade.layout.addElement(asset, new LayoutSettings(null, null, Layout.NONE, Layout.BOTTOM));
-			_facade.layout.addElement(asset.bg_footer, new LayoutSettings("100%", null, Layout.NONE, Layout.NONE));
+			_facade.layout.addElement(asset, new LayoutSettings(null, null, LayoutSettings.NONE, LayoutSettings.BOTTOM));
+			_facade.layout.addElement(asset.bg_footer, new LayoutSettings("100%", null, LayoutSettings.NONE, LayoutSettings.NONE));
 		}
 		
 		override protected function initialize():void 

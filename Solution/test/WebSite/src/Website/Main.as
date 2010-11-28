@@ -4,7 +4,9 @@ package Website
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import Geleca.UI.CustomContextMenu;
 	import Geleca.Util.StatsMonitor;
+	import Website.Domain.Facade;
 	import Website.Loader.View.LoaderView;
 	/**
 	 * ...
@@ -31,7 +33,9 @@ package Website
 			stage.align 		= StageAlign.TOP_LEFT;
 			stage.scaleMode 	= StageScaleMode.NO_SCALE;
 			
+			Facade.getInstance().layout.stage = stage;
 			
+			new CustomContextMenu(this);
 			
 			var view:LoaderView = new LoaderView();
 			addChild(view);

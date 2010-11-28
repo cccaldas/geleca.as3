@@ -3,7 +3,9 @@ package Geleca.View
 	import flash.display.LoaderInfo;
 	import flash.display.Sprite;
 	import flash.display.Stage;
+	import flash.events.Event;
 	import flash.events.FocusEvent;
+	import flash.events.ProgressEvent;
 	import flash.system.System;
 	import flash.utils.Dictionary;
 	import Geleca.Component.Component;
@@ -12,6 +14,8 @@ package Geleca.View
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Events.StateEvent;
 	import Geleca.Util.ContainerUtil;
+	import Geleca.View.Loading.LoaderItem;
+	import Geleca.View.Loading.ViewLoader;
 	
 	public class View extends Sprite implements IDestroyable
 	{
@@ -21,12 +25,16 @@ package Geleca.View
 		private var _components								:Vector.<Component> = new Vector.<Component>();
 		private var _views									:Vector.<View> 		= new Vector.<View>();
 		
+		private var _loader									:ViewLoader = new ViewLoader();
+		
+		private var _loaded									:Boolean;
+		
 		public function View() 
 		{
 			
 		}
 		
-		protected function setAssets():void 
+		protected function setup():void 
 		{
 			if (this.getChildByName("sp_hitArea"))
 			{
@@ -35,42 +43,10 @@ package Geleca.View
 				
 				this.removeChild(hit);
 			}
-		}
-		
-		protected function setViews():void 
-		{
 			
-		}
-		
-		protected function setComponents():void 
-		{
-			
-		}
-		
-		protected function setVariables():void 
-		{
 			this.focusRect = false;
-		}
-		
-		protected function setListeners():void 
-		{
 			
-		}
-		
-		protected function initializeViews():void 
-		{
-			for each (var view:View in _views) 
-			{
-				view.initializeView();
-			}
-		}
-		
-		protected function initializeComponents():void 
-		{
-			for each (var comp:Component in _components) 
-			{
-				comp.initializeComponent();
-			}
+			_loader.addEventListener(ProgressEvent.PROGRESS, dispatchEvent);
 		}
 		
 		protected function initialize():void 
@@ -78,19 +54,76 @@ package Geleca.View
 			
 		}
 		
+		protected function addLoaderItem(item:LoaderItem):void 
+		{
+			_loader.addLoaderItem(item);
+		}
+		
+		protected function getLoaderItem(id:String):*
+		{
+			return _loader.getItem(id);
+		}
+		
+		private function initializeViews():void 
+		{
+			for each (var view:View in _views) 
+			{
+				view.initializeView();
+			}
+		}
+		
+		private function initializeComponents():void 
+		{
+			for each (var comp:Component in _components) 
+			{
+				comp.initializeComponent();
+			}
+		}
+		
+		public function loadUp(initialize:Boolean=false):void 
+		{
+			setup();
+			_loader.addEventListener(Event.COMPLETE, loader_complete);
+			_loader.load();
+			
+			function loader_complete(e:Event):void 
+			{
+				_loaded = true;
+			
+				dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+				
+				_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
+				_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
+				
+				dispatchEvent(e);
+				
+				if (initialize)
+					_initialize();
+			}
+		}
+		
 		public final function initializeView():View 
 		{
-			setAssets();
-			setViews();
-			setComponents();
-			setVariables();
-			setListeners();
+			if (_initialized)
+				return this;
+			
+			if (_loaded)
+			{
+				_initialize();
+				return this;
+			}
+			else 
+				loadUp(true);
+			
+			return this;
+		}
+		
+		private function _initialize():void 
+		{
 			initializeViews();
 			initializeComponents();
 			initialize();
-			_initialized = true;			
-			
-			return this;
+			_initialized = true;
 		}
 		
 		public function show(onComplete:Function=null):void 
@@ -219,8 +252,15 @@ package Geleca.View
 				super.height = value;
 		}
 		
+		public function get loader():ViewLoader { return _loader; }
+		
+		public function get loaded():Boolean { return _loaded; }
+		
 		public function destroy():void 
 		{
+			_loader.destroy();
+			_loader = null;
+			
 			if (hitArea)
 				this.removeChild(hitArea);
 				
