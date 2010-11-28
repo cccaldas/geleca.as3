@@ -50,6 +50,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="assets\swc\View.swc" />
+    <element path="..\..\lib\Tweener_1_33_74.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
@@ -69,7 +70,7 @@
   </library>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <compile path="src\Main.as" />
+    <compile path="src\Test\View\TestView.as" />
   </compileTargets>
   <!-- Paths to exclude from the Project Explorer tree -->
   <hiddenPaths>

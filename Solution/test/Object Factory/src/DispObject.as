@@ -22,6 +22,13 @@ package
 			sprite = null;
 		}
 		
+		/* INTERFACE Geleca.Core.IDisposable */
+		
+		public function create():void
+		{
+			
+		}
+		
 	}
 
 }

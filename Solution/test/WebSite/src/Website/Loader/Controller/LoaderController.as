@@ -19,16 +19,11 @@ package Website.Loader.Controller
 			_view = view;
 		}
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
-			super.setVariables();
+			super.setup();
 			
 			_shellLoader = new ShellLoader(_view.loaderInfo);
-		}
-		
-		override protected function setListeners():void 
-		{
-			super.setListeners();
 			
 			_shellLoader.addEventListener(ProgressEvent.PROGRESS, 		shellLoader_progress);
 			_shellLoader.addEventListener(Event.COMPLETE, 				shellLoader_complete);

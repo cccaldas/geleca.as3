@@ -17,9 +17,9 @@ package Website.Shell.View.Preloader
 		
 		protected function get asset():PagesPreloaderAsset { return PagesPreloaderAsset(_asset); }
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
-			super.setVariables();
+			super.setup();
 			
 			asset.visible = false;
 			asset.alpha = 0;
@@ -31,7 +31,7 @@ package Website.Shell.View.Preloader
 			
 			asset.width = stage.stageWidth * progress;
 			
-			trace(this, "updateProgress", progress);
+			//trace(this, "updateProgress", progress);
 		}
 		
 		public function show():void 

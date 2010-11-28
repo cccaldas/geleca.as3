@@ -15,9 +15,9 @@ package Website.Loader.View.Preloader
 			super(asset);
 		}
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
-			super.setVariables();
+			super.setup();
 			
 			asset.visible = false;
 			asset.alpha = 0;

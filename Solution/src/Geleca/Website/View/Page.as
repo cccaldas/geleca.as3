@@ -65,8 +65,13 @@ package Geleca.Website.View
 			
 		private function loader_complete(e:PageLoaderEvent):void 
 		{
-			_view = addView(new _viewClass()) as PageView;
+			updateProgress(_loader.percentLoaded);
+			
+			dispatchEvent(new PageLoaderEvent(PageLoaderEvent.PROGRESS));
+			
+			_view = new _viewClass();
 			_view.page = this;
+			addView(_view);
 			
 			_loader.removeEventListener(PageLoaderEvent.COMPLETE, loader_complete);
 			
@@ -129,7 +134,7 @@ package Geleca.Website.View
 			dispatchEvent(new PageEvent(PageEvent.LOAD_PROGRESS));
 		}
 		
-		public function get loaded()		:Boolean 	{ return _loaded; }
+		override public function get loaded()		:Boolean 	{ return _loaded; }
 		public function get isLoading()		:Boolean 	{ return _isLoading; }
 		public function get percentLoaded()	:Number 	{ return _percentLoaded; }
 		

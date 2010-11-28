@@ -4,7 +4,6 @@ package Website.Shell.Controller
 	import Geleca.Controller.Controller;
 	import flash.events.MouseEvent;
 	import Geleca.Events.PageEvent;
-	import Geleca.Website.Controller.PageSwitch;
 	import Website.Shell.View.Page.ContactPage;
 	import Website.Shell.View.Page.ProductsPage;
 	import Website.Shell.View.ShellView;
@@ -18,23 +17,16 @@ package Website.Shell.Controller
 			this.view = view;
 		}
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
+			super.setup();
 			
-			
-			super.setVariables();
-		}
-		
-		override protected function setListeners():void 
-		{
 			view.btn_contact.addEventListener(MouseEvent.CLICK, 	btn_contact_click);
 			view.btn_products.addEventListener(MouseEvent.CLICK, 	btn_products_click);
 			
 			view.pgs_pages.addEventListener(PageEvent.LOAD, 			pgs_pages_load);
 			view.pgs_pages.addEventListener(PageEvent.LOAD_PROGRESS, 	pgs_pages_loadProgress);
 			view.pgs_pages.addEventListener(PageEvent.LOAD_COMPLETE, 	pgs_pages_loadComplete);
-			
-			super.setListeners();
 		}
 		
 		private function btn_contact_click(e:MouseEvent):void 

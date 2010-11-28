@@ -24,27 +24,15 @@ package Website.Loader.View
 			
 		}
 		
-		override protected function setAssets():void 
+		override protected function setup():void 
 		{
-			super.setAssets();
+			super.setup();
 			
 			addChild(_asset);
-		}
-		
-		override protected function setComponents():void 
-		{
-			super.setComponents();
 			
 			prl_loader = addComponent(new LoaderPreloader(_asset.prl_loader)) as LoaderPreloader;
-		}
-		
-		override protected function setVariables():void 
-		{
-			super.setVariables();
 			
-			_facade.layout.stage = stage;
-			
-			_facade.layout.addElement(prl_loader, new LayoutSettings(null, null, Layout.CENTER, Layout.MIDDLE));
+			_facade.layout.addElement(prl_loader, new LayoutSettings(null, null, LayoutSettings.CENTER, LayoutSettings.MIDDLE));
 			
 			_controller = new LoaderController(this);
 		}
@@ -54,7 +42,6 @@ package Website.Loader.View
 			super.initialize();
 			
 			_controller.initializeController();
-			
 			_facade.layout.renderElement(prl_loader);
 		}
 		

@@ -1,2 +1,4 @@
 ﻿Button - Implementar o releaseOutSide
 Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.
+Website - Implementar no loader o carregamento da primeira página
+Website - Alterar a estrutura da Page para o carregamento das Views (estrutura nova)

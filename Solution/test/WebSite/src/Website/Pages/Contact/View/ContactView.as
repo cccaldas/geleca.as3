@@ -4,6 +4,7 @@ package Website.Pages.Contact.View
 	import flash.display.Sprite;
 	import flash.utils.getDefinitionByName;
 	import Geleca.Effects.Transition.FadeTransition;
+	import Geleca.Util.ObjectUtil;
 	import Geleca.View.View;
 	import Geleca.Website.View.Page;
 	import Geleca.Website.View.PageView;
@@ -17,19 +18,12 @@ package Website.Pages.Contact.View
 			
 		}
 		
-		override protected function setAssets():void 
+		override protected function setup():void 
 		{
-			super.setAssets();
+			super.setup();
 			
-			var cl:Class = getDefinitionByName("Website.Contact.Asset.ContactAsset") as Class;
-			
-			_asset = new cl() as Sprite;
+			_asset = ObjectUtil.getObjectByClassName("Website.Contact.Asset.ContactAsset") as Sprite;
 			addChild(_asset);
-		}
-		
-		override protected function setVariables():void 
-		{
-			super.setVariables();
 			
 			this.visible = false;
 			this.alpha = 0;
@@ -49,13 +43,17 @@ package Website.Pages.Contact.View
 			function hide_complete():void 
 			{
 				this.visible = false;
-				removeChild(_asset);
-				
-				_asset = null;
 				
 				if (onComplete != null)
 					onComplete();
 			}
+		}
+		
+		override public function destroy():void 
+		{
+			super.destroy();
+			
+			_asset = null;
 		}
 		
 	}
