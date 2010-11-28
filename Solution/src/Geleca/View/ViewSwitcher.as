@@ -31,6 +31,13 @@ package Geleca.View
 			addLoaderItem(new ViewLoaderItem("view", _current));
 		}
 		
+		override protected function initialize():void 
+		{
+			super.initialize();
+			
+			_current.show();
+		}
+		
 		public function swap(view:Class, transition:String=null):void 
 		{
 			if (_current is view)
@@ -91,6 +98,11 @@ package Geleca.View
 				_current = _view;
 				_current.show();
 			}
+		}
+		
+		public function getCurrent():View
+		{
+			return _current;
 		}
 		
 	}

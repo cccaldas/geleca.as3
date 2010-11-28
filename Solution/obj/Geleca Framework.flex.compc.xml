@@ -123,6 +123,7 @@
     <class>Geleca.View.Loading.LoaderInfoLoaderItem</class>
     <class>Geleca.View.Loading.LoaderItem</class>
     <class>Geleca.View.Loading.ServiceLoaderItem</class>
+    <class>Geleca.View.Loading.SWFAddressInitLoaderItem</class>
     <class>Geleca.View.Loading.ViewLoader</class>
     <class>Geleca.View.Loading.ViewLoaderItem</class>
     <class>Geleca.Website.Controller.PageLoader</class>
