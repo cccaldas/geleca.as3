@@ -1,6 +1,7 @@
 ﻿package Geleca.Component.Data
 {
 	import flash.display.Sprite;
+	import Geleca.Asset.AssetNav;
 	
 	public class ItemTemplate extends DataView
 	{
@@ -14,6 +15,7 @@
 		public function setAsset(asset:Sprite):void 
 		{
 			_asset = asset;
+			_nav = new AssetNav(asset);
 		}
 		
 		public function get itemIndex()		:int 		{ return _itemIndex; }

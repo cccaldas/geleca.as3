@@ -6,6 +6,7 @@ package Geleca.Component
 	import flash.display.Stage;
 	import flash.events.FocusEvent;
 	import flash.system.System;
+	import Geleca.Asset.AssetNav;
 	import Geleca.Display.HitArea;
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Events.StateEvent;
@@ -17,30 +18,41 @@ package Geleca.Component
 		private var _initialized							:Boolean = false;
 		
 		protected var _asset								:Sprite;
+		protected var _nav									:AssetNav;
 		private var _hitArea								:HitArea;
 		
 		private var _components								:Vector.<Component> = new Vector.<Component>();
 		
+		private var _setup									:Boolean;
+		
 		public function Component(asset:Sprite) 
 		{
-			_asset = asset;
+			_asset 	= asset;
+			_nav 	= new AssetNav(asset);
 		}
 		
 		protected function setup():void 
 		{
+			if (_setup)
+				return;
+				
 			if (_asset.getChildByName("sp_hitArea"))
 			{
 				var hit:Sprite = Sprite(_asset.getChildByName("sp_hitArea"));
 				hitArea = new HitArea(hit.width, hit.height);
+				hitArea.x = hit.x;
+				hitArea.y = hit.y;
 				
-				_asset.removeChild(hit);
-				_asset.removeChild(hit);
+				hit.parent.removeChild(hit);
+				//_asset.removeChild(hit);
 			}
 			
 			_asset.focusRect = false;
 			
 			_asset.addEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
 			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
+			
+			_setup = true;
 		}
 		
 		protected function initialize():void 
@@ -50,6 +62,9 @@ package Geleca.Component
 		
 		public final function initializeComponent():Component
 		{
+			if (_initialized)
+				return this;
+				
 			setup();
 			initializeComponents();
 			initialize();
@@ -108,6 +123,7 @@ package Geleca.Component
 			if (value)
 			{
 				_asset.addChild(value);
+				_asset.hitArea = value;
 				_hitArea = value;
 			}
 		}
@@ -222,6 +238,9 @@ package Geleca.Component
 				_asset.parent.removeChild(_asset);
 			
 			ContainerUtil.removeAllChilds(_asset);
+			
+			_nav.destroy();
+			_nav = null;
 			
 			_asset 		= null;
 			_hitArea 	= null;

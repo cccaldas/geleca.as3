@@ -2,3 +2,4 @@
 Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.
 Website - Implementar no loader o carregamento da primeira página
 Website - Alterar a estrutura da Page para o carregamento das Views (estrutura nova)
+View - Inserir opção de remover LoaderItems, principalmente para ViewLoaderItem para que a referencia da View dependente seja perdida e o GC possa fazer o trabalho (ViewSwitcher)

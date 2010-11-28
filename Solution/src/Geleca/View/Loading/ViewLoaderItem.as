@@ -29,7 +29,7 @@ package Geleca.View.Loading
 			
 			_view.loadUp();
 			
-			trace(this, _view, _view.initialized);
+			//trace(this, _view, _view.initialized);
 		}
 		
 		private function view_progress(e:ProgressEvent):void 

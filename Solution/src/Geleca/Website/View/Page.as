@@ -145,7 +145,7 @@ package Geleca.Website.View
 			_pathNames = value;
 		}
 		
-		public function get loader():PageLoader { return _loader; }
+		//public function get loader():PageLoader { return _loader; }
 		
 		
 	}

@@ -28,6 +28,7 @@ package Geleca.View
 		private var _loader									:ViewLoader = new ViewLoader();
 		
 		private var _loaded									:Boolean;
+		private var _setup									:Boolean;
 		
 		public function View() 
 		{
@@ -36,6 +37,9 @@ package Geleca.View
 		
 		protected function setup():void 
 		{
+			if (_setup)
+				return;
+				
 			if (this.getChildByName("sp_hitArea"))
 			{
 				var hit:Sprite = Sprite(this.getChildByName("sp_hitArea"));
@@ -46,7 +50,10 @@ package Geleca.View
 			
 			this.focusRect = false;
 			
-			_loader.addEventListener(ProgressEvent.PROGRESS, dispatchEvent);
+			_loader.addEventListener(Event.INIT, 				dispatchEvent);
+			_loader.addEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
+			
+			_setup = true;
 		}
 		
 		protected function initialize():void 
@@ -92,6 +99,7 @@ package Geleca.View
 			
 				dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
 				
+				_loader.addEventListener(Event.INIT, 					dispatchEvent);
 				_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
 				_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
 				
@@ -122,18 +130,20 @@ package Geleca.View
 		{
 			initializeViews();
 			initializeComponents();
-			initialize();
 			_initialized = true;
+			initialize();
 		}
 		
 		public function show(onComplete:Function=null):void 
 		{
-			
+			if (onComplete != null)
+				onComplete();
 		}
 		
 		public function hide(onComplete:Function=null):void 
 		{
-			
+			if (onComplete != null)
+				onComplete();
 		}
 		
 		protected function addView(view:View):View 
@@ -168,6 +178,9 @@ package Geleca.View
 		{
 			if (_components.indexOf(component) == -1)
 				_components.push(component);
+				
+			if (this.initialized && !component.initialized)
+				component.initializeComponent();
 				
 			return component;
 		}
