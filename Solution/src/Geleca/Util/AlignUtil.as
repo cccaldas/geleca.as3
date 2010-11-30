@@ -74,12 +74,14 @@
 		
 		public static function distributeVertical(objects:Array, spacing:Number):void 
 		{
+			var object:Object;
+			var py:Number;
 			for (var i:int = 0; i < objects.length; i++) 
 			{
 				if (i != 0) 
 				{
-					var object:DisplayObject = objects[i];
-					var py:Number = objects[i].y = objects[i - 1].height + objects[i - 1].y + spacing;
+					object = objects[i];
+					py = objects[i].y = objects[i - 1].height + objects[i - 1].y + spacing;
 					object.y = py;
 					//if (i != 0) DisplayObject(dataList.getItemAt(i)).x = DisplayObject(dataList.getItemAt(i -1)).width + DisplayObject(dataList.getItemAt(i -1)).x + dataList.itemSpacingX;
 				}

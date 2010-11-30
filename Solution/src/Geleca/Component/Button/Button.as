@@ -104,7 +104,8 @@ package Geleca.Component.Button
 			if(stage)
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown, false, 0, true);
 				
-			rollOver();
+			if (enabled)
+				rollOver();
 			
 			super.focusIn();
 		}
@@ -113,8 +114,9 @@ package Geleca.Component.Button
 		{
 			if(stage)
 				stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
-				
-			rollOut();
+			
+			if (enabled)
+				rollOut();
 			
 			super.focusOut();
 		}

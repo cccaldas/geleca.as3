@@ -16,6 +16,8 @@ package
 		{
 			asset.txt.text = itemIndex.toString();
 			
+			trace(this);
+			
 			super.bind();
 		}
 		

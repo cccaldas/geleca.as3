@@ -33,6 +33,8 @@
 		public function DataList(container:Sprite, itemTemplateClass:Class) 
 		{
 			super(container);
+			
+			_itemTemplateClass = itemTemplateClass;
 		}
 		
 		override protected function setup():void 
@@ -111,32 +113,7 @@
 				itemTemplate.setAsset(asset);
 				itemTemplate.initializeComponent();
 				
-				if (direction == DIRECTION_HORIZONTAL)
-				{
-					//caso tenha 0 colunas, significa que será repetido infinitamente em horizontal.
-					if (columns == 0) 
-					{
-						itemTemplate.x = (itemTemplate.width + itemSpacingX)  * itemTemplate.itemIndex;
-					}
-					else 
-					{
-						itemTemplate.x = (itemTemplate.width + itemSpacingX)  * (itemTemplate.itemIndex % columns)
-						itemTemplate.y = (itemTemplate.height + itemSpacingY) * Math.floor(itemTemplate.itemIndex / columns);
-					}
-				}
-				else 
-				{
-					//caso tenha 0 colunas, significa que será repetido infinitamente em horizontal.
-					if (columns == 0) 
-					{
-						itemTemplate.y = (itemTemplate.height + itemSpacingY)  * itemTemplate.itemIndex;
-					}
-					else 
-					{
-						itemTemplate.y = (itemTemplate.height + itemSpacingY) * (itemTemplate.itemIndex % columns)
-						itemTemplate.x = (itemTemplate.width + itemSpacingX) * Math.floor(itemTemplate.itemIndex / columns);
-					}
-				}
+				//align
 				
 				container.addChild(asset);
 				
@@ -147,7 +124,46 @@
 				dispatchEvent(new DataListEvent(DataListEvent.ITEM_CREATED, itemTemplate));
 			}
 			
+			align();
+			
 			dispatchEvent(new DataListEvent(DataListEvent.BINDED));
+		}
+		
+		public function align():void 
+		{
+			var itemTemplate	:ItemTemplate;
+			
+			for (var i:int = 0; i < length; i++) 
+			{
+				itemTemplate = getItemAt(i);
+				
+				if (direction == DIRECTION_HORIZONTAL)
+					{
+						//caso tenha 0 colunas, significa que será repetido infinitamente em horizontal.
+						if (columns == 0) 
+						{
+							itemTemplate.x = (itemTemplate.width + itemSpacingX)  * itemTemplate.itemIndex;
+						}
+						else 
+						{
+							itemTemplate.x = (itemTemplate.width + itemSpacingX)  * (itemTemplate.itemIndex % columns)
+							itemTemplate.y = (itemTemplate.height + itemSpacingY) * Math.floor(itemTemplate.itemIndex / columns);
+						}
+					}
+					else 
+					{
+						//caso tenha 0 colunas, significa que será repetido infinitamente em horizontal.
+						if (columns == 0) 
+						{
+							itemTemplate.y = (itemTemplate.height + itemSpacingY)  * itemTemplate.itemIndex;
+						}
+						else 
+						{
+							itemTemplate.y = (itemTemplate.height + itemSpacingY) * (itemTemplate.itemIndex % columns)
+							itemTemplate.x = (itemTemplate.width + itemSpacingX) * Math.floor(itemTemplate.itemIndex / columns);
+						}
+					}
+			}
 		}
 		
 		public function get length()			:uint 			{ return dataSource != null ? dataSource.length : 0; }

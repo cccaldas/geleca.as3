@@ -8,7 +8,7 @@ package Geleca.Component.Form
 	
 	public class TextInput extends Input
 	{
-		private var _textField				:TextField = new TextField();
+		private var _textField				:TextField;
 		private var _background				:Sprite;
 		private var _padding				:Number = 0;
 		
@@ -16,15 +16,13 @@ package Geleca.Component.Form
 		{
 			super(asset);
 			
-			
+			_background = Sprite(_asset.getChildByName("bg_textInput"));
+			_textField	= TextField(_asset.getChildByName("txt_textInput"));
 		}
 		
 		override protected function setup():void 
 		{
-			super.setup();
-			
-			_background = Sprite(_asset.getChildByName("bg_textInput"));
-			_textField	= TextField(_asset.getChildByName("txt_textInput"));
+			super.setup();			
 			_padding 	= (_textField.x + _textField.y) * .5;
 			
 			var width:Number = this.width;
@@ -135,6 +133,16 @@ package Geleca.Component.Form
 		}
 		
 		public function get padding():Number { return _padding; }
+		
+		public function get displayAsPassword():Boolean
+		{
+			return textField.displayAsPassword;
+		}
+		
+		public function set displayAsPassword(value:Boolean):void
+		{
+			textField.displayAsPassword = value;
+		}
 		
 		override public function destroy():void 
 		{

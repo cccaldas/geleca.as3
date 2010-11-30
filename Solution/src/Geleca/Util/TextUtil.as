@@ -79,6 +79,11 @@
 			target.text 				= target.text;
 		}
 		
+		public static function textHeight(target:TextField):void 
+		{
+			target.height = (target.getLineMetrics(0).height * .5) + target.textHeight;
+		}
+		
 	}
 	
 }

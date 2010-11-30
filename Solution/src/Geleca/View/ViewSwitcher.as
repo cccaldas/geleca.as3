@@ -82,8 +82,8 @@ package Geleca.View
 		private function swap_loadHideShow(view:Class):void 
 		{
 			var _view:View = new view();
-			_view.addEventListener(ProgressEvent.PROGRESS, dispatchEvent);
-			_view.addEventListener(Event.COMPLETE, view_complete);
+			_view.addEventListener(ProgressEvent.PROGRESS, 		dispatchEvent);
+			_view.addEventListener(Event.COMPLETE, 				view_complete);
 			
 			addView(_view);			
 			
