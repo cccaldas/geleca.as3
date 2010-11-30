@@ -40,7 +40,7 @@ package Geleca.View
 		
 		public function swap(view:Class, transition:String=null):void 
 		{
-			if (_current is view)
+			if (_current is view || view == null)
 				return;
 				
 			if (!transition)

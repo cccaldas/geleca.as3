@@ -18,15 +18,20 @@ package Geleca.Util
 		
 		private var txt_report			:TextField = new TextField();
 		
-		public function StatsMonitor() 
+		public function StatsMonitor(background:uint=0x000000) 
 		{
-			this.blendMode = BlendMode.INVERT;
+			this.graphics.beginFill(background);
+			this.graphics.drawRect(0, 0, 400, 20);
+			this.graphics.endFill();
+			
+			//this.blendMode = BlendMode.INVERT;
 			addChild(txt_report);
 			txt_report.autoSize = TextFieldAutoSize.LEFT;
 			
 			var tf:TextFormat = new TextFormat();
 			tf.font = "Arial";
 			tf.size = 10;
+			tf.color = 0xffffff;
 			txt_report.defaultTextFormat = tf;
 			
 			if (stage)
