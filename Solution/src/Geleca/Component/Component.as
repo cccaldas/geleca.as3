@@ -184,6 +184,12 @@ package Geleca.Component
 			_asset.y = value;
 		}
 		
+		public function get alpha():Number { return _asset.alpha; }
+		public function set alpha(value:Number):void 
+		{
+			_asset.alpha = value;
+		}
+		
 		public function get width():Number { return (hitArea) ? hitArea.width : _asset.width; }
 		
 		public function set width(value:Number):void 

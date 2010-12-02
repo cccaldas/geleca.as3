@@ -5,6 +5,8 @@ package
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import Geleca.Component.Data.DataList;
+	import Geleca.Layout.Layout;
+	import Geleca.Layout.LayoutSettings;
 	import Geleca.View.View;
 	
 	/**
@@ -14,6 +16,7 @@ package
 	public class Main extends View 
 	{
 		public var dlst_list		:DataList;
+		private var _layout			:Layout;
 		
 		public function Main():void 
 		{
@@ -25,6 +28,8 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			
+			_layout = new Layout(stage);
 			
 			initializeView();
 		}
@@ -43,7 +48,9 @@ package
 			
 			dlst_list = addComponent(new DataList(container, SquareItemTemplate)) as DataList;
 			dlst_list.direction = DataList.DIRECTION_VERTICAL;
-			dlst_list.columns = 5;			
+			dlst_list.columns = 5;		
+			
+			_layout.addElement(dlst_list, new LayoutSettings(null, null, LayoutSettings.NONE, LayoutSettings.MIDDLE));
 		}
 		
 		override protected function initialize():void 
@@ -58,6 +65,8 @@ package
 			
 			dlst_list.dataSource = list;
 			dlst_list.dataBind();
+			
+			_layout.renderElement(dlst_list);
 		}
 		
 	}

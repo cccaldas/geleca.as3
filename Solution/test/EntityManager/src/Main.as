@@ -2,6 +2,8 @@ package
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import Geleca.Data.DataQuery;
+	import Geleca.Data.DataTable;
 	
 	/**
 	 * ...
@@ -23,7 +25,8 @@ package
 			
 			new EntityTest().run();	
 			//new DataTableTest().run();
-			//new AdapterTest().run();			
+			//new AdapterTest().run();
+			
 		}
 		
 	}

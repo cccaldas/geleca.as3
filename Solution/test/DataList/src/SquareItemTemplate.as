@@ -14,7 +14,7 @@ package
 		
 		override protected function bind():void 
 		{
-			asset.txt.text = itemIndex.toString();
+			asset.txt.text = "item - " + itemIndex.toString();
 			
 			trace(this);
 			
