@@ -56,6 +56,8 @@ package Geleca.View
 					swap_loadHideShow(view);
 				break;
 			}
+			
+			dispatchEvent(new Event(Event.INIT));
 		}
 		
 		private function swap_hideLoadShow(view:Class):void 
@@ -74,8 +76,15 @@ package Geleca.View
 			
 			function current_complete(e:Event):void 
 			{
-				dispatchEvent(e);
-				_current.show();
+				_current.show(current_showComplete);
+			}
+			
+			function current_showComplete():void 
+			{
+				dispatchEvent(new Event(Event.COMPLETE));
+				
+				_current.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
+				_current.removeEventListener(Event.COMPLETE, 			current_complete);
 			}
 		}
 		
@@ -96,7 +105,15 @@ package Geleca.View
 			{
 				removeView(_current);
 				_current = _view;
-				_current.show();
+				_current.show(current_showComplete);				
+			}
+			
+			function current_showComplete():void 
+			{
+				dispatchEvent(new Event(Event.COMPLETE));
+				
+				_view.removeEventListener(ProgressEvent.PROGRESS, 		dispatchEvent);
+				_view.removeEventListener(Event.COMPLETE, 				view_complete);
 			}
 		}
 		

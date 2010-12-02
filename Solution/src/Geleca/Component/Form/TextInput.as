@@ -3,6 +3,7 @@ package Geleca.Component.Form
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.FocusEvent;
+	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
 	
@@ -33,6 +34,29 @@ package Geleca.Component.Form
 			this.height 	= height;
 			
 			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
+			
+			_asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			_asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+		}
+		
+		private function asset_rollOver(e:MouseEvent):void 
+		{
+			rollOver();
+		}
+		
+		private function asset_rollOut(e:MouseEvent):void 
+		{
+			rollOut();
+		}
+		
+		protected function rollOver():void 
+		{
+			
+		}
+		
+		protected function rollOut():void 
+		{
+			
 		}
 		
 		override public function set width(value:Number):void 
@@ -147,6 +171,9 @@ package Geleca.Component.Form
 		override public function destroy():void 
 		{
 			_asset.removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
+			
+			_asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			_asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
 			
 			_textField 		= null;
 			_background 	= null;

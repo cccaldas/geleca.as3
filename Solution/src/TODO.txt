@@ -1,0 +1,6 @@
+﻿//TODO: Button - Implementar o releaseOutSide
+//TODO: Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.
+//TODO: Website - Implementar no loader o carregamento da primeira página
+//TODO: Website - Alterar a estrutura da Page para o carregamento das Views (estrutura nova)
+//TODO: View - Inserir opção de remover LoaderItems, principalmente para ViewLoaderItem para que a referencia da View dependente seja perdida e o GC possa fazer o trabalho (ViewSwitcher)
+//TODO: Component: Implementar o rollOver e rollOut no component e não no button, pois o textfield tbm usa

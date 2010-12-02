@@ -12,7 +12,7 @@
 			
 		}
 		
-		public static function removeAllChilds(container:DisplayObjectContainer):void 
+		public static function removeAllChilds(container:DisplayObjectContainer, recursive:Boolean=false):void 
 		{
 			if (container != null) 
 			{
@@ -21,6 +21,8 @@
 				while (container.numChildren != 0) 
 				{
 					dsp = container.removeChildAt(0);
+					if (dsp is DisplayObjectContainer && recursive)
+						removeAllChilds(DisplayObjectContainer(dsp), true);
 					dsp = null;
 				}
 				

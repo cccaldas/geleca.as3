@@ -243,7 +243,7 @@ package Geleca.Component
 			if (_asset.parent)
 				_asset.parent.removeChild(_asset);
 			
-			ContainerUtil.removeAllChilds(_asset);
+			ContainerUtil.removeAllChilds(_asset, true);
 			
 			_nav.destroy();
 			_nav = null;
