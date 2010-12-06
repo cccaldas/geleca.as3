@@ -1,5 +1,9 @@
 package Geleca.Data 
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DataQuery
 	{
 		public static const EQUAL					:String = "EQUAL";

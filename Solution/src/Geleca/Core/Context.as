@@ -2,7 +2,10 @@ package Geleca.Core
 {
 	import flash.system.System;
 	import flash.utils.Dictionary;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Context
 	{
 		private var _objects	:Dictionary = new Dictionary();

@@ -1,6 +1,9 @@
 ﻿package Geleca.Component.Data
 {
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public interface IBindable 
 	{
 		function dataBind():void

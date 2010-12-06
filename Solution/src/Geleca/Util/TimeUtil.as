@@ -1,6 +1,9 @@
 ﻿package Geleca.Util
 {
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class TimeUtil
 	{
 		

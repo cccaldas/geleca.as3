@@ -6,6 +6,11 @@ package Geleca.Component.Button
 	import flash.ui.Keyboard;
 	import Geleca.Display.HitArea;
 	import Geleca.Component.Component;
+	import Geleca.Events.ButtonEvent;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	
 	public class Button extends Component
 	{
@@ -55,6 +60,21 @@ package Geleca.Component.Button
 		{
 			dispatchEvent(e);
 			mouseDown();
+			
+			if (stage)
+				stage.addEventListener(MouseEvent.MOUSE_UP, stage_click);
+		}
+		
+		private function stage_click(e:MouseEvent):void 
+		{
+			if (stage)
+				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);
+			
+			if (e.target != _asset)
+			{
+				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUT_SIDE));
+				releaseOutSide();
+			}
 		}
 		
 		private function asset_mouseUp(e:MouseEvent):void 
@@ -70,6 +90,11 @@ package Geleca.Component.Button
 		}
 		
 		protected function click():void 
+		{
+			
+		}
+		
+		protected function releaseOutSide():void 
 		{
 			
 		}
@@ -170,6 +195,9 @@ package Geleca.Component.Button
 			_asset.removeEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
 			_asset.removeEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
 			_asset.removeEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
+			
+			if (stage)
+				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);
 			
 			super.destroy();
 		}

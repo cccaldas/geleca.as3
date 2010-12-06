@@ -13,7 +13,10 @@
 	import flash.utils.Dictionary;
 	import Geleca.Util.AlignUtil;
 	import Geleca.Events.SimpleEventDispatcher;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Layout extends SimpleEventDispatcher
 	{	
 		private var _container   		:DisplayObjectContainer;

@@ -6,7 +6,10 @@ package Geleca.Component.Form
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class TextInput extends Input
 	{
 		private var _textField				:TextField;

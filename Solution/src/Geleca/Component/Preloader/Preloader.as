@@ -2,7 +2,10 @@ package Geleca.Component.Preloader
 {
 	import flash.display.Sprite;
 	import Geleca.Component.Component;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Preloader extends Component
 	{
 		private var _progress						:Number;

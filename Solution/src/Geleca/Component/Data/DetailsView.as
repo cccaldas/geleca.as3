@@ -1,7 +1,10 @@
 ﻿package Geleca.Component.Data
 {
 	import flash.display.Sprite;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DetailsView extends DataView
 	{
 		

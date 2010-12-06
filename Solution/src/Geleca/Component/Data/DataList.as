@@ -10,10 +10,14 @@
 	import Geleca.Util.DepthUtil;
 	import Geleca.Util.ObjectUtil;
 	import Geleca.View.View;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	
-	[Event(name="itemCreated", 		type="Simbionte.Events.DataListEvent")] 
-	[Event(name="bind", 			type="Simbionte.Events.DataListEvent")] 
-	[Event(name="binded", 			type="Simbionte.Events.DataListEvent")] 
+	[Event(name="itemCreated", 		type="Geleca.Events.DataListEvent")] 
+	[Event(name="bind", 			type="Geleca.Events.DataListEvent")] 
+	[Event(name="binded", 			type="Geleca.Events.DataListEvent")] 
 	
 	public class DataList extends DataView
 	{

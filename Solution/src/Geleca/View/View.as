@@ -16,7 +16,10 @@ package Geleca.View
 	import Geleca.Util.ContainerUtil;
 	import Geleca.View.Loading.LoaderItem;
 	import Geleca.View.Loading.ViewLoader;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class View extends Sprite implements IDestroyable
 	{
 		private var _enabled								:Boolean = true;

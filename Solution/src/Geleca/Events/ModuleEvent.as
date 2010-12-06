@@ -1,7 +1,10 @@
 package Geleca.Events
 {
 	import flash.events.Event;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ModuleEvent extends Event 
 	{
 		private static const NAME					:String = "ModuleEvent";

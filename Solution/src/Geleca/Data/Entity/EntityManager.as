@@ -1,7 +1,10 @@
 package Geleca.Data.Entity 
 {
 	import flash.utils.Dictionary;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class EntityManager
 	{
 		private var _sets		:Dictionary = new Dictionary();

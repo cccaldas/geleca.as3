@@ -5,7 +5,7 @@ package Geleca.Data.Entity
 	import Geleca.Data.DataTable;
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	
 	//TODO: Implementar Relationships: Update

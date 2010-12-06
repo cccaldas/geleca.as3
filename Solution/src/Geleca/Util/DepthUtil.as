@@ -2,7 +2,10 @@
 {
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 
 	public class DepthUtil 
 	{

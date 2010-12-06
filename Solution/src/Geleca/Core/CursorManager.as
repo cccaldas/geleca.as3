@@ -10,7 +10,10 @@
 	import Geleca.Exception.CursorManagerException;
 	import Geleca.Util.DepthUtil;
 	import Geleca.Component.Cursor.CustomCursor;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class CursorManager implements IDestroyable
 	{
 		private var _cursors					:Dictionary 	= new Dictionary();

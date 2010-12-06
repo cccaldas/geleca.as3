@@ -1,5 +1,9 @@
 ﻿package Geleca.Exception
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class LayoutManagerException
 	{
 		public static const DUPLICATE_ID	:String = "Já existe um objeto adicionado com o ID";

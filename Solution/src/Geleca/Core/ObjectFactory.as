@@ -2,7 +2,10 @@ package Geleca.Core
 {
 	import flash.utils.Dictionary;			
 	import Geleca.Util.ObjectUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ObjectFactory
 	{
 		private var _pools:Dictionary = new Dictionary();

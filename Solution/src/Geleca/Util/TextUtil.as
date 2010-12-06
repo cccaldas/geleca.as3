@@ -3,7 +3,10 @@
 	import com.adobe.utils.StringUtil;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class TextUtil
 	{
 		

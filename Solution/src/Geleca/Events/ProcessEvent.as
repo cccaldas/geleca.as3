@@ -1,7 +1,10 @@
 package Geleca.Events
 {
 	import flash.events.Event;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ProcessEvent extends Event 
 	{
 		public static const START				:String = "START";

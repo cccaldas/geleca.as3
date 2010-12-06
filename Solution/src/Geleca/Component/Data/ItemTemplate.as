@@ -2,7 +2,10 @@
 {
 	import flash.display.Sprite;
 	import Geleca.Asset.AssetNav;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ItemTemplate extends DataView
 	{
 		private var _itemIndex						:int = 0;

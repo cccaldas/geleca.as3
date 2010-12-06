@@ -2,7 +2,10 @@
 {
 	import flash.events.EventDispatcher;
 	import Geleca.Core.IDestroyable;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class SimpleEventDispatcher extends EventDispatcher implements IDestroyable
 	{
 		public function SimpleEventDispatcher() 

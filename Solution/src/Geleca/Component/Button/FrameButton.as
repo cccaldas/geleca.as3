@@ -1,6 +1,10 @@
 package Geleca.Component.Button 
 {
 	import flash.display.MovieClip;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	
 	public class FrameButton extends Button
 	{

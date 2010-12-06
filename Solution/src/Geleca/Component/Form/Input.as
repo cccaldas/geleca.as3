@@ -2,7 +2,10 @@ package Geleca.Component.Form
 {
 	import flash.display.Sprite;
 	import Geleca.Component.Component;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Input extends Component
 	{
 		private var _valid					:Boolean = true;

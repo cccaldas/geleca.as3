@@ -2,7 +2,10 @@
 {
 	import Geleca.Component.Form.TextInput;
 	import Geleca.Component.Form.Input;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class FormValidation 
 	{
 		public static const TYPE_FILE_INPUT						:String = "fileInput";

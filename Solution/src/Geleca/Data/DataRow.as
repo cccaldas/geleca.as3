@@ -1,5 +1,9 @@
 package Geleca.Data 
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public dynamic class DataRow extends Object
 	{
 		

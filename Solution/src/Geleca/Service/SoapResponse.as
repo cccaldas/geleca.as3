@@ -1,5 +1,9 @@
 ﻿package Geleca.Service 
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class SoapResponse
 	{
 		private var _xml        :XML;

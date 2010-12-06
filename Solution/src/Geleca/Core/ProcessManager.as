@@ -4,7 +4,10 @@ package Geleca.Core
 	import flash.utils.Dictionary;
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Events.ProcessEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ProcessManager extends SimpleEventDispatcher
 	{
 		private var _processes				:Dictionary 		= new Dictionary();

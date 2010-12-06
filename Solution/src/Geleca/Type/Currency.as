@@ -2,7 +2,10 @@
 {
 	import com.adobe.utils.NumberFormatter;
 	import com.adobe.utils.StringUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Currency extends Object
 	{
 		private var _value                :Number = 0;

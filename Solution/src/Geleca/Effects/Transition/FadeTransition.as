@@ -2,7 +2,10 @@ package Geleca.Effects.Transition
 {
 	import caurina.transitions.Tweener;
 	import flash.display.DisplayObject;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class FadeTransition
 	{
 		

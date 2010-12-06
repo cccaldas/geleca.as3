@@ -1,7 +1,10 @@
 ﻿package Geleca.Util
 {
 	import com.adobe.utils.StringUtil;
-
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class SQLUtil
 	{
 		

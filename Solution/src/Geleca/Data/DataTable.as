@@ -6,7 +6,10 @@
 	import Geleca.Core.IDestroyable;
 	import Geleca.Exception.DataTableException;
 	import Geleca.Util.VectorUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DataTable implements IDestroyable
 	{
 		private var _destroyed						:Boolean = false;

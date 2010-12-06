@@ -1,5 +1,9 @@
 ﻿package Geleca.Data.Paging
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Paging
 	{
 		private var _pageCurrent    :int = 1;

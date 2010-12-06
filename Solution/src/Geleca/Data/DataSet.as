@@ -3,7 +3,10 @@ package Geleca.Data
 	import flash.utils.Dictionary;
 	import Geleca.Core.IDestroyable;
 	import Geleca.Data.DataTable;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DataSet implements IDestroyable
 	{
 		private var _tables							:Dictionary = new Dictionary();

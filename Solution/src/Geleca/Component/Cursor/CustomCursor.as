@@ -3,6 +3,10 @@
 	import flash.display.Sprite;
 	import Geleca.Util.DepthUtil;
 	import Geleca.Component.Component;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	
 	public class CustomCursor extends Component
 	{		

@@ -1,7 +1,10 @@
 package Geleca.Component.Form
 {
 	import flash.display.Sprite;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class TextArea extends TextInput
 	{
 		

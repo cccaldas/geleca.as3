@@ -3,7 +3,10 @@
 	import flash.display.Sprite;
 	import flash.system.System;
 	import Geleca.Component.Component;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DataView extends Component implements IBindable
 	{
 		private var _dataSource						:Object;

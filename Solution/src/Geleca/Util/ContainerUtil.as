@@ -3,7 +3,10 @@
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.system.System;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ContainerUtil 
 	{
 		

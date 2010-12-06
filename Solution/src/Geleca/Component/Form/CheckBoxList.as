@@ -2,7 +2,10 @@
 {
 	import flash.display.Sprite;
 	import Geleca.Events.InputEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class CheckBoxList extends Input
 	{
 		private var _checks							:Vector.<CheckBox> = new Vector.<CheckBox>();

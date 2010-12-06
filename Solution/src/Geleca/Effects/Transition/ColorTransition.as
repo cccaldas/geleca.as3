@@ -3,7 +3,10 @@ package Geleca.Effects.Transition
 	import caurina.transitions.properties.ColorShortcuts;
 	import caurina.transitions.Tweener;
 	import flash.display.DisplayObject;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class ColorTransition
 	{
 		private static var _colorShortInit	:Boolean = false;

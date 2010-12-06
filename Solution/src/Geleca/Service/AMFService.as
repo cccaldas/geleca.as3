@@ -5,7 +5,10 @@
 	import flash.events.NetStatusEvent;
 	import flash.net.NetConnection;
 	import Geleca.Events.SimpleEventDispatcher;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class AMFService extends SimpleEventDispatcher
 	{
 		private var _gateway                 :String = null;

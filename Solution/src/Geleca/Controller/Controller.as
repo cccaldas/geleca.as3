@@ -1,7 +1,10 @@
 package Geleca.Controller 
 {
 	import Geleca.Events.SimpleEventDispatcher;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Controller extends SimpleEventDispatcher
 	{
 		private var _initialized							:Boolean = false;
@@ -23,6 +26,9 @@ package Geleca.Controller
 		
 		public final function initializeController():void 
 		{
+			if (_initialized)
+				return;
+				
 			setup();
 			initialize();
 			_initialized = true;

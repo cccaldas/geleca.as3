@@ -3,7 +3,7 @@ package Geleca.Util
 	import flash.utils.getDefinitionByName;
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	public class ObjectUtil
 	{

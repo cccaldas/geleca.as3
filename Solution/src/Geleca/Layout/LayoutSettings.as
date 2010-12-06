@@ -1,7 +1,10 @@
 ﻿package Geleca.Layout 
 {
 	import flash.display.DisplayObject;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class LayoutSettings
 	{		
 		public static const NONE			:String = "NONE";

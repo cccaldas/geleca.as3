@@ -2,7 +2,10 @@
 {
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
-
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class URLUtil 
 	{
 		

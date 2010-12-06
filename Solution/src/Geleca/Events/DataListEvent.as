@@ -2,7 +2,10 @@
 {
 	import flash.events.Event;
 	import Geleca.Component.Data.ItemTemplate;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class DataListEvent extends Event 
 	{
 		public static const ITEM_CREATED        :String = "itemCreated";

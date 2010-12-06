@@ -8,7 +8,10 @@
 	import flash.ui.ContextMenu;
 	import flash.ui.ContextMenuItem;
 	import Geleca.Util.URLUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class CustomContextMenu 
 	{
 		private const SIMBIONTE					:String = "© " + new Date().getFullYear() + " Simbionte Studios";

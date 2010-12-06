@@ -3,7 +3,10 @@
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Stage;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class AlignUtil 
 	{
 		

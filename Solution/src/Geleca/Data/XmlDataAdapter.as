@@ -2,7 +2,7 @@ package Geleca.Data
 {
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	public class XmlDataAdapter extends DataAdapter
 	{

@@ -3,7 +3,10 @@
 	import flash.display.DisplayObject;
 	import flash.geom.Matrix;
 	import flash.geom.Point;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class TransformUtil 
 	{
 		

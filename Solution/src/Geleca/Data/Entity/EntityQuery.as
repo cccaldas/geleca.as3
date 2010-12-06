@@ -1,7 +1,10 @@
 package Geleca.Data.Entity 
 {
 	import Geleca.Data.DataQuery;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class EntityQuery
 	{
 		public static const EQUAL					:String = DataQuery.EQUAL;

@@ -2,7 +2,10 @@ package Geleca.Component.Form
 {
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class RadioButton extends CheckBox
 	{
 		

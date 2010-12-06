@@ -7,7 +7,10 @@
 	import Geleca.Events.BusyManagerEvent;
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Util.DepthUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class BusyManager extends SimpleEventDispatcher
 	{
 		public static const BUSY				:String = "BUSY";

@@ -2,7 +2,10 @@ package Geleca.Core
 {
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Events.ProcessEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Process extends SimpleEventDispatcher
 	{
 		private var _id								:String;

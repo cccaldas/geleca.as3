@@ -3,7 +3,10 @@
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
 	import flash.geom.Rectangle;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class GeomUtil 
 	{
 		

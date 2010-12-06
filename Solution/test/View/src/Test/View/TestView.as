@@ -1,6 +1,7 @@
 package Test.View 
 {
 	import flash.display.Bitmap;
+	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.MouseEvent;
@@ -22,11 +23,13 @@ package Test.View
 		private var _asset				:TestAsset;
 		public var prl_preloader		:TestPreloader;
 		
+		private var asset	:Sprite;
+		
 		public var photos				:PhotosView;
 		
 		public function TestView() 
 		{
-			this.initializeView();
+			
 		}
 		
 		override protected function setup():void 
@@ -36,9 +39,10 @@ package Test.View
 			photos = addView(new PhotosView()) as PhotosView;
 			photos.y = 30;
 			
-			addLoaderItem(new LoaderInfoLoaderItem(loaderInfo));
+			
 			addLoaderItem(new ViewLoaderItem("photos", photos));
 			
+			addLoaderItem(new AssetLoaderItem("asset", 		"../assets/swc/View.swf"));
 			addLoaderItem(new AssetLoaderItem("photo-4", 	"upld/Acdsee-Photo-Editor_1.png"));
 			addLoaderItem(new FileLoaderItem("photo-5", 	"upld/photo_collage-34262-1.jpeg"));
 			addLoaderItem(new FileLoaderItem("photo-6", 	"upld/photo_montage_symbols.jpg"));
@@ -46,17 +50,6 @@ package Test.View
 			addLoaderItem(new FileLoaderItem("photo-8", 	"upld/slide_show_organize_photo.gif"));
 			addLoaderItem(new FileLoaderItem("data", 		"xml/data.xml"));
 			
-			_asset = new TestAsset();
-			addChild(_asset);
-			
-			prl_preloader = addComponent(new TestPreloader(_asset.prl_preloader)) as TestPreloader;
-			
-			stage.align 	= StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
-			
-			new CustomContextMenu(this);
-			
-			stage.addEventListener(MouseEvent.CLICK, stage_click);
 			addEventListener(ProgressEvent.PROGRESS, _progress);
 		}
 		
@@ -70,6 +63,18 @@ package Test.View
 		{
 			super.initialize();
 			
+			_asset = new TestAsset();
+			addChild(_asset);
+			
+			asset = new ViewAsset();
+			addChild(asset);
+			trace(this, ViewAsset(asset).btn_1, asset);
+			
+			prl_preloader = addComponent(new TestPreloader(_asset.prl_preloader)) as TestPreloader;
+			prl_preloader.progress = .5;
+			
+			stage.addEventListener(MouseEvent.CLICK, stage_click);
+			
 			//addChild(loader.getItem("photo-1")).y = 30;
 			
 			trace(this, "initialize");
@@ -77,7 +82,7 @@ package Test.View
 		
 		private function _progress(e:ProgressEvent):void 
 		{
-			prl_preloader.progress = loader.progress;
+			//prl_preloader.progress = loader.progress;
 			trace(this, "progress", loader.progress);
 		}
 		

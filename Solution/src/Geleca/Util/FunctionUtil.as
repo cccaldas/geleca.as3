@@ -2,7 +2,10 @@ package Geleca.Util
 {
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class FunctionUtil
 	{
 		

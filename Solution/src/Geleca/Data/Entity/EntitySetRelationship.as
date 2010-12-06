@@ -2,7 +2,7 @@ package Geleca.Data.Entity
 {
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	public class EntitySetRelationship
 	{

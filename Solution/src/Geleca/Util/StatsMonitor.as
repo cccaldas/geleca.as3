@@ -8,7 +8,10 @@ package Geleca.Util
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.utils.getTimer;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class StatsMonitor extends Sprite
 	{
 		private var _mem				:Number = 0;

@@ -11,7 +11,10 @@ package Geleca.Component
 	import Geleca.Events.SimpleEventDispatcher;
 	import Geleca.Events.StateEvent;
 	import Geleca.Util.ContainerUtil;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class Component extends SimpleEventDispatcher
 	{
 		private var _enabled								:Boolean = true;

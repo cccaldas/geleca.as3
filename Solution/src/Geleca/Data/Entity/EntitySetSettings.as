@@ -3,7 +3,7 @@ package Geleca.Data.Entity
 	import Geleca.Data.DataTable;
 	/**
 	 * ...
-	 * @author 
+	 * @author Cristiano Caldas
 	 */
 	public class EntitySetSettings
 	{

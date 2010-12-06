@@ -5,7 +5,10 @@
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import Geleca.Events.InputEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class CheckBox extends Input
 	{
 		private var _checked                    :Boolean = false;

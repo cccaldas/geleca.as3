@@ -1,5 +1,9 @@
 ﻿package Geleca.Data.Paging
 {
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class PagingVO
 	{
 		private var _pageCurrent    :uint = 1;

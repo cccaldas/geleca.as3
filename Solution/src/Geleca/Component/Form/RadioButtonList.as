@@ -2,7 +2,10 @@ package Geleca.Component.Form
 {
 	import flash.display.Sprite;
 	import Geleca.Events.InputEvent;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class RadioButtonList extends Input
 	{
 		private var _radios							:Vector.<RadioButton> = new Vector.<RadioButton>();

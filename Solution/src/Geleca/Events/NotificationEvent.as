@@ -1,7 +1,10 @@
 package Geleca.Events
 {
 	import flash.events.Event;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class NotificationEvent extends Event 
 	{
 		public static const NOTIFICATION			:String = "NOTIFICATION";

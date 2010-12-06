@@ -1,7 +1,10 @@
 ﻿package Geleca.Display 
 {
 	import flash.display.Sprite;
-	
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	public class HitArea extends Sprite
 	{
 		
