@@ -50,7 +50,7 @@ package Test.View
 			addLoaderItem(new FileLoaderItem("photo-8", 	"upld/slide_show_organize_photo.gif"));
 			addLoaderItem(new FileLoaderItem("data", 		"xml/data.xml"));
 			
-			addEventListener(ProgressEvent.PROGRESS, _progress);
+			//addEventListener(ProgressEvent.PROGRESS, _progress);
 		}
 		
 		private function stage_click(e:MouseEvent):void 

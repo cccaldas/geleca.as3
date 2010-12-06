@@ -72,6 +72,7 @@
     <class>Geleca.Effects.Transition.ColorTransition</class>
     <class>Geleca.Effects.Transition.FadeTransition</class>
     <class>Geleca.Events.BusyManagerEvent</class>
+    <class>Geleca.Events.ButtonEvent</class>
     <class>Geleca.Events.DataListEvent</class>
     <class>Geleca.Events.EventManager</class>
     <class>Geleca.Events.InputEvent</class>
@@ -96,9 +97,9 @@
     <class>Geleca.Util.AlignUtil</class>
     <class>Geleca.Util.BitmapUtil</class>
     <class>Geleca.Util.ContainerUtil</class>
-    <class>Geleca.Util.DataProviderUtil</class>
     <class>Geleca.Util.DepthUtil</class>
     <class>Geleca.Util.DrawUtil</class>
+    <class>Geleca.Util.FunctionPool</class>
     <class>Geleca.Util.FunctionUtil</class>
     <class>Geleca.Util.GeomUtil</class>
     <class>Geleca.Util.HtmlTags</class>
@@ -124,17 +125,9 @@
     <class>Geleca.View.Loading.LoaderItem</class>
     <class>Geleca.View.Loading.ServiceLoaderItem</class>
     <class>Geleca.View.Loading.SWFAddressInitLoaderItem</class>
+    <class>Geleca.View.Loading.TimerLoaderItem</class>
     <class>Geleca.View.Loading.ViewLoader</class>
     <class>Geleca.View.Loading.ViewLoaderItem</class>
-    <class>Geleca.Website.Controller.PageLoader</class>
-    <class>Geleca.Website.Controller.Loading.AssetLoaderItem</class>
-    <class>Geleca.Website.Controller.Loading.FileLoaderItem</class>
-    <class>Geleca.Website.Controller.Loading.LoaderItem</class>
-    <class>Geleca.Website.Controller.Loading.ServiceLoaderItem</class>
-    <class>Geleca.Website.Controller.Router.URLRouter</class>
-    <class>Geleca.Website.View.Page</class>
-    <class>Geleca.Website.View.PageSwitcher</class>
-    <class>Geleca.Website.View.PageView</class>
     <class>com.gskinner.geom.ColorMatrix</class>
     <class>fluorinefx.data.FluorineDataTable</class>
   </include-classes>

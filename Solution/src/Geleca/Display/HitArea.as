@@ -6,8 +6,7 @@
 	 * @author Cristiano Caldas
 	 */
 	public class HitArea extends Sprite
-	{
-		
+	{		
 		public function HitArea(width:Number, height:Number, alpha:Number=0, fillColor:uint=0xffffff, lineColor:uint=0x000000)
 		{
 			graphics.beginFill(fillColor, 1);
@@ -26,6 +25,15 @@
 			mouseEnabled = mouseChildren = false;
 			
 			this.alpha = alpha;
+		}
+		
+		public function clone():HitArea
+		{
+			var hit:HitArea = new HitArea(1, 1);
+			hit.alpha = this.alpha;
+			hit.graphics.copyFrom(this.graphics);
+			
+			return hit;
 		}
 		
 	}

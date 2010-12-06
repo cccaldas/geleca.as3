@@ -1,6 +1,7 @@
 ﻿package Geleca.UI
 {
 	import flash.display.DisplayObject;
+	import flash.display.InteractiveObject;
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.display.StageDisplayState;
@@ -22,14 +23,14 @@
 		
 		protected var contextMenu                :ContextMenu = new ContextMenu();
 		
-		private var _target						:Sprite;
+		private var _target						:InteractiveObject;
 		
 		private var _simbionteItem				:ContextMenuItem;
 		private var _fullscreenItem				:ContextMenuItem;
 		
 		private var _showFullscreen				:Boolean;
 		
-		public function CustomContextMenu(target:Sprite, showFullscreen:Boolean=true) 
+		public function CustomContextMenu(target:InteractiveObject, showFullscreen:Boolean=true) 
 		{
 			this._target   			= target;
 			this._showFullscreen 	= showFullscreen;

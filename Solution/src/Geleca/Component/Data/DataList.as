@@ -195,7 +195,9 @@
 		
 		override public function get width():Number
 		{ 
-			if (!hitArea)
+			return super.width;
+			
+			/*if (!hitArea)
 			{
 				if(length != 0)
 				{
@@ -208,7 +210,9 @@
 					return 0;
 			}
 			else 
-				return super.width;
+				return super.width;*/
+				
+				
 		}
 		
 		override public function set width(value:Number):void 
