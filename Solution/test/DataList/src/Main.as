@@ -47,10 +47,12 @@ package
 			addChild(container);
 			
 			dlst_list = addComponent(new DataList(container, SquareItemTemplate)) as DataList;
-			dlst_list.direction = DataList.DIRECTION_VERTICAL;
-			dlst_list.columns = 5;		
+			dlst_list.direction = DataList.DIRECTION_HORIZONTAL;
+			//dlst_list.direction = DataList.DIRECTION_VERTICAL;
+			//dlst_list.itemSpacingY = 0;
+			dlst_list.columns = 4;		
 			
-			_layout.addElement(dlst_list, new LayoutSettings(null, null, LayoutSettings.NONE, LayoutSettings.MIDDLE));
+			_layout.addElement(dlst_list, new LayoutSettings(null, null, LayoutSettings.CENTER, LayoutSettings.MIDDLE));
 		}
 		
 		override protected function initialize():void 
@@ -58,13 +60,17 @@ package
 			super.initialize();
 			
 			var list:Array = [];
-			for (var i:int = 0; i < 10; i++) 
+			for (var i:int = 0; i < 2; i++) 
+			//for (var i:int = 0; i < 25; i++) 
 			{
 				list.push( { } );
 			}
 			
+			dlst_list.clear();
 			dlst_list.dataSource = list;
 			dlst_list.dataBind();
+			
+			trace(this, dlst_list.width);
 			
 			_layout.renderElement(dlst_list);
 		}

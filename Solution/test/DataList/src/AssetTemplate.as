@@ -17,6 +17,7 @@ package
 			graphics.endFill();
 			
 			addChild(txt);
+			txt.border = true;
 			txt.x = txt.y = 20;
 		}
 		

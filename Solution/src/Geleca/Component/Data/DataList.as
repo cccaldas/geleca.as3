@@ -195,29 +195,78 @@
 		
 		override public function get width():Number
 		{ 
-			return super.width;
+			var cols:Number;
 			
-			/*if (!hitArea)
+			if (length == 0)
+				return 0;
+			
+			if (direction == DIRECTION_HORIZONTAL)
 			{
-				if(length != 0)
-				{
-					if (columns != 0)
-						return ((getItemAt(0).width * columns) + (itemSpacingX * (columns - 1)));
-					else
-						return ((getItemAt(0).width * length) + (itemSpacingX * (length - 1)));
-				}
+				if (columns == 0)
+					return ((getItemAt(0).width + itemSpacingX) * length) - itemSpacingX;
 				else
-					return 0;
+				{
+					if (length < columns)
+						cols = length;
+					else
+						cols = columns;
+						
+					return ((getItemAt(0).width + itemSpacingX) * cols) - itemSpacingX;
+				}
 			}
-			else 
-				return super.width;*/
-				
-				
+			else
+			{
+				if (columns == 0)
+					return getItemAt(0).width;
+				else	
+				{
+					cols = Math.ceil(length / columns);
+					return ((getItemAt(0).width + itemSpacingX) * cols) - itemSpacingX;
+				}
+			}					
 		}
 		
 		override public function set width(value:Number):void 
 		{
-			super.width = value;
+			//super.width = value;
+		}
+		
+		override public function get height():Number
+		{ 
+			var lines:Number;
+			
+			if (length == 0)
+				return 0;
+				
+			if (direction == DIRECTION_VERTICAL)
+			{
+				if (columns == 0)
+					return ((getItemAt(0).height + itemSpacingY) * length) - itemSpacingY;
+				else 
+				{
+					if (length < columns)
+						lines = length;
+					else
+						lines = columns;
+						
+					return ((getItemAt(0).height + itemSpacingY) * lines) - itemSpacingY;
+				}
+			}
+			else 
+			{
+				if (columns == 0)
+					return getItemAt(0).height;
+				else	
+				{
+					lines = Math.ceil(length / columns);
+					return ((getItemAt(0).height + itemSpacingY) * lines) - itemSpacingY;
+				}
+			}
+		}
+		
+		override public function set height(value:Number):void 
+		{
+			//super.height = value;
 		}
 		
 		public function get direction():String { return _direction; }
