@@ -1,8 +1,8 @@
 ﻿//TEST: Button - Implementar o releaseOutSide
+//TEST: DataList - Implementar o Width e Height dinamico de acordo com o Direction do datalist
 
 //TODO: Montar modelo de arquivo Config
 //TODO: Tracer - fazer um tracer semelhante ao StatsMonitor para ser usado via browser.
-//TEST: DataList - Implementar o Width e Height dinamico de acordo com o Direction do datalist
 //TODO: Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.
 //TODO: View - Inserir opção de remover LoaderItems, principalmente para ViewLoaderItem para que a referencia da View dependente seja perdida e o GC possa fazer o trabalho (ViewSwitcher)
 //TODO: Component: Implementar o rollOver e rollOut no component e não no button, pois o textfield tbm usa

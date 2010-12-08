@@ -45,6 +45,7 @@
     <class>Geleca.Component.Form.TextArea</class>
     <class>Geleca.Component.Form.TextInput</class>
     <class>Geleca.Component.Preloader.Preloader</class>
+    <class>Geleca.Configuration.FlashConfig</class>
     <class>Geleca.Controller.Controller</class>
     <class>Geleca.Core.BusyManager</class>
     <class>Geleca.Core.Context</class>
@@ -68,6 +69,7 @@
     <class>Geleca.Data.Entity.EntitySetSettings</class>
     <class>Geleca.Data.Paging.Paging</class>
     <class>Geleca.Data.Paging.PagingVO</class>
+    <class>Geleca.Debugger.Tracer</class>
     <class>Geleca.Display.HitArea</class>
     <class>Geleca.Effects.Transition.ColorTransition</class>
     <class>Geleca.Effects.Transition.FadeTransition</class>
@@ -121,6 +123,7 @@
     <class>Geleca.View.ViewSwitcher</class>
     <class>Geleca.View.Loading.AssetLoaderItem</class>
     <class>Geleca.View.Loading.FileLoaderItem</class>
+    <class>Geleca.View.Loading.FlashConfigLoaderItem</class>
     <class>Geleca.View.Loading.LoaderInfoLoaderItem</class>
     <class>Geleca.View.Loading.LoaderItem</class>
     <class>Geleca.View.Loading.ServiceLoaderItem</class>

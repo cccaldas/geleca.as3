@@ -24,7 +24,7 @@ package Geleca.View.Loading
 			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		protected function process_start(e:ProcessEvent):void 
 		{
 			_loader.addEventListener(ProgressEvent.PROGRESS, 	loader_progress);
 			_loader.addEventListener(Event.COMPLETE, 			loader_complete);
@@ -32,12 +32,12 @@ package Geleca.View.Loading
 			_loader.load(new URLRequest(_src));
 		}
 		
-		private function loader_progress(e:ProgressEvent):void 
+		protected function loader_progress(e:ProgressEvent):void 
 		{
 			updateProgress(e.bytesLoaded / e.bytesTotal);
 		}
 		
-		private function loader_complete(e:Event):void 
+		protected function loader_complete(e:Event):void 
 		{
 			_loader.removeEventListener(ProgressEvent.PROGRESS, 	loader_progress);
 			_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
@@ -46,6 +46,11 @@ package Geleca.View.Loading
 			
 			_loader = null;
 			
+			process_finish();
+		}
+		
+		protected function process_finish():void 
+		{
 			this.finish();
 		}
 		
