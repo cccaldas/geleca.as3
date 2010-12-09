@@ -23,7 +23,7 @@ package Test.View
 		private var _asset				:TestAsset;
 		public var prl_preloader		:TestPreloader;
 		
-		private var asset	:Sprite;
+		private var asset				:Sprite;
 		
 		public var photos				:PhotosView;
 		
