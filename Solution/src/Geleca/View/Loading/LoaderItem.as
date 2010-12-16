@@ -7,6 +7,7 @@ package Geleca.View.Loading
 	 */
 	public class LoaderItem extends Process
 	{
+		private var _loader					:ViewLoader;
 		
 		public function LoaderItem(id:String) 
 		{
@@ -14,6 +15,20 @@ package Geleca.View.Loading
 		}
 		
 		public function get content():* { return result; }
+		
+		public function get loader():ViewLoader { return _loader; }
+		
+		public function set loader(value:ViewLoader):void 
+		{
+			_loader = value;
+		}
+		
+		override public function destroy():void 
+		{
+			super.destroy();
+			
+			_loader = null;
+		}
 		
 	}
 
