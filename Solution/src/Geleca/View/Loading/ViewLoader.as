@@ -30,6 +30,8 @@ package Geleca.View.Loading
 		{
 			_timer.stop();
 			
+			//dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+			
 			dispatchEvent(e);
 		}
 		
@@ -43,6 +45,7 @@ package Geleca.View.Loading
 		
 		public function addLoaderItem(item:LoaderItem):void 
 		{
+			item.loader = this;
 			_processGroup.add(item);
 		}
 		

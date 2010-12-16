@@ -18,6 +18,7 @@ package Geleca.View
 		public function ViewSwitcher(first:Class, transition:String=null) 
 		{
 			_current = new first();
+			_current.switcher = this;
 			
 			if (transition)
 				_transition = transition;
@@ -64,10 +65,13 @@ package Geleca.View
 		{
 			_current.hide(current_hideComplete);
 			
+			var switcher:ViewSwitcher = this;
+			
 			function current_hideComplete():void 
 			{
 				removeView(_current);
 				_current = addView(new view());
+				_current.switcher = switcher;
 				
 				_current.addEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
 				_current.addEventListener(Event.COMPLETE, 			current_complete);
@@ -91,6 +95,7 @@ package Geleca.View
 		private function swap_loadHideShow(view:Class):void 
 		{
 			var _view:View = new view();
+			_view.switcher = this;
 			_view.addEventListener(ProgressEvent.PROGRESS, 		dispatchEvent);
 			_view.addEventListener(Event.COMPLETE, 				view_complete);
 			

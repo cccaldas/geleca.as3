@@ -33,6 +33,8 @@ package Geleca.View
 		private var _loaded									:Boolean;
 		private var _setup									:Boolean;
 		
+		private var _switcher								:ViewSwitcher;
+		
 		public function View() 
 		{
 			
@@ -272,6 +274,13 @@ package Geleca.View
 		
 		public function get loaded():Boolean { return _loaded; }
 		
+		public function get switcher():ViewSwitcher { return _switcher; }
+		
+		public function set switcher(value:ViewSwitcher):void 
+		{
+			_switcher = value;
+		}
+		
 		public function destroy():void 
 		{
 			_loader.destroy();
@@ -292,6 +301,8 @@ package Geleca.View
 			
 			_views = null;
 			_components = null;
+			
+			_switcher = null;
 			
 			ContainerUtil.removeAllChilds(this);
 			

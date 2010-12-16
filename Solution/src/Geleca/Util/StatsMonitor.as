@@ -47,7 +47,14 @@ package Geleca.Util
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
+			stage.addEventListener(Event.ADDED, stage_added);
+			
 			addEventListener(Event.ENTER_FRAME, enter_frame);
+		}
+		
+		private function stage_added(e:Event):void 
+		{
+			DepthUtil.toFront(this);
 		}
 		
 		private function enter_frame(e:Event):void 
