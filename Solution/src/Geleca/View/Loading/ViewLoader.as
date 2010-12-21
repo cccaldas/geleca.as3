@@ -30,6 +30,8 @@ package Geleca.View.Loading
 		{
 			_timer.stop();
 			
+			//dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+			
 			dispatchEvent(e);
 		}
 		
