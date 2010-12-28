@@ -16,7 +16,7 @@ package Geleca.Tracking
 		public function trackPageview(url:String):void 
 		{
 			if (ExternalInterface.available)
-				ExternalInterface.call("function() { _gaq.push (['_trackPageview', '" + url + "']); } ");
+				ExternalInterface.call("function() { _gaq.push (['_trackPageview', '" + url + "']); } "); 
 		}
 		
 	}
