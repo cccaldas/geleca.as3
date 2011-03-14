@@ -1,0 +1,20 @@
+//TODO: Fazer metodo de teste de componentes individuais
+//TODO: Criar uma pilha de processos para animações ou processamentos "pesados" para evitar perda de FPS.
+//TODO: Criar formas de uma action ser renderizada em local diferente, ou seja, podera haver 2 ou mais "switchers" no AppView
+//TODO: Implementar a tipagem nos parametros de URL, ex: "/produto/{id:uint}/{nome:string}/", podendo ter: *(param:*, para qualquer valor), uint, int, string, number, date(formato custom, data:date,yyyy-MM-dd)
+//TODO: Fazer com que a view tenha acesso aos "Parametros" e poder fazer "get" neles como o controler para pegar por ex um "id"
+//TODO: Fazer com que o controller chame um método com o mesmo nome do action também na view ao inves de chamar por "action(act:Object)"
+//TODO: Montar fluxograma de operações do frame
+//TODO: Preloader e transições entre uma view e outra
+//TODO: Simplificar o EntityManager
+//TODO: Busy
+//TODO: Cursor Manager
+//TODO: Operações em cache (para envitar carregamentos repetidos)
+
+//TEST: Fazer uma barra de navegação semelhante a um browser para testes
+//TEST: Requisição de Post
+//TEST: Carregamento de dependencias iniciais: dados (service, xml, etc)
+//TEST: Preloader inicial
+//TEST: Layout
+//TEST: Modos de render das actions (viewswitcher, etc)
+//TEST: Colocar o App em Singleton para deixar de facil acesso

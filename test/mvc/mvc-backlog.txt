@@ -1,0 +1,12 @@
+Backlog Pacote MVC
+* Alta produtividade
+* Arquitetura semelhante ao MVC do rails ou asp.net
+* Separacao dos assets em swf diferentes
+* Router
+* Controller
+
+* Carregamento dos assets na View
+
+
+
+fluxo: 
