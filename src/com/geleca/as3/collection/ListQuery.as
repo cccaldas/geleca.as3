@@ -102,6 +102,10 @@ package com.geleca.as3.collection
 				case "like":
 					return value1.indexOf(value2) != -1;
 				break;
+				
+				case "any":
+					return value2.indexOf(value1) != -1;
+				break;
 			}
 			
 			return false;

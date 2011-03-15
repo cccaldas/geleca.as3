@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <flex-config xmlns="http://www.adobe.com/2006/flex-config">
-  <output>D:\Cristiano\Projetos\Framework\Actionscript\geleca-framework\.\bin\geleca.2.0.swc</output>
+  <output>D:\cristiano\projetos\geleca-framework\.\bin\geleca.2.0.swc</output>
   <use-network>true</use-network>
   <target-player>10</target-player>
   <warnings>true</warnings>
@@ -17,13 +17,14 @@
     <use-resource-bundle-metadata>true</use-resource-bundle-metadata>
     <verbose-stacktraces>false</verbose-stacktraces>
     <source-path>
-      <path-element>d:\cristiano\projetos\framework\actionscript\geleca-framework\src</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\src</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\test</path-element>
     </source-path>
     <library-path>
-      <path-element>d:\cristiano\projetos\framework\actionscript\geleca-framework\lib\swfaddress.swc</path-element>
-      <path-element>d:\cristiano\projetos\framework\actionscript\geleca-framework\lib\tweener_1_33_74.swc</path-element>
-      <path-element>d:\cristiano\projetos\framework\actionscript\geleca-framework\lib\as3corelib.swc</path-element>
-      <path-element>d:\cristiano\projetos\framework\actionscript\geleca-framework\asset\swc\mvc.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\lib\swfaddress.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\lib\tweener_1_33_74.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\lib\as3corelib.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\asset\swc\mvc.swc</path-element>
     </library-path>
   </compiler>
   <include-classes>
@@ -71,7 +72,7 @@
     <class>com.geleca.as3.data.entity.EntitySetSettings</class>
     <class>com.geleca.as3.data.paging.Paging</class>
     <class>com.geleca.as3.data.paging.PagingVO</class>
-    <class>com.geleca.as3.debugger.Tracer</class>
+    <class>com.geleca.as3.debugger.GLog</class>
     <class>com.geleca.as3.display.HitArea</class>
     <class>com.geleca.as3.display.SimpleSprite</class>
     <class>com.geleca.as3.effects.transition.ColorTransition</class>
@@ -147,6 +148,7 @@
     <class>com.geleca.as3.util.TransformUtil</class>
     <class>com.geleca.as3.util.URLUtil</class>
     <class>com.geleca.as3.util.VectorUtil</class>
+    <class>com.geleca.as3.util.XMLUtil</class>
     <class>com.geleca.as3.validation.FormValidation</class>
     <class>com.geleca.as3.view.View</class>
     <class>com.geleca.as3.view.ViewSwitcher</class>
@@ -160,5 +162,7 @@
     <class>com.geleca.as3.view.loading.TimerLoaderItem</class>
     <class>com.geleca.as3.view.loading.ViewLoader</class>
     <class>com.geleca.as3.view.loading.ViewLoaderItem</class>
+    <class>collection.CollectionTest</class>
+    <class>debugger.DebuggerTest</class>
   </include-classes>
 </flex-config>

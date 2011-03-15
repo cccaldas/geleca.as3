@@ -7,10 +7,10 @@
 //TODO: Montar fluxograma de operações do frame
 //TODO: Preloader e transições entre uma view e outra
 //TODO: Simplificar o EntityManager
-//TODO: Busy
-//TODO: Cursor Manager
 //TODO: Operações em cache (para envitar carregamentos repetidos)
 
+//TEST: Busy
+//TEST: Cursor Manager
 //TEST: Fazer uma barra de navegação semelhante a um browser para testes
 //TEST: Requisição de Post
 //TEST: Carregamento de dependencias iniciais: dados (service, xml, etc)
