@@ -1,5 +1,8 @@
 package com.website.app 
 {
+	import com.geleca.as3.mvc.core.Router;
+	import com.website.app.view.AppLoaderView;
+	import com.website.app.view.AppView;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
@@ -17,7 +20,7 @@ package com.website.app
 			stage.align 		= StageAlign.TOP_LEFT;
 			stage.scaleMode 	= StageScaleMode.NO_SCALE;
 			
-			new App(this).initializeApp();
+			App.getInstance().startup(this, new AppLoaderView(), new AppView(), new Router());
 		}
 		
 	}

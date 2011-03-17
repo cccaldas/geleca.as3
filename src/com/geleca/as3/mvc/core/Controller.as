@@ -16,13 +16,10 @@ package com.geleca.as3.mvc.core
 		public var app								:MVCApp;
 		private var _loader							:GLoader;
 		
-		public var act								:Object;
-		public var parameters						:URLParameters;
+		public var action							:RouteAction;
 		
 		//update view ao invez de add
 		private var _update							:Boolean;
-		
-		public var post								:Object;
 		
 		public function Controller()
 		{
@@ -43,8 +40,6 @@ package com.geleca.as3.mvc.core
 		
 		private function loader_progressEvent(e:ProgressEvent):void 
 		{
-			_loader.removeEventListener(ProgressEvent.PROGRESS, loader_progressEvent);
-			
 			loader_progress();
 		}
 		

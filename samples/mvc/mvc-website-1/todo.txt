@@ -1,4 +1,7 @@
+//TODO: implementar ViewModel
 //TODO: Fazer metodo de teste de componentes individuais
+//TODO: Fazer workflow de testes
+//TODO: Implementer um metodo "render" no AppView e possibilidade de "renders" individuais.
 //TODO: Criar uma pilha de processos para animações ou processamentos "pesados" para evitar perda de FPS.
 //TODO: Criar formas de uma action ser renderizada em local diferente, ou seja, podera haver 2 ou mais "switchers" no AppView
 //TODO: Implementar a tipagem nos parametros de URL, ex: "/produto/{id:uint}/{nome:string}/", podendo ter: *(param:*, para qualquer valor), uint, int, string, number, date(formato custom, data:date,yyyy-MM-dd)
@@ -6,7 +9,7 @@
 //TODO: Fazer com que o controller chame um método com o mesmo nome do action também na view ao inves de chamar por "action(act:Object)"
 //TODO: Montar fluxograma de operações do frame
 //TODO: Preloader e transições entre uma view e outra
-//TODO: Simplificar o EntityManager
+//TODO: Simplificar o EntityManager, transforma-lo em um simples DAO
 //TODO: Operações em cache (para envitar carregamentos repetidos)
 
 //TEST: Busy

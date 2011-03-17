@@ -7,6 +7,8 @@ package com.geleca.as3.mvc.core
 
 	public class Router extends SimpleEventDispatcher
 	{
+		private var _routes					:Vector.<Route> = new Vector.<Route>();
+		
 		private var _urls					:Array = [];
 		
 		public var app						:MVCApp;
@@ -18,9 +20,9 @@ package com.geleca.as3.mvc.core
 			
 		}
 		
-		public function add(url:String, controller:Class, action:String = "index", isDefault:Boolean=false):void
+		public function add(route:Route):void
 		{
-			_urls.push({url:url, controller:controller, action:action, isDefault:isDefault});
+			_routes.push(route);
 		}
 		
 		protected function setup():void
@@ -50,61 +52,26 @@ package com.geleca.as3.mvc.core
 		
 		protected function matchURL(url:String):void
 		{
-			for each (var item:Object in _urls) 
+			for each (var item:Route in _routes) 
 			{
-				if (matchURL_check(url, item.url))
+				if (item.match(url))
 				{
-					app.executeAction(item, url);
+					app.executeAction(new RouteAction(item, url));
 					return;
 				}
 			}
 			
 			if(!_init)
 			{
-				for each (var action:Object in _urls) 
+				for each (var item:Route in _routes) 
 				{
-					if (action.isDefault)
+					if (item.isDefault)
 					{
-						app.navigateURL(action.url);
+						app.navigateURL(item.url);
 						return;
 					}
 				}
 			}
-		}
-		
-		private function matchURL_check(url:String, match:String):Boolean
-		{
-			var url_path 	:Array = url.split("/");
-			//TODO: mudar a classe URLParameters para tipo URLHeader para que possa minerar a url e chegar parametros e limpar as '/'
-			url_path.shift();
-			url_path.pop();
-			
-			var match_path 	:Array = match.split("/");
-			match_path.shift();
-			match_path.pop();
-			
-			//trace(this, "url_path", url_path, url_path.length);
-			
-			//Tamanhos
-			if (url_path.length != match_path.length)
-				return false;
-				
-			//Parametros
-			for (var i:int = 0; i < url_path.length; i++) 
-			{
-				if (!matchURL_isParameter(match_path[i]))
-					if (url_path[i] != match_path[i])
-						return false;
-			}
-			
-			return true;
-		}
-		
-		private function matchURL_isParameter(value:String):Boolean
-		{
-			//trace(this, "matchURL_isParameter", value, (value.indexOf("{") != -1 && value.indexOf("}") != -1));
-			
-			return value.indexOf("{") != -1 && value.indexOf("}") != -1;
 		}
 		
 	}

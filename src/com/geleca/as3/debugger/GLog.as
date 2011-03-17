@@ -1,5 +1,6 @@
 package com.geleca.as3.debugger
 {
+	import com.geleca.as3.util.PlayerUtil;
 	import com.geleca.as3.util.TimeUtil;
 	import flash.sampler.NewObjectSample;
 	import flash.utils.getTimer;
@@ -18,6 +19,9 @@ package com.geleca.as3.debugger
 		
 		public static function log(...rest):void 
 		{
+			if (!PlayerUtil.isDebugger())
+				return;
+				
 			var stackTrace	:String;
 			
 			try

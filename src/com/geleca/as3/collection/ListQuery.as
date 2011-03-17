@@ -106,6 +106,10 @@ package com.geleca.as3.collection
 				case "any":
 					return value2.indexOf(value1) != -1;
 				break;
+				
+				case "is":
+					return value1 is value2;
+				break;
 			}
 			
 			return false;

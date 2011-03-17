@@ -44,12 +44,14 @@ package com.geleca.as3.mvc.core
 		
 		private var _browser						:MVCAppBrowser;
 		
+		private var _tracker						:ITracker;
+		
 		public function MVCApp()
 		{
 			
 		}
 		
-		public function startup(container:Sprite, preloader:AbstractPreloaderView, view:AbstractAppView, router:Router, config:String="flash-config.xml"):void
+		public function startup(container:Sprite, preloader:AbstractPreloaderView, view:AbstractAppView, router:Router, tracker:ITracker=null, config:String="flash-config.xml"):void
 		{
 			_container 	= container;
 			_preloader 	= preloader;
@@ -62,6 +64,7 @@ package com.geleca.as3.mvc.core
 			
 			router.app 		= this;
 			
+			_tracker		= tracker;
 			_configURL 		= config;
 			
 			this.layout 		= new Layout(_container.stage);
@@ -192,15 +195,14 @@ package com.geleca.as3.mvc.core
 			
 		}
 		
-		public function executeAction(act:Object, url:String):void 
+		public function executeAction(action:RouteAction):void 
 		{
-			var controller:Controller = new act.controller();
-			controller.act 	= act;
-			controller.app 	= this;
-			controller.post = this.post;
-			controller.parameters = new URLParameters(url, act.url);
+			action.post = this.post;
+			
+			var controller:Controller 	= new act.controller();
+			controller.action			= action;
+			controller.app 				= this;
 			controller.initializeController();
-			//controller[act.action].call();
 			
 			//
 			if (_loaded)
@@ -227,7 +229,7 @@ package com.geleca.as3.mvc.core
 		{
 			post = data;
 			
-			SWFAddress.setValue(url);
+			navigateURL(url);
 		}
 		
 		public function changeTitle(title:String):void 
@@ -238,6 +240,9 @@ package com.geleca.as3.mvc.core
 		public function navigateURL(url:String):void 
 		{
 			SWFAddress.setValue(url);
+			
+			if (_tracker)
+				_tracker.trackURL(url);
 		}
 		
 		public function getCurrentURL():String
