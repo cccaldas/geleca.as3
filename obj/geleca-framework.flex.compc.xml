@@ -139,6 +139,7 @@
     <class>com.geleca.as3.util.MySqlUtil</class>
     <class>com.geleca.as3.util.NumberUtil</class>
     <class>com.geleca.as3.util.ObjectUtil</class>
+    <class>com.geleca.as3.util.PlayerUtil</class>
     <class>com.geleca.as3.util.SimpleTimer</class>
     <class>com.geleca.as3.util.SQLUtil</class>
     <class>com.geleca.as3.util.StatsMonitor</class>

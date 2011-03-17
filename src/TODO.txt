@@ -1,4 +1,5 @@
-﻿//TODO: Tracer - fazer um tracer semelhante ao StatsMonitor para ser usado via browser.
+﻿//TODO: List - implementar o acesso a propriedades em cascata, (ex: List.where("file.data", "!=", null), List.where("files.length", ">", 0));
+//TODO: Tracer - fazer um tracer semelhante ao StatsMonitor para ser usado via browser.
 //TODO: Layout - Implementar o layout correto, como estruturas de divs em html, renderização em cascata.
 //TODO: View - Inserir opção de remover LoaderItems, principalmente para ViewLoaderItem para que a referencia da View dependente seja perdida e o GC possa fazer o trabalho (ViewSwitcher)
 //TODO: Component: Implementar o rollOver e rollOut no component e não no button, pois o textfield tbm usa
