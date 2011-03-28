@@ -2,8 +2,6 @@ package com.website.app.controller
 {
 	import com.geleca.as3.mvc.core.ActionResult;
 	import com.geleca.as3.mvc.core.Controller;
-	import com.website.app.model.ContatoModel;
-	import com.website.app.model.entity.ContatoEntity;
 	import com.website.app.view.ContatoView;
 	/**
 	 * ...
@@ -21,12 +19,12 @@ package com.website.app.controller
 		{
 			super.setup();
 			
-			view = ContatoView;
+			
 		}
 		
-		public function index():void 
+		public function index():ActionResult 
 		{
-			
+			return new ActionResult(ContatoView);
 		}
 		
 		public function send():void 

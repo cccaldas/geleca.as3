@@ -18,12 +18,12 @@ package com.geleca.as3.view.loading
 			
 			this._loaderInfo = loaderInfo;
 			this.id = id;
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			_loaderInfo.addEventListener(ProgressEvent.PROGRESS, 	loaderInfo_progress);
 			_loaderInfo.addEventListener(Event.COMPLETE, 			loaderInfo_complete);
 		}

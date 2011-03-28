@@ -54,10 +54,13 @@
     <element path="..\..\..\lib\SWFAddress.swc" />
     <element path="..\..\..\lib\Tweener_1_33_74.swc" />
     <element path="..\..\..\asset\swc\mvc.swc" />
+    <element path="lib\Monster.Debugger.2.5.1.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
-    <!-- example: <element path="..." /> -->
+    <element path="bin\swf\asset\loader.swc" />
+    <element path="bin\swf\asset\app.swc" />
+    <element path="bin\swf\asset\produtos.swc" />
   </externalLibraryPaths>
   <!-- Runtime Shared Libraries -->
   <rslPaths>

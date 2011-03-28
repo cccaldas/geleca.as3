@@ -1,5 +1,6 @@
 package com.geleca.as3.loading 
 {
+	import com.geleca.as3.debugger.GLog;
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
 	import flash.events.TimerEvent;
@@ -51,7 +52,9 @@ package com.geleca.as3.loading
 		
 		public function getItem(id:String):*
 		{
-			return LoaderItem(_processGroup.get(id)).content;
+			var item:LoaderItem = LoaderItem(_processGroup.get(id));
+			
+			return item != null ? item.content : null;
 		}
 		
 		public function removeItem(id:String):void 

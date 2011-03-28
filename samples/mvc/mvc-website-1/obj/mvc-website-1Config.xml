@@ -14,7 +14,7 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'22/03/2011'</value>
+      <value>'31/03/2011'</value>
     </define>
     <source-path append="true">
       <path-element>D:\cristiano\projetos\geleca-framework\samples\mvc\mvc-website-1\src</path-element>
@@ -23,11 +23,17 @@
       <path-element>D:\cristiano\projetos\geleca-framework\asset</path-element>
       <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
+    <external-library-path append="true">
+      <path-element>D:\cristiano\projetos\geleca-framework\samples\mvc\mvc-website-1\bin\swf\asset\loader.swc</path-element>
+      <path-element>D:\cristiano\projetos\geleca-framework\samples\mvc\mvc-website-1\bin\swf\asset\app.swc</path-element>
+      <path-element>D:\cristiano\projetos\geleca-framework\samples\mvc\mvc-website-1\bin\swf\asset\produtos.swc</path-element>
+    </external-library-path>
     <library-path append="true">
       <path-element>D:\cristiano\projetos\geleca-framework\lib\as3corelib.swc</path-element>
       <path-element>D:\cristiano\projetos\geleca-framework\lib\SWFAddress.swc</path-element>
       <path-element>D:\cristiano\projetos\geleca-framework\lib\Tweener_1_33_74.swc</path-element>
       <path-element>D:\cristiano\projetos\geleca-framework\asset\swc\mvc.swc</path-element>
+      <path-element>D:\cristiano\projetos\geleca-framework\samples\mvc\mvc-website-1\lib\Monster.Debugger.2.5.1.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>

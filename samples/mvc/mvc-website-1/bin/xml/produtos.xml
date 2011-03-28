@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<produtos>
+		<produto id="1" nome="Produto 1" preco="R$ 15,53" />
+		<produto id="2" nome="Produto 2" preco="R$ 23,12" />
+		<produto id="3" nome="Produto 3" preco="R$ 76,16" />
+		<produto id="4" nome="Produto 4" preco="R$ 81,21" />
+		<produto id="5" nome="Produto 5" preco="R$ 31,78" />
+	</produtos>
+</data>

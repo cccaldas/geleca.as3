@@ -19,13 +19,12 @@ package com.website.app.controller
 		{
 			super.setup();
 			
-			view = HomeView;
+			
 		}
 		
-		public function index():void 
+		public function index():ActionResult 
 		{
-			
-			
+			return new ActionResult(HomeView);
 		}
 		
 	}

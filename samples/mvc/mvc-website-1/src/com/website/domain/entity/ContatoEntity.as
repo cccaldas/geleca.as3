@@ -1,4 +1,4 @@
-package com.website.app.model.entity 
+package com.website.domain.entity 
 {
 	import flash.display.Loader;
 	import flash.net.URLRequest;
@@ -17,8 +17,7 @@ package com.website.app.model.entity
 		
 		public function ContatoEntity() 
 		{
-			var loader:Loader = new Loader();
-			loader.load(new URLRequest("movie.swf"), new LoaderContext(false, ApplicationDomain.currentDomain));
+			
 		}
 		
 	}

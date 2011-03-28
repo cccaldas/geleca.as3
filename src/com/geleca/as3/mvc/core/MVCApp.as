@@ -5,14 +5,15 @@ package com.geleca.as3.mvc.core
 	import com.geleca.as3.core.BusyManager;
 	import com.geleca.as3.core.Context;
 	import com.geleca.as3.core.CursorManager;
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.events.SimpleEventDispatcher;
 	import com.geleca.as3.layout.Layout;
-	import com.geleca.as3.loading.ControllerLoaderItem;
 	import com.geleca.as3.loading.GLoader;
 	import com.geleca.as3.loading.ViewLoaderItem;
 	import com.geleca.as3.mvc.util.MVCAppBrowser;
 	import flash.display.Stage;
 	import flash.events.ProgressEvent;
+	import nl.demonsters.debugger.MonsterDebugger;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -70,9 +71,6 @@ package com.geleca.as3.mvc.core
 			this.layout 		= new Layout(_container.stage);
 			this.busyManager 	= new BusyManager(_container.stage);
 			this.cursorManager 	= new CursorManager(_container.stage);
-			
-			//appview
-			_loader.addLoaderItem(new ViewLoaderItem("app-view", _view));
 			
 			initializeApp();
 		}
@@ -136,6 +134,11 @@ package com.geleca.as3.mvc.core
 			//setup();
 			
 			//trace(this, "load");
+			
+			//appview
+			_loader.addLoaderItem(new ViewLoaderItem("app-view", _view));
+			
+			//GLog.log("");
 			router.addEventListener(Event.CHANGE, router_change);
 			
 			function router_change():void 
@@ -154,11 +157,15 @@ package com.geleca.as3.mvc.core
 		
 		private function loader_progress(e:ProgressEvent):void 
 		{
+			//GLog.log(_loader.progress);
+			
 			_preloader.progress = _loader.progress;
 		}
 		
 		private function loader_complete(e:Event):void
 		{
+			//GLog.log("");
+			
 			_loader.removeEventListener(ProgressEvent.PROGRESS, 	loader_progress);
 			_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
 			
@@ -176,8 +183,8 @@ package com.geleca.as3.mvc.core
 			
 			function view_showComplete():void 
 			{
-				Controller(_loader.getItem("controller")).render();
-				_loader.removeItem("controller");
+				/*Controller(_loader.getItem("controller")).render();
+				_loader.removeItem("controller");*/
 				
 				//_view.viewRender.swap(Controller(_loader.getItem("controller")).getView());
 			}
@@ -197,26 +204,36 @@ package com.geleca.as3.mvc.core
 		
 		public function executeAction(action:RouteAction):void 
 		{
+			//GLog.log("");
+			
 			action.post = this.post;
 			
-			var controller:Controller 	= new act.controller();
+			var controller:Controller 	= new action.route.controller();
+			controller.app				= this;
 			controller.action			= action;
-			controller.app 				= this;
+			
+			MonsterDebugger.trace("executeAction", action);
+			//return;
+			//controller.app 				= this;
 			controller.initializeController();
 			
-			//
+			view.render(controller);
+			
+			//Caso o aplicativo esteja carregado
 			if (_loaded)
 			{
-				controller.loader.addEventListener(Event.COMPLETE, controller_complete);
-				controller.load();
+				//view.render(controller);
+				/*controller.loader.addEventListener(Event.COMPLETE, controller_complete);
+				controller.loader.load();*/
 			}
+			//Caso seja a primeira Action, ou seja, o aplicativo ainda não foi carregado
 			else
-				_loader.addLoaderItem(new ControllerLoaderItem("controller", controller));
+				//_loader.addLoaderItem(new ControllerLoaderItem("controller", controller));
 				
 			function controller_complete(e:Event):void 
 			{
-				controller.loader.removeEventListener(Event.COMPLETE, controller_complete);
-				controller.render();
+				//controller.loader.removeEventListener(Event.COMPLETE, controller_complete);
+				//controller.render();
 			}
 		}
 		

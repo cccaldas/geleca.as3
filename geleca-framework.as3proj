@@ -52,6 +52,7 @@
     <element path="lib\Tweener_1_33_74.swc" />
     <element path="lib\as3corelib.swc" />
     <element path="asset\swc\mvc.swc" />
+    <element path="lib\Monster.Debugger.2.5.1.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

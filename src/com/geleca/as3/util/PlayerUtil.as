@@ -48,14 +48,10 @@ package com.geleca.as3.util
 			return (isActiveX() && isPlugin());
 		}
 		
-<<<<<<< HEAD
 		public static function isDebugger():Boolean
 		{
 			return Capabilities.isDebugger;
 		}
-		
-=======
->>>>>>> b46a1767b55ebbdf93fa8b7befb64c678d90d96e
 	}
 
 }

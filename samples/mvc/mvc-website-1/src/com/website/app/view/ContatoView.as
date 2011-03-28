@@ -1,7 +1,10 @@
 package com.website.app.view 
 {
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.mvc.core.View;
-	import com.website.app.model.entity.ContatoEntity;
+	import com.geleca.as3.util.FunctionUtil;
+	import com.website.app.App;
+	import com.website.domain.entity.ContatoEntity;
 	import flash.text.TextField;
 	/**
 	 * ...
@@ -14,6 +17,13 @@ package com.website.app.view
 		public function ContatoView() 
 		{
 			
+		}
+		
+		override public function load():void 
+		{
+			GLog.log("");
+			
+			super.load();
 		}
 		
 		override protected function setup():void 
@@ -29,22 +39,27 @@ package com.website.app.view
 		{
 			super.initialize();
 			
-			app.postURL("/contato/send/", new ContatoEntity());
+			//App.getInstance().postURL("/contato/send/", new ContatoEntity());
 		}
 		
-		override public function action(act:String):void 
+		override public function show(onComplete:Function = null):void 
 		{
-			super.action(act);
+			GLog.log("");
 			
-			switch (act) 
-			{
-				case "send":
-					action_send();
-				break;
-			}
+			FunctionUtil.functionDelay(onComplete, 1);
 		}
 		
-		private function action_send():void 
+		override public function hide(onComplete:Function = null):void 
+		{
+			FunctionUtil.functionDelay(onComplete, 1);
+		}
+		
+		public function index():void 
+		{
+			
+		}
+		
+		public function send():void 
 		{
 			switch (viewData["status"]) 
 			{

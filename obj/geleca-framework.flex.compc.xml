@@ -25,6 +25,7 @@
       <path-element>d:\cristiano\projetos\geleca-framework\lib\tweener_1_33_74.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\lib\as3corelib.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\asset\swc\mvc.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\lib\monster.debugger.2.5.1.swc</path-element>
     </library-path>
   </compiler>
   <include-classes>
@@ -59,12 +60,15 @@
     <class>com.geleca.as3.core.Process</class>
     <class>com.geleca.as3.core.ProcessGroup</class>
     <class>com.geleca.as3.core.ProcessManager</class>
+    <class>com.geleca.as3.data.DAO</class>
     <class>com.geleca.as3.data.DataAdapter</class>
     <class>com.geleca.as3.data.DataQuery</class>
     <class>com.geleca.as3.data.DataRow</class>
     <class>com.geleca.as3.data.DataSet</class>
     <class>com.geleca.as3.data.DataTable</class>
     <class>com.geleca.as3.data.XmlDataAdapter</class>
+    <class>com.geleca.as3.data.entity.AbstractFileEntity</class>
+    <class>com.geleca.as3.data.entity.Entity</class>
     <class>com.geleca.as3.data.entity.EntityManager</class>
     <class>com.geleca.as3.data.entity.EntityQuery</class>
     <class>com.geleca.as3.data.entity.EntitySet</class>
@@ -98,7 +102,6 @@
     <class>com.geleca.as3.layout.LayoutSettings</class>
     <class>com.geleca.as3.loading.AssetLoaderItem</class>
     <class>com.geleca.as3.loading.CallBackLoaderItem</class>
-    <class>com.geleca.as3.loading.ControllerLoaderItem</class>
     <class>com.geleca.as3.loading.FileLoaderItem</class>
     <class>com.geleca.as3.loading.FlashConfigLoaderItem</class>
     <class>com.geleca.as3.loading.GLoader</class>
@@ -112,13 +115,18 @@
     <class>com.geleca.as3.mvc.core.AbstractPreloaderView</class>
     <class>com.geleca.as3.mvc.core.ActionResult</class>
     <class>com.geleca.as3.mvc.core.Controller</class>
+    <class>com.geleca.as3.mvc.core.ControllerLoaderItem</class>
+    <class>com.geleca.as3.mvc.core.FileEntityLoaderItem</class>
     <class>com.geleca.as3.mvc.core.GATracker</class>
     <class>com.geleca.as3.mvc.core.ITracker</class>
     <class>com.geleca.as3.mvc.core.Model</class>
     <class>com.geleca.as3.mvc.core.MVCApp</class>
+    <class>com.geleca.as3.mvc.core.Route</class>
+    <class>com.geleca.as3.mvc.core.RouteAction</class>
     <class>com.geleca.as3.mvc.core.Router</class>
     <class>com.geleca.as3.mvc.core.URLParameters</class>
     <class>com.geleca.as3.mvc.core.View</class>
+    <class>com.geleca.as3.mvc.core.ViewModel</class>
     <class>com.geleca.as3.mvc.core.ViewSwitcher</class>
     <class>com.geleca.as3.mvc.util.MVCAppBrowser</class>
     <class>com.geleca.as3.mvc.util.NavigateUtil</class>
@@ -141,6 +149,7 @@
     <class>com.geleca.as3.util.MySqlUtil</class>
     <class>com.geleca.as3.util.NumberUtil</class>
     <class>com.geleca.as3.util.ObjectUtil</class>
+    <class>com.geleca.as3.util.OSUtil</class>
     <class>com.geleca.as3.util.PlayerUtil</class>
     <class>com.geleca.as3.util.SimpleTimer</class>
     <class>com.geleca.as3.util.SQLUtil</class>
@@ -168,5 +177,6 @@
     <class>collection.CollectionTest</class>
     <class>debugger.DebuggerTest</class>
     <class>playerutil.PlayerUtilTest</class>
+    <class>viewmodel.ViewModelTest</class>
   </include-classes>
 </flex-config>

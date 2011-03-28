@@ -1,7 +1,10 @@
 package com.geleca.as3.mvc.core 
 {
 	import com.geleca.as3.core.Process;
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.events.ProcessEvent;
+	import flash.events.Event;
+	import flash.events.ProgressEvent;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -9,6 +12,8 @@ package com.geleca.as3.mvc.core
 	public class AbstractAppView extends View
 	{
 		public var viewRender						:ViewSwitcher;
+		
+		private var _controllerLoader				:ControllerLoaderItem;
 		
 		public function AbstractAppView(viewRender:ViewSwitcher=null) 
 		{
@@ -18,30 +23,66 @@ package com.geleca.as3.mvc.core
 			this.viewRender 	= viewRender;
 		}
 		
-		public function render(result:ActionResult):void 
+		override public function load():void 
 		{
-			result.addEventListener(ProcessEvent.START, 	result_start);
-			result.addEventListener(ProcessEvent.PROGRESS, 	result_progress);
-			result.addEventListener(ProcessEvent.FINISH, 	result_finish);
-		}
-		
-		private function result_start(e:ProcessEvent):void 
-		{
-			Process(e.currentTarget).removeEventListener(ProcessEvent.START, 	result_start);
-			render_start();
-		}
-		
-		private function result_progress(e:ProcessEvent):void 
-		{
-			render_progress(Process(e.currentTarget).progress);
-		}
-		
-		private function result_finish(e:ProcessEvent):void 
-		{
-			Process(e.currentTarget).removeEventListener(ProcessEvent.PROGRESS, 	result_progress);
-			Process(e.currentTarget).removeEventListener(ProcessEvent.FINISH, 		result_finish);
+			//GLog.log("");
 			
-			render_finish();
+			if (_controllerLoader)
+				loader.addLoaderItem(_controllerLoader);
+			
+			super.load();
+		}
+		
+		override protected function initialize():void 
+		{
+			super.initialize();
+			
+			loader.removeItem("controller");
+		}
+		
+		public function render(controller:Controller):void 
+		{
+			//GLog.log(controller, "loaded", loaded);
+			
+			var item:ControllerLoaderItem = new ControllerLoaderItem("controller", controller, viewRender);
+			
+			if (loaded)
+				renderController(item);
+			else 
+				_controllerLoader = item;
+			/*result.addEventListener(ProcessEvent.START, 	result_start);
+			result.addEventListener(ProcessEvent.PROGRESS, 	result_progress);
+			result.addEventListener(ProcessEvent.FINISH, 	result_finish);*/
+		}
+		
+		private function renderController(controller:ControllerLoaderItem):void 
+		{
+			controller.addEventListener(ProcessEvent.START, 		start);
+			controller.addEventListener(ProgressEvent.PROGRESS, 	progress);
+			controller.addEventListener(ProcessEvent.FINISH, 		finish);
+			
+			controller.start();
+			
+			function start(e:ProcessEvent):void 
+			{
+				render_start();
+			}
+			
+			function progress(e:ProgressEvent):void 
+			{
+				render_progress(controller.progress);
+			}
+			
+			function finish(e:ProcessEvent):void 
+			{
+				controller.removeEventListener(ProcessEvent.START, 			start);
+				controller.removeEventListener(ProgressEvent.PROGRESS, 		progress);
+				controller.removeEventListener(ProcessEvent.FINISH, 		finish);
+				
+				controller.destroy();
+			
+				render_finish();
+			}
 		}
 		
 		protected function render_start():void 
@@ -64,6 +105,13 @@ package com.geleca.as3.mvc.core
 			super.setup();
 			
 			addChild(viewRender);
+		}
+		
+		override public function show(onComplete:Function = null):void 
+		{
+			//GLog.log("");
+			
+			super.show(onComplete);
 		}
 		
 	}

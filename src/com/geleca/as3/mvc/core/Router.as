@@ -52,7 +52,9 @@ package com.geleca.as3.mvc.core
 		
 		protected function matchURL(url:String):void
 		{
-			for each (var item:Route in _routes) 
+			var item:Route;
+			
+			for each (item in _routes) 
 			{
 				if (item.match(url))
 				{
@@ -63,7 +65,7 @@ package com.geleca.as3.mvc.core
 			
 			if(!_init)
 			{
-				for each (var item:Route in _routes) 
+				for each (item in _routes) 
 				{
 					if (item.isDefault)
 					{

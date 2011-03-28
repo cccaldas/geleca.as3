@@ -1,5 +1,6 @@
 package com.geleca.as3.core 
 {
+	import com.geleca.as3.debugger.GLog;
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
 	import com.geleca.as3.events.ProcessEvent;
@@ -75,6 +76,8 @@ package com.geleca.as3.core
 		private function process_finish(e:ProcessEvent):void 
 		{
 			var process:Process = Process(e.currentTarget);
+			
+			//GLog.log(process.id);
 			
 			process.removeEventListener(ProcessEvent.PROGRESS, 	process_progress);
 			process.removeEventListener(ProcessEvent.FINISH, 	process_finish);

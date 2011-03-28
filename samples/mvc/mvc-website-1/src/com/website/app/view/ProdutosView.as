@@ -1,9 +1,11 @@
 package com.website.app.view 
 {
 	import com.geleca.as3.component.data.DataList;
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.effects.transition.FadeTransition;
 	import com.geleca.as3.mvc.core.View;
 	import com.geleca.as3.loading.AssetLoaderItem;
+	import com.geleca.as3.util.FunctionUtil;
 	import com.website.app.view.component.produtos.control.ProdutoControl;
 	import com.website.app.view.component.produtos.control.ProdutosControl;
 	import com.website.app.view.component.produtos.itemtemplate.ProdutoItemTemplate;
@@ -47,34 +49,35 @@ package com.website.app.view
 			//this.alpha = 0;
 		}
 		
-		override public function action(act:String):void 
+		override public function show(onComplete:Function = null):void 
 		{
-			switch (act) 
-			{
-				case "index":
-					action_index();
-				break;
-				
-				case "produto":
-					action_produto();
-				break;
-			}
+			super.show(onComplete);
 		}
 		
-		private function action_index():void 
+		override public function hide(onComplete:Function = null):void 
+		{
+			FunctionUtil.functionDelay(onComplete, 1);
+		}
+		
+		//Actions
+		public function index():void 
 		{
 			ctr_produtos.produtos = viewData["produtos"];
 			
 			ctr_produto.hide();
 			ctr_produtos.show();
+			
+			//GLog.log(viewData["produtos"]);
 		}
 		
-		private function action_produto():void
+		public function produto():void
 		{
 			ctr_produto.produto = viewData["produto"];
 			
 			ctr_produtos.hide();
 			ctr_produto.show();
+			
+			//GLog.log(viewData["produto"]);
 		}
 		
 	}

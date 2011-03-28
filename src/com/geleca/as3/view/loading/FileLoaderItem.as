@@ -20,12 +20,12 @@ package com.geleca.as3.view.loading
 			super(id);
 			
 			_src = src;
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		protected function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			_loader.addEventListener(ProgressEvent.PROGRESS, 	loader_progress);
 			_loader.addEventListener(Event.COMPLETE, 			loader_complete);
 			
@@ -46,12 +46,7 @@ package com.geleca.as3.view.loading
 			
 			_loader = null;
 			
-			process_finish();
-		}
-		
-		protected function process_finish():void 
-		{
-			this.finish();
+			finish();
 		}
 		
 		override public function destroy():void 

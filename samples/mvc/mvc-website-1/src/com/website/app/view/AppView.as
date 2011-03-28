@@ -31,10 +31,12 @@ package com.website.app.view
 		{
 			super.setup();
 			
-			viewRender.y = 40;
+			viewRender.y = 70;
 			
 			_asset = new AppViewAsset();
 			addChild(_asset);
+			
+			_asset.y = 34;
 			
 			ctr_menu = addComponent(new MenuControl(AppViewAsset(_asset).ctr_menu)) as MenuControl;
 			

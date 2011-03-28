@@ -46,6 +46,11 @@ package com.geleca.as3.core
 			return _objects[name];
 		}
 		
+		public function has(name:String):Boolean
+		{
+			return _objects[name] != undefined;
+		}
+		
 		public function getByType(type:Class):Array
 		{
 			var objects:Array = [];

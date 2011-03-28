@@ -1,5 +1,6 @@
-package com.website.app.model.entity 
+package com.website.domain.entity
 {
+	import com.geleca.as3.data.entity.AbstractFileEntity;
 	import com.geleca.as3.type.Currency;
 	/**
 	 * ...
@@ -10,6 +11,8 @@ package com.website.app.model.entity
 		public var id			:uint;
 		public var nome			:String;
 		public var preco		:String;
+		
+		public var thumb		:AbstractFileEntity;
 		
 		public function ProdutoEntity() 
 		{

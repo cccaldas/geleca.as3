@@ -14,14 +14,13 @@ package com.geleca.as3.loading
 			super(id);
 			
 			_callBack = callBack;
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			_callBack(this);
-			//this.finish();
 		}
 		
 		override public function destroy():void 

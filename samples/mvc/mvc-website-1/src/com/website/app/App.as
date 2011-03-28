@@ -1,8 +1,11 @@
 package com.website.app
 {
+	import com.geleca.as3.debugger.GLog;
+	import com.geleca.as3.loading.CallBackLoaderItem;
 	import com.geleca.as3.loading.FileLoaderItem;
 	import com.geleca.as3.loading.TimerLoaderItem;
 	import com.geleca.as3.mvc.core.MVCApp;
+	import com.geleca.as3.mvc.core.Route;
 	import com.website.app.controller.ContatoController;
 	import com.website.app.controller.HomeController;
 	import com.website.app.controller.ProdutosController;
@@ -18,7 +21,9 @@ package com.website.app
 		
 		override public function load():void 
 		{
-			loader.addLoaderItem(new FileLoaderItem("produtos.xml", config.getAppKey("path-xml") + "produtos.xml"));
+			//GLog.log("");
+			
+			//loader.addLoaderItem(new FileLoaderItem("produtos.xml", config.getAppKey("path-xml") + "produtos.xml"));
 			
 			if(isDebug())
 				loader.addLoaderItem(new TimerLoaderItem("timer", 2));
@@ -30,14 +35,16 @@ package com.website.app
 		{
 			super.setup();
 			
-			router.add("/", 					HomeController);
-			//router.add("/home/", 				HomeController);
+			router.add(new Route("home", 			"/", 						HomeController, "index", true));
+			router.add(new Route("contato", 		"/contato/", 				ContatoController));
+			router.add(new Route("contato-send",	"/contato/send/", 			ContatoController, "send"));
+			router.add(new Route("produtos",		"/produtos/", 				ProdutosController));
+			router.add(new Route("produto",			"/produto/{id}/{nome}/", 	ProdutosController, "produto"));
 			
-			router.add("/contato/", 			ContatoController);
-			router.add("/contato/send/",		ContatoController, "send");
-			
-			router.add("/produtos/", 			ProdutosController);
-			router.add("/produto/{id}/{nome}/", ProdutosController, "produto");
+			//Test
+			navigateURL("/produto/1/teste/");
+			//navigateURL("/contato/");
+			//navigateURL("/produtos/");
 		}
 		
 		public static function getInstance():App

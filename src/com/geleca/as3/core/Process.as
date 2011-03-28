@@ -24,19 +24,37 @@ package com.geleca.as3.core
 			_progress 	= 0;
 			_running 	= true;
 			dispatchEvent(new ProcessEvent(ProcessEvent.START));
+			process_start();
+		}
+		
+		protected function process_start():void 
+		{
+			
 		}
 		
 		public final function finish():void 
 		{
 			_progress 	= 1;
 			_running 	= false;
+			process_finish();
 			dispatchEvent(new ProcessEvent(ProcessEvent.FINISH));
+		}
+		
+		protected function process_finish():void 
+		{
+			
 		}
 		
 		public final function cancel():void 
 		{
 			_running = false;
 			dispatchEvent(new ProcessEvent(ProcessEvent.CANCEL));
+			process_cancel();
+		}
+		
+		protected function process_cancel():void 
+		{
+			
 		}
 		
 		public function get running()	:Boolean 	{ return _running; }
@@ -55,6 +73,12 @@ package com.geleca.as3.core
 			_progress = progress;
 			
 			dispatchEvent(new ProcessEvent(ProcessEvent.PROGRESS));
+			process_progress(progress);
+		}
+		
+		protected function process_progress(progress:Number):void 
+		{
+			
 		}
 		
 		override public function destroy():void 

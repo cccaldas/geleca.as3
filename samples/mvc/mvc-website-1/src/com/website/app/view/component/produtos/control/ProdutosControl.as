@@ -2,9 +2,9 @@ package com.website.app.view.component.produtos.control
 {
 	import com.geleca.as3.component.Component;
 	import com.geleca.as3.component.data.DataList;
-	import com.website.app.model.entity.ProdutoEntity;
 	import com.website.app.view.component.produtos.itemtemplate.ProdutoItemTemplate;
 	import com.website.asset.produtos.control.ProdutosControlAsset;
+	import com.website.domain.entity.ProdutoEntity;
 	import flash.display.Sprite;
 	/**
 	 * ...

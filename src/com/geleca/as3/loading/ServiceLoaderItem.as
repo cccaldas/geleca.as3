@@ -18,8 +18,10 @@ package com.geleca.as3.loading
 			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			_call(callBack);
 		}
 		

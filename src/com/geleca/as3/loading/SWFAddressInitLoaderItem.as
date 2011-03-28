@@ -13,12 +13,12 @@ package com.geleca.as3.loading
 		public function SWFAddressInitLoaderItem(id:String="SWFAddress") 
 		{
 			super(id);
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			SWFAddress.addEventListener(SWFAddressEvent.CHANGE, SWFAddress_change);
 		}
 		

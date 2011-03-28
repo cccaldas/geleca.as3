@@ -38,6 +38,8 @@ package com.geleca.as3.mvc.core
 		
 		private var _switcher								:ViewSwitcher;
 		
+		public var model									:*;
+		
 		public var viewData									:Dictionary = new Dictionary();
 		public var app										:MVCApp;
 		
@@ -58,7 +60,8 @@ package com.geleca.as3.mvc.core
 			_loader.load();
 		}
 		
-		private function loader_complete(e:Event):void {
+		private function loader_complete(e:Event):void
+		{
 			_loaded = true;
 			
 			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));

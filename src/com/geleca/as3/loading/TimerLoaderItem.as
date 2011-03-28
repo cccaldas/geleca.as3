@@ -19,12 +19,12 @@ package com.geleca.as3.loading
 			_timer = new SimpleTimer(250, time * 4);
 			_timer.addEventListener(TimerEvent.TIMER, 			timer_timer);
 			_timer.addEventListener(TimerEvent.TIMER_COMPLETE, 	timer_complete);
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
-		private function process_start(e:ProcessEvent):void 
+		override protected function process_start():void 
 		{
+			super.process_start();
+			
 			_timer.start();
 		}
 		
