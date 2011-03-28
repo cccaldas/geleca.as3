@@ -22,10 +22,9 @@ package com.website.app.controller
 			view = HomeView;
 		}
 		
-		public function index():void 
+		public function index():ActionResult 
 		{
-			
-			
+			return new ActionResult(HomeView);
 		}
 		
 	}

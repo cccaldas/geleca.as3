@@ -1,0 +1,11 @@
+#principal
+muda a url
+o roteador checa a url
+o roteador seleciona o controller
+o roteador seleciona a view
+é gerado o ActionResult
+o app renderiza o ActionResult
+
+#controller
+é executado o método "load" para que as dependencias sejam executadas
+é executado o método referente a "action"

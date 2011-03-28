@@ -1,3 +1,4 @@
+//TODO: encapsular os carregamentos iniciais de imagens ou itens dentro do ActionResult
 //TODO: implementar ViewModel
 //TODO: Fazer metodo de teste de componentes individuais
 //TODO: Fazer workflow de testes

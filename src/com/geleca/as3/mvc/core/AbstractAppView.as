@@ -18,7 +18,7 @@ package com.geleca.as3.mvc.core
 			this.viewRender 	= viewRender;
 		}
 		
-		public function render(result:ActionResult):void 
+		public function render(controller:Controller):void 
 		{
 			result.addEventListener(ProcessEvent.START, 	result_start);
 			result.addEventListener(ProcessEvent.PROGRESS, 	result_progress);

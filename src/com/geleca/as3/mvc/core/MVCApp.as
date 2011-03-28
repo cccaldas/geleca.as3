@@ -204,6 +204,8 @@ package com.geleca.as3.mvc.core
 			controller.app 				= this;
 			controller.initializeController();
 			
+			view.render(controller);
+			
 			//
 			if (_loaded)
 			{
