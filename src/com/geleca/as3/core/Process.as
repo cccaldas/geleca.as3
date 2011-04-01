@@ -38,6 +38,7 @@ package com.geleca.as3.core
 			_running 	= false;
 			process_finish();
 			dispatchEvent(new ProcessEvent(ProcessEvent.FINISH));
+			process_finish();
 		}
 		
 		protected function process_finish():void 
