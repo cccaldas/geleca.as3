@@ -10,7 +10,7 @@ package com.geleca.as3.debugger
 	 */
 	public class GLog 
 	{
-		private static const MSG_TEMPLATE	:String = "[GLog][{time}][{path} line {line}] {msg}";
+		private static const MSG_TEMPLATE	:String = "[GLog][{time}]{msg}, at[{path} line {line}]";
 		
 		public function GLog() 
 		{

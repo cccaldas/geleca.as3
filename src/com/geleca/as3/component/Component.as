@@ -6,6 +6,7 @@ package com.geleca.as3.component
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.FocusEvent;
+	import flash.geom.Rectangle;
 	import flash.system.System;
 	import com.geleca.as3.asset.AssetNav;
 	import com.geleca.as3.display.HitArea;
@@ -250,6 +251,16 @@ package com.geleca.as3.component
 		}
 		
 		public function get visible():Boolean { return _asset.visible; }
+		
+		public function startDrag(lockCenter:Boolean=false, bounds:Rectangle=null):void
+		{
+			_asset.startDrag(lockCenter, bounds);
+		}
+		
+		public function stopDrag():void 
+		{
+			_asset.stopDrag();
+		}
 		
 		override public function destroy():void 
 		{

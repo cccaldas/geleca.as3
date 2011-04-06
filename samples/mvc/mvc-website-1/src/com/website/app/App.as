@@ -42,9 +42,9 @@ package com.website.app
 			router.add(new Route("produto",			"/produto/{id}/{nome}/", 	ProdutosController, "produto"));
 			
 			//Test
-			navigateURL("/produto/1/teste/");
+			//navigateURL("/produto/1/teste/");
 			//navigateURL("/contato/");
-			//navigateURL("/produtos/");
+			navigateURL("/produtos/");
 		}
 		
 		public static function getInstance():App

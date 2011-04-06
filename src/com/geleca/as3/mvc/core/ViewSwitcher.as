@@ -1,5 +1,6 @@
 package com.geleca.as3.mvc.core 
 {
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.display.SimpleSprite;
 	/**
 	 * ...
@@ -14,7 +15,7 @@ package com.geleca.as3.mvc.core
 			
 		}
 		
-		public function swap(view:View):void 
+		public function swap(view:View, onComplete:Function=null):void 
 		{
 			if (view == _current)
 				return;
@@ -28,8 +29,9 @@ package com.geleca.as3.mvc.core
 			_current = view;
 			
 			addChild(view);
+			//GLog.log(view, "addedToStage");
 			view.initializeView();
-			view.show();
+			view.show(onComplete);
 		}
 		
 		public function getCurrent():View

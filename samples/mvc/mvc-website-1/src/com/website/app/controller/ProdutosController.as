@@ -4,6 +4,7 @@ package com.website.app.controller
 	import com.geleca.as3.data.XmlDataAdapter;
 	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.loading.FileLoaderItem;
+	import com.geleca.as3.loading.ServiceLoaderItem;
 	import com.geleca.as3.mvc.core.ActionResult;
 	import com.geleca.as3.mvc.core.Controller;
 	import com.geleca.as3.mvc.core.FileEntityLoaderItem;
@@ -25,8 +26,16 @@ package com.website.app.controller
 		{
 			if(!app.context.has("produtos"))
 				loader.addLoaderItem(new FileLoaderItem("produtos.xml", app.config.getAppKey("path-xml") + "produtos.xml"));
+				
+			loader.addLoaderItem(new ServiceLoaderItem("service", call));
 			
 			super.load();
+		}
+		
+		private function call(callBack:Function):void
+		{
+			callBack("teste");
+			GLog.log(loader.getItem("service"));
 		}
 		
 		override protected function load_complete():void 
