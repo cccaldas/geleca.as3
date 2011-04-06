@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <flex-config xmlns="http://www.adobe.com/2006/flex-config">
-  <output>D:\cristiano\projetos\geleca-framework\as3\.\bin\geleca.2.0.swc</output>
+  <output>D:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\.\bin\mvc-website-1.swc</output>
   <use-network>true</use-network>
-  <target-player>10</target-player>
+  <target-player>11</target-player>
   <warnings>true</warnings>
   <benchmark>false</benchmark>
   <compiler>
@@ -17,18 +17,46 @@
     <use-resource-bundle-metadata>true</use-resource-bundle-metadata>
     <verbose-stacktraces>false</verbose-stacktraces>
     <source-path>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\src</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\lib</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\src</path-element>
-      <path-element>d:\cristiano\projetos\geleca-framework\as3\test</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\asset</path-element>
     </source-path>
     <library-path>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\as3corelib.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\swfaddress.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\tweener_1_33_74.swc</path-element>
-      <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\as3corelib.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\asset\swc\mvc.swc</path-element>
-      <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\monster.debugger.2.5.1.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\lib\monster.debugger.2.5.1.swc</path-element>
     </library-path>
+    <external-library-path append="true">
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\bin\swf\asset\loader.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\bin\swf\asset\app.swc</path-element>
+      <path-element>d:\cristiano\projetos\geleca-framework\as3\samples\mvc\mvc-website-1\bin\swf\asset\produtos.swc</path-element>
+    </external-library-path>
   </compiler>
   <include-classes>
+    <class>com.website.app.App</class>
+    <class>com.website.app.Main</class>
+    <class>com.website.app.controller.ContatoController</class>
+    <class>com.website.app.controller.HomeController</class>
+    <class>com.website.app.controller.ProdutosController</class>
+    <class>com.website.app.view.AppLoaderView</class>
+    <class>com.website.app.view.AppView</class>
+    <class>com.website.app.view.ContatoView</class>
+    <class>com.website.app.view.HomeView</class>
+    <class>com.website.app.view.ProdutosView</class>
+    <class>com.website.app.view.component.app.control.MenuControl</class>
+    <class>com.website.app.view.component.produtos.control.ProdutoControl</class>
+    <class>com.website.app.view.component.produtos.control.ProdutosControl</class>
+    <class>com.website.app.view.component.produtos.itemtemplate.ProdutoItemTemplate</class>
+    <class>com.website.domain.dao.ProdutoDAO</class>
+    <class>com.website.domain.entity.ContatoEntity</class>
+    <class>com.website.domain.entity.ProdutoEntity</class>
+    <class>com.website.domain.service.ContatoService</class>
+    <class>com.website.test.Main</class>
+    <class>com.gskinner.geom.ColorMatrix</class>
+    <class>fluorinefx.data.FluorineDataTable</class>
     <class>com.geleca.as3.asset.AssetNav</class>
     <class>com.geleca.as3.collection.List</class>
     <class>com.geleca.as3.collection.ListQuery</class>
@@ -174,10 +202,5 @@
     <class>com.geleca.as3.view.loading.TimerLoaderItem</class>
     <class>com.geleca.as3.view.loading.ViewLoader</class>
     <class>com.geleca.as3.view.loading.ViewLoaderItem</class>
-    <class>collection.CollectionTest</class>
-    <class>debugger.DebuggerTest</class>
-    <class>loading.ServiceLoadingTest</class>
-    <class>playerutil.PlayerUtilTest</class>
-    <class>viewmodel.ViewModelTest</class>
   </include-classes>
 </flex-config>

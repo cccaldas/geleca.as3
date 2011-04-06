@@ -8,10 +8,12 @@ package com.geleca.as3.loading
 	public class LoaderItem extends Process
 	{
 		private var _loader					:GLoader;
+		private var _cache					:Boolean;
 		
-		public function LoaderItem(id:String) 
+		public function LoaderItem(id:String, cache:Boolean=false) 
 		{
-			this.id = id;
+			this.id 	= id;
+			_cache 		= cache;
 		}
 		
 		public function get content():* { return result; }
@@ -21,6 +23,18 @@ package com.geleca.as3.loading
 		public function set loader(value:GLoader):void 
 		{
 			_loader = value;
+		}
+		
+		public function get cache():Boolean { return _cache; }
+		
+		override protected function process_start():void 
+		{
+			super.process_start();
+		}
+		
+		override protected function process_finish():void 
+		{
+			super.process_finish();
 		}
 		
 		override public function destroy():void 

@@ -72,6 +72,8 @@ package com.geleca.as3.mvc.core
 			this.busyManager 	= new BusyManager(_container.stage);
 			this.cursorManager 	= new CursorManager(_container.stage);
 			
+			_container.addChild(_view);
+			
 			initializeApp();
 		}
 		
@@ -173,7 +175,7 @@ package com.geleca.as3.mvc.core
 			
 			function preloader_hideComplete():void 
 			{
-				_container.addChild(_view);
+				//_container.addChild(_view);
 				_view.initializeView();
 				
 				_view.show(view_showComplete);

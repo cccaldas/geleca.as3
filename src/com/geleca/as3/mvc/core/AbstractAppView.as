@@ -21,6 +21,8 @@ package com.geleca.as3.mvc.core
 				viewRender = new ViewSwitcher();
 				
 			this.viewRender 	= viewRender;
+			
+			addChild(viewRender);
 		}
 		
 		override public function load():void 
@@ -98,13 +100,6 @@ package com.geleca.as3.mvc.core
 		protected function render_finish():void 
 		{
 			
-		}
-		
-		override protected function setup():void 
-		{
-			super.setup();
-			
-			addChild(viewRender);
 		}
 		
 		override public function show(onComplete:Function = null):void 

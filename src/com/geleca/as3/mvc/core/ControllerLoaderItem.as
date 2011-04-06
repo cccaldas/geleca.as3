@@ -124,12 +124,15 @@ package com.geleca.as3.mvc.core
 				updateProgress(1);
 				
 				view.viewData = _controller.viewData;
-				_switcher.swap(view);
-				view[_controller.action.route.action].call();
+				_switcher.swap(view, swap_complete);
 				
+				function swap_complete():void 
+				{
+					view[_controller.action.route.action].call();
+					finish();
+				}
 				//GLog.log("call view action", view, _controller.action.route.action);
 				
-				finish();
 			}
 			
 			/*if (app.view.viewRender.getCurrent() is value)

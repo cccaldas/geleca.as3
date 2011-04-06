@@ -26,7 +26,7 @@ package com.website.app.view
 		
 		public function ProdutosView() 
 		{
-			
+			GLog.log(stage);
 		}
 		
 		override public function load():void 
@@ -47,16 +47,29 @@ package com.website.app.view
 			ctr_produto 	= addComponent(new ProdutoControl(ProdutosViewAsset(_asset).ctr_produto)) as ProdutoControl;
 			
 			//this.alpha = 0;
+			
+			GLog.log(stage);
+		}
+		
+		override protected function initialize():void 
+		{
+			super.initialize();
+			
+			GLog.log(stage);
 		}
 		
 		override public function show(onComplete:Function = null):void 
 		{
 			super.show(onComplete);
+			
+			GLog.log(stage);
 		}
 		
 		override public function hide(onComplete:Function = null):void 
 		{
 			FunctionUtil.functionDelay(onComplete, 1);
+			
+			GLog.log(stage);
 		}
 		
 		//Actions
@@ -67,6 +80,8 @@ package com.website.app.view
 			ctr_produto.hide();
 			ctr_produtos.show();
 			
+			GLog.log(stage);
+			
 			//GLog.log(viewData["produtos"]);
 		}
 		
@@ -76,6 +91,8 @@ package com.website.app.view
 			
 			ctr_produtos.hide();
 			ctr_produto.show();
+			
+			GLog.log(stage);
 			
 			//GLog.log(viewData["produto"]);
 		}

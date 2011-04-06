@@ -14,8 +14,6 @@ package com.geleca.as3.loading
 			super(id);
 			
 			_call = call;
-			
-			addEventListener(ProcessEvent.START, process_start);
 		}
 		
 		override protected function process_start():void 
