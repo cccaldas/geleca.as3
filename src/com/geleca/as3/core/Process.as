@@ -23,8 +23,8 @@ package com.geleca.as3.core
 		{
 			_progress 	= 0;
 			_running 	= true;
-			dispatchEvent(new ProcessEvent(ProcessEvent.START));
 			process_start();
+			dispatchEvent(new ProcessEvent(ProcessEvent.START));
 		}
 		
 		protected function process_start():void 
@@ -38,7 +38,7 @@ package com.geleca.as3.core
 			_running 	= false;
 			process_finish();
 			dispatchEvent(new ProcessEvent(ProcessEvent.FINISH));
-			process_finish();
+			//process_finish();
 		}
 		
 		protected function process_finish():void 
@@ -49,8 +49,9 @@ package com.geleca.as3.core
 		public final function cancel():void 
 		{
 			_running = false;
-			dispatchEvent(new ProcessEvent(ProcessEvent.CANCEL));
 			process_cancel();
+			dispatchEvent(new ProcessEvent(ProcessEvent.CANCEL));
+			
 		}
 		
 		protected function process_cancel():void 

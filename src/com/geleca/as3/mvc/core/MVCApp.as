@@ -29,6 +29,7 @@ package com.geleca.as3.mvc.core
 		
 		public var config							:FlashConfig = new FlashConfig();
 		public var context							:Context = new Context();
+		public var session							:Context = new Context();
 		
 		public var post								:Object;
 		

@@ -47,7 +47,7 @@ package com.website.app.view.component.produtos.itemtemplate
 			
 			ProdutoItemTemplateAsset(_asset).txt_nome.text 	= ProdutoEntity(dataSource).nome;
 			ProdutoItemTemplateAsset(_asset).txt_preco.text = "R$ " + ProdutoEntity(dataSource).preco;
-			//ProdutoItemTemplateAsset(_asset).ctn_thumb.addChild(ProdutoEntity(dataSource).thumb.data);			
+			ProdutoItemTemplateAsset(_asset).ctn_thumb.addChild(ProdutoEntity(dataSource).thumb.data);			
 		}
 		
 		public function show():void 

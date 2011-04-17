@@ -1,0 +1,40 @@
+#INSTANCE NAMES
+[class]					[instance]
+Sprite					sp_object
+MovieClip				mc_object
+Button					btn_object
+DropDownButton			ddb_object
+TextField				txt_object
+CheckBox				chk_object
+CheckBoxList			chkl_object
+RadioButton				opt_object
+RadioButtonList			optl_object
+FileUpload				fud_object
+DataList				dlst_object
+DetailsView				dvw_object
+Preloader				prl_object
+Container				ctn_object
+SlideShow				sld_object
+Mask					msk_object
+Modal					mdl_object
+VideoPlayer				vdp_object
+Control					ctr_object
+
+#PACKAGE ASSETS
+com.{project}.asset.{type}.{asset}Asset
+Control			com.projecttest.asset.control.ProductsControlAsset
+View			com.projecttest.asset.view.ProductsViewAsset
+Button			com.projecttest.asset.button.SendButtonAsset
+
+#FRAME LABELS
+[state]			[name]
+RollOver		rollOver
+RollOut			rollOut
+Click			click
+Show			show
+Hide			hide
+Enable			enable
+Disable			disable
+Select			select
+Check			check
+Uncheck			uncheck

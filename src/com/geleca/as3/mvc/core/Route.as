@@ -1,5 +1,6 @@
 package com.geleca.as3.mvc.core 
 {
+	import com.geleca.as3.debugger.GLog;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -60,6 +61,19 @@ package com.geleca.as3.mvc.core
 			//trace(this, "matchURL_isParameter", value, (value.indexOf("{") != -1 && value.indexOf("}") != -1));
 			
 			return value.indexOf("{") != -1 && value.indexOf("}") != -1;
+		}
+		
+		public function generateURL(parameters:Object=null):String
+		{
+			var url:String = _url;
+			
+			if (parameters == null)
+				return url;
+				
+			for (var item:String in parameters) 
+				url = url.replace("{" + item + "}", String(parameters[item]));
+			
+			return url;
 		}
 		
 	}

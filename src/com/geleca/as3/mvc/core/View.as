@@ -173,7 +173,7 @@ package com.geleca.as3.mvc.core
 			return view;
 		}
 		
-		protected function addComponent(component:Component):Component
+		protected function addComponent(component:Component):*
 		{
 			if (_components.indexOf(component) == -1)
 			{

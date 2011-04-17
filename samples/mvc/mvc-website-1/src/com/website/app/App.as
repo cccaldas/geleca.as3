@@ -45,6 +45,8 @@ package com.website.app
 			//navigateURL("/produto/1/teste/");
 			//navigateURL("/contato/");
 			navigateURL("/produtos/");
+			
+			//trace(router.generateURL("produto", {id:4, nome:"pablummmmm"}));
 		}
 		
 		public static function getInstance():App

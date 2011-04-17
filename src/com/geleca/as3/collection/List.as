@@ -34,6 +34,11 @@ package com.geleca.as3.collection
 			_items.splice(index, 1);
 		}
 		
+		public function getAt(index:uint):*
+		{
+			return _items[index];
+		}
+		
 		public function get length():uint { return _items.length; }
 		
 		public function where(property:*, compare:String, value:*):ListQuery

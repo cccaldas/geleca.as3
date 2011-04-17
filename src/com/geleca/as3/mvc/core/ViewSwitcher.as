@@ -18,20 +18,37 @@ package com.geleca.as3.mvc.core
 		public function swap(view:View, onComplete:Function=null):void 
 		{
 			if (view == _current)
+			{
+				if (onComplete != null)
+					onComplete();
+					
 				return;
+			}
 			
 			if (_current)
 			{
-				_current.destroy();
-				removeChild(_current);
-			}
+				_current.hide(hideComplete);
 				
-			_current = view;
+				function hideComplete():void 
+				{
+					_current.destroy();
+					removeChild(_current);
+					initialize();
+				}
+			}
+			else
+				initialize();
 			
-			addChild(view);
-			//GLog.log(view, "addedToStage");
-			view.initializeView();
-			view.show(onComplete);
+			function initialize():void 
+			{
+				_current = view;
+			
+				addChild(view);
+				//GLog.log(view, "addedToStage");
+				view.initializeView();
+				view.show(onComplete);
+			}
+			
 		}
 		
 		public function getCurrent():View

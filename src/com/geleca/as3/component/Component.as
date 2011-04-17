@@ -32,6 +32,10 @@ package com.geleca.as3.component
 		
 		public var layout									:Layout;
 		
+		private var _selected								:Boolean;
+		
+		private var _parent									:Component;
+		
 		public function Component(asset:Sprite) 
 		{
 			_asset 	= asset;
@@ -92,12 +96,13 @@ package com.geleca.as3.component
 				setup();
 		}
 		
-		protected function addComponent(component:Component):Component
+		protected function addComponent(component:Component):*
 		{
 			if (_components.indexOf(component) == -1)
 			{
 				_components.push(component);
 				component.layout = this.layout;
+				component.parent = this;
 				component.forceSetup();
 			}
 				
@@ -262,6 +267,45 @@ package com.geleca.as3.component
 			_asset.stopDrag();
 		}
 		
+		public function set buttonMode(value:Boolean):void 
+		{
+			_asset.buttonMode = value;
+		}
+		
+		public function get buttonMode():Boolean { return _asset.buttonMode; }
+		
+		public function get selected():Boolean { return _selected; }
+		
+		public function set selected(value:Boolean):void 
+		{
+			if (value != _selected)
+			{
+				_selected = value;
+				
+				if (_selected)
+					select();
+				else
+					unselect();
+			}
+		}
+		
+		public function get parent():Component { return _parent; }
+		
+		public function set parent(value:Component):void 
+		{
+			_parent = value;
+		}
+		
+		protected function select():void 
+		{
+			
+		}
+		
+		protected function unselect():void 
+		{
+			
+		}
+		
 		override public function destroy():void 
 		{
 			_asset.removeEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
@@ -284,6 +328,7 @@ package com.geleca.as3.component
 			
 			_asset 		= null;
 			_hitArea 	= null;
+			_parent		= null;
 			
 			if (layout)
 				layout.removeElement(this);
