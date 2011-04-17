@@ -18,7 +18,12 @@ package com.geleca.as3.mvc.core
 		public function swap(view:View, onComplete:Function=null):void 
 		{
 			if (view == _current)
+			{
+				if (onComplete != null)
+					onComplete();
+					
 				return;
+			}
 			
 			if (_current)
 			{

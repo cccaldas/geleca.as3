@@ -132,12 +132,15 @@
     <class>com.geleca.as3.mvc.util.NavigateUtil</class>
     <class>com.geleca.as3.service.AMFService</class>
     <class>com.geleca.as3.service.SoapResponse</class>
+    <class>com.geleca.as3.test.Assert</class>
     <class>com.geleca.as3.tracking.GATracker</class>
     <class>com.geleca.as3.type.Currency</class>
     <class>com.geleca.as3.ui.CustomContextMenu</class>
     <class>com.geleca.as3.util.AlignUtil</class>
+    <class>com.geleca.as3.util.ArrayUtil</class>
     <class>com.geleca.as3.util.BitmapUtil</class>
     <class>com.geleca.as3.util.ContainerUtil</class>
+    <class>com.geleca.as3.util.DateUtil</class>
     <class>com.geleca.as3.util.DepthUtil</class>
     <class>com.geleca.as3.util.DictionaryUtil</class>
     <class>com.geleca.as3.util.DrawUtil</class>
@@ -178,6 +181,8 @@
     <class>debugger.DebuggerTest</class>
     <class>loading.ServiceLoadingTest</class>
     <class>playerutil.PlayerUtilTest</class>
+    <class>util.DateUtilTest</class>
+    <class>util.FunctionUtilTest</class>
     <class>viewmodel.ViewModelTest</class>
   </include-classes>
 </flex-config>

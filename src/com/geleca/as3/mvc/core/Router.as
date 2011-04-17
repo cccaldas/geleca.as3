@@ -25,6 +25,17 @@ package com.geleca.as3.mvc.core
 			_routes.push(route);
 		}
 		
+		public function get(name:String):Route
+		{
+			for each (var item:Route in _routes) 
+			{
+				if (item.name == name)
+					return item;
+			}
+			
+			return null;
+		}
+		
 		protected function setup():void
 		{
 			SWFAddress.addEventListener(SWFAddressEvent.CHANGE, SWFAddress_change);
@@ -48,6 +59,12 @@ package com.geleca.as3.mvc.core
 			_init = true;
 			
 			dispatchEvent(new Event(Event.CHANGE));
+		}
+		
+		public function generateURL(route:String, parameters:Object=null):String
+		{
+			return get(route).generateURL(parameters);
+			
 		}
 		
 		protected function matchURL(url:String):void

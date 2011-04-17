@@ -24,7 +24,7 @@
 		public static const DIRECTION_HORIZONTAL	:String = "DIRECTION_HORIZONTAL";
 		public static const DIRECTION_VERTICAL		:String = "DIRECTION_VERTICAL";
 		
-		private var _itens							:Vector.<ItemTemplate> = new Vector.<ItemTemplate>();
+		private var _items							:Vector.<ItemTemplate> = new Vector.<ItemTemplate>();
 		
 		private var _direction						:String = DIRECTION_HORIZONTAL;
 		private var _columns						:int = 5;
@@ -89,10 +89,10 @@
 			{
 				for (var i:int = 0; i < length; i++) 
 				{
-					_itens[i].destroy();
+					_items[i].destroy();
 				}
 				
-				_itens 		= new Vector.<ItemTemplate>();
+				_items 		= new Vector.<ItemTemplate>();
 				dataSource 	= null;
 			}
 			
@@ -115,21 +115,22 @@
 				asset						= Sprite(new _assetClass());
 				
 				itemTemplate.setAsset(asset);
+				itemTemplate.parent = this;
 				itemTemplate.initializeComponent();
 				
 				//align
 				
 				container.addChild(asset);
 				
-				_itens.push(itemTemplate);
+				_items.push(itemTemplate);
 				itemTemplate.dataSource = dataSource[i];
 				itemTemplate.dataBind();
 				
 				dispatchEvent(new DataListEvent(DataListEvent.ITEM_CREATED, itemTemplate));
 			}
 			
-			for each (var item:ItemTemplate in _itens) 
-				item.itens = _itens;
+			for each (var item:ItemTemplate in _items) 
+				item.items = _items;
 			
 			align();
 			
@@ -185,7 +186,17 @@
 		/**Retorna um item de acordo com o seu índice.*/
 		public function getItemAt(index:uint):ItemTemplate
 		{
-			return _itens[index];
+			return _items[index];
+		}
+		
+		public function removeItem(item:ItemTemplate):ItemTemplate
+		{
+			var index:int = _items.indexOf(item);
+			_items.splice(index, 1);
+			
+			//item.destroy();
+			
+			return item;
 		}
 		
 		private function getAssetClass():void
@@ -279,6 +290,8 @@
 			_direction = value;
 		}
 		
+		public function get items():Vector.<ItemTemplate> { return _items; }
+		
 		override public function destroy():void 
 		{
 			_itemTemplateClass 		= null;
@@ -288,10 +301,10 @@
 			
 			for (var i:int = 0; i < length; i++) 
 			{
-				_itens[i].destroy();
+				_items[i].destroy();
 			}
 			
-			_itens 		= null;
+			_items 		= null;
 			
 			ContainerUtil.removeAllChilds(container);
 			

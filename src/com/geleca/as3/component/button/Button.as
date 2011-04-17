@@ -14,7 +14,6 @@ package com.geleca.as3.component.button
 	
 	public class Button extends Component
 	{
-		private var _selected				:Boolean;
 		
 		public function Button(asset:Sprite) 
 		{
@@ -160,33 +159,6 @@ package com.geleca.as3.component.button
 		override protected function enable():void 
 		{
 			_asset.mouseEnabled = _asset.mouseChildren = true
-		}
-		
-		public function get selected():Boolean { return _selected; }
-		
-		public function set selected(value:Boolean):void 
-		{
-			if (value != _selected)
-			{
-				_selected = value;
-				
-				if (_selected)
-					select();
-				else
-					unselect();
-					
-				//trace(this, "selected", _selected, _asset.name);
-			}
-		}
-		
-		protected function select():void 
-		{
-			
-		}
-		
-		protected function unselect():void 
-		{
-			
 		}
 		
 		override public function destroy():void 

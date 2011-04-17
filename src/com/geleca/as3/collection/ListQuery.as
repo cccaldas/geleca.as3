@@ -120,6 +120,11 @@ package com.geleca.as3.collection
 			return _items;
 		}
 		
+		public function toList():List
+		{
+			return new List(_items);
+		}
+		
 		public function first():*
 		{
 			return _items.length != 0 ? _items[0] : null;

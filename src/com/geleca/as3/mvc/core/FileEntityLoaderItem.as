@@ -43,7 +43,7 @@ package com.geleca.as3.mvc.core
 			if(this.result != null)
 				_file.data = this.result;
 			
-			this.result = _file;
+			//this.result = _file;
 		}
 		
 		override public function destroy():void 

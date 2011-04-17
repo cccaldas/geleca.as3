@@ -10,7 +10,7 @@
 	{
 		private var _itemIndex						:int = 0;
 		
-		private var _itens							:Vector.<ItemTemplate> = new Vector.<ItemTemplate>();
+		private var _items							:Vector.<ItemTemplate> = new Vector.<ItemTemplate>();
 		
 		public function ItemTemplate() 
 		{
@@ -30,18 +30,18 @@
 			_itemIndex = value;
 		}
 		
-		public function get itens():Vector.<ItemTemplate> { return _itens; }
+		public function get items():Vector.<ItemTemplate> { return _items; }
 		
-		public function set itens(value:Vector.<ItemTemplate>):void 
+		public function set items(value:Vector.<ItemTemplate>):void 
 		{
-			_itens = value;
+			_items = value;
 		}
 		
 		override public function destroy():void 
 		{
 			super.destroy();
 			
-			_itens = null;
+			_items = null;
 		}
 		
 	}

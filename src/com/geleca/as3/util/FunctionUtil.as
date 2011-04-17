@@ -27,6 +27,26 @@ package com.geleca.as3.util
 			timer.start();
 		}
 		
+		public static function executeSequential(functions:Array, onComplete:Function=null):void 
+		{
+			if (onComplete == null)
+				onComplete = function():void { };
+				
+			var current:int = -1;
+			
+			exec();
+			
+			function exec():void 
+			{
+				current ++;
+				
+				if(current != functions.length - 1)
+					functions[current](exec);
+				else
+					functions[current](onComplete);
+			}
+		}
+		
 	}
 
 }
