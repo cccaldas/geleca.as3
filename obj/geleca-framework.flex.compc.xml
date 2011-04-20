@@ -22,11 +22,13 @@
     </source-path>
     <library-path>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\swfaddress.swc</path-element>
-      <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\tweener_1_33_74.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\as3corelib.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\asset\swc\mvc.swc</path-element>
       <path-element>d:\cristiano\projetos\geleca-framework\as3\lib\monster.debugger.2.5.1.swc</path-element>
     </library-path>
+    <include-libraries>
+      <library>d:\cristiano\projetos\geleca-framework\as3\lib\tweener_1_33_74.swc</library>
+    </include-libraries>
   </compiler>
   <include-classes>
     <class>com.geleca.as3.asset.AssetNav</class>

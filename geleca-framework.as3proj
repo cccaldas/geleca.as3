@@ -44,12 +44,11 @@
   </build>
   <!-- SWC Include Libraries -->
   <includeLibraries>
-    <!-- example: <element path="..." /> -->
+    <element path="lib\Tweener_1_33_74.swc" />
   </includeLibraries>
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\SWFAddress.swc" />
-    <element path="lib\Tweener_1_33_74.swc" />
     <element path="lib\as3corelib.swc" />
     <element path="asset\swc\mvc.swc" />
     <element path="lib\Monster.Debugger.2.5.1.swc" />
