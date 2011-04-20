@@ -87,7 +87,7 @@ package com.geleca.as3.mvc.core
 			}
 		}
 		
-		protected function render_start():void 
+		protected function render_start(result:ActionResult):void 
 		{
 			
 		}
