@@ -1,0 +1,229 @@
+﻿package simbionte.ui.component.video
+{
+	import flash.display.DisplayObject;
+	import flash.display.Sprite;
+	import flash.events.MouseEvent;
+	import flash.events.NetStatusEvent;
+	import flash.events.TimerEvent;
+	import flash.geom.Rectangle;
+	import flash.media.Video;
+	import flash.utils.Timer;
+	import simbionte.domain.vo.VideoMetaDataVO;
+	import org.openvideoplayer.events.OvpEvent;
+	import org.openvideoplayer.net.OvpConnection;
+	import org.openvideoplayer.net.OvpNetStream;
+	import flash.net.NetConnection;
+	import flash.display.MovieClip;
+	import flash.media.Video;
+	import simbionte.ui.component.AbstractComponent;
+	import simbionte.ui.component.IPreloader;
+	
+	public class SimpleVideoPlayer extends AbstractComponent
+	{
+		private var _nc                    :OvpConnection;
+		private var _ns                    :OvpNetStream;
+		private var _url                   :String = "";
+		private var _videoLoaded           :Boolean = false;
+		private var _timer                 :Timer = new Timer(10);
+		private var _metadata              :VideoMetaDataVO;
+		private var _btnSeek_press         :Boolean = false;
+		
+		public function SimpleVideoPlayer()
+		{
+			
+		}
+		
+		override protected function setVariables():void 
+		{
+			_nc = new OvpConnection();
+		}
+		
+		override protected function setListeners():void 
+		{
+			_nc.addEventListener				(OvpEvent.ERROR,				errorHandler);
+			_nc.addEventListener				(NetStatusEvent.NET_STATUS,		netStatusHandler);
+			buttonPlayPause.addEventListener	(MouseEvent.CLICK,				btn_playPause_click);
+			_timer.addEventListener				(TimerEvent.TIMER,				timer_timer);
+			
+			buttonSeek.addEventListener(MouseEvent.MOUSE_DOWN,	btn_seek_mouseDown);
+			buttonSeek.addEventListener(MouseEvent.MOUSE_UP,	btn_seek_mouseUp);
+		}
+		
+		override protected function initialize():void 
+		{
+			_nc.connect(null);
+			
+			//loadVideo("http://www.stonexperience.com/v2/upld/video/help.flv");
+			//loadVideo("http://products.edgeboss.net/download/products/content/demo/video/oomt/big_buck_bunny_700k.flv");
+			//loadVideo("http://products.edgeboss.net/download/products/jsherry/testfiles/stream001.flv");
+		}
+		
+		protected function get metadata()          :Object       { return _metadata; }
+		protected function get video()             :Video        { return Video(getChildByName("vd_video")); }
+		protected function get buttonPlayPause()   :MovieClip    { return MovieClip(getChildByName("btn_playPause")); }
+		protected function get buttonSeek()        :MovieClip    { return MovieClip(getChildByName("btn_seekSlider")); }
+		protected function get preloader()         :IPreloader   { return IPreloader(getChildByName("prl_video")); }
+		protected function get seekProgress()      :IPreloader   { return IPreloader(getChildByName("prl_seek")); }
+		protected function get buffering()         :MovieClip    { return MovieClip(getChildByName("mc_buffering")); }
+	
+		
+		public function loadVideo(url:String):void 
+		{
+			_url = url;
+			
+			_videoLoaded = false;
+			
+			play();
+		}
+		
+		private function btn_playPause_click(e:MouseEvent):void 
+		{
+			buttonPlayPause.nextFrame();
+			
+			if (buttonPlayPause.currentFrameLabel == "pause") pause();
+			if (buttonPlayPause.currentFrameLabel == "play")  play();
+		}
+		
+		override public function play():void 
+		{
+			buttonPlayPause.gotoAndStop("play");
+			
+			if (_videoLoaded) _ns.resume();
+			else
+			{
+				_ns.play(_url);
+				_videoLoaded = true;
+			}
+		}
+		
+		public function pause():void 
+		{
+			buttonPlayPause.gotoAndStop("pause");
+			_ns.pause();
+		}
+		
+		override public function stop():void 
+		{
+			pause();
+			_ns.seek(0);
+		}
+			
+		private function connectedHandler():void 
+		{
+			_ns = new OvpNetStream(_nc);
+			
+			_ns.addEventListener(NetStatusEvent.NET_STATUS,      ns_netStatus);
+			_ns.addEventListener(OvpEvent.NETSTREAM_PLAYSTATUS,  ns_netStreamPlayStatus);
+			_ns.addEventListener(OvpEvent.NETSTREAM_METADATA,    ns_metadata);
+			_ns.addEventListener(OvpEvent.STREAM_LENGTH,         ns_streamLength); 
+			_ns.addEventListener(OvpEvent.PROGRESS,              ns_progress);
+
+			video.attachNetStream(_ns);
+   			play();
+		}	
+		
+		private function ns_progress(e:OvpEvent):void 
+		{
+			preloader.progress = _ns.bytesLoaded / _ns.bytesTotal;
+		}	
+			
+		private function errorHandler(e:OvpEvent):void
+		{
+			
+		}
+		
+		private function ns_streamLength(e:OvpEvent):void
+		{
+			
+		}
+		
+		private function netStatusHandler(e:NetStatusEvent):void
+		{
+			switch (e.info.code)
+			{
+				case "NetConnection.Connect.Rejected":
+					//trace("Rejected by server. Reason is "+e.info.description);
+				break;
+				
+				case "NetConnection.Connect.Success":
+					connectedHandler();
+				break;
+			}
+		}
+				
+		private function ns_netStatus(e:NetStatusEvent):void
+		{
+			
+		}
+
+		private function ns_netStreamPlayStatus(e:OvpEvent):void {				
+			
+		}
+		
+		private function ns_metadata(e:OvpEvent):void
+		{
+			_metadata = new VideoMetaDataVO(e.data);
+			
+			_timer.start();
+		}
+		
+		private function btn_seek_mouseDown(e:MouseEvent):void 
+		{
+			_btnSeek_press = true;
+			
+			var target:MovieClip = MovieClip(e.target);
+			target.startDrag(false, new Rectangle(0, target.y, DisplayObject(seekProgress).width, 0));
+			
+			stage.addEventListener(MouseEvent.MOUSE_UP, stage_mouseUp);
+		}
+		
+		private function btn_seek_mouseUp(e:MouseEvent):void 
+		{
+			_btnSeek_press = false;
+			
+			var target:MovieClip = MovieClip(e.target);
+			target.stopDrag();			
+		}
+		
+		//release outSide
+		private function stage_mouseUp(e:MouseEvent):void 
+		{
+			stage.removeEventListener(MouseEvent.MOUSE_UP, stage_mouseUp);
+			buttonSeek.dispatchEvent(new MouseEvent(MouseEvent.MOUSE_UP));
+		}
+		
+		private function timer_timer(e:TimerEvent):void 
+		{
+			if (!_btnSeek_press)
+			{
+				buttonSeek.x = (_ns.time * (DisplayObject(seekProgress).width)) / _metadata.duration;
+			}
+			else 
+			{
+				_ns.seek((buttonSeek.x * _metadata.duration) / DisplayObject(seekProgress).width);
+			}
+			
+			seekProgress.progress = _ns.time / _metadata.duration;
+			
+			if (_ns.isBuffering && buffering.currentFrame == 1)     buffering.gotoAndPlay("show");
+			if (!(_ns.isBuffering) && buffering.currentFrame != 1)  buffering.gotoAndPlay("hide");
+		}
+		
+		override public function destroy():void 
+		{
+			_timer.stop();
+			_timer.removeEventListener(TimerEvent.TIMER, timer_timer);
+			
+			_ns.pause();
+			_nc.close();
+			
+			_timer		= null;
+			_metadata	= null;
+			_ns			= null;
+			_nc			= null;
+			
+			super.destroy();
+		}
+	}
+
+}

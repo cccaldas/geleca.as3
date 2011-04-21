@@ -1,0 +1,15 @@
+﻿package simbionte.ui.component 
+{
+	
+	public interface IComboBox extends IDataComponent 
+	{
+		function get selectedIndex():int
+		function set selectedIndex(value:int):void
+		
+		function get selectedItem():Object
+		
+		function get selectedData():String
+		function get selectedLabel():String
+	}
+	
+}

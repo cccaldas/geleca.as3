@@ -1,0 +1,41 @@
+﻿package simbionte.ui.component 
+{
+	import flash.events.ProgressEvent;
+	import simbionte.ui.component.IPreloader;
+	
+	public class AbstractPreloader extends AbstractComponent implements IPreloader
+	{
+		private var _progress                             :Number = 0;
+		
+		public function AbstractPreloader() 
+		{
+			mouseEnabled = mouseChildren = false;
+		}
+		
+		public function set progress(value:Number):void
+		{
+			_progress = value;
+			
+			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+		}
+		
+		public function get progress():Number { return _progress; }
+		
+		override public function show(param:Object=null):void 
+		{
+			
+		}
+		
+		override public function hide(param:Object=null):void 
+		{
+			
+		}
+		
+		protected function updateProgress():void 
+		{
+			
+		}
+		
+	}
+
+}

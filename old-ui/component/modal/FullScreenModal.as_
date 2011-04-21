@@ -1,0 +1,77 @@
+﻿package simbionte.ui.component.modal 
+{
+	import simbionte.controls.layout.Alignment;
+	import simbionte.controls.layout.BlockElement;
+	import simbionte.controls.layout.LayoutManager;
+	import simbionte.display.Container;
+	import simbionte.display.SimpleSprite;
+	import simbionte.effects.transitions.FadeTransition;
+	import simbionte.ui.component.AbstractComponent;
+	
+	public class FullScreenModal extends AbstractComponent
+	{
+		private var _layoutManager							:LayoutManager = LayoutManager.getInstance();
+		private var _containerLayoutID						:String;
+		private var _backgroundLayoutID						:String;
+		
+		public function FullScreenModal() 
+		{
+			visible = false;
+		}
+		
+		override protected function setVariables():void 
+		{
+			 _containerLayoutID 	= _layoutManager.getUniqueID();
+			 _backgroundLayoutID 	= _layoutManager.getUniqueID();
+			 
+			_layoutManager.addElement(new BlockElement(_containerLayoutID, 	container, 	null, null, 	Alignment.CENTER, Alignment.MIDDLE));
+			_layoutManager.addElement(new BlockElement(_backgroundLayoutID, background, "100%", "100%", Alignment.CENTER, Alignment.MIDDLE));
+		}
+		
+		override protected function setListeners():void 
+		{
+			
+		}
+		
+		override protected function initialize():void 
+		{
+			
+		}
+		
+		public function get container()		:Container		{ return Container(getChildByName("ctn_modal"));}
+		public function get background()	:SimpleSprite	{ return SimpleSprite(getChildByName("bg_modal"));}
+		
+		override public function show(param:Object = null):void
+		{
+			visible = true;
+			FadeTransition.fadeIn(this, .7, 0, show_complete);
+		}
+		
+		override protected function show_complete():void 
+		{
+			
+		}
+		
+		override public function hide(param:Object = null):void
+		{
+			FadeTransition.fadeOut(this, .7, 0, hide_complete);
+		}
+		
+		override protected function hide_complete():void 
+		{
+			visible = false;
+		}
+		
+		override public function destroy():void 
+		{
+			super.destroy();
+			
+			_layoutManager.removeElement(_containerLayoutID);
+			_layoutManager.removeElement(_backgroundLayoutID);
+			
+			_layoutManager = null;
+		}
+		
+	}
+
+}

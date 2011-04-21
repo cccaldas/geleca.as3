@@ -149,7 +149,7 @@ package com.geleca.as3.mvc.core
 				router.removeEventListener(Event.CHANGE, router_change);
 				
 				_loader.addEventListener(ProgressEvent.PROGRESS, 	loader_progress);
-				_loader.addEventListener(Event.COMPLETE, 			loader_complete);
+				_loader.addEventListener(Event.COMPLETE, 			_loader_complete);
 				
 				_loader.load();
 				
@@ -165,14 +165,18 @@ package com.geleca.as3.mvc.core
 			_preloader.progress = _loader.progress;
 		}
 		
-		private function loader_complete(e:Event):void
+		private function _loader_complete(e:Event):void
 		{
 			//GLog.log("");
 			
 			_loader.removeEventListener(ProgressEvent.PROGRESS, 	loader_progress);
-			_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
+			_loader.removeEventListener(Event.COMPLETE, 			_loader_complete);
+			
+			loader_complete();
 			
 			_preloader.hide(preloader_hideComplete);
+			
+			
 			
 			function preloader_hideComplete():void 
 			{
@@ -193,6 +197,11 @@ package com.geleca.as3.mvc.core
 			}
 			
 			//dispatchEvent(e);
+		}
+		
+		protected function loader_complete():void 
+		{
+			
 		}
 		
 		protected function setup():void 
@@ -275,6 +284,7 @@ package com.geleca.as3.mvc.core
 		public function get container():Sprite { return _container; }
 		
 		public function get view():AbstractAppView { return _view; }
+		public function get preloader():AbstractPreloaderView { return _preloader; }
 		
 		public function busy():void 
 		{

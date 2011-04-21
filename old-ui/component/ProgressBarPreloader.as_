@@ -1,0 +1,43 @@
+﻿package simbionte.ui.component 
+{
+	import caurina.transitions.Tweener;
+	import flash.display.Sprite;
+	import simbionte.ui.component.SimplePreloader;
+	
+	public class ProgressBarPreloader extends SimplePreloader
+	{
+		
+		public function ProgressBarPreloader() 
+		{
+			
+		}
+		
+		override protected function setVariables():void 
+		{
+			progressBar.scaleX = 0;
+			
+			super.setVariables();
+		}
+		
+		override public function set progress(value:Number):void 
+		{
+			Tweener.addTween(progressBar, { scaleX:value, time:1 } );
+			
+			super.progress = value;
+		}
+		
+		protected function get progressBar():Sprite
+		{
+			if (getChildByName("sp_progressBarContainer") != null) 
+			{
+				return Sprite(Sprite(getChildByName("sp_progressBarContainer")).getChildByName("sp_progressBar"));
+			}
+			else 
+			{
+				return Sprite(getChildByName("sp_progressBar")); 
+			}
+		}
+		
+	}
+
+}
