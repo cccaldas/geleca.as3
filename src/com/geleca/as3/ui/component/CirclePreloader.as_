@@ -1,0 +1,57 @@
+﻿package simbionte.ui.component 
+{
+	import flash.display.Sprite;
+	import simbionte.display.Mask;
+	import simbionte.drawing.Pen;
+	import simbionte.utils.ContainerUtil;
+	
+	public class CirclePreloader extends SimplePreloader
+	{
+		private var _pen                                 :Pen;
+		
+		private var _circleRadius                        :Number = 0;
+		
+		public function CirclePreloader() 
+		{
+			
+		}
+		
+		override protected function setVariables():void 
+		{
+			_circleRadius = shapeMask.width / 2;
+			
+			_pen = new Pen(shapeMask.graphics);
+		}
+		
+		override protected function initialize():void 
+		{
+			_pen.clear();
+			
+			ContainerUtil.removeAllChilds(shapeMask);
+		}
+
+		override public function set progress(value:Number):void 
+		{
+			super.progress = value;
+			
+			drawCircle(360 * (value), circleRadius);
+		}
+		
+		protected function drawCircle(angle:Number,radius:Number,startAngle:Number=270):void 
+		{
+			_pen.clear();
+			_pen.lineStyle(0, 0, 0);
+			_pen.beginFill(0x00ff00);
+			_pen.drawSlice(angle, radius, startAngle, radius, radius);
+			_pen.endFill();
+			
+			container.mask = shapeMask;
+		}
+		
+		public function get shapeMask():Mask       { return Mask(getChildByName("sp_mask")); }
+		public function get container():Sprite     { return Sprite(getChildByName("sp_container")); }
+		public function get circleRadius():Number  { return _circleRadius; }
+		
+	}
+
+}

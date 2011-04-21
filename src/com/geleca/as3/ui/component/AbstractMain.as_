@@ -1,0 +1,15 @@
+﻿package simbionte.ui.component 
+{
+	import simbionte.ui.component.AbstractComponent;
+	
+	public class AbstractMain extends AbstractComponent
+	{
+		
+		public function AbstractMain() 
+		{
+			
+		}
+		
+	}
+
+}

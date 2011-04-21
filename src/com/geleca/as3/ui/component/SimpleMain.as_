@@ -1,0 +1,54 @@
+﻿package simbionte.ui.component 
+{
+	import flash.events.Event;
+	import simbionte.ui.component.AbstractMain;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	import simbionte.ui.SimbionteContextMenu;
+	
+	public class SimpleMain extends AbstractMain
+	{
+		
+		public function SimpleMain() 
+		{
+			
+		}
+		
+		override protected function addedToStage(e:Event = null):void 
+		{
+			super.addedToStage(e);
+			
+			stage.align      = StageAlign.TOP_LEFT;
+			stage.scaleMode  = StageScaleMode.NO_SCALE;
+			
+			new SimbionteContextMenu(this);
+		}
+		
+		override protected function setVariables():void 
+		{
+			
+		}
+		
+		override protected function setListeners():void 
+		{
+			
+		}
+		
+		override protected function initialize():void 
+		{
+			
+		}
+		
+		override public function show(param:Object = null):void 
+		{
+			
+		}
+		
+		override public function hide(param:Object = null):void 
+		{
+			
+		}
+		
+	}
+
+}
