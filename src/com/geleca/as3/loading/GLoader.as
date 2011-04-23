@@ -44,10 +44,12 @@ package com.geleca.as3.loading
 			dispatchEvent(new Event(Event.INIT));
 		}
 		
-		public function addLoaderItem(item:LoaderItem):void 
+		public function addLoaderItem(item:LoaderItem):LoaderItem 
 		{
 			item.loader = this;
 			_processGroup.add(item);
+			
+			return item;
 		}
 		
 		public function getItem(id:String):*

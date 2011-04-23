@@ -1,6 +1,6 @@
 package com.geleca.as3.mvc.core
 {
-	import com.geleca.as3.component.Component;
+	import com.geleca.as3.ui.component.Component;
 	import com.geleca.as3.core.IDestroyable;
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.events.SimpleEventDispatcher;
@@ -56,11 +56,11 @@ package com.geleca.as3.mvc.core
 		public function load():void 
 		{
 			//setup();
-			_loader.addEventListener(Event.COMPLETE, loader_complete);
+			_loader.addEventListener(Event.COMPLETE, _loader_complete);
 			_loader.load();
 		}
 		
-		private function loader_complete(e:Event):void
+		private function _loader_complete(e:Event):void
 		{
 			_loaded = true;
 			
@@ -68,9 +68,14 @@ package com.geleca.as3.mvc.core
 			
 			//_loader.addEventListener(Event.INIT, 					dispatchEvent);
 			_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
-			_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
-			
+			_loader.removeEventListener(Event.COMPLETE, 			_loader_complete);
+			loader_complete();
 			dispatchEvent(e);
+		}
+		
+		protected function loader_complete():void 
+		{
+			
 		}
 		
 		protected function setup():void 
@@ -179,6 +184,7 @@ package com.geleca.as3.mvc.core
 			{
 				_components.push(component);
 				component.layout = app.layout;
+				addChild(component);
 				component.forceSetup();
 			}
 				
@@ -195,6 +201,7 @@ package com.geleca.as3.mvc.core
 			{
 				_components.splice(index, 1);
 				component.destroy();
+				//removeChild(component);
 			}
 			
 			return component;

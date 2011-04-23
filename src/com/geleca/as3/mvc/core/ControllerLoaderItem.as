@@ -14,15 +14,15 @@ package com.geleca.as3.mvc.core
 	{
 		private var _controller						:Controller;
 		private var _result							:ActionResult;
-		private var _switcher						:ViewSwitcher;
+		private var _appview						:AbstractAppView;
 		
-		public function ControllerLoaderItem(id:String, controller:Controller, switcher:ViewSwitcher) 
+		public function ControllerLoaderItem(id:String, controller:Controller, appview:AbstractAppView) 
 		{
 			super(id);
 			
 			this.id 			= id;
 			this._controller 	= controller;
-			this._switcher 		= switcher;
+			this._appview 		= appview;
 		}
 		
 		override protected function process_start():void 
@@ -93,9 +93,9 @@ package com.geleca.as3.mvc.core
 		{
 			var view:View;
 			
-			if (_switcher.getCurrent() is result.view)
+			if (_appview.viewRender.getCurrent() is result.view)
 			{
-				view = _switcher.getCurrent();
+				view = _appview.viewRender.getCurrent();
 				view.loader.removeAll();
 			}
 			else
@@ -124,9 +124,9 @@ package com.geleca.as3.mvc.core
 				updateProgress(1);
 				
 				view.viewData = _controller.viewData;
-				_switcher.swap(view, swap_complete);
+				_appview.showView(view, showView_complete);
 				
-				function swap_complete():void 
+				function showView_complete():void 
 				{
 					view[_controller.action.route.action].call();
 					finish();
