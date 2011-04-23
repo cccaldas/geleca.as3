@@ -1,7 +1,6 @@
 ﻿package com.geleca.as3.events
 {
 	import flash.events.Event;
-	import com.geleca.as3.component.data.ItemTemplate;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -13,9 +12,9 @@
 		public static const BIND                :String = "bind";
 		public static const BINDED              :String = "binded";
 		
-		private var _item                       :ItemTemplate = null;
+		private var _item                       :* = null;
 		
-		public function DataListEvent(type:String, item:ItemTemplate=null, bubbles:Boolean=false, cancelable:Boolean=false) 
+		public function DataListEvent(type:String, item:*=null, bubbles:Boolean=false, cancelable:Boolean=false) 
 		{ 
 			_item = item;
 			super(type, bubbles, cancelable);
@@ -31,7 +30,7 @@
 			return formatToString("DataListEvent","item", "type", "bubbles", "cancelable", "eventPhase"); 
 		}
 		
-		public function get item():ItemTemplate { return _item; }
+		public function get item():* { return _item; }
 		
 	}
 	

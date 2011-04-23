@@ -5,7 +5,10 @@ package com.geleca.as3.mvc.core
 	import com.geleca.as3.core.BusyManager;
 	import com.geleca.as3.core.Context;
 	import com.geleca.as3.core.CursorManager;
+	import com.geleca.as3.core.Process;
+	import com.geleca.as3.core.ProcessManager;
 	import com.geleca.as3.debugger.GLog;
+	import com.geleca.as3.events.ProcessEvent;
 	import com.geleca.as3.events.SimpleEventDispatcher;
 	import com.geleca.as3.layout.Layout;
 	import com.geleca.as3.loading.GLoader;
@@ -22,31 +25,24 @@ package com.geleca.as3.mvc.core
 
 	public class MVCApp extends SimpleEventDispatcher
 	{
-		public var router							:Router;
 		private var _loader							:GLoader = new GLoader();
-		
 		private var _configURL						:String;
+		private var _container						:Sprite;
+		private var _preloader						:AbstractPreloaderView;
+		private var _view							:AbstractAppView;
+		private var _loaded							:Boolean = false;
+		private var _browser						:MVCAppBrowser;
+		private var _tracker						:ITracker;
 		
+		public var router							:Router;
+		public var processes						:ProcessManager = new ProcessManager();
 		public var config							:FlashConfig = new FlashConfig();
 		public var context							:Context = new Context();
 		public var session							:Context = new Context();
-		
 		public var post								:Object;
-		
-		private var _container						:Sprite;
-		
-		private var _preloader						:AbstractPreloaderView;
-		private var _view							:AbstractAppView;
-		
 		public var layout							:Layout;
 		public var busyManager						:BusyManager;
 		public var cursorManager					:CursorManager;
-		
-		private var _loaded							:Boolean = false;
-		
-		private var _browser						:MVCAppBrowser;
-		
-		private var _tracker						:ITracker;
 		
 		public function MVCApp()
 		{
@@ -175,15 +171,17 @@ package com.geleca.as3.mvc.core
 			loader_complete();
 			
 			_preloader.hide(preloader_hideComplete);
+			_view.initializeView();
+			//_view.show();
 			
 			
 			
 			function preloader_hideComplete():void 
 			{
 				//_container.addChild(_view);
-				_view.initializeView();
 				
-				_view.show(view_showComplete);
+				
+				
 				
 				_loaded = true;
 			}
