@@ -22,6 +22,17 @@ package com.geleca.as3.util
 			return array;
 		}
 		
+		public static function concatenate(arrays:Array):Array 
+		{
+			var array	:Array = [];
+			var length	:uint = arrays.length;
+			
+			for (var i:int = 0; i < length; i++) 
+				array = array.concat(arrays[i]);
+			
+			return array;
+		}
+		
 	}
 
 }

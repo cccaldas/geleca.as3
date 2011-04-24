@@ -202,6 +202,7 @@
     <class>ui.itemtemplate.ProductItemTemplate</class>
     <class>ui.skin.CompControlSkin</class>
     <class>ui.skin.ProductItemTemplateSkin</class>
+    <class>util.ArrayUtilTest</class>
     <class>util.DateUtilTest</class>
     <class>util.FunctionUtilTest</class>
     <class>viewmodel.ViewModelTest</class>
