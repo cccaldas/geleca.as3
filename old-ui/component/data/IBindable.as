@@ -1,9 +1,6 @@
-﻿package com.geleca.as3.ui.component.data
+﻿package simbionte.ui.component.data 
 {
-	/**
-	 * ...
-	 * @author Cristiano Caldas
-	 */
+	
 	public interface IBindable 
 	{
 		function dataBind():void

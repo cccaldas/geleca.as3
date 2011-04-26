@@ -1,65 +1,45 @@
-package com.geleca.as3.ui.component.form 
+package simbionte.ui.component.form 
 {
+	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.FocusEvent;
-	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.text.TextFieldType;
-	/**
-	 * ...
-	 * @author Cristiano Caldas
-	 */
+	
 	public class TextInput extends Input
 	{
-		private var _textField				:TextField;
+		private var _textField				:TextField = new TextField();
 		private var _background				:Sprite;
 		private var _padding				:Number = 0;
 		
-		public function TextInput(skin:Class) 
+		public function TextInput(background:Sprite=null, padding:Number = 0) 
 		{
-			super(skin);
-			
-			_background = Sprite(skin.getChildByName("bg_textInput"));
-			_textField	= TextField(skin.getChildByName("txt_textInput"));
+			_background = background;
+			_padding 	= padding;
 		}
 		
-		override protected function setup():void 
+		override protected function setAssets():void 
+		{			
+			addChild(background);
+			addChild(textField);
+			
+			super.setAssets();
+		}
+		
+		override protected function setVariables():void 
 		{
-			super.setup();			
-			_padding 	= (_textField.x + _textField.y) * .5;
+			textField.type = TextFieldType.INPUT;
 			
-			var width:Number = this.width;
-			var height:Number = this.height;
-			
-			//_asset.scaleX 	= _asset.scaleY = 1;
-			this.width 		= width;
-			this.height 	= height;
-			
+			super.setVariables();
+		}
+		
+		override protected function setListeners():void 
+		{
+			addEventListener(FocusEvent.FOCUS_IN, 	textInput_focusIn);
 			addEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
 			
-			addEventListener(MouseEvent.ROLL_OVER, 	_rollOver);
-			addEventListener(MouseEvent.ROLL_OUT, 	_rollOut);
-		}
-		
-		private function _rollOver(e:MouseEvent):void 
-		{
-			rollOver();
-		}
-		
-		private function _rollOut(e:MouseEvent):void 
-		{
-			rollOut();
-		}
-		
-		protected function rollOver():void 
-		{
-			
-		}
-		
-		protected function rollOut():void 
-		{
-			
+			super.setListeners();
 		}
 		
 		override public function set width(value:Number):void 
@@ -112,19 +92,16 @@ package com.geleca.as3.ui.component.form
 			return _background;
 		}
 		
-		override protected function focusIn():void 
+		private function textInput_focusIn(e:FocusEvent):void 
 		{
-			super.focusIn();
-			
 			stage.focus = textField;
+			focusIn();
 		}
 		
 		private function textInput_focusOut(e:FocusEvent):void 
 		{
-			if (valid)
-				focusOut();
-			else
-				status_invalid();
+			if (valid) focusOut();
+			else status_invalid();
 			
 			e.stopImmediatePropagation();
 		}
@@ -149,7 +126,7 @@ package com.geleca.as3.ui.component.form
 		
 		public function selectText():void 
 		{
-			focusIn();
+			textInput_focusIn(null);
 			textField.setSelection(0, textField.text.length + 1);
 		}
 		
@@ -161,22 +138,10 @@ package com.geleca.as3.ui.component.form
 		
 		public function get padding():Number { return _padding; }
 		
-		public function get displayAsPassword():Boolean
-		{
-			return textField.displayAsPassword;
-		}
-		
-		public function set displayAsPassword(value:Boolean):void
-		{
-			textField.displayAsPassword = value;
-		}
-		
 		override public function destroy():void 
 		{
+			removeEventListener(FocusEvent.FOCUS_IN, 	textInput_focusIn);
 			removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
-			
-			removeEventListener(MouseEvent.ROLL_OVER, 	_rollOver);
-			removeEventListener(MouseEvent.ROLL_OUT, 	_rollOut);
 			
 			_textField 		= null;
 			_background 	= null;

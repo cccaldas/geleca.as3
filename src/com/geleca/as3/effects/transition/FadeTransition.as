@@ -14,14 +14,14 @@ package com.geleca.as3.effects.transition
 			
 		}
 		
-		public static function fadeIn(target:Object, delay:Number=0, alpha:Number=1, time:Number=.7, onComplete:Function=null):void 
+		public static function fadeIn(target:Object, delay:Number=0, alpha:Number=1, time:Number=.7, onComplete:Function=null, transition:String="none"):void 
 		{
-			Tweener.addTween(target, { alpha:alpha, delay:delay, time:time, onComplete:onComplete } );
+			Tweener.addTween(target, { alpha:alpha, delay:delay, time:time, onComplete:onComplete, transition:transition } );
 		}
 		
-		public static function fadeOut(target:Object, delay:Number=0, alpha:Number=0, time:Number=.7, onComplete:Function=null):void 
+		public static function fadeOut(target:Object, delay:Number=0, alpha:Number=0, time:Number=.7, onComplete:Function=null, transition:String="none"):void 
 		{
-			Tweener.addTween(target, { alpha:alpha, delay:delay, time:time, onComplete:onComplete } );
+			Tweener.addTween(target, { alpha:alpha, delay:delay, time:time, onComplete:onComplete, transition:transition } );
 		}
 		
 	}

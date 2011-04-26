@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <flex-config xmlns="http://www.adobe.com/2006/flex-config">
-  <output>D:\cristiano\projetos\geleca-framework\as3\.\bin\geleca.2.0.swc</output>
+  <output>D:\cristiano\projetos\geleca-framework\as3\.\bin\geleca.3.0.swc</output>
   <use-network>true</use-network>
   <target-player>10</target-player>
   <warnings>true</warnings>
@@ -138,9 +138,22 @@
     <class>com.geleca.as3.tracking.GATracker</class>
     <class>com.geleca.as3.type.Currency</class>
     <class>com.geleca.as3.ui.CustomContextMenu</class>
+    <class>com.geleca.as3.ui.component.Component</class>
+    <class>com.geleca.as3.ui.component.button.Button</class>
+    <class>com.geleca.as3.ui.component.button.FrameButton</class>
+    <class>com.geleca.as3.ui.component.data.DataList</class>
+    <class>com.geleca.as3.ui.component.data.DataView</class>
+    <class>com.geleca.as3.ui.component.data.DetailsView</class>
+    <class>com.geleca.as3.ui.component.data.IBindable</class>
+    <class>com.geleca.as3.ui.component.data.ItemTemplate</class>
+    <class>com.geleca.as3.ui.component.form.Input</class>
+    <class>com.geleca.as3.ui.component.form.TextInput</class>
+    <class>com.geleca.as3.ui.component.label.Label</class>
+    <class>com.geleca.as3.ui.component.preloader.Preloader</class>
     <class>com.geleca.as3.util.AlignUtil</class>
     <class>com.geleca.as3.util.ArrayUtil</class>
     <class>com.geleca.as3.util.BitmapUtil</class>
+    <class>com.geleca.as3.util.ColorUtil</class>
     <class>com.geleca.as3.util.ContainerUtil</class>
     <class>com.geleca.as3.util.DateUtil</class>
     <class>com.geleca.as3.util.DepthUtil</class>
@@ -183,6 +196,13 @@
     <class>debugger.DebuggerTest</class>
     <class>loading.ServiceLoadingTest</class>
     <class>playerutil.PlayerUtilTest</class>
+    <class>processtest.ProcessTest</class>
+    <class>ui.CompControl</class>
+    <class>ui.UIComponentsTest</class>
+    <class>ui.itemtemplate.ProductItemTemplate</class>
+    <class>ui.skin.CompControlSkin</class>
+    <class>ui.skin.ProductItemTemplateSkin</class>
+    <class>util.ArrayUtilTest</class>
     <class>util.DateUtilTest</class>
     <class>util.FunctionUtilTest</class>
     <class>viewmodel.ViewModelTest</class>

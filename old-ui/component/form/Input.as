@@ -1,17 +1,14 @@
-package com.geleca.as3.ui.component.form
+package simbionte.ui.component.form 
 {
-	import com.geleca.as3.ui.component.Component;
-	/**
-	 * ...
-	 * @author Cristiano Caldas
-	 */
+	import simbionte.ui.component.Component;
+	
 	public class Input extends Component
 	{
 		private var _valid					:Boolean = true;
 		
-		public function Input(skin:Class) 
+		public function Input() 
 		{
-			super(skin);
+			
 		}
 		
 		public function get valid():Boolean { return _valid; }
@@ -21,11 +18,8 @@ package com.geleca.as3.ui.component.form
 			if (_valid != value)
 			{
 				_valid = value;
-				
-				if (value)
-					status_valid();
-				else
-					status_invalid();
+				if (value) status_valid();
+				else status_invalid();
 			}
 		}
 		

@@ -1,14 +1,16 @@
-﻿package simbionte.ui.component.data 
+﻿package com.geleca.as3.ui.component.data
 {
-	import simbionte.ui.component.data.DataComponent;
-	import simbionte.ui.component.data.IBindable;
-	
-	public class DetailsView extends DataComponent
+	import flash.display.Sprite;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
+	public class DetailsView extends DataView
 	{
 		
-		public function DetailsView() 
+		public function DetailsView(skin:Class=null) 
 		{
-			
+			super(skin);
 		}
 		
 	}

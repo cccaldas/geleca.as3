@@ -7,7 +7,7 @@
 	 */
 	public class HitArea extends Sprite
 	{		
-		public function HitArea(width:Number, height:Number, alpha:Number=0, fillColor:uint=0xffffff, lineColor:uint=0x000000)
+		public function HitArea(width:Number=1, height:Number=1, alpha:Number=0, fillColor:uint=0xffffff, lineColor:uint=0x000000)
 		{
 			graphics.beginFill(fillColor, 1);
 			graphics.drawRect(0, 0, width, height);

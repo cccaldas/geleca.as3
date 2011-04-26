@@ -1,89 +1,91 @@
-package simbionte.ui.component.button 
+package com.geleca.as3.ui.component.button 
 {
+	import com.geleca.as3.ui.component.Component;
+	import flash.display.Sprite;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
 	import flash.ui.Keyboard;
-	import simbionte.ui.component.Component;
+	import com.geleca.as3.display.HitArea;
+	import com.geleca.as3.events.ButtonEvent;
+	/**
+	 * ...
+	 * @author Cristiano Caldas
+	 */
 	
 	public class Button extends Component
 	{
 		
-		public function Button() 
+		public function Button(skin:Class) 
 		{
-			
+			super(skin);
 		}
 		
-		override protected function setVariables():void 
+		override protected function setup():void 
 		{
+			super.setup();
+			
 			buttonMode = true;
 			
-			super.setVariables();
+			addEventListener(MouseEvent.CLICK, 				_click);
+			addEventListener(MouseEvent.ROLL_OVER, 			_rollOver);
+			addEventListener(MouseEvent.ROLL_OUT, 			_rollOut);
+			addEventListener(MouseEvent.MOUSE_DOWN, 		_mouseDown);
+			addEventListener(MouseEvent.MOUSE_UP, 			_mouseUp);
+			addEventListener(MouseEvent.MOUSE_WHEEL,		_mouseWheel);
 		}
 		
-		override protected function setListeners():void 
-		{
-			addEventListener(MouseEvent.CLICK, 			button_click);
-			addEventListener(MouseEvent.ROLL_OVER, 		button_rollOver);
-			addEventListener(MouseEvent.ROLL_OUT, 		button_rollOut);
-			addEventListener(MouseEvent.MOUSE_DOWN, 	button_mouseDown);
-			addEventListener(MouseEvent.MOUSE_UP, 		button_mouseUp);
-			addEventListener(MouseEvent.MOUSE_WHEEL,	button_mouseWheel);
-			
-			super.setListeners();
-		}
-		
-		private function button_click(e:MouseEvent):void 
+		private function _click(e:MouseEvent):void 
 		{
 			click();
 		}
 		
-		private function button_rollOver(e:MouseEvent):void 
+		private function _rollOver(e:MouseEvent):void 
 		{
 			rollOver();
 		}
 		
-		private function button_rollOut(e:MouseEvent):void 
+		private function _rollOut(e:MouseEvent):void 
 		{
 			if (enabled)
 				rollOut();
 		}
 		
-		private function button_mouseDown(e:MouseEvent):void 
+		private function _mouseDown(e:MouseEvent):void 
 		{
 			mouseDown();
+			
+			if (stage)
+				stage.addEventListener(MouseEvent.MOUSE_UP, stage_click);
 		}
 		
-		private function button_mouseUp(e:MouseEvent):void 
+		private function stage_click(e:MouseEvent):void 
+		{
+			if (stage)
+				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);
+			
+			if (e.target != this && e.target != skin)
+			{
+				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUT_SIDE));
+				releaseOutSide();
+			}
+		}
+		
+		private function _mouseUp(e:MouseEvent):void 
 		{
 			mouseUp();
 		}
 		
-		private function button_mouseWheel(e:MouseEvent):void 
+		private function _mouseWheel(e:MouseEvent):void 
 		{
 			mouseWheel();
 		}
 		
-		override protected function focusIn():void 
-		{
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown,false,0,true);
-			
-			super.focusIn();
-		}
-		
-		override protected function focusOut():void 
-		{
-			stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
-			
-			super.focusOut();
-		}
-		
-		private function focusIn_stage_keyDown(e:KeyboardEvent):void 
-		{
-			if (e.keyCode == Keyboard.SPACE)
-				dispatchEvent(new MouseEvent(MouseEvent.CLICK));
-		}
-		
 		protected function click():void 
+		{
+			
+		}
+		
+		protected function releaseOutSide():void 
 		{
 			
 		}
@@ -113,10 +115,55 @@ package simbionte.ui.component.button
 			
 		}
 		
+		override protected function focusIn():void 
+		{
+			if(stage)
+				stage.addEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown, false, 0, true);
+				
+			if (enabled)
+				rollOver();
+			
+			super.focusIn();
+		}
+		
+		override protected function focusOut():void 
+		{
+			if(stage)
+				stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
+			
+			if (enabled)
+				rollOut();
+			
+			super.focusOut();
+		}
+		
+		private function focusIn_stage_keyDown(e:KeyboardEvent):void 
+		{
+			if (e.keyCode == Keyboard.SPACE || e.keyCode == Keyboard.ENTER)
+				dispatchEvent(new MouseEvent(MouseEvent.CLICK));
+		}
+		
+		override protected function disable():void 
+		{
+			mouseEnabled = mouseChildren = false;
+		}
+		
+		override protected function enable():void 
+		{
+			mouseEnabled = mouseChildren = true
+		}
+		
 		override public function destroy():void 
 		{
+			removeEventListener(MouseEvent.CLICK, 		_click);
+			removeEventListener(MouseEvent.ROLL_OVER, 	_rollOver);
+			removeEventListener(MouseEvent.ROLL_OUT, 	_rollOut);
+			removeEventListener(MouseEvent.MOUSE_DOWN, 	_mouseDown);
+			removeEventListener(MouseEvent.MOUSE_UP, 	_mouseUp);
+			removeEventListener(MouseEvent.MOUSE_WHEEL,	_mouseWheel);
+			
 			if (stage)
-				stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
+				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);
 			
 			super.destroy();
 		}

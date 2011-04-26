@@ -7,23 +7,30 @@ package com.geleca.as3.ui.component
 	import flash.display.Sprite;
 	import flash.events.FocusEvent;
 	import flash.system.System;
-	import simbionte.utils.ContainerUtil;
 	
 	public class Component extends SimpleSprite
 	{
 		private var _enabled								:Boolean = true;
 		private var _initialized							:Boolean = false;
-		private var _hitArea								:HitArea;
 		private var _components								:Vector.<Component> = new Vector.<Component>();
 		private var _setup									:Boolean = false;
 		public var layout									:Layout;
 		private var _selected								:Boolean;
 		private var _skinClass								:Class;
-		protected var skin									:Sprite;
+		public var skin										:Sprite;
+		protected var self									:Component;
 		
-		public function Component(skin:Class) 
+		public function Component(skin:Class=null) 
 		{
+			_skinClass = skin;
 			
+			if (_skinClass)
+			{
+				this.skin = new _skinClass();
+				addChild(this.skin);
+			}
+			
+			self = this;
 		}
 		
 		protected function setup():void 
@@ -33,14 +40,15 @@ package com.geleca.as3.ui.component
 				
 			_setup = true;
 			
-			if (getChildByName("sp_hitArea"))
+			if (skin && skin.getChildByName("sp_hitArea"))
 			{
-				var hit:Sprite = Sprite(getChildByName("sp_hitArea"));
+				//skin.mouseEnabled = skin.mouseChildren = false;
+				var hit:Sprite = Sprite(skin.getChildByName("sp_hitArea"));
 				hitArea = new HitArea(hit.width, hit.height);
 				hitArea.x = hit.x;
 				hitArea.y = hit.y;
 				
-				removeChild(hit);
+				skin.removeChild(hit);
 			}
 			
 			focusRect = false;
@@ -82,6 +90,7 @@ package com.geleca.as3.ui.component
 			{
 				_components.push(component);
 				component.layout = this.layout;
+				addChild(component);
 				component.forceSetup();
 			}
 				
@@ -95,6 +104,7 @@ package com.geleca.as3.ui.component
 			{
 				_components.splice(index, 1);
 				component.destroy();
+				//removeChild(component);
 			}
 			
 			return component;
@@ -162,15 +172,14 @@ package com.geleca.as3.ui.component
 			
 		}
 		
-		override public function get hitArea():HitArea { return _hitArea; }
+		override public function get hitArea():Sprite { return super.hitArea; }
 		
-		override  public function set hitArea(value:HitArea):void 
+		override  public function set hitArea(value:Sprite):void 
 		{
 			if (value)
 			{
 				addChild(value);
-				hitArea = value;
-				_hitArea = value;
+				super.hitArea = value;
 			}
 		}
 		
@@ -186,9 +195,12 @@ package com.geleca.as3.ui.component
 			this.height = height;
 		}
 		
-		public function get width():Number { return (hitArea) ? hitArea.width : super.width; }
+		public function get fullWidth()		:Number { return super.width; }
+		public function get fullHeight()	:Number { return super.height; }
 		
-		public function set width(value:Number):void 
+		override public function get width():Number { return (hitArea) ? hitArea.width : super.width; }
+		
+		override public function set width(value:Number):void 
 		{
 			if (hitArea)
 				hitArea.width = value;
@@ -196,9 +208,9 @@ package com.geleca.as3.ui.component
 				super.width = value;
 		}
 		
-		public function get height():Number { return (hitArea) ? hitArea.height : super.height; }
+		override public function get height():Number { return (hitArea) ? hitArea.height : super.height; }
 		
-		public function set height(value:Number):void 
+		override public function set height(value:Number):void 
 		{
 			if (hitArea)
 				hitArea.height = value;
@@ -238,13 +250,13 @@ package com.geleca.as3.ui.component
 			
 			skin 		= null;
 			_skinClass	= null;
-			_hitArea 	= null;
-			_parent		= null;
 			
 			if (layout)
 				layout.removeElement(this);
 				
 			layout 		= null;
+			
+			self		= null;
 			
 			System.gc();
 			

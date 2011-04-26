@@ -1,17 +1,14 @@
-package com.geleca.as3.ui.component.preloader
+package simbionte.ui.component.preloader 
 {
-	import com.geleca.as3.ui.component.Component;
-	/**
-	 * ...
-	 * @author Cristiano Caldas
-	 */
+	import simbionte.ui.component.Component;
+	
 	public class Preloader extends Component
 	{
 		private var _progress						:Number;
 		
-		public function Preloader(skin:Class=null) 
+		public function Preloader() 
 		{
-			super(skin);
+			
 		}
 		
 		public function get progress():Number { return _progress; }

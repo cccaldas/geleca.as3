@@ -35,6 +35,11 @@ package com.geleca.as3.mvc.core
 			super.load();
 		}
 		
+		override protected function loader_complete():void 
+		{
+			
+		}
+		
 		override protected function initialize():void 
 		{
 			super.initialize();
@@ -46,7 +51,7 @@ package com.geleca.as3.mvc.core
 		{
 			//GLog.log(controller, "loaded", loaded);
 			
-			var item:ControllerLoaderItem = new ControllerLoaderItem("controller", controller, viewRender);
+			var item:ControllerLoaderItem = new ControllerLoaderItem("controller", controller, this);
 			
 			if (loaded)
 				renderController(item);
@@ -55,6 +60,11 @@ package com.geleca.as3.mvc.core
 			/*result.addEventListener(ProcessEvent.START, 	result_start);
 			result.addEventListener(ProcessEvent.PROGRESS, 	result_progress);
 			result.addEventListener(ProcessEvent.FINISH, 	result_finish);*/
+		}
+		
+		public function showView(view:View, onComplete:Function=null):void 
+		{
+			viewRender.swap(view, onComplete);
 		}
 		
 		private function renderController(controller:ControllerLoaderItem):void 
