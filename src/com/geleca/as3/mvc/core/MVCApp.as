@@ -44,6 +44,8 @@ package com.geleca.as3.mvc.core
 		public var busyManager						:BusyManager;
 		public var cursorManager					:CursorManager;
 		
+		public var action							:RouteAction;
+		
 		public function MVCApp()
 		{
 			
@@ -216,13 +218,15 @@ package com.geleca.as3.mvc.core
 		{
 			//GLog.log("");
 			
+			this.action = action;
+			
 			action.post = this.post;
 			
 			var controller:Controller 	= new action.route.controller();
 			controller.app				= this;
 			controller.action			= action;
 			
-			MonsterDebugger.trace("executeAction", action);
+			//MonsterDebugger.trace("executeAction", action);
 			//return;
 			//controller.app 				= this;
 			controller.initializeController();

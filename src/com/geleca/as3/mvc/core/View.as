@@ -311,6 +311,9 @@ package com.geleca.as3.mvc.core
 			
 			ContainerUtil.removeAllChilds(this);
 			
+			if (parent)
+				parent.removeChild(this);
+			
 			DictionaryUtil.clear(viewData);
 			
 			System.gc();

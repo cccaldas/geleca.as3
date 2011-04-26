@@ -31,8 +31,8 @@ package com.geleca.as3.mvc.core
 				
 				function hideComplete():void 
 				{
-					_current.destroy();
-					removeChild(_current);
+					//_current.destroy();
+					//removeChild(_current);
 					initialize();
 				}
 			}

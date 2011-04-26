@@ -79,7 +79,9 @@
     <class>com.geleca.as3.data.paging.Paging</class>
     <class>com.geleca.as3.data.paging.PagingVO</class>
     <class>com.geleca.as3.debugger.GLog</class>
+    <class>com.geleca.as3.display.Container</class>
     <class>com.geleca.as3.display.HitArea</class>
+    <class>com.geleca.as3.display.RectangularSprite</class>
     <class>com.geleca.as3.display.SimpleSprite</class>
     <class>com.geleca.as3.effects.transition.ColorTransition</class>
     <class>com.geleca.as3.effects.transition.FadeTransition</class>
@@ -153,6 +155,7 @@
     <class>com.geleca.as3.util.AlignUtil</class>
     <class>com.geleca.as3.util.ArrayUtil</class>
     <class>com.geleca.as3.util.BitmapUtil</class>
+    <class>com.geleca.as3.util.BooleanUtil</class>
     <class>com.geleca.as3.util.ColorUtil</class>
     <class>com.geleca.as3.util.ContainerUtil</class>
     <class>com.geleca.as3.util.DateUtil</class>
@@ -194,6 +197,9 @@
     <class>com.geleca.as3.view.loading.ViewLoaderItem</class>
     <class>collection.CollectionTest</class>
     <class>debugger.DebuggerTest</class>
+    <class>gml.GMLApply</class>
+    <class>gml.GMLTest</class>
+    <class>layout.LayoutTest</class>
     <class>loading.ServiceLoadingTest</class>
     <class>playerutil.PlayerUtilTest</class>
     <class>processtest.ProcessTest</class>

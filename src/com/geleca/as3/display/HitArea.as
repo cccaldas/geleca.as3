@@ -5,35 +5,13 @@
 	 * ...
 	 * @author Cristiano Caldas
 	 */
-	public class HitArea extends Sprite
+	public class HitArea extends RectangularSprite
 	{		
 		public function HitArea(width:Number=1, height:Number=1, alpha:Number=0, fillColor:uint=0xffffff, lineColor:uint=0x000000)
 		{
-			graphics.beginFill(fillColor, 1);
-			graphics.drawRect(0, 0, width, height);
-			graphics.endFill();
-			
-			graphics.lineStyle(0,lineColor);
-			graphics.lineTo(width, 0);
-			graphics.lineTo(width, height);
-			graphics.lineTo(0, height);
-			graphics.lineTo(0, 0);
-			graphics.lineTo(width, height);
-			graphics.moveTo(0, height);
-			graphics.lineTo(width, 0);
+			super(width, height, alpha, fillColor, lineColor);
 			
 			mouseEnabled = mouseChildren = false;
-			
-			this.alpha = alpha;
-		}
-		
-		public function clone():HitArea
-		{
-			var hit:HitArea = new HitArea(1, 1);
-			hit.alpha = this.alpha;
-			hit.graphics.copyFrom(this.graphics);
-			
-			return hit;
 		}
 		
 	}
