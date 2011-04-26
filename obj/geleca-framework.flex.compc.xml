@@ -153,6 +153,7 @@
     <class>com.geleca.as3.util.AlignUtil</class>
     <class>com.geleca.as3.util.ArrayUtil</class>
     <class>com.geleca.as3.util.BitmapUtil</class>
+    <class>com.geleca.as3.util.BooleanUtil</class>
     <class>com.geleca.as3.util.ColorUtil</class>
     <class>com.geleca.as3.util.ContainerUtil</class>
     <class>com.geleca.as3.util.DateUtil</class>
@@ -194,6 +195,9 @@
     <class>com.geleca.as3.view.loading.ViewLoaderItem</class>
     <class>collection.CollectionTest</class>
     <class>debugger.DebuggerTest</class>
+    <class>gml.GMLApply</class>
+    <class>gml.GMLTest</class>
+    <class>layout.LayoutTest</class>
     <class>loading.ServiceLoadingTest</class>
     <class>playerutil.PlayerUtilTest</class>
     <class>processtest.ProcessTest</class>

@@ -32,15 +32,15 @@
 		
 		public function LayoutSettings(width:Object, height:Object, horizontalAlignment:String, verticalAlignment:String, margin:Object = null, minX:Object = null, maxX:Object = null, minY:Object = null, maxY:Object = null)
 		{			
-			width					= width;
-			height					= height;
-			horizontalAlignment		= horizontalAlignment;
-			verticalAlignment		= verticalAlignment;
-			margin					= margin;
-			minX					= minX;
-			minY					= minY;
-			maxX					= maxX;
-			maxY					= maxY;
+			this.width					= width;
+			this.height					= height;
+			this.horizontalAlignment	= horizontalAlignment;
+			this.verticalAlignment		= verticalAlignment;
+			this.margin					= margin;
+			this.minX					= minX;
+			this.minY					= minY;
+			this.maxX					= maxX;
+			this.maxY					= maxY;
 		}
 	}
 

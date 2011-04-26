@@ -44,6 +44,8 @@ package com.geleca.as3.mvc.core
 		public var busyManager						:BusyManager;
 		public var cursorManager					:CursorManager;
 		
+		public var action							:RouteAction;
+		
 		public function MVCApp()
 		{
 			
@@ -215,6 +217,8 @@ package com.geleca.as3.mvc.core
 		public function executeAction(action:RouteAction):void 
 		{
 			//GLog.log("");
+			
+			this.action = action;
 			
 			action.post = this.post;
 			
