@@ -24,16 +24,18 @@ package processtest
 		
 		private function init():void
 		{
-			var process:Process;
+			trace(this, _group.create());
+			
+			/*var process:Process;
 			for (var i:int = 0; i < 10; i++) 
 			{
-				process = new Process();
+				process = _group.create();
 				process.addEventListener(ProcessEvent.START, process_start);
 				_group.add(process);
 			}
 			
 			
-			FunctionUtil.functionDelay(init, 3);
+			FunctionUtil.functionDelay(init, 3);*/
 			
 		}
 		

@@ -2,6 +2,7 @@ package com.geleca.as3.ui.component
 {
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.display.SimpleSprite;
+	import com.geleca.as3.events.StateEvent;
 	import com.geleca.as3.layout.Layout;
 	import com.geleca.as3.util.ContainerUtil;
 	import flash.display.Sprite;
@@ -14,11 +15,14 @@ package com.geleca.as3.ui.component
 		private var _initialized							:Boolean = false;
 		private var _components								:Vector.<Component> = new Vector.<Component>();
 		private var _setup									:Boolean = false;
-		public var layout									:Layout;
 		private var _selected								:Boolean;
 		private var _skinClass								:Class;
-		public var skin										:Sprite;
+		private var _state									:String = "";
+		
 		protected var self									:Component;
+		
+		public var layout									:Layout;
+		public var skin										:Sprite;
 		
 		public function Component(skin:Class=null) 
 		{
@@ -231,6 +235,29 @@ package com.geleca.as3.ui.component
 				else
 					unselect();
 			}
+		}
+		
+		public function get state():String 
+		{
+			return _state;
+		}
+		
+		public function set state(value:String):void 
+		{
+			var oldState:String = _state;
+			var newState:String = value;
+			
+			if (oldState == newState)
+				return;
+			
+			_state = newState;
+			state_change(oldState, newState);
+			dispatchEvent(new StateEvent(StateEvent.CHANGE, oldState, newState));
+		}
+		
+		protected function state_change(oldState:String, newState:String):void 
+		{
+			
 		}
 		
 		override public function destroy():void 
