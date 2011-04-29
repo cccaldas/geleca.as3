@@ -211,6 +211,7 @@
     <class>util.ArrayUtilTest</class>
     <class>util.DateUtilTest</class>
     <class>util.FunctionUtilTest</class>
+    <class>util.TransformUtilTest</class>
     <class>viewmodel.ViewModelTest</class>
   </include-classes>
 </flex-config>
