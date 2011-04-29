@@ -14,6 +14,8 @@ package com.geleca.as3.core
 		
 		public var result							:Object;
 		
+		public var onStart							:Function;
+		
 		public function Process() 
 		{
 			
@@ -23,6 +25,10 @@ package com.geleca.as3.core
 		{
 			_progress 	= 0;
 			_running 	= true;
+			
+			if (onStart != null)
+				onStart();
+				
 			process_start();
 			dispatchEvent(new ProcessEvent(ProcessEvent.START));
 		}
@@ -84,10 +90,11 @@ package com.geleca.as3.core
 		}
 		
 		override public function destroy():void 
-		{
-			super.destroy();
-			
+		{			
 			result = null;
+			onStart = null;
+			
+			super.destroy();
 		}
 		
 	}

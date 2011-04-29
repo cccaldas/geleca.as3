@@ -27,13 +27,27 @@ package com.geleca.as3.core
 			process.addEventListener(ProcessEvent.FINISH, 		process_finish);
 			process.addEventListener(ProcessEvent.PROGRESS, 	dispatchEvent);
 			
-			process.id = getUniqueID();
+			if(process.id == "" || process.id == null)
+				process.id = getUniqueID();
+				
 			_processes[process.id] = process;
 			_processMap.push(process.id);
 			
-			if (_length == 0) run();
+			if (_length == 0)
+				run();
 			
 			_length ++;
+		}
+		
+		public function create(id:String="", onStart:Function=null):Process
+		{
+			var process:Process = new Process();
+			process.id = id;
+			process.onStart = onStart;
+			
+			add(process);
+			
+			return process;
 		}
 		
 		public function get(id:String):Process
