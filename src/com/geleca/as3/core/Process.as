@@ -27,7 +27,11 @@ package com.geleca.as3.core
 			_running 	= true;
 			
 			if (onStart != null)
+<<<<<<< HEAD
 				onStart(this);
+=======
+				onStart();
+>>>>>>> 893f08ea0278cf1f018554dab789143cb5f6c816
 				
 			process_start();
 			dispatchEvent(new ProcessEvent(ProcessEvent.START));
