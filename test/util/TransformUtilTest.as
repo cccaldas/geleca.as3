@@ -39,7 +39,9 @@ package util
 			
 			function flip():void 
 			{
+				removeChild(img);
 				TransformUtil.flipVertical(img);
+				addChild(img);
 			}
 		}
 		

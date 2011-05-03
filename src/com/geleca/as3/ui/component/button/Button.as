@@ -15,7 +15,7 @@ package com.geleca.as3.ui.component.button
 	public class Button extends Component
 	{
 		
-		public function Button(skin:Class) 
+		public function Button(skin:Class=null) 
 		{
 			super(skin);
 		}

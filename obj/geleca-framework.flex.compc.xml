@@ -204,6 +204,7 @@
     <class>playerutil.PlayerUtilTest</class>
     <class>processtest.ProcessTest</class>
     <class>ui.CompControl</class>
+    <class>ui.ComponentStateTest</class>
     <class>ui.UIComponentsTest</class>
     <class>ui.itemtemplate.ProductItemTemplate</class>
     <class>ui.skin.CompControlSkin</class>
