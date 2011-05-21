@@ -30,7 +30,7 @@ package com.geleca.as3.util
 		
 		public static function isAndroid():Boolean
 		{
-			return Capabilities.os.indexOf("Android OS") != -1;
+			return Capabilities.manufacturer.indexOf("Android Linux") != -1;
 		}
 		
 	}
