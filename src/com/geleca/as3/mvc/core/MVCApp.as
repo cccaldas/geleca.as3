@@ -93,7 +93,7 @@ package com.geleca.as3.mvc.core
 				if (isDebug())
 				{
 					_browser = new MVCAppBrowser();
-					_container.addChild(_browser);
+					//_container.addChild(_browser);
 					//_view.y = 40;
 				}
 				
@@ -151,8 +151,8 @@ package com.geleca.as3.mvc.core
 				
 				_loader.load();
 				
-				if (isDebug())
-					_browser.initialize();
+				/*if (isDebug())
+					_browser.initialize();*/
 			}
 		}
 		

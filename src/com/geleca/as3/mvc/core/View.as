@@ -1,13 +1,13 @@
 package com.geleca.as3.mvc.core
 {
-	import com.geleca.as3.ui.component.Component;
 	import com.geleca.as3.core.IDestroyable;
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.events.SimpleEventDispatcher;
 	import com.geleca.as3.events.StateEvent;
 	import com.geleca.as3.loading.GLoader;
-	import com.geleca.as3.util.ContainerUtil;
 	import com.geleca.as3.loading.LoaderItem;
+	import com.geleca.as3.ui.component.Component;
+	import com.geleca.as3.util.ContainerUtil;
 	import com.geleca.as3.util.DictionaryUtil;
 	import com.geleca.as3.view.loading.ViewLoader;
 	
@@ -39,13 +39,14 @@ package com.geleca.as3.mvc.core
 		private var _switcher								:ViewSwitcher;
 		
 		public var model									:*;
+		protected var self									:View;
 		
 		public var viewData									:Dictionary = new Dictionary();
 		public var app										:MVCApp;
 		
 		public function View() 
 		{
-			
+			this.self = this;
 		}
 		
 		public function action(act:String):void 
@@ -308,6 +309,8 @@ package com.geleca.as3.mvc.core
 			_components = null;
 			
 			_switcher = null;
+			
+			this.self = null;
 			
 			ContainerUtil.removeAllChilds(this);
 			

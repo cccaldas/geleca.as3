@@ -273,7 +273,7 @@ package com.geleca.as3.ui.component
 			if (this.parent)
 				this.parent.removeChild(this);
 			
-			ContainerUtil.removeAllChilds(this, true);
+			ContainerUtil.removeAllChilds(this);
 			
 			skin 		= null;
 			_skinClass	= null;

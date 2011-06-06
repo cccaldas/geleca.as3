@@ -321,7 +321,7 @@ package com.geleca.as3.component
 			if (_asset.parent)
 				_asset.parent.removeChild(_asset);
 			
-			ContainerUtil.removeAllChilds(_asset, true);
+			ContainerUtil.removeAllChilds(_asset);
 			
 			_nav.destroy();
 			_nav = null;

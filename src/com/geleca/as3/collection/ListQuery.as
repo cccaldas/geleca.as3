@@ -30,6 +30,16 @@ package com.geleca.as3.collection
 			return this;
 		}
 		
+		public function limit(count:uint):ListQuery
+		{
+			if(this._items.length < count)
+				return this;
+			
+			this._items = this._items.slice(0, count);
+			
+			return this;
+		}
+		
 		public function orderBy(order:String, property:*=null):ListQuery
 		{
 			function orderBy_asc(a:Object, b:Object):Number

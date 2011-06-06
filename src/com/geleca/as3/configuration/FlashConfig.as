@@ -39,9 +39,12 @@ package com.geleca.as3.configuration
 			var list:XMLList = _xml.configuration.keys.key;
 			var length:uint = list.length();
 			
-			for (var i:int = 0; i < length; i++) 
+			while(value.indexOf("{") != -1)
 			{
-				value = StringUtil.replace(value, "{" + _xml.configuration.keys.key[i].@name + "}", _xml.configuration.keys.key[i].@value);
+				for (var i:int = 0; i < length; i++) 
+				{
+					value = StringUtil.replace(value, "{" + _xml.configuration.keys.key[i].@name + "}", _xml.configuration.keys.key[i].@value);
+				}
 			}
 			
 			return value;

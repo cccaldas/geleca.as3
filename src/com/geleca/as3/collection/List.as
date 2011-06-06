@@ -46,6 +46,11 @@ package com.geleca.as3.collection
 			return new ListQuery(this).where(property, compare, value);
 		}
 		
+		public function limit(count:uint):ListQuery
+		{
+			return new ListQuery(this).limit(count);
+		}
+		
 		public function orderBy(order:String, property:*=null):ListQuery
 		{
 			return new ListQuery(this).orderBy(order, property);

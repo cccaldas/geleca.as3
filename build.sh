@@ -1,0 +1,1 @@
+mv bin/geleca-framework.swc bin/geleca.3.0.swc

@@ -1,5 +1,7 @@
 package com.geleca.as3.test
 {
+	import com.geleca.as3.test.collection.CollectionTest;
+	import com.geleca.as3.test.configuration.ConfigurationTest;
 	import com.geleca.as3.test.util.ArrayUtilTest;
 	import com.geleca.as3.test.util.DateUtilTest;
 	import com.geleca.as3.test.util.FunctionUtilTest;
@@ -12,9 +14,9 @@ package com.geleca.as3.test
 	import flash.display.StageScaleMode;
 	
 	[SWF(frameRate="55", width="1002",height="600")]
-	public class TestMain extends Sprite
+	public class Main extends Sprite
 	{
-		public function TestMain()
+		public function Main()
 		{
 			stage.align 	= StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -24,8 +26,9 @@ package com.geleca.as3.test
 			//new FunctionUtilTest().run();
 			//new TransformUtilTest().run(stage);
 			//new PlayerUtilTest().run();
-			new OSUtilTest().run();
-			
+			//new OSUtilTest().run();
+			//new ConfigurationTest().run();
+			new CollectionTest().run();
 		}
 	}
 }

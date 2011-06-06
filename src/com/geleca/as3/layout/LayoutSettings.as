@@ -29,8 +29,9 @@
 		public var maxX					:Object;
 		public var minY					:Object;
 		public var maxY					:Object;
+		public var roundPixels			:Boolean;
 		
-		public function LayoutSettings(width:Object, height:Object, horizontalAlignment:String, verticalAlignment:String, margin:Object = null, minX:Object = null, maxX:Object = null, minY:Object = null, maxY:Object = null)
+		public function LayoutSettings(width:Object, height:Object, horizontalAlignment:String, verticalAlignment:String, margin:Object = null, minX:Object = null, maxX:Object = null, minY:Object = null, maxY:Object = null, roundPixels:Boolean = true)
 		{			
 			this.width					= width;
 			this.height					= height;
@@ -41,6 +42,7 @@
 			this.minY					= minY;
 			this.maxX					= maxX;
 			this.maxY					= maxY;
+			this.roundPixels			= roundPixels;
 		}
 	}
 

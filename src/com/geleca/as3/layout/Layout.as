@@ -2,6 +2,9 @@
 {
 	import com.adobe.utils.ArrayUtil;
 	import com.geleca.as3.component.Component;
+	import com.geleca.as3.events.SimpleEventDispatcher;
+	import com.geleca.as3.util.AlignUtil;
+	
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
@@ -12,8 +15,6 @@
 	import flash.events.EventDispatcher;
 	import flash.system.System;
 	import flash.utils.Dictionary;
-	import com.geleca.as3.util.AlignUtil;
-	import com.geleca.as3.events.SimpleEventDispatcher;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -105,6 +106,9 @@
 				}
 				else //caso seja fixa
 					element.width = Number(settings.width);
+				
+				if(settings.roundPixels)
+					element.width = Math.round(element.width);
 			}
 			
 			//**********************************************************
@@ -118,6 +122,9 @@
 				}
 				else //caso seja fixa
 					element.height = Number(settings.height);
+				
+				if(settings.roundPixels)
+					element.height = Math.round(element.height);
 			}
 			
 			//**********************************************************
@@ -129,11 +136,11 @@
 				break;
 				
 				case LayoutSettings.RIGHT:
-					AlignUtil.toRightStage(element);
+					AlignUtil.toRightStage(element, null, settings.roundPixels);
 				break;
 				
 				case LayoutSettings.CENTER:
-					AlignUtil.toCenterStage(element);
+					AlignUtil.toCenterStage(element, null, settings.roundPixels);
 				break;
 			}
 			
@@ -146,11 +153,11 @@
 				break;
 				
 				case LayoutSettings.BOTTOM:
-					AlignUtil.toBottomStage(element);
+					AlignUtil.toBottomStage(element, settings.roundPixels);
 				break;
 				
 				case LayoutSettings.MIDDLE:
-					AlignUtil.toMiddleStage(element);
+					AlignUtil.toMiddleStage(element, null, settings.roundPixels);
 				break;
 			}
 			
@@ -181,6 +188,12 @@
 			if (settings.maxY != null) 
 				if (element.y > settings.maxY)
 					element.y = Number(settings.maxY);
+			
+			if(settings.roundPixels)
+			{
+				element.y = Math.round(element.y);
+				element.x = Math.round(element.x);
+			}
 		}
 		
 		public function removeElement(element:Object):void 

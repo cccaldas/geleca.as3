@@ -16,14 +16,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] as3-src</name>
+			<name>[source path] src</name>
 			<type>2</type>
-			<location>/Users/eu/Projects/geleca-framework/as3/src</location>
-		</link>
-		<link>
-			<name>[source path] lib-src</name>
-			<type>2</type>
-			<location>/Users/eu/Projects/geleca-framework/as3/lib/src</location>
+			<location>/Users/cccaldas/Projects/geleca-framework/as3/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<configuration>
+		<keys>
+			<key name="url-app" 			value="http://www.site.com.br/" />
+			<key name="path-skin" 			value="{url-app}swf/skin/" />
+			<key name="path-upld" 			value="{url-app}upld/" />
+			<key name="path-medias" 		value="{path-upld}medias/" />
+			<key name="path-medias-thumb" 	value="{path-medias}thumbs/" />
+			
+			<key name="debug" 			value="true" />
+		</keys>
+	</configuration>
+</data>

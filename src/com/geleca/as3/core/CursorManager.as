@@ -9,7 +9,7 @@
 	import flash.utils.Dictionary;
 	import com.geleca.as3.exception.CursorManagerException;
 	import com.geleca.as3.util.DepthUtil;
-	import com.geleca.as3.component.cursor.CustomCursor;
+	import com.geleca.as3.ui.component.cursor.CustomCursor;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -31,6 +31,8 @@
 				cursor.initializeComponent();
 				
 			_cursors[name] = cursor;
+			
+			_stage.addChild(cursor);
 		}
 		
 		public function removeCursor(name:String):void 
