@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>geleca-mvc-website-1</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] as3-src</name>
+			<type>2</type>
+			<location>/Users/cccaldas/Projects/geleca-framework/as3/src</location>
+		</link>
+		<link>
+			<name>[source path] lib-src</name>
+			<type>2</type>
+			<location>/Users/cccaldas/Projects/geleca-framework/as3/lib/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>

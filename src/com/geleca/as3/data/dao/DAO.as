@@ -1,4 +1,4 @@
-package com.geleca.as3.data 
+package com.geleca.as3.data.dao 
 {
 	/**
 	 * ...

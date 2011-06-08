@@ -2,6 +2,7 @@ package com.geleca.as3.test
 {
 	import com.geleca.as3.test.collection.CollectionTest;
 	import com.geleca.as3.test.configuration.ConfigurationTest;
+	import com.geleca.as3.test.data.orm.ORMXmlTest;
 	import com.geleca.as3.test.util.ArrayUtilTest;
 	import com.geleca.as3.test.util.DateUtilTest;
 	import com.geleca.as3.test.util.FunctionUtilTest;
@@ -28,7 +29,8 @@ package com.geleca.as3.test
 			//new PlayerUtilTest().run();
 			//new OSUtilTest().run();
 			//new ConfigurationTest().run();
-			new CollectionTest().run();
+			//new CollectionTest().run();
+			new ORMXmlTest().run();
 		}
 	}
 }

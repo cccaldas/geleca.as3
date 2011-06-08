@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<client>
+		<client id="1" name="Client 1" phone="00 0000-0000" country_id="1" />
+		<client id="2" name="Client 2" phone="00 0000-0000" country_id="4" />
+		<client id="3" name="Client 3" phone="00 0000-0000" country_id="2" />
+		<client id="4" name="Client 4" phone="00 0000-0000" country_id="1" />
+		<client id="5" name="Client 5" phone="00 0000-0000" country_id="3" />
+		<client id="6" name="Client 6" phone="00 0000-0000" country_id="3" />
+		<client id="7" name="Client 7" phone="00 0000-0000" country_id="2" />
+		<client id="8" name="Client 8" phone="00 0000-0000" country_id="3" />
+	</client>
+	
+	<country>
+		<country id="1" name="Brazil" />
+		<country id="2" name="Italy" />
+		<country id="3" name="Germany" />
+		<country id="4" name="USA" />
+		<country id="5" name="Croatia" />
+		<country id="6" name="Nigeria" />
+	</country>
+	
+	<client_photo>
+		<photo id="1" client_id="1" src="photo-1.jpg" />
+		<photo id="2" client_id="1" src="photo-2.jpg" />
+		<photo id="3" client_id="1" src="photo-3.jpg" />
+		<photo id="4" client_id="1" src="photo-4.jpg" />
+	</client_photo>		
+	
+</data>

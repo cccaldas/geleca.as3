@@ -1,8 +1,12 @@
 package com.geleca.as3.data.entity 
 {
-	import flash.utils.Dictionary;
 	import com.geleca.as3.data.DataRow;
 	import com.geleca.as3.data.DataTable;
+	import com.geleca.as3.events.EntitySetEvent;
+	import com.geleca.as3.events.SimpleEventDispatcher;
+	
+	import flash.utils.Dictionary;
+
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -10,7 +14,7 @@ package com.geleca.as3.data.entity
 	
 	//TODO: Implementar Relationships: Update
 	
-	public class EntitySet
+	public class EntitySet extends SimpleEventDispatcher
 	{	
 		private var _relationships	:Vector.<EntitySetRelationship> = new Vector.<EntitySetRelationship>();
 		private var _settings		:EntitySetSettings;
@@ -73,6 +77,8 @@ package com.geleca.as3.data.entity
 		
 		public function insert(entity:Object):void 
 		{
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.INSERT, entity));
+			
 			entity[getPrimaryKeyProperty()] = _settings.dataTable.insert(entityToDataTable(entity));
 			
 			if (hasRelationship())
@@ -83,10 +89,14 @@ package com.geleca.as3.data.entity
 					relationship_insert(entity, _relationships[i]);
 				}
 			}
+			
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.INSERTED, entity));
 		}
 		
 		public function remove(entity:Object):void 
 		{
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.REMOVE, entity));
+			
 			var key:* = entity[getPrimaryKeyProperty()];
 			
 			//Verifica se o objeto existe no DataTable
@@ -103,6 +113,8 @@ package com.geleca.as3.data.entity
 					}
 				}
 			}
+			
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.REMOVED, entity));
 		}
 		
 		public function removeAll():void 
@@ -117,7 +129,11 @@ package com.geleca.as3.data.entity
 		
 		public function update(entity:Object):void 
 		{
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.UPDATE, entity));
+			
 			_settings.dataTable.update(entityToDataTable(entity));
+			
+			dispatchEvent(new EntitySetEvent(EntitySetEvent.UPDATED, entity));
 		}
 		
 		public function addRelationship(rel:EntitySetRelationship):void 
