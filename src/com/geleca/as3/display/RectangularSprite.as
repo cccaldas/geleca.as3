@@ -7,13 +7,13 @@ package com.geleca.as3.display
 	public class RectangularSprite extends SimpleSprite
 	{
 		
-		public function RectangularSprite(width:Number=1, height:Number=1, alpha:Number=1, fillColor:uint=0xffffff, lineColor:uint=0x000000)
+		public function RectangularSprite(width:Number=1, height:Number=1, alpha:Number=1, fillColor:uint=0xffffff, lineColor:uint=0x000000, thickness:Number=0)
 		{
 			graphics.beginFill(fillColor, 1);
 			graphics.drawRect(0, 0, width, height);
 			graphics.endFill();
 			
-			graphics.lineStyle(0,lineColor);
+			graphics.lineStyle(thickness,lineColor);
 			graphics.lineTo(width, 0);
 			graphics.lineTo(width, height);
 			graphics.lineTo(0, height);

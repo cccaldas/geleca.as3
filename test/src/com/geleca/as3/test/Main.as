@@ -3,8 +3,10 @@ package com.geleca.as3.test
 	import com.geleca.as3.test.collection.CollectionTest;
 	import com.geleca.as3.test.configuration.ConfigurationTest;
 	import com.geleca.as3.test.data.orm.ORMXmlTest;
+	import com.geleca.as3.test.ui.VideoPlayerTest;
 	import com.geleca.as3.test.util.ArrayUtilTest;
 	import com.geleca.as3.test.util.DateUtilTest;
+	import com.geleca.as3.test.util.DrawUtilTest;
 	import com.geleca.as3.test.util.FunctionUtilTest;
 	import com.geleca.as3.test.util.OSUtilTest;
 	import com.geleca.as3.test.util.PlayerUtilTest;
@@ -30,7 +32,9 @@ package com.geleca.as3.test
 			//new OSUtilTest().run();
 			//new ConfigurationTest().run();
 			//new CollectionTest().run();
-			new ORMXmlTest().run();
+			//new ORMXmlTest().run();
+			new DrawUtilTest().run(stage);
+			//new VideoPlayerTest().run(stage);
 		}
 	}
 }

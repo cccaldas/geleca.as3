@@ -12,23 +12,21 @@ package com.geleca.as3.mvc.core
 	 */
 	public class ActionResult extends SimpleEventDispatcher
 	{
-		private var _view				:Class;
-		private var _model				:*;
+		public var view					:Class;
+		public var model				:*;
 		private var _loader				:GLoader;
 		
 		public function ActionResult(view:Class, model:*=null, loadingItems:Array=null)
 		{
-			_view 		= view;
-			_model 		= model;
+			this.view 		= view;
+			this.model 		= model;
 			
-			_loader 	= new GLoader();
+			_loader 		= new GLoader();
 			
 			for each (var item:LoaderItem in loadingItems) 
 				_loader.addLoaderItem(item);
 		}
 		
-		public function get view()		:Class 		{ return _view; }
-		public function get model()		:* 			{ return _model; }
 		public function get loader()	:GLoader 	{ return _loader; }
 		
 		override public function destroy():void 
@@ -37,8 +35,8 @@ package com.geleca.as3.mvc.core
 			
 			_loader.destroy();
 			
-			_view 		= null;
-			_model 		= null;
+			view 		= null;
+			model 		= null;
 			_loader 	= null;
 		}
 		

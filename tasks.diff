@@ -1,4 +1,5 @@
-﻿+	montar padrao para pagina de conteudo multi-idioma
+﻿-	player de video padrao com skin
++	montar padrao para pagina de conteudo multi-idioma
 --- Montar um DAO padrao para ORM XML
 
 +	List - implementar o acesso a propriedades em cascata, (ex: List.where("file.data", "!=", null), List.where("files.length", ">", 0));
