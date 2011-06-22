@@ -9,7 +9,7 @@
 	{		
 		public function HitArea(width:Number=1, height:Number=1, alpha:Number=0, fillColor:uint=0xffffff, lineColor:uint=0x000000)
 		{
-			super(width, height, alpha, fillColor, lineColor);
+			super(width, height, alpha, fillColor, lineColor, 0);
 			
 			mouseEnabled = mouseChildren = false;
 		}
