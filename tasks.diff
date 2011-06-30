@@ -1,4 +1,5 @@
-﻿-	player de video padrao com skin
+﻿-	adicionar VideoLoaderItem no GLoader (opcoes de carregamento total ou por percentual)
+-	player de video padrao com skin
 +	montar padrao para pagina de conteudo multi-idioma
 --- Montar um DAO padrao para ORM XML
 

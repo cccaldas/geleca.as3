@@ -1,6 +1,7 @@
 package com.geleca.as3.mvc.core
 {
 	import com.asual.swfaddress.SWFAddress;
+	import com.asual.swfaddress.SWFAddressEvent;
 	import com.geleca.as3.configuration.FlashConfig;
 	import com.geleca.as3.core.BusyManager;
 	import com.geleca.as3.core.Context;
@@ -14,14 +15,15 @@ package com.geleca.as3.mvc.core
 	import com.geleca.as3.loading.GLoader;
 	import com.geleca.as3.loading.ViewLoaderItem;
 	import com.geleca.as3.mvc.util.MVCAppBrowser;
-	import flash.display.Stage;
-	import flash.events.ProgressEvent;
-	import nl.demonsters.debugger.MonsterDebugger;
 	
 	import flash.display.Sprite;
+	import flash.display.Stage;
 	import flash.events.Event;
+	import flash.events.ProgressEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	
+	import nl.demonsters.debugger.MonsterDebugger;
 
 	public class MVCApp extends SimpleEventDispatcher
 	{
@@ -268,9 +270,12 @@ package com.geleca.as3.mvc.core
 			SWFAddress.setTitle(title);
 		}
 		
-		public function navigateURL(url:String):void 
+		public function navigateURL(url:String, force:Boolean=false):void 
 		{
-			SWFAddress.setValue(url);
+			if(SWFAddress.getValue() == url && force)
+				SWFAddress.dispatchEvent(new SWFAddressEvent(SWFAddressEvent.CHANGE));
+			else
+				SWFAddress.setValue(url);
 			
 			if (_tracker)
 				_tracker.trackURL(url);

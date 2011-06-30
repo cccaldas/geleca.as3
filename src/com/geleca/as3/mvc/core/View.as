@@ -1,9 +1,11 @@
 package com.geleca.as3.mvc.core
 {
 	import com.geleca.as3.core.IDestroyable;
+	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.events.SimpleEventDispatcher;
 	import com.geleca.as3.events.StateEvent;
+	import com.geleca.as3.i18n.Lang;
 	import com.geleca.as3.loading.GLoader;
 	import com.geleca.as3.loading.LoaderItem;
 	import com.geleca.as3.ui.component.Component;
@@ -19,6 +21,7 @@ package com.geleca.as3.mvc.core
 	import flash.events.ProgressEvent;
 	import flash.system.System;
 	import flash.utils.Dictionary;
+
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -44,6 +47,8 @@ package com.geleca.as3.mvc.core
 		public var viewData									:Dictionary = new Dictionary();
 		public var app										:MVCApp;
 		
+		protected var lang									:Lang;
+		
 		public function View() 
 		{
 			this.self = this;
@@ -57,7 +62,7 @@ package com.geleca.as3.mvc.core
 		public function load():void 
 		{
 			//setup();
-			_loader.addEventListener(Event.COMPLETE, _loader_complete);
+			_loader.addEventListener(Event.COMPLETE, _loader_complete, false, 100);
 			_loader.load();
 		}
 		
@@ -66,6 +71,12 @@ package com.geleca.as3.mvc.core
 			_loaded = true;
 			
 			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+			
+			//i18n
+			//GLog.log("lang", _loader.getItem("lang"));
+			
+			if(_loader.getItem("lang") != null)
+				lang = _loader.getItem("lang");
 			
 			//_loader.addEventListener(Event.INIT, 					dispatchEvent);
 			_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);

@@ -1,6 +1,7 @@
 ﻿package com.geleca.as3.util
 {
 	import com.adobe.utils.StringUtil;
+	
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	/**
@@ -90,6 +91,12 @@
 		public static function textWidth(target:TextField):void 
 		{
 			target.height = (target.getLineMetrics(0).width * .5) + target.textWidth;
+		}
+		
+		public static function textWidthAndHeight(target:TextField):void
+		{
+			textWidth(target);
+			textHeight(target);
 		}
 		
 	}

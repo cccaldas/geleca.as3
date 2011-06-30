@@ -1,4 +1,4 @@
-package com.geleca.as3.loading
+	package com.geleca.as3.loading
 {
 	import flash.display.Loader;
 	import flash.events.Event;

@@ -24,8 +24,8 @@ package com.geleca.as3.loading
 		{
 			super.process_start();
 			
-			_view.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
-			_view.addEventListener(Event.COMPLETE, 			view_complete);
+			_view.loader.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
+			_view.loader.addEventListener(Event.COMPLETE, 			view_complete);
 			
 			_view.load();
 		}

@@ -12,6 +12,38 @@ package com.geleca.as3.display
 			
 		}
 		
+		override  public function set hitArea(value:Sprite):void 
+		{
+			if (value)
+			{
+				addChild(value);
+				super.hitArea = value;
+			}
+		}
+		
+		public function get fullWidth()		:Number { return super.width; }
+		public function get fullHeight()	:Number { return super.height; }
+		
+		override public function get width():Number { return (hitArea) ? hitArea.width : super.width; }
+		
+		override public function set width(value:Number):void 
+		{
+			if (hitArea)
+				hitArea.width = value;
+			else
+				super.width = value;
+		}
+		
+		override public function get height():Number { return (hitArea) ? hitArea.height : super.height; }
+		
+		override public function set height(value:Number):void 
+		{
+			if (hitArea)
+				hitArea.height = value;
+			else
+				super.height = value;
+		}
+		
 		override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void 
 		{
 			super.addEventListener(type, listener, useCapture, priority, useWeakReference);

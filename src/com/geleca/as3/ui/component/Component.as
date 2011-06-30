@@ -176,17 +176,6 @@ package com.geleca.as3.ui.component
 			
 		}
 		
-		override public function get hitArea():Sprite { return super.hitArea; }
-		
-		override  public function set hitArea(value:Sprite):void 
-		{
-			if (value)
-			{
-				addChild(value);
-				super.hitArea = value;
-			}
-		}
-		
 		public function move(x:Number, y:Number):void 
 		{
 			this.x = x;
@@ -197,29 +186,6 @@ package com.geleca.as3.ui.component
 		{
 			this.width 	= width;
 			this.height = height;
-		}
-		
-		public function get fullWidth()		:Number { return super.width; }
-		public function get fullHeight()	:Number { return super.height; }
-		
-		override public function get width():Number { return (hitArea) ? hitArea.width : super.width; }
-		
-		override public function set width(value:Number):void 
-		{
-			if (hitArea)
-				hitArea.width = value;
-			else
-				super.width = value;
-		}
-		
-		override public function get height():Number { return (hitArea) ? hitArea.height : super.height; }
-		
-		override public function set height(value:Number):void 
-		{
-			if (hitArea)
-				hitArea.height = value;
-			else
-				super.height = value;
 		}
 		
 		public function get selected():Boolean { return _selected; }

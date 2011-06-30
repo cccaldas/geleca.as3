@@ -1,10 +1,11 @@
 package com.geleca.as3.core 
 {
 	import com.geleca.as3.debugger.GLog;
-	import flash.events.Event;
-	import flash.events.ProgressEvent;
 	import com.geleca.as3.events.ProcessEvent;
 	import com.geleca.as3.events.SimpleEventDispatcher;
+	
+	import flash.events.Event;
+	import flash.events.ProgressEvent;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -51,6 +52,8 @@ package com.geleca.as3.core
 				if (process.id == id)
 					return process;
 			}
+			
+			process = null;
 			
 			return process;
 		}

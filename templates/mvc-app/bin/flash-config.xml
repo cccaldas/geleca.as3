@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	<configuration>
+		<keys>
+			<key name="url-app" 		value="" />
+			<key name="path-upld" 		value="{url-app}upld/" />
+			<key name="path-xml" 		value="{url-app}xml/" />
+			<key name="path-skin" 		value="{url-app}swf/skin/" />
+			<key name="amf-gateway" 	value="" />
+			<key name="debug" 			value="true" />
+		</keys>
+	</configuration>
+</data>
