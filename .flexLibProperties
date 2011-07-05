@@ -3,6 +3,7 @@
   <includeClasses>
     <classEntry path="com.geleca.as3.loading.VideoLoaderItem"/>
     <classEntry path="com.geleca.as3.display.SimpleTextField"/>
+    <classEntry path="com.geleca.as3.display.BitmapPatternBackground"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

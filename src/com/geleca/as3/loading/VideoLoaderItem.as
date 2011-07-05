@@ -58,6 +58,7 @@ package com.geleca.as3.loading
 				this.result = _ns;
 				_timer.stop();
 				_timer.removeEventListener(TimerEvent.TIMER, timer_timer);
+				updateProgress(1);
 				this.finish();
 			}
 		}

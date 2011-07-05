@@ -22,7 +22,7 @@ package com.geleca.as3.component
 		private var _enabled								:Boolean = true;
 		private var _initialized							:Boolean = false;
 		
-		protected var _asset								:Sprite;
+		public var _asset									:Sprite;
 		protected var _nav									:AssetNav;
 		private var _hitArea								:HitArea;
 		

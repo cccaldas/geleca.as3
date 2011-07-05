@@ -255,7 +255,7 @@ package com.geleca.as3.mvc.core
 		
 		public function isDebug():Boolean
 		{
-			return config.getAppKey("debug") == "true";
+			return (config.getAppKey("debug") == "true" || container.loaderInfo.parameters.debug == "true");
 		}
 		
 		public function postURL(url:String, data:Object):void 
