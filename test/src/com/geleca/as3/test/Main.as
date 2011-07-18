@@ -1,6 +1,7 @@
 package com.geleca.as3.test
 {
 	import com.geleca.as3.test.collection.CollectionTest;
+	import com.geleca.as3.test.collection.XmlParseTest;
 	import com.geleca.as3.test.configuration.ConfigurationTest;
 	import com.geleca.as3.test.data.orm.ORMXmlTest;
 	import com.geleca.as3.test.debugger.DebuggerTest;
@@ -28,7 +29,7 @@ package com.geleca.as3.test
 			stage.align 	= StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
-			new DebuggerTest().run();
+			//new DebuggerTest().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
 			//new FunctionUtilTest().run();
@@ -38,6 +39,7 @@ package com.geleca.as3.test
 			//new ConfigurationTest().run();
 			//new CollectionTest().run();
 			//new ORMXmlTest().run();
+			new XmlParseTest().run();
 			//new DrawUtilTest().run(stage);
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);

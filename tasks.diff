@@ -1,4 +1,6 @@
-﻿-	adicionar VideoLoaderItem no GLoader (opcoes de carregamento total ou por percentual)
+﻿+	flash-config convert to yaml
++	inserir o ?debug=true direto no MVCApp sem necessario o server-side
+-	adicionar VideoLoaderItem no GLoader (opcoes de carregamento total ou por percentual)
 -	player de video padrao com skin
 +	montar padrao para pagina de conteudo multi-idioma
 --- Montar um DAO padrao para ORM XML
