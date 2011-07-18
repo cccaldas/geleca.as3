@@ -13,10 +13,10 @@ package com.geleca.as3.test.debugger
 		
 		public function DebuggerTest() 
 		{
-			run();
+			
 		}
 		
-		private function run():void
+		public function run():void
 		{
 			GLog.log("test", "run", "test after run");
 			
@@ -24,6 +24,7 @@ package com.geleca.as3.test.debugger
 			FunctionUtil.functionDelay(testStatic, 2);
 			FunctionUtil.functionDelay(testStatic, 3);
 			FunctionUtil.functionDelay(testStatic, 4);
+			FunctionUtil.functionDelay(testStatic_2, 5);
 			//log("teste", "test3");
 			init();
 		}
@@ -46,6 +47,12 @@ package com.geleca.as3.test.debugger
 		private function init():void
 		{
 			GLog.log("teste init");
+		}
+		
+		private function testStatic_2():void
+		{
+			// TODO Auto Generated method stub
+			GLog.log("testStatic_2");
 		}
 		
 	}

@@ -2,14 +2,18 @@ package com.geleca.as3.debugger
 {
 	import com.geleca.as3.util.PlayerUtil;
 	import com.geleca.as3.util.TimeUtil;
+	
+	import flash.external.ExternalInterface;
 	import flash.sampler.NewObjectSample;
 	import flash.utils.getTimer;
+
 	/**
 	 * ...
 	 * @author Cristiano Caldas
 	 */
 	public class GLog 
 	{
+		private static var _enabled:Boolean = true;
 		private static const MSG_TEMPLATE	:String = "[GLog][{time}]{msg}, at[{path} line {line}]";
 		
 		public function GLog() 
@@ -19,6 +23,9 @@ package com.geleca.as3.debugger
 		
 		public static function log(...rest):void 
 		{
+			if(!_enabled)
+				return;
+			
 			if (!PlayerUtil.isDebugger())
 				return;
 				
@@ -33,7 +40,7 @@ package com.geleca.as3.debugger
 				stackTrace = e.getStackTrace(); 
 			}
 			
-			//trace(this, stackTrace);
+			//trace("GLog", stackTrace);
 
 			var lines	:Array = stackTrace.split("\n");
 			var isDebug	:Boolean = (lines[int(1)] as String).indexOf("[") != int(-1);
@@ -46,6 +53,8 @@ package com.geleca.as3.debugger
 			{
 				var regex	:RegExp = /at\x20(.+?)\[(.+?)\]/i;
 				var matches	:Array = regex.exec(lines[int(2)]);
+				
+				//trace("matches", matches[0]);
 
 				path = matches[int(1)];
 
@@ -56,6 +65,11 @@ package com.geleca.as3.debugger
 			{
 				path = (lines[int(2)] as String).substring(4);
 			}
+			
+			line = matches[0].split(".as:")[1].replace("]", "");
+			//line = int(m.substring(m.indexOf(".as:"), m.indexOf("]")));
+			//trace("LINE", l);
+			//trace("GLog", "line", line, "path", path);
 			
 			//line = 
 			
@@ -69,7 +83,15 @@ package com.geleca.as3.debugger
 			//msg += " at: " + path + (line != -1 ? " line:[" + line.toString() + "]" : ")" + ":" + msg);
 			
 			trace(output);
+			if(ExternalInterface.available)
+				ExternalInterface.call("function() { window.console.log('" + output + "'); }");
 		}
+
+		public static function set enabled(value:Boolean):void
+		{
+			_enabled = value;
+		}
+
 		
 	}
 
