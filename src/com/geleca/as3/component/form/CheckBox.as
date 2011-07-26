@@ -19,11 +19,11 @@
 			super(asset);
 		}
 		
-		override protected function setup():void 
+		override public function setup():void 
 		{
 			super.setup();
 			
-			_asset.addEventListener(MouseEvent.CLICK, checkBox_click);
+			asset.addEventListener(MouseEvent.CLICK, checkBox_click);
 		}
 		
 		public function get checked():Boolean { return _checked; }
@@ -47,7 +47,7 @@
 			}
 		}
 		
-		protected function get textField() :TextField { return TextField(_asset.getChildByName("txt_label")); }
+		protected function get textField() :TextField { return TextField(asset.getChildByName("txt_label")); }
 		
 		public function get label():String { return textField.text; }
 		
@@ -80,7 +80,7 @@
 		
 		override public function destroy():void 
 		{
-			_asset.removeEventListener(MouseEvent.CLICK, checkBox_click);
+			asset.removeEventListener(MouseEvent.CLICK, checkBox_click);
 			
 			super.destroy();
 		}

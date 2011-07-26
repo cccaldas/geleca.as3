@@ -8,7 +8,7 @@ package com.geleca.as3.mvc.core
 	import com.geleca.as3.i18n.Lang;
 	import com.geleca.as3.loading.GLoader;
 	import com.geleca.as3.loading.LoaderItem;
-	import com.geleca.as3.ui.component.Component;
+	import com.geleca.as3.ui.component.UIComponent;
 	import com.geleca.as3.util.ContainerUtil;
 	import com.geleca.as3.util.DictionaryUtil;
 	import com.geleca.as3.view.loading.ViewLoader;
@@ -31,7 +31,7 @@ package com.geleca.as3.mvc.core
 		private var _enabled								:Boolean = true;
 		private var _initialized							:Boolean = false;
 		
-		private var _components								:Vector.<Component> = new Vector.<Component>();
+		private var _components								:Vector.<UIComponent> = new Vector.<UIComponent>();
 		private var _views									:Vector.<View> 		= new Vector.<View>();
 		
 		private var _loader									:GLoader = new GLoader();
@@ -134,7 +134,7 @@ package com.geleca.as3.mvc.core
 		
 		private function initializeComponents():void 
 		{
-			for each (var comp:Component in _components) 
+			for each (var comp:UIComponent in _components) 
 			{
 				comp.initializeComponent();
 			}
@@ -190,7 +190,7 @@ package com.geleca.as3.mvc.core
 			return view;
 		}
 		
-		protected function addComponent(component:Component):*
+		protected function addComponent(component:UIComponent):*
 		{
 			if (_components.indexOf(component) == -1)
 			{
@@ -206,7 +206,7 @@ package com.geleca.as3.mvc.core
 			return component;
 		}
 		
-		protected function removeComponent(component:Component):Component
+		protected function removeComponent(component:UIComponent):UIComponent
 		{
 			var index:int = _components.indexOf(component);
 			if (index != -1)
@@ -311,7 +311,7 @@ package com.geleca.as3.mvc.core
 				view.destroy();
 			}
 			
-			for each (var comp:Component in _components) 
+			for each (var comp:UIComponent in _components) 
 			{
 				comp.destroy();
 			}

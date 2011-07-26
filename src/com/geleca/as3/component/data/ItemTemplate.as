@@ -1,7 +1,6 @@
 ﻿package com.geleca.as3.component.data
 {
 	import flash.display.Sprite;
-	import com.geleca.as3.asset.AssetNav;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -19,8 +18,7 @@
 		
 		public function setAsset(asset:Sprite):void 
 		{
-			_asset = asset;
-			_nav = new AssetNav(asset);
+			this.asset = asset;
 		}
 		
 		public function get itemIndex()		:int 		{ return _itemIndex; }

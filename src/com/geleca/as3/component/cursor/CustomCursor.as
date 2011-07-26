@@ -15,16 +15,16 @@
 			super(asset);
 		}
 		
-		override protected function initialize():void 
+		override public function init():void 
 		{
-			super.initialize();
+			super.init();
 			
 			enabled = false;
 		}
 		
 		override public function move(x:Number, y:Number):void 
 		{
-			DepthUtil.toFront(_asset);
+			DepthUtil.toFront(asset);
 			
 			super.move(x, y);
 		}

@@ -4,6 +4,8 @@
     <classEntry path="com.geleca.as3.loading.VideoLoaderItem"/>
     <classEntry path="com.geleca.as3.display.SimpleTextField"/>
     <classEntry path="com.geleca.as3.display.BitmapPatternBackground"/>
+    <classEntry path="com.geleca.as3.net.SimpleNetStream"/>
+    <classEntry path="com.geleca.as3.component.IComponent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

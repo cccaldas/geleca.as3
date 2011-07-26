@@ -1,0 +1,27 @@
+#find . -type f -name ".as"
+#find src -name "*.as" -exec mv {} bin/swf/modules \;
+#find src -name "*.as" -exec echo $PWD/{} \;
+
+SRC_PATH=src
+DOCS_PATH=docs
+FLEX_SDK=/Users/cccaldas/Dev/flex-sdk/flex_sdk_4.0.0.14159/
+
+SRC_PATH=$PWD/$SRC_PATH
+DOCS_PATH=$PWD/$DOCS_PATH
+
+#SOURCES=$(find $SRC_PATH -name "*.as" -exec echo {} \;)
+#echo $SOURCES;
+
+#$(find $SRC_PATH -name "*.as" -exec echo {} \;) 
+
+rm -rf $DOCS_PATH/*
+#echo -doc-sources $(find $SRC_PATH -name "*.as" -exec echo {} \;)  \
+$FLEX_SDK/bin/asdoc -source-path $SRC_PATH -doc-sources $(find $SRC_PATH -name "*.as" -exec echo {} \;)  \
+-external-library-path+=$PWD/lib/bin/ \
+-external-library-path+=$PWD/asset/swc/ \
+-output $DOCS_PATH \
+-window-title "Window Title" \
+-main-title "Main Title" \
+-footer "Footer"
+#asdoc -doc-sources $SOURCES -load-config=docs-config.xml
+#asdoc -source-path src -output docs

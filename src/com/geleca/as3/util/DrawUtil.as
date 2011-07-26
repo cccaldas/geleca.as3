@@ -23,6 +23,7 @@
      *  var pCircle:Pen = new Pen(this, true);
      *  pCircle.drawCircle(10);
      *  trace(pCircle.target);
+     * </pre>
      */
     public function set target(gTarget:Graphics):void {
       _gTarget = gTarget;

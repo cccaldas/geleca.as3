@@ -18,7 +18,6 @@
 	[Event(name="itemCreated", 		type="com.geleca.as3.events.DataListEvent")] 
 	[Event(name="bind", 			type="com.geleca.as3.events.DataListEvent")] 
 	[Event(name="binded", 			type="com.geleca.as3.events.DataListEvent")] 
-	
 	public class DataList extends DataView
 	{
 		public static const DIRECTION_HORIZONTAL	:String = "DIRECTION_HORIZONTAL";
@@ -41,7 +40,7 @@
 			_itemTemplateClass = itemTemplateClass;
 		}
 		
-		override protected function setup():void 
+		override public function setup():void 
 		{
 			super.setup();
 			
@@ -52,7 +51,7 @@
 			getAssetClass();
 		}
 		
-		public function get container():Sprite { return _asset; }
+		public function get container():Sprite { return asset; }
 		
 		/**Configura o espaçamento do item na horizontal.*/
 		public function set itemSpacingX(value:Number):void 

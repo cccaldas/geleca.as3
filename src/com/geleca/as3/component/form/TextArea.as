@@ -13,9 +13,9 @@ package com.geleca.as3.component.form
 			super(asset);
 		}
 		
-		override protected function initialize():void 
+		override public function init():void 
 		{
-			super.initialize();
+			super.init();
 			
 			textField.multiline = true;
 			textField.height = background.height - (textField.y * 2);

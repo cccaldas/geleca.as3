@@ -16,42 +16,42 @@ package com.geleca.as3.component.button
 		
 		override protected function rollOver():void 
 		{
-			MovieClip(_asset).gotoAndPlay("rollOver");
+			MovieClip(asset).gotoAndPlay("rollOver");
 			
 			super.rollOver();
 		}
 		
 		override protected function rollOut():void 
 		{
-			MovieClip(_asset).gotoAndPlay("rollOut");
+			MovieClip(asset).gotoAndPlay("rollOut");
 			
 			super.rollOut();
 		}
 		
 		override protected function enable():void 
 		{
-			MovieClip(_asset).gotoAndPlay("enable");
+			MovieClip(asset).gotoAndPlay("enable");
 			
 			super.enable();
 		}
 		
 		override protected function disable():void 
 		{
-			MovieClip(_asset).gotoAndPlay("disable");
+			MovieClip(asset).gotoAndPlay("disable");
 			
 			super.disable();
 		}
 		
 		override protected function select():void 
 		{
-			MovieClip(_asset).gotoAndPlay("select");
+			MovieClip(asset).gotoAndPlay("select");
 			
 			super.select();
 		}
 		
 		override protected function unselect():void 
 		{
-			MovieClip(_asset).gotoAndPlay("unselect");
+			MovieClip(asset).gotoAndPlay("unselect");
 			
 			super.unselect();
 		}

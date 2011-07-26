@@ -1,5 +1,6 @@
 package com.geleca.as3.loading
 {
+	import com.geleca.as3.net.SimpleNetStream;
 	import com.geleca.as3.util.SimpleTimer;
 	
 	import flash.events.Event;
@@ -12,15 +13,20 @@ package com.geleca.as3.loading
 	{
 		private var _src							:String;
 		private var _nc								:NetConnection;
-		private	var _ns								:NetStream;
+		private	var _ns								:SimpleNetStream;
+		private var _meta							:Object;
 
 		private var _timer							:SimpleTimer;
 		
-		public function VideoLoaderItem(id:String, src:String, percent:Number=1)
+		private var _waitMetaData					:Boolean;
+		
+		public function VideoLoaderItem(id:String, src:String, percent:Number=1, waitMetaData:Boolean=false)
 		{
 			super(id);
 			
 			_src = src;
+			
+			_waitMetaData = waitMetaData;
 		}
 		
 		override protected function process_start():void 
@@ -28,14 +34,14 @@ package com.geleca.as3.loading
 			super.process_start();
 			
 			_nc = new NetConnection();
-			_nc.connect(null);
+			_nc.connect(null); 
 			
-			_ns = new NetStream(_nc);
+			_ns = new SimpleNetStream(_nc);
 			_ns.bufferTime = 7;
 			
-			var client:Object = { };
-			client.onMetaData = function onMetaData(data:Object):void { 	};
-			_ns.client = client;
+			//var client:Object = { };
+			//client.onMetaData = function onMetaData(data:Object):void { _ns.meta = data; trace(this, "onMetaData"); };
+			//_ns.client = client;
 			
 			_timer = new SimpleTimer(50);
 			_timer.addEventListener(TimerEvent.TIMER, timer_timer);
@@ -59,7 +65,26 @@ package com.geleca.as3.loading
 				_timer.stop();
 				_timer.removeEventListener(TimerEvent.TIMER, timer_timer);
 				updateProgress(1);
-				this.finish();
+				
+				if(!_waitMetaData)
+				{
+					this.finish();
+					return;
+				}
+				
+				if(_waitMetaData && _ns.meta != null)
+					this.finish();
+				else
+				{
+					_ns.addEventListener(Event.COMPLETE, ns_complete);
+					function ns_complete(e:Event):void
+					{
+						_ns.removeEventListener(Event.COMPLETE, ns_complete);
+						finish();
+					}
+				}
+				
+				
 			}
 		}
 		
@@ -68,6 +93,13 @@ package com.geleca.as3.loading
 			super.destroy();
 			
 			_timer = null;
+			_meta = null;
 		}
+
+		public function get meta():Object
+		{
+			return _meta;
+		}
+
 	}
 }

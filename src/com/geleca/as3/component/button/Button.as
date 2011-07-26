@@ -20,18 +20,18 @@ package com.geleca.as3.component.button
 			super(asset);
 		}
 		
-		override protected function setup():void 
+		override public function setup():void 
 		{
 			super.setup();
 			
-			_asset.buttonMode = true;
+			asset.buttonMode = true;
 			
-			_asset.addEventListener(MouseEvent.CLICK, 		asset_click);
-			_asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			_asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
-			_asset.addEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
-			_asset.addEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
-			_asset.addEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
+			asset.addEventListener(MouseEvent.CLICK, 		asset_click);
+			asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+			asset.addEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
+			asset.addEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
+			asset.addEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
 		}
 		
 		private function asset_click(e:MouseEvent):void 
@@ -69,7 +69,7 @@ package com.geleca.as3.component.button
 			if (stage)
 				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);
 			
-			if (e.target != _asset)
+			if (e.target != asset)
 			{
 				dispatchEvent(new ButtonEvent(ButtonEvent.RELEASE_OUT_SIDE));
 				releaseOutSide();
@@ -153,22 +153,22 @@ package com.geleca.as3.component.button
 		
 		override protected function disable():void 
 		{
-			_asset.mouseEnabled = _asset.mouseChildren = false;
+			asset.mouseEnabled = asset.mouseChildren = false;
 		}
 		
 		override protected function enable():void 
 		{
-			_asset.mouseEnabled = _asset.mouseChildren = true
+			asset.mouseEnabled = asset.mouseChildren = true
 		}
 		
 		override public function destroy():void 
 		{
-			_asset.removeEventListener(MouseEvent.CLICK, 		asset_click);
-			_asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			_asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
-			_asset.removeEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
-			_asset.removeEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
-			_asset.removeEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
+			asset.removeEventListener(MouseEvent.CLICK, 		asset_click);
+			asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+			asset.removeEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
+			asset.removeEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
+			asset.removeEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
 			
 			if (stage)
 				stage.removeEventListener(MouseEvent.MOUSE_UP, stage_click);

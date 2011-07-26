@@ -9,7 +9,7 @@
 	import flash.utils.Dictionary;
 	import com.geleca.as3.exception.CursorManagerException;
 	import com.geleca.as3.util.DepthUtil;
-	import com.geleca.as3.ui.component.cursor.CustomCursor;
+	import com.geleca.as3.ui.component.cursor.UICustomCursor;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -18,14 +18,14 @@
 	{
 		private var _cursors					:Dictionary 	= new Dictionary();
 		private var _stage                      :Stage 			= null;
-		private var _cursor                     :CustomCursor 	= null; //atual cursor selecionado
+		private var _cursor                     :UICustomCursor 	= null; //atual cursor selecionado
 		
 		public function CursorManager(stage:Stage=null)
 		{
 			this.stage = stage;
 		}
 		
-		public function registerCursor(name:String, cursor:CustomCursor):void 
+		public function registerCursor(name:String, cursor:UICustomCursor):void 
 		{
 			if (!cursor.initialized)
 				cursor.initializeComponent();
@@ -37,7 +37,7 @@
 		
 		public function removeCursor(name:String):void 
 		{
-			CustomCursor(_cursors[name]).destroy();
+			UICustomCursor(_cursors[name]).destroy();
 			
 			_cursors[name] = null;
 			delete _cursors[name];
@@ -87,7 +87,7 @@
 		public function get stage():Stage { return _stage; }
 		
 		/**Retorna o atual cursor Selecionado.*/
-		public function getCursor():CustomCursor
+		public function getCursor():UICustomCursor
 		{
 			return _cursor;
 		}
@@ -96,7 +96,7 @@
 		{
 			for (var name:String in _cursors) 
 			{
-				CustomCursor(_cursors[name]).destroy();
+				UICustomCursor(_cursors[name]).destroy();
 				delete _cursors[name];
 			}
 			

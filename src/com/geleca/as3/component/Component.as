@@ -1,79 +1,77 @@
 package com.geleca.as3.component 
 {
+	import com.geleca.as3.display.HitArea;
+	import com.geleca.as3.events.SimpleEventDispatcher;
+	import com.geleca.as3.events.StateEvent;
 	import com.geleca.as3.layout.Layout;
-	import flash.display.Sprite;
+	import com.geleca.as3.util.ContainerUtil;
+	
 	import flash.display.LoaderInfo;
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.FocusEvent;
 	import flash.geom.Rectangle;
 	import flash.system.System;
-	import com.geleca.as3.asset.AssetNav;
-	import com.geleca.as3.display.HitArea;
-	import com.geleca.as3.events.SimpleEventDispatcher;
-	import com.geleca.as3.events.StateEvent;
-	import com.geleca.as3.util.ContainerUtil;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
 	 */
-	public class Component extends SimpleEventDispatcher
+	public class Component extends SimpleEventDispatcher implements IComponent
 	{
 		private var _enabled								:Boolean = true;
 		private var _initialized							:Boolean = false;
 		
-		public var _asset									:Sprite;
-		protected var _nav									:AssetNav;
+		public var asset									:Sprite;
 		private var _hitArea								:HitArea;
 		
-		private var _components								:Vector.<Component> = new Vector.<Component>();
+		private var _components								:Vector.<IComponent> = new Vector.<IComponent>();
 		
 		private var _setup									:Boolean = false;
 		
-		public var layout									:Layout;
-		
 		private var _selected								:Boolean;
 		
-		private var _parent									:Component;
+		private var _parent									:IComponent;
+		private var _layout									:Layout;
+		
+		private var _state									:String;
+		
+		protected var self									:Component;
 		
 		public function Component(asset:Sprite) 
 		{
-			_asset 	= asset;
-			_nav 	= new AssetNav(asset);
+			this.asset 	= asset;
+			this.self 	= this;
 		}
 		
-		protected function setup():void 
+		public function setup():void 
 		{
 			if (_setup)
 				return;
 				
 			_setup = true;
 				
-			//trace(_asset.name, "setup:", _setup);
-				
-			if (_asset.getChildByName("sp_hitArea"))
+			if (asset.getChildByName("sp_hitArea"))
 			{
-				var hit:Sprite = Sprite(_asset.getChildByName("sp_hitArea"));
+				var hit:Sprite = Sprite(asset.getChildByName("sp_hitArea"));
 				hitArea = new HitArea(hit.width, hit.height);
 				hitArea.x = hit.x;
 				hitArea.y = hit.y;
 				
 				hit.parent.removeChild(hit);
-				//_asset.removeChild(hit);
 			}
 			
-			_asset.focusRect = false;
+			asset.focusRect = false;
 			
-			_asset.addEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
-			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
+			asset.addEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
+			asset.addEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
 		}
 		
-		protected function initialize():void 
+		public function init():void 
 		{
 			
 		}
 		
-		public final function initializeComponent():Component
+		public final function initializeComponent():IComponent
 		{
 			if (_initialized)
 				return this;
@@ -82,34 +80,27 @@ package com.geleca.as3.component
 				setup();
 				
 			initializeComponents();
-			initialize();
+			init();
 			_initialized = true;
 			
 			return this;
 			//dispatchEvent(new ComponentEvent(ComponentEvent.INITIALIZED));
 		}
 		
-		//TEST: fazer setup sempre que o componente for adicionado dentro de uma view ou dentro de um component
-		public function forceSetup():void 
-		{
-			if(!_setup)
-				setup();
-		}
-		
-		protected function addComponent(component:Component):*
+		public function addComponent(component:IComponent):IComponent
 		{
 			if (_components.indexOf(component) == -1)
 			{
 				_components.push(component);
 				component.layout = this.layout;
 				component.parent = this;
-				component.forceSetup();
+				component.setup();
 			}
 				
 			return component;
 		}
 		
-		protected function removeComponent(component:Component):Component
+		public function removeComponent(component:IComponent):IComponent
 		{
 			var index:int = _components.indexOf(component);
 			if (index != -1)
@@ -123,10 +114,8 @@ package com.geleca.as3.component
 		
 		private function initializeComponents():void 
 		{
-			for each (var comp:Component in _components) 
-			{
-				comp.initializeComponent();
-			}
+			for each (var comp:IComponent in _components) 
+				comp.initializeComponent();			
 		}
 		
 		public function set enabled(value:Boolean):void 
@@ -151,20 +140,43 @@ package com.geleca.as3.component
 		{
 			if (value)
 			{
-				_asset.addChild(value);
-				_asset.hitArea = value;
+				asset.addChild(value);
+				asset.hitArea = value;
 				_hitArea = value;
 			}
 		}
 		
+		public function get state():String 
+		{
+			return _state;
+		}
+		
+		public function set state(value:String):void 
+		{
+			var oldState:String = _state;
+			var newState:String = value;
+			
+			if (oldState == newState)
+				return;
+			
+			_state = newState;
+			state_change(oldState, newState);
+			dispatchEvent(new StateEvent(StateEvent.CHANGE, oldState, newState));
+		}
+		
+		protected function state_change(oldState:String, newState:String):void 
+		{
+			
+		}
+		
 		protected function enable():void 
 		{
-			_asset.mouseEnabled = _asset.mouseChildren = true;
+			asset.mouseEnabled = asset.mouseChildren = true;
 		}
 		
 		protected function disable():void 
 		{
-			_asset.mouseEnabled = _asset.mouseChildren = false;
+			asset.mouseEnabled = asset.mouseChildren = false;
 		}
 		
 		private function asset_focusIn(e:FocusEvent):void 
@@ -199,80 +211,79 @@ package com.geleca.as3.component
 			this.height = height;
 		}
 		
-		public function get x():Number { return _asset.x; }
+		public function get x():Number { return asset.x; }
 		
 		public function set x(value:Number):void 
 		{
-			_asset.x = value;
+			asset.x = value;
 		}
 		
-		public function get y():Number { return _asset.y; }
+		public function get y():Number { return asset.y; }
 		
 		public function set y(value:Number):void 
 		{
-			_asset.y = value;
+			asset.y = value;
 		}
 		
-		public function get alpha():Number { return _asset.alpha; }
+		public function get alpha():Number { return asset.alpha; }
 		public function set alpha(value:Number):void 
 		{
-			_asset.alpha = value;
+			asset.alpha = value;
 		}
 		
-		public function get width():Number { return (hitArea) ? hitArea.width : _asset.width; }
+		public function get width():Number { return (hitArea) ? hitArea.width : asset.width; }
 		
 		public function set width(value:Number):void 
 		{
 			if (hitArea)
 				hitArea.width = value;
 			else
-				_asset.width = value;
-			
+				asset.width = value;
 		}
 		
-		public function get height():Number { return (hitArea) ? hitArea.height : _asset.height; }
+		public function get height():Number { return (hitArea) ? hitArea.height : asset.height; }
 		
 		public function set height(value:Number):void 
 		{
 			if (hitArea)
 				hitArea.height = value;
 			else
-				_asset.height = value;
+				asset.height = value;
 		}
 		
 		public function set tabIndex(value:int):void 
 		{
-			_asset.tabIndex = value;
+			asset.tabIndex = value;
 		}
 		
-		public function get tabIndex():int { return _asset.tabIndex; }
+		public function get tabIndex():int { return asset.tabIndex; }
 		
-		public function get stage()			:Stage 			{ return _asset.stage; }
-		public function get loaderInfo()	:LoaderInfo 	{ return _asset.loaderInfo; }
+		public function get stage()			:Stage 			{ return asset.stage; }
+		public function get loaderInfo()	:LoaderInfo 	{ return asset.loaderInfo; }
 		
 		public function set visible(value:Boolean):void 
 		{
-			_asset.visible = value;
+			asset.visible = value;
 		}
 		
-		public function get visible():Boolean { return _asset.visible; }
+		public function get visible():Boolean { return asset.visible; }
 		
 		public function startDrag(lockCenter:Boolean=false, bounds:Rectangle=null):void
 		{
-			_asset.startDrag(lockCenter, bounds);
+			asset.startDrag(lockCenter, bounds);
 		}
 		
 		public function stopDrag():void 
 		{
-			_asset.stopDrag();
+			asset.stopDrag();
 		}
 		
 		public function set buttonMode(value:Boolean):void 
 		{
-			_asset.buttonMode = value;
+			asset.buttonMode = value;
 		}
 		
-		public function get buttonMode():Boolean { return _asset.buttonMode; }
+		public function get buttonMode():Boolean { return asset.buttonMode; }
 		
 		public function get selected():Boolean { return _selected; }
 		
@@ -289,9 +300,9 @@ package com.geleca.as3.component
 			}
 		}
 		
-		public function get parent():Component { return _parent; }
+		public function get parent():IComponent { return _parent; }
 		
-		public function set parent(value:Component):void 
+		public function set parent(value:IComponent):void 
 		{
 			_parent = value;
 		}
@@ -306,27 +317,32 @@ package com.geleca.as3.component
 			
 		}
 		
+		public function get layout():Layout
+		{
+			return _layout;
+		}
+		
+		public function set layout(value:Layout):void
+		{
+			_layout = value;
+		}
+		
 		override public function destroy():void 
 		{
-			_asset.removeEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
-			_asset.removeEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
+			asset.removeEventListener(FocusEvent.FOCUS_IN, 	asset_focusIn);
+			asset.removeEventListener(FocusEvent.FOCUS_OUT, 	asset_focusOut);
 			
-			for each (var comp:Component in _components) 
-			{
-				removeComponent(comp);
-			}
+			for each (var comp:IComponent in _components) 
+				removeComponent(comp);			
 			
 			_components = null;
 			
-			if (_asset.parent)
-				_asset.parent.removeChild(_asset);
+			if (asset.parent)
+				asset.parent.removeChild(asset);
 			
-			ContainerUtil.removeAllChilds(_asset);
+			ContainerUtil.removeAllChilds(asset);
 			
-			_nav.destroy();
-			_nav = null;
-			
-			_asset 		= null;
+			asset 		= null;
 			_hitArea 	= null;
 			_parent		= null;
 			
@@ -339,5 +355,6 @@ package com.geleca.as3.component
 			
 			super.destroy();
 		}
+
 	}
 }

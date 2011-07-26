@@ -4,7 +4,7 @@ package com.geleca.as3.gml
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.layout.LayoutSettings;
 	import com.geleca.as3.mvc.core.View;
-	import com.geleca.as3.ui.component.Component;
+	import com.geleca.as3.ui.component.UIComponent;
 	import com.geleca.as3.util.BooleanUtil;
 	import com.geleca.as3.util.ObjectUtil;
 	

@@ -20,11 +20,11 @@ package com.geleca.as3.component.form
 		{
 			super(asset);
 			
-			_background = Sprite(_asset.getChildByName("bg_textInput"));
-			_textField	= TextField(_asset.getChildByName("txt_textInput"));
+			_background = Sprite(asset.getChildByName("bg_textInput"));
+			_textField	= TextField(asset.getChildByName("txt_textInput"));
 		}
 		
-		override protected function setup():void 
+		override public function setup():void 
 		{
 			super.setup();			
 			_padding 	= (_textField.x + _textField.y) * .5;
@@ -32,14 +32,14 @@ package com.geleca.as3.component.form
 			var width:Number = this.width;
 			var height:Number = this.height;
 			
-			_asset.scaleX 	= _asset.scaleY = 1;
+			asset.scaleX 	= asset.scaleY = 1;
 			this.width 		= width;
 			this.height 	= height;
 			
-			_asset.addEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
+			asset.addEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
 			
-			_asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			_asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+			asset.addEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			asset.addEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
 		}
 		
 		private function asset_rollOver(e:MouseEvent):void 
@@ -173,10 +173,10 @@ package com.geleca.as3.component.form
 		
 		override public function destroy():void 
 		{
-			_asset.removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
+			asset.removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
 			
-			_asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			_asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+			asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
+			asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
 			
 			_textField 		= null;
 			_background 	= null;

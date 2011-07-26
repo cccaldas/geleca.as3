@@ -16,6 +16,7 @@ package com.geleca.as3.test
 	import com.geleca.as3.test.util.OSUtilTest;
 	import com.geleca.as3.test.util.PlayerUtilTest;
 	import com.geleca.as3.test.util.TransformUtilTest;
+	import com.geleca.as3.test.video.VideoTest;
 	
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -39,7 +40,8 @@ package com.geleca.as3.test
 			//new ConfigurationTest().run();
 			//new CollectionTest().run();
 			//new ORMXmlTest().run();
-			new XmlParseTest().run();
+			//new XmlParseTest().run();
+			new VideoTest().run(stage);
 			//new DrawUtilTest().run(stage);
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);
