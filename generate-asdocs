@@ -12,7 +12,7 @@ DOCS_PATH=$PWD/$DOCS_PATH
 #SOURCES=$(find $SRC_PATH -name "*.as" -exec echo {} \;)
 #echo $SOURCES;
 
-#$(find $SRC_PATH -name "*.as" -exec echo {} \;) 
+#$(find $SRC_PATH -name "*.as" -exec echo {} \;)  
 
 rm -rf $DOCS_PATH/*
 #echo -doc-sources $(find $SRC_PATH -name "*.as" -exec echo {} \;)  \
