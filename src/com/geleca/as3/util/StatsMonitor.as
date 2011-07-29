@@ -1,13 +1,17 @@
 package com.geleca.as3.util
 {
+	import com.geleca.as3.debugger.GLog;
+	
 	import flash.display.BlendMode;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.system.Capabilities;
 	import flash.system.System;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	import flash.utils.getTimer;
+
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -67,10 +71,13 @@ package com.geleca.as3.util
 				_mem = Number((System.totalMemory * 0.000000954).toFixed(3));	
 				
 				txt_report.text = "";
-				txt_report.appendText("FPS: " + _fps + "/" + stage.frameRate.toString() + ", ");
-				txt_report.appendText("Memory: " + _mem.toString() + "mb , ");
-				txt_report.appendText("StageWidth: " + stage.stageWidth + "px , ");
-				txt_report.appendText("StageHeight: " + stage.stageHeight + "px , ");
+				txt_report.appendText("fps: " + _fps + "/" + stage.frameRate.toString());
+				txt_report.appendText(" , ");
+				txt_report.appendText("memory: " + _mem.toString() + "mb");
+				txt_report.appendText(" , ");
+				txt_report.appendText("stage: " + stage.stageWidth + "/" + stage.stageHeight + "px");
+				txt_report.appendText(" , ");
+				txt_report.appendText("player: " + Capabilities.version);
 				
 				_fps = 0;
 			}

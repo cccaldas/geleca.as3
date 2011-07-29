@@ -13,8 +13,9 @@ package com.geleca.as3.debugger
 	 */
 	public class GLog 
 	{
-		private static var _enabled:Boolean = true;
-		private static const MSG_TEMPLATE	:String = "[GLog][{time}]{msg}, at[{path} line {line}]";
+		private static var _logs				:Array = [];
+		private static var _enabled				:Boolean = true;
+		private static const MSG_TEMPLATE		:String = "[GLog][{time}]{msg}, at[{path} line {line}]";
 		
 		public function GLog() 
 		{
@@ -85,11 +86,18 @@ package com.geleca.as3.debugger
 			trace(output);
 			if(ExternalInterface.available)
 				ExternalInterface.call("function() { window.console.log('" + output + "'); }");
+			
+			_logs.push(output);
 		}
 
 		public static function set enabled(value:Boolean):void
 		{
 			_enabled = value;
+		}
+		
+		public static function getLogs():Array
+		{
+			return _logs;
 		}
 
 		

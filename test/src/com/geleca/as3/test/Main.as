@@ -15,6 +15,7 @@ package com.geleca.as3.test
 	import com.geleca.as3.test.util.FunctionUtilTest;
 	import com.geleca.as3.test.util.OSUtilTest;
 	import com.geleca.as3.test.util.PlayerUtilTest;
+	import com.geleca.as3.test.util.StatsMonitorTest;
 	import com.geleca.as3.test.util.TransformUtilTest;
 	import com.geleca.as3.test.video.VideoTest;
 	
@@ -41,7 +42,8 @@ package com.geleca.as3.test
 			//new CollectionTest().run();
 			//new ORMXmlTest().run();
 			//new XmlParseTest().run();
-			new VideoTest().run(stage);
+			//new VideoTest().run(stage);
+			new StatsMonitorTest().run(stage);
 			//new DrawUtilTest().run(stage);
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);
