@@ -12,7 +12,7 @@
 		
 		public function DepthUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function toFront(target:DisplayObject):void 

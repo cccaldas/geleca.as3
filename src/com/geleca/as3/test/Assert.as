@@ -1,16 +1,16 @@
-package com.geleca.as3.tests
+package com.geleca.as3.test
 {
 	import com.geleca.as3.debugger.GLog;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
 	 */
-	public class Asserts
+	public class Assert
 	{
 		private static const PASSED	:String = "[PASSED]";
 		private static const FAILED	:String = "[FAILED]";
 		
-		public function Asserts() 
+		public function Assert() 
 		{
 			
 		}

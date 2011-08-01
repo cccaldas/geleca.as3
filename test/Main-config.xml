@@ -2,7 +2,6 @@
 	<benchmark>false</benchmark>
 	<default-background-color>#FFFFFF</default-background-color>
 	<target-player>10</target-player>
-	<output>../deploy/geleca.3.0.swc</output>
 	
 	<compiler>
 		<incremental>true</incremental>
@@ -31,7 +30,7 @@
 
 		
 		<source-path>
-			<path-element>../lib/src/</path-element>
+			<path-element>../src/</path-element>
 			<!--<path-element>../test/src/</path-element>-->
 		</source-path>
 		

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>src/Main-config.xml</string>
+	<string>TODO.diff</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -15,8 +15,6 @@
 			<string>deploy</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>lib</string>
 			<key>regexFolderFilter</key>
@@ -25,8 +23,6 @@
 			<string>lib</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>src</string>
 			<key>regexFolderFilter</key>
@@ -34,11 +30,71 @@
 			<key>sourceDirectory</key>
 			<string>src</string>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>build</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>build</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>asset</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>asset</string>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>TODO.diff</string>
+			<key>lastUsed</key>
+			<date>2011-08-01T03:53:14Z</date>
+			<key>selected</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>test</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>test</string>
+		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>306</integer>
 	<key>metaData</key>
 	<dict>
+		<key>TODO.diff</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>37</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>asset/embed.txt</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>34</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>lib/src/com/gskinner/geom/ColorMatrix.as</key>
 		<dict>
 			<key>caret</key>
@@ -67,54 +123,82 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>src/Main-config.xml</key>
+		<key>src/com/geleca/as3/util/DepthUtil.as</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>39</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>src/Main.as</key>
+		<key>src/com/geleca/as3/util/StatsMonitor.as</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>27</integer>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>10</integer>
 		</dict>
-		<key>src/com/geleca/as3/test/Assert.as</key>
+		<key>test/Main-config.xml</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>36</integer>
+				<integer>33</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>src/com/geleca/as3/view/ViewSwitcher.as</key>
+		<key>test/Main.as</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>26</integer>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>61</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>47</integer>
+		</dict>
+		<key>test/com/geleca/as3/test/configuration/ConfigurationTest.as</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>test/com/geleca/as3/test/util/StatsMonitorTest.as</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>11</integer>
 				<key>line</key>
 				<integer>10</integer>
 			</dict>
@@ -126,12 +210,14 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>src/Main.as</string>
-		<string>lib/src/fluorinefx/data/FluorineDataTable.as</string>
-		<string>src/com/geleca/as3/test/Assert.as</string>
-		<string>lib/src/com/gskinner/geom/ColorMatrix.as</string>
-		<string>src/com/geleca/as3/view/ViewSwitcher.as</string>
-		<string>src/Main-config.xml</string>
+		<string>test/Main-config.xml</string>
+		<string>test/com/geleca/as3/test/util/StatsMonitorTest.as</string>
+		<string>src/com/geleca/as3/util/StatsMonitor.as</string>
+		<string>test/Main.as</string>
+		<string>src/com/geleca/as3/util/DepthUtil.as</string>
+		<string>TODO.diff</string>
+		<string>test/com/geleca/as3/test/configuration/ConfigurationTest.as</string>
+		<string>asset/embed.txt</string>
 	</array>
 	<key>shellVariables</key>
 	<array>
@@ -139,7 +225,7 @@
 			<key>enabled</key>
 			<true/>
 			<key>value</key>
-			<string>src/Main.as</string>
+			<string>test/Main.as</string>
 			<key>variable</key>
 			<string>TM_FLEX_FILE_SPECS</string>
 		</dict>
@@ -147,7 +233,7 @@
 			<key>enabled</key>
 			<true/>
 			<key>value</key>
-			<string>deploy/geleca.3.0.swc</string>
+			<string>deploy/test/app.swf</string>
 			<key>variable</key>
 			<string>TM_FLEX_OUTPUT</string>
 		</dict>
@@ -179,7 +265,7 @@
 			<key>enabled</key>
 			<false/>
 			<key>value</key>
-			<string>deploy/app.swf</string>
+			<string>deploy/test/app.swf</string>
 			<key>variable</key>
 			<string>TM_FLEX_RUN_FILE</string>
 		</dict>

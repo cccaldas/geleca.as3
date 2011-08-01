@@ -27,6 +27,8 @@ package com.geleca.as3.util
 		
 		public function StatsMonitor(background:uint=0x000000) 
 		{
+			super();
+			
 			this.graphics.beginFill(background);
 			this.graphics.drawRect(0, 0, 400, 20);
 			this.graphics.endFill();

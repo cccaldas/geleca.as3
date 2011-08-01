@@ -1,5 +1,17 @@
-package com.geleca.as3.test
+//AS3///////////////////////////////////////////////////////////////////////////
+// 
+// Copyright 2011 
+// 
+////////////////////////////////////////////////////////////////////////////////
+
+package
 {
+
+	import flash.events.Event;
+	import flash.display.Sprite;
+	import flash.display.StageAlign;
+	import flash.display.StageScaleMode;
+	
 	import com.geleca.as3.test.collection.CollectionTest;
 	import com.geleca.as3.test.collection.XmlParseTest;
 	import com.geleca.as3.test.configuration.ConfigurationTest;
@@ -18,19 +30,43 @@ package com.geleca.as3.test
 	import com.geleca.as3.test.util.StatsMonitorTest;
 	import com.geleca.as3.test.util.TransformUtilTest;
 	import com.geleca.as3.test.video.VideoTest;
-	
-	import flash.display.Sprite;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
-	
-	[SWF(frameRate="55", width="1002",height="600")]
+
+	/**
+	 * Application entry point for geleca-framework.
+	 * 
+	 * @langversion ActionScript 3.0
+	 * @playerversion Flash 9.0
+	 * 
+	 * @author Cristiano Caldas
+	 * @since 31.07.2011
+	 */
+
+	[SWF(width="1002", height="560", backgroundColor="#FFFFFF", frameRate="60")]
 	public class Main extends Sprite
-	{
+	{	
+		/**
+		 * @constructor
+		 */
 		public function Main()
 		{
-			stage.align 	= StageAlign.TOP_LEFT;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
-			
+			super();
+		
+			if(stage)
+				init();
+			else
+				addEventListener(Event.ADDED_TO_STAGE, init);
+		}
+
+		/**
+		 * Initialize stub.
+		 */
+		private function init(e:Event=null):void
+		{
+			stage.align 		= StageAlign.TOP_LEFT;
+			stage.scaleMode 	= StageScaleMode.NO_SCALE;
+		
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+		
 			//new DebuggerTest().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
@@ -49,6 +85,9 @@ package com.geleca.as3.test
 			//new GLoaderTest().run(stage);
 			//new LangTest().run();
 			//new VideoPlayerTest().run(stage);
+			
 		}
+	
 	}
+
 }

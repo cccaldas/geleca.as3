@@ -8,7 +8,7 @@ package com.geleca.as3.test.util
 	{
 		public function StatsMonitorTest()
 		{
-			
+			super();
 		}
 		
 		public function run(stage:Stage):void
