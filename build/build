@@ -1,0 +1,18 @@
+OUTPUT=geleca.3.0.swc
+BASE_PATH=$PWD/..
+FLEX_SDK=/Users/cccaldas/Dev/flex-sdk/flex_sdk_4.0.0.14159/
+
+$FLEX_SDK/bin/compc \
+-target-player=10 \
+-output $BASE_PATH/deploy/$OUTPUT \
+-compiler.debug=false \
+-include-sources+=$BASE_PATH/src,$BASE_PATH/lib/src/ \
+-source-path=$BASE_PATH/src,$BASE_PATH/lib/src/ \
+-library-path+=$BASE_PATH/lib/bin/as3corelib.swc \
+-library-path+=$BASE_PATH/lib/bin/BulkLoader.2.8.2.swc \
+-library-path+=$BASE_PATH/lib/bin/SWFAddress.swc \
+-library-path+=$BASE_PATH/lib/bin/BulkLoader.2.8.2.swc \
+-library-path+=$BASE_PATH/lib/bin/Tweener_1_33_74.swc \
+-library-path+=$BASE_PATH/lib/bin/flash.swc \
+-library-path+=$BASE_PATH/lib/bin/Monster.Debugger.2.5.1.swc \
+-library-path+=$BASE_PATH/asset/swc/mvc.swc \

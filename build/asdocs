@@ -1,7 +1,3 @@
-#find . -type f -name ".as"
-#find src -name "*.as" -exec mv {} bin/swf/modules \;
-#find src -name "*.as" -exec echo $PWD/{} \;
-
 SRC_PATH=src
 DOCS_PATH=docs
 FLEX_SDK=/Users/cccaldas/Dev/flex-sdk/flex_sdk_4.0.0.14159/
