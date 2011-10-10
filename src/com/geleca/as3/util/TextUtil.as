@@ -13,7 +13,7 @@
 		
 		public function TextUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function resumeText(text:String, length:int, endText:String="..."):String 

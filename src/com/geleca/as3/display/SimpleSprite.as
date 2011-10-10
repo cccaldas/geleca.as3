@@ -9,7 +9,7 @@ package com.geleca.as3.display
 	{
 		public function SimpleSprite()
 		{
-			
+			super();
 		}
 		
 		override  public function set hitArea(value:Sprite):void 

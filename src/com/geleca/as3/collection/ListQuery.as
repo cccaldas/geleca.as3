@@ -11,12 +11,14 @@ package com.geleca.as3.collection
 		
 		public function ListQuery(list:List) 
 		{
+			super();
+			
 			_list 	= list;
 			_items 	= list.items;
 		}
 		
 		public function where(property:*, compare:String, value:*):ListQuery
-		{
+		{			
 			var tmpItems	:Array = [];
 			
 			for each (var obj:Object in _items) 
@@ -109,8 +111,11 @@ package com.geleca.as3.collection
 					return value1 <= value2;
 				break;
 				
-				case "like":
-					return value1.indexOf(value2) != -1;
+				case "like":						
+					if(String(value2).length == 0)
+						return false;
+						
+					return String(value1).indexOf(String(value2)) != -1;
 				break;
 				
 				case "any":

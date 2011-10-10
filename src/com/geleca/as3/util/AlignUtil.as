@@ -12,7 +12,7 @@
 		
 		public function AlignUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function toCenter(target:Object, referente:Object, roundPixels:Boolean = true):void 

@@ -18,7 +18,7 @@ package com.geleca.as3.core
 		
 		public function Process() 
 		{
-			
+			super();
 		}
 		
 		public final function start():void 

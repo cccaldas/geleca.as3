@@ -8,14 +8,14 @@ package com.geleca.as3.mvc.core
 	 */
 	public class ViewSwitcher extends SimpleSprite
 	{
-		private var _current				:View;
+		private var _current				:MVCView;
 		
 		public function ViewSwitcher() 
 		{
-			
+			super();
 		}
 		
-		public function swap(view:View, onComplete:Function=null):void 
+		public function swap(view:MVCView, onComplete:Function=null):void 
 		{
 			if (view == _current)
 			{
@@ -51,7 +51,7 @@ package com.geleca.as3.mvc.core
 			
 		}
 		
-		public function getCurrent():View
+		public function getCurrent():MVCView
 		{
 			return _current;
 		}

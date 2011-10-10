@@ -1,5 +1,17 @@
 package com.geleca.as3.view
 {
+	import com.geleca.as3.core.IDestroyable;
+	import com.geleca.as3.debugger.GLog;
+	import com.geleca.as3.display.HitArea;
+	import com.geleca.as3.events.SimpleEventDispatcher;
+	import com.geleca.as3.events.StateEvent;
+	import com.geleca.as3.i18n.Lang;
+	import com.geleca.as3.loading.GLoader;
+	import com.geleca.as3.loading.LoaderItem;
+	import com.geleca.as3.ui.component.UIComponent;
+	import com.geleca.as3.util.ContainerUtil;
+	import com.geleca.as3.util.DictionaryUtil;
+	
 	import flash.display.LoaderInfo;
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -8,14 +20,10 @@ package com.geleca.as3.view
 	import flash.events.ProgressEvent;
 	import flash.system.System;
 	import flash.utils.Dictionary;
-	import com.geleca.as3.component.Component;
-	import com.geleca.as3.core.IDestroyable;
-	import com.geleca.as3.display.HitArea;
-	import com.geleca.as3.events.SimpleEventDispatcher;
-	import com.geleca.as3.events.StateEvent;
-	import com.geleca.as3.util.ContainerUtil;
-	import com.geleca.as3.view.loading.LoaderItem;
-	import com.geleca.as3.view.loading.ViewLoader;
+	import com.geleca.as3.component.IComponent;
+	import flash.display.DisplayObject;
+	import com.geleca.as3.layout.Layout;
+
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -25,45 +33,80 @@ package com.geleca.as3.view
 		private var _enabled								:Boolean = true;
 		private var _initialized							:Boolean = false;
 		
-		private var _components								:Vector.<Component> = new Vector.<Component>();
+		private var _components								:Vector.<IComponent> = new Vector.<IComponent>();
 		private var _views									:Vector.<View> 		= new Vector.<View>();
 		
-		private var _loader									:ViewLoader = new ViewLoader();
+		private var _loader									:GLoader = new GLoader();
 		
 		private var _loaded									:Boolean;
 		private var _setup									:Boolean;
 		
-		private var _switcher								:ViewSwitcher;
+		//private var _switcher								:ViewSwitcher;
+		
+		protected var self									:View;
+		public var layout									:Layout;
+		//protected var lang									:Lang;
 		
 		public function View() 
+		{
+			super();
+			
+			this.self = this;
+		}
+		
+		public function load():void 
+		{
+			//setup();
+			_loader.addEventListener(Event.COMPLETE, _loader_complete, false, 100);
+			_loader.load();
+		}
+		
+		private function _loader_complete(e:Event):void
+		{
+			_loaded = true;
+			
+			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
+			
+			//i18n
+			//GLog.log("lang", _loader.getItem("lang"));
+			
+			/*if(_loader.getItem("lang") != null)
+				lang = _loader.getItem("lang");*/
+			
+			//_loader.addEventListener(Event.INIT, 					dispatchEvent);
+			_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
+			_loader.removeEventListener(Event.COMPLETE, 			_loader_complete);
+			loader_complete();
+			dispatchEvent(e);
+		}
+		
+		protected function loader_complete():void 
 		{
 			
 		}
 		
-		protected function setup():void 
+		public function setup():void 
 		{
-			if (_setup)
-				return;
-				
-			if (this.getChildByName("sp_hitArea"))
-			{
-				var hit:Sprite = Sprite(this.getChildByName("sp_hitArea"));
-				hitArea = new HitArea(hit.width, hit.height);
-				
-				this.removeChild(hit);
-			}
-			
 			this.focusRect = false;
 			
-			_loader.addEventListener(Event.INIT, 				dispatchEvent);
-			_loader.addEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
+			//_loader.addEventListener(Event.INIT, 				dispatchEvent);
+			//_loader.addEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
 			
-			_setup = true;
+			//_setup = true;
 		}
 		
 		protected function initialize():void 
 		{
 			
+		}
+		
+		public final function initializeView():View 
+		{
+			setup();
+			initializeComponents();
+			initialize();
+			
+			return this;
 		}
 		
 		protected function addLoaderItem(item:LoaderItem):void 
@@ -86,50 +129,13 @@ package com.geleca.as3.view
 		
 		private function initializeComponents():void 
 		{
-			for each (var comp:Component in _components) 
+			for each (var comp:IComponent in _components) 
 			{
 				comp.initializeComponent();
 			}
 		}
 		
-		public function loadUp(initialize:Boolean=false):void 
-		{
-			setup();
-			_loader.addEventListener(Event.COMPLETE, loader_complete);
-			_loader.load();
-			
-			function loader_complete(e:Event):void 
-			{
-				_loaded = true;
-			
-				dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
-				
-				_loader.addEventListener(Event.INIT, 					dispatchEvent);
-				_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
-				_loader.removeEventListener(Event.COMPLETE, 			loader_complete);
-				
-				dispatchEvent(e);
-				
-				if (initialize)
-					_initialize();
-			}
-		}
 		
-		public final function initializeView():View 
-		{
-			if (_initialized)
-				return this;
-			
-			if (_loaded)
-			{
-				_initialize();
-				return this;
-			}
-			else 
-				loadUp(true);
-			
-			return this;
-		}
 		
 		private function _initialize():void 
 		{
@@ -179,10 +185,18 @@ package com.geleca.as3.view
 			return view;
 		}
 		
-		protected function addComponent(component:Component):Component
+		protected function addComponent(component:IComponent):*
 		{
 			if (_components.indexOf(component) == -1)
+			{
 				_components.push(component);
+				component.layout = self.layout;
+				
+				if(component is DisplayObject)
+					addChild(DisplayObject(component));
+					
+				component.setup();
+			}
 				
 			if (this.initialized && !component.initialized)
 				component.initializeComponent();
@@ -190,13 +204,14 @@ package com.geleca.as3.view
 			return component;
 		}
 		
-		protected function removeComponent(component:Component):Component
+		protected function removeComponent(component:IComponent):IComponent
 		{
 			var index:int = _components.indexOf(component);
 			if (index != -1)
 			{
 				_components.splice(index, 1);
 				component.destroy();
+				//removeChild(component);
 			}
 			
 			return component;
@@ -270,16 +285,16 @@ package com.geleca.as3.view
 				super.height = value;
 		}
 		
-		public function get loader():ViewLoader { return _loader; }
+		public function get loader():GLoader { return _loader; }
 		
 		public function get loaded():Boolean { return _loaded; }
 		
-		public function get switcher():ViewSwitcher { return _switcher; }
+		//public function get switcher():ViewSwitcher { return _switcher; }
 		
-		public function set switcher(value:ViewSwitcher):void 
+		/*public function set switcher(value:ViewSwitcher):void 
 		{
 			_switcher = value;
-		}
+		}*/
 		
 		public function destroy():void 
 		{
@@ -290,21 +305,20 @@ package com.geleca.as3.view
 				this.removeChild(hitArea);
 				
 			for each (var view:View in _views) 
-			{
 				view.destroy();
-			}
 			
-			for each (var comp:Component in _components) 
-			{
+			for each (var comp:IComponent in _components) 
 				comp.destroy();
-			}
 			
-			_views = null;
-			_components = null;
-			
-			_switcher = null;
+			_views 			= null;
+			_components 	= null;
+			//_switcher 		= null;
+			this.self 		= null;
 			
 			ContainerUtil.removeAllChilds(this);
+			
+			if (parent)
+				parent.removeChild(this);
 			
 			System.gc();
 		}

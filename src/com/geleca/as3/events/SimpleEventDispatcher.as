@@ -10,7 +10,7 @@
 	{
 		public function SimpleEventDispatcher() 
 		{
-			
+			super();
 		}
 		
 		public function destroy():void 

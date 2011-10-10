@@ -19,8 +19,8 @@ package com.geleca.as3.component
 		function get parent():IComponent;
 		function set parent(value:IComponent):void;
 		
-		function addComponent(component:IComponent):IComponent;
-		function removeComponent(component:IComponent):IComponent;
+		function addComponent(component:IComponent):*;
+		function removeComponent(component:IComponent):*;
 			
 		function move(x:Number, y:Number):void
 		function resize(width:Number, height:Number):void
@@ -31,6 +31,6 @@ package com.geleca.as3.component
 		function setup():void;
 		function init():void;
 		//function addComponent(component:IComponent):IComponent
-		function initializeComponent():IComponent;
+		function initializeComponent():*;
 	}
 }

@@ -32,7 +32,9 @@
 		public var roundPixels			:Boolean;
 		
 		public function LayoutSettings(width:Object, height:Object, horizontalAlignment:String, verticalAlignment:String, margin:Object = null, minX:Object = null, maxX:Object = null, minY:Object = null, maxY:Object = null, roundPixels:Boolean = true)
-		{			
+		{
+			super();
+						
 			this.width					= width;
 			this.height					= height;
 			this.horizontalAlignment	= horizontalAlignment;

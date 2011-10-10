@@ -12,6 +12,8 @@ package com.geleca.as3.loading
 		
 		public function LoaderItem(id:String, cache:Boolean=false) 
 		{
+			super();
+			
 			this.id 	= id;
 			_cache 		= cache;
 		}

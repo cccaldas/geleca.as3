@@ -10,6 +10,8 @@ package com.geleca.as3.collection
 		
 		public function List(items:Array=null) 
 		{
+			super();
+			
 			if (items)
 				_items = items;
 		}

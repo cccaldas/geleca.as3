@@ -3,12 +3,12 @@ package com.geleca.as3.gml
 	import com.geleca.as3.debugger.GLog;
 	import com.geleca.as3.display.HitArea;
 	import com.geleca.as3.layout.LayoutSettings;
-	import com.geleca.as3.mvc.core.View;
 	import com.geleca.as3.ui.component.UIComponent;
 	import com.geleca.as3.util.BooleanUtil;
 	import com.geleca.as3.util.ObjectUtil;
 	
 	import flash.display.Sprite;
+	import com.geleca.as3.view.View;
 
 	/**
 	 * ...
@@ -173,8 +173,8 @@ package com.geleca.as3.gml
 			
 			
 			
-			_view.app.layout.addElement(comp, settings);
-			_view.app.layout.renderElement(comp);
+			_view.layout.addElement(comp, settings);
+			_view.layout.renderElement(comp);
 		}
 		
 		private function setProperty(target:*, prop:*, value:*):void 

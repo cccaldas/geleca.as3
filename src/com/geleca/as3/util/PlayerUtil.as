@@ -10,7 +10,7 @@ package com.geleca.as3.util
 		
 		public function PlayerUtil() 
 		{
-			
+			super();
 		}
 		
 		/**Adobe AIR runtime (except for SWF content loaded by an HTML page, which has Capabilities.playerType set to “PlugIn”)*/

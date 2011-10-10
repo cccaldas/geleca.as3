@@ -10,6 +10,8 @@ package com.geleca.as3.i18n
 		
 		public function Lang(data:XML)
 		{
+			super();
+			
 			_data = data;
 			
 			parse();

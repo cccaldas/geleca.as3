@@ -43,8 +43,10 @@ package com.geleca.as3.events
 		 */
 		private static var objectMap:Dictionary = new Dictionary(true);
 		public static var SHOW_WARNING:Boolean = false;
+		
 		public function EventManager()
 		{
+			super();
 		}
 		
 		/**

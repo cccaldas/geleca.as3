@@ -35,6 +35,7 @@ package com.geleca.as3.test.collection
 			//reportItems(list.where("id", "any", ArrayUtil.castAllItems(["2", "3", "5", "6"], Number)).orderBy("random").items);
 			Assert.assertEquals(list.limit(3).items.length, 3);
 			Assert.assertEquals(list.limit(1).items.length, 20);
+			Assert.assertEquals(list.where("width", "like", "1").items.length, 0);
 		}
 		
 		private function reportItems(items:Array):void 

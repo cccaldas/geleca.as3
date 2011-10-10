@@ -18,6 +18,8 @@ package com.geleca.as3.mvc.util
 		
 		public function MVCAppBrowser() 
 		{
+			super();
+			
 			_asset = new MVCAppBrowserAsset();
 			addChild(_asset);
 			

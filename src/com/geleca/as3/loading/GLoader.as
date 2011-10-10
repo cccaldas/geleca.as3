@@ -18,6 +18,8 @@ package com.geleca.as3.loading
 		
 		public function GLoader() 
 		{
+			super();
+			
 			setup();
 		}
 		

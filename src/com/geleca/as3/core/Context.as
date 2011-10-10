@@ -13,7 +13,7 @@ package com.geleca.as3.core
 		
 		public function Context() 
 		{
-			
+			super();
 		}
 		
 		public function add(name:String, obj:*):void 

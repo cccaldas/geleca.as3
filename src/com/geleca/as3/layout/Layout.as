@@ -34,6 +34,8 @@
 		 */
 		public function Layout(stage:Stage=null) 
 		{
+			super();
+			
 			this.stage = stage;
 		}
 		

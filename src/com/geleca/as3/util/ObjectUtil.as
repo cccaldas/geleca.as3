@@ -10,7 +10,7 @@ package com.geleca.as3.util
 		
 		public function ObjectUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function getClassByObject(object:Object):Class

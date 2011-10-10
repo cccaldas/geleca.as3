@@ -14,6 +14,8 @@ package com.geleca.as3.mvc.core
 		
 		public function RouteAction(route:Route, url:String) 
 		{
+			super();
+			
 			_route 			= route;
 			_url 			= url;
 			_parameters 	= new URLParameters(url, route.url);

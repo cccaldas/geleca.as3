@@ -1,9 +1,9 @@
 package com.geleca.as3.loading 
 {
-	import com.geleca.as3.mvc.core.View;
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
 	import com.geleca.as3.events.ProcessEvent;
+	import com.geleca.as3.view.View;
 	/**
 	 * ...
 	 * @author Cristiano Caldas

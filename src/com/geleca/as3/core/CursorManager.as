@@ -22,6 +22,8 @@
 		
 		public function CursorManager(stage:Stage=null)
 		{
+			super();
+			
 			this.stage = stage;
 		}
 		

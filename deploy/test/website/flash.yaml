@@ -1,0 +1,4 @@
+debug: true
+path_upld: 'website/upld/'
+path_asset: 'website/swf/asset/'
+path_lang: 'website/data/lang/'

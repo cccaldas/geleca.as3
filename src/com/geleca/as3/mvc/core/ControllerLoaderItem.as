@@ -91,7 +91,7 @@ package com.geleca.as3.mvc.core
 		
 		private function controller_view(result:ActionResult):void 
 		{
-			var view:View;
+			var view:MVCView;
 			
 			if (_appview.viewRender.getCurrent() is result.view)
 			{

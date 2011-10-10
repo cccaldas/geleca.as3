@@ -1,12 +1,12 @@
 package com.geleca.as3.mvc.core
 {
-	public class AbstractPreloaderView extends View
+	public class AbstractPreloaderView extends MVCView
 	{
 		private var _progress					:Number = 0;
 		
 		public function AbstractPreloaderView()
 		{
-			
+			super();
 		}
 
 		public function get progress():Number

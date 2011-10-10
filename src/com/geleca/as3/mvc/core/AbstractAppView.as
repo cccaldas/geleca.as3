@@ -9,7 +9,7 @@ package com.geleca.as3.mvc.core
 	 * ...
 	 * @author Cristiano Caldas
 	 */
-	public class AbstractAppView extends View
+	public class AbstractAppView extends MVCView
 	{
 		public var viewRender						:ViewSwitcher;
 		
@@ -17,6 +17,8 @@ package com.geleca.as3.mvc.core
 		
 		public function AbstractAppView(viewRender:ViewSwitcher=null) 
 		{
+			super();
+			
 			if (!viewRender)
 				viewRender = new ViewSwitcher();
 				
@@ -62,7 +64,7 @@ package com.geleca.as3.mvc.core
 			result.addEventListener(ProcessEvent.FINISH, 	result_finish);*/
 		}
 		
-		public function showView(view:View, onComplete:Function=null):void 
+		public function showView(view:MVCView, onComplete:Function=null):void 
 		{
 			viewRender.swap(view, onComplete);
 		}

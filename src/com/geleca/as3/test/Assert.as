@@ -12,7 +12,7 @@ package com.geleca.as3.test
 		
 		public function Assert() 
 		{
-			
+			super();
 		}
 		
 		public static function assertEquals(val1:*, val2:*):void 

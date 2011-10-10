@@ -9,6 +9,8 @@ package com.geleca.as3.display
 		
 		public function RectangularSprite(width:Number=1, height:Number=1, alpha:Number=1, fillColor:uint=0xffffff, border:Boolean=true, borderColor:uint=0x000000, borderSize:Number=0)
 		{
+			super();
+			
 			graphics.beginFill(fillColor, 1);
 			graphics.drawRect(0, 0, width, height);
 			graphics.endFill();

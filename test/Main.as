@@ -30,6 +30,9 @@ package
 	import com.geleca.as3.test.util.StatsMonitorTest;
 	import com.geleca.as3.test.util.TransformUtilTest;
 	import com.geleca.as3.test.video.VideoTest;
+	import com.geleca.as3.test.component.ComponentTest;
+	import com.geleca.as3.test.yaml.YAMLTest1;
+	import com.geleca.as3.test.website.WebsiteTest;
 
 	/**
 	 * Application entry point for geleca-framework.
@@ -68,6 +71,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		
 			//new DebuggerTest().run();
+			//new YAMLTest1().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
 			//new FunctionUtilTest().run();
@@ -75,11 +79,13 @@ package
 			//new PlayerUtilTest().run();
 			//new OSUtilTest().run();
 			//new ConfigurationTest().run();
+			new WebsiteTest().run(this);
+			//new ComponentTest().run(stage);
 			//new CollectionTest().run();
 			//new ORMXmlTest().run();
 			//new XmlParseTest().run();
 			//new VideoTest().run(stage);
-			new StatsMonitorTest().run(stage);
+			//new StatsMonitorTest().run(stage);
 			//new DrawUtilTest().run(stage);
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);

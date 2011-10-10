@@ -1,0 +1,4 @@
+url_app: ''
+path_skin: '%(url_app)swf/skin/'
+path_upld: '%(url_app)upld/'
+debug: true

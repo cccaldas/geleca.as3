@@ -7,6 +7,7 @@ package com.geleca.as3.test.configuration
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import dupin.parsers.yaml.YAML;
 	
 	/**
 	 * ...
@@ -15,20 +16,21 @@ package com.geleca.as3.test.configuration
 	public class ConfigurationTest
 	{
 		public function run():void
-		{
-			GLog.log();
-			
-			var config:FlashConfig = new FlashConfig();
+		{			
+			var config:Object;
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE, loader_complete);
 			
-			loader.load(new URLRequest("flash-config.xml"));
+			loader.load(new URLRequest("configuration/flash.yaml"));
 			
 			function loader_complete(e:Event):void
 			{
-				config.parse(XML(loader.data));
+				config = YAML.decode(String(loader.data));
 				
-				GLog.log(config.getAppKey("path-medias-thumb"));
+				GLog.log("url_app", config["url_app"]);
+				GLog.log("path_skin", config["path_skin"]);
+				GLog.log("path_upld", config["path_upld"]);
+				GLog.log("debug", config["debug"]);
 			}
 		}
 		

@@ -14,6 +14,8 @@ package com.geleca.as3.display
 										border:Boolean=false,
 										enabled:Boolean=true)
 		{
+			super();
+			
 			this.multiline 		= multiline;
 			this.type 			= type;
 			this.autoSize 		= autoSize;

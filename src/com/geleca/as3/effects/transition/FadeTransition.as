@@ -11,7 +11,7 @@ package com.geleca.as3.effects.transition
 		
 		public function FadeTransition() 
 		{
-			
+			super();
 		}
 		
 		public static function fadeIn(target:Object, delay:Number=0, alpha:Number=1, time:Number=.7, onComplete:Function=null, transition:String="none"):void 

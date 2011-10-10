@@ -17,7 +17,7 @@ package com.geleca.as3.core
 		
 		public function ProcessManager() 
 		{
-			
+			super();
 		}
 		
 		public function add(process:Process):void 

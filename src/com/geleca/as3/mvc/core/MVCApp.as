@@ -24,6 +24,7 @@ package com.geleca.as3.mvc.core
 	import flash.net.URLRequest;
 	
 	import nl.demonsters.debugger.MonsterDebugger;
+	import dupin.parsers.yaml.YAML;
 
 	public class MVCApp extends SimpleEventDispatcher
 	{
@@ -38,7 +39,7 @@ package com.geleca.as3.mvc.core
 		
 		public var router							:Router;
 		public var processes						:ProcessManager = new ProcessManager();
-		public var config							:FlashConfig = new FlashConfig();
+		public var config							:Object;
 		public var context							:Context = new Context();
 		public var session							:Context = new Context();
 		public var post								:Object;
@@ -50,10 +51,10 @@ package com.geleca.as3.mvc.core
 		
 		public function MVCApp()
 		{
-			
+			super();
 		}
 		
-		public function startup(container:Sprite, preloader:AbstractPreloaderView, view:AbstractAppView, router:Router, tracker:ITracker=null, config:String="flash-config.xml"):void
+		public function startup(container:Sprite, preloader:AbstractPreloaderView, view:AbstractAppView, router:Router, tracker:ITracker=null, config:*="flash.yaml"):void
 		{
 			_container 	= container;
 			_preloader 	= preloader;
@@ -67,7 +68,11 @@ package com.geleca.as3.mvc.core
 			router.app 		= this;
 			
 			_tracker		= tracker;
-			_configURL 		= config;
+			
+			if(config is String)
+				_configURL 	= config;
+			else
+				this.config = config;
 			
 			this.layout 		= new Layout(_container.stage);
 			this.busyManager 	= new BusyManager(_container.stage);
@@ -82,6 +87,15 @@ package com.geleca.as3.mvc.core
 		{
 			//Load flash-config
 			
+			if(config)
+			{
+				setup();
+				initialize();				
+				initPreloader();
+				
+				return;
+			}
+			
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener(Event.COMPLETE, loader_complete);
 			loader.load(new URLRequest(_configURL));
@@ -89,7 +103,8 @@ package com.geleca.as3.mvc.core
 			function loader_complete(e:Event):void
 			{
 				loader.removeEventListener(Event.COMPLETE, loader_complete);
-				config.parse(XML(loader.data));
+				config = YAML.decode(String(loader.data));
+				//config.parse(XML(loader.data));
 				
 				//debug
 				if (isDebug())
@@ -255,7 +270,7 @@ package com.geleca.as3.mvc.core
 		
 		public function isDebug():Boolean
 		{
-			return (config.getAppKey("debug") == "true" || container.loaderInfo.parameters.debug == "true");
+			return (config["debug"] == true || container.loaderInfo.parameters.debug == "true");
 		}
 		
 		public function postURL(url:String, data:Object):void 

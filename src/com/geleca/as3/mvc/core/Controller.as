@@ -24,6 +24,8 @@ package com.geleca.as3.mvc.core
 		
 		public function Controller()
 		{
+			super();
+			
 			_loader = new GLoader();
 			_loader.addEventListener(Event.COMPLETE, loader_complete, false, 100);
 		}

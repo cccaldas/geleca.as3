@@ -25,6 +25,8 @@
 		
 		public function BusyManager(stage:Stage=null) 
 		{
+			super();
+			
 			_blockObject = new Sprite();
 			_blockObject.graphics.beginFill(0x0000ff,0);
 			_blockObject.graphics.drawRect(0, 0, 100, 100);

@@ -1,7 +1,7 @@
-﻿+	insert the profiler in StatsMonitor
+﻿#	flash-config convert to yaml
++	insert the profiler in StatsMonitor
 +	insert the log-list in StatsMonitor
 +	comment all classes, attributes and functions for ASDocs
-+	flash-config convert to yaml
 +	inserir o ?debug=true direto no MVCApp sem necessario o server-side
 -	adicionar VideoLoaderItem no GLoader (opcoes de carregamento total ou por percentual)
 -	player de video padrao com skin

@@ -18,6 +18,8 @@ package com.geleca.as3.mvc.core
 		
 		public function ActionResult(view:Class, model:*=null, loadingItems:Array=null)
 		{
+			super();
+			
 			this.view 		= view;
 			this.model 		= model;
 			

@@ -10,7 +10,7 @@ package com.geleca.as3.util
 		
 		public function DictionaryUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function clear(dic:Dictionary):void 

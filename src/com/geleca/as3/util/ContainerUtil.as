@@ -12,7 +12,7 @@
 		
 		public function ContainerUtil() 
 		{
-			
+			super();
 		}
 		
 		public static function removeAllChilds(container:DisplayObjectContainer, recursive:Boolean=false):void 

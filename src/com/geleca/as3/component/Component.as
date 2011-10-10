@@ -39,12 +39,15 @@ package com.geleca.as3.component
 		
 		public function Component(asset:Sprite) 
 		{
+			super();
+			
 			this.asset 	= asset;
 			this.self 	= this;
 		}
 		
 		public function setup():void 
 		{
+			
 			if (_setup)
 				return;
 				
@@ -71,7 +74,7 @@ package com.geleca.as3.component
 			
 		}
 		
-		public final function initializeComponent():IComponent
+		public final function initializeComponent():*
 		{
 			if (_initialized)
 				return this;
@@ -87,7 +90,7 @@ package com.geleca.as3.component
 			//dispatchEvent(new ComponentEvent(ComponentEvent.INITIALIZED));
 		}
 		
-		public function addComponent(component:IComponent):IComponent
+		public function addComponent(component:IComponent):*
 		{
 			if (_components.indexOf(component) == -1)
 			{
@@ -100,7 +103,7 @@ package com.geleca.as3.component
 			return component;
 		}
 		
-		public function removeComponent(component:IComponent):IComponent
+		public function removeComponent(component:IComponent):*
 		{
 			var index:int = _components.indexOf(component);
 			if (index != -1)

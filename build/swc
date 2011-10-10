@@ -2,6 +2,8 @@ OUTPUT=geleca.3.0.swc
 BASE_PATH=$PWD/..
 FLEX_SDK=/Users/cccaldas/Dev/flex-sdk/flex_sdk_4.0.0.14159/
 
+rm $BASE_PATH/deploy/swc/$OUTPUT
+
 $FLEX_SDK/bin/compc \
 -target-player=10 \
 -output $BASE_PATH/deploy/swc/$OUTPUT \

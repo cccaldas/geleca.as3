@@ -26,6 +26,8 @@ package com.geleca.as3.ui.component
 		
 		public function UIComponent(skin:Class=null) 
 		{
+			super();
+			
 			_skinClass = skin;
 			
 			if (_skinClass)

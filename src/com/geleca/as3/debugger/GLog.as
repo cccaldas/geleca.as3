@@ -19,7 +19,7 @@ package com.geleca.as3.debugger
 		
 		public function GLog() 
 		{
-			
+			super();
 		}
 		
 		public static function log(...rest):void 

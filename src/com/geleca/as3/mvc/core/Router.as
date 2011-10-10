@@ -17,7 +17,7 @@ package com.geleca.as3.mvc.core
 		
 		public function Router()
 		{
-			
+			super();
 		}
 		
 		public function add(route:Route):void

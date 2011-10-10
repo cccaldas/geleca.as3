@@ -17,6 +17,8 @@ package com.geleca.as3.core
 		
 		public function ProcessGroup(processes:Array = null)
 		{
+			super();
+			
 			if (processes)
 			{
 				_processes = [];

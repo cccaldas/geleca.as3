@@ -4,7 +4,7 @@ package com.geleca.as3.mvc.core
 	import com.geleca.as3.gml.GMLParse;
 	import com.geleca.as3.loading.FileLoaderItem;
 
-	public class GMLView extends View
+	public class GMLView extends MVCView
 	{
 		private var _gml			:GML;
 		private var _gmlURL			:String;
@@ -22,7 +22,7 @@ package com.geleca.as3.mvc.core
 			super.load();
 		}
 		
-		override protected function setup():void
+		override public function setup():void
 		{
 			// TODO Auto Generated method stub
 			super.setup();

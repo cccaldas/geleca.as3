@@ -15,6 +15,8 @@ package com.geleca.as3.mvc.core
 		
 		public function Route(name:String, url:String, controller:Class, action:String = "index", isDefault:Boolean=false)
 		{
+			super();
+			
 			_name			= name;
 			_url 			= url;
 			_controller 	= controller;

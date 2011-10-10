@@ -13,6 +13,8 @@ package com.geleca.as3.mvc.core
 		
 		public function URLParameters(url:String, match:String) 
 		{
+			super();
+			
 			_url 			= url;
 			_match 			= match;
 			_pathNames		= url.split("/");
