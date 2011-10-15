@@ -1,0 +1,7 @@
+#!/bin/bash
+rm -rf ../../deploy-src/*
+cp -R ../src/* ../../deploy-src/
+
+cd ../../deploy-src/
+git-commit "deploy"
+git push github

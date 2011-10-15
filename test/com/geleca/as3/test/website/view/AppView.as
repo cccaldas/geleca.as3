@@ -4,6 +4,7 @@ package com.geleca.as3.test.website.view
 	import com.geleca.as3.loading.AssetLoaderItem;
 	import com.geleca.as3.util.ObjectUtil;
 	import flash.display.Sprite;
+	import com.geleca.as3.util.DepthUtil;
 
 	public class AppView extends AbstractAppView
 	{
@@ -25,6 +26,9 @@ package com.geleca.as3.test.website.view
 		{
 			_asset = ObjectUtil.getObjectByClassName("com.geleca.as3.test.website.asset.app.view.AppViewAsset");
 			addChild(_asset);
+			
+			viewRender.y = 50;
+			DepthUtil.toFront(viewRender);
 			
 			super.setup();
 		}

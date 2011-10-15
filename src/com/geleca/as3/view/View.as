@@ -104,6 +104,7 @@ package com.geleca.as3.view
 		{
 			setup();
 			initializeComponents();
+			initializeViews();
 			initialize();
 			
 			return this;
@@ -122,9 +123,7 @@ package com.geleca.as3.view
 		private function initializeViews():void 
 		{
 			for each (var view:View in _views) 
-			{
 				view.initializeView();
-			}
 		}
 		
 		private function initializeComponents():void 
@@ -133,9 +132,7 @@ package com.geleca.as3.view
 			{
 				comp.initializeComponent();
 			}
-		}
-		
-		
+		}	
 		
 		private function _initialize():void 
 		{
@@ -157,7 +154,7 @@ package com.geleca.as3.view
 				onComplete();
 		}
 		
-		protected function addView(view:View):View 
+		protected function addView(view:View):* 
 		{
 			if (_views.indexOf(view) == -1)
 			{
@@ -171,7 +168,7 @@ package com.geleca.as3.view
 			return view;
 		}
 		
-		protected function removeView(view:View):View
+		protected function removeView(view:View):*
 		{
 			var index:int = _views.indexOf(view);
 			if (index != -1)

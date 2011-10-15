@@ -23,6 +23,14 @@ package com.geleca.as3.test
 				trace(FAILED, val1, "!=", val2);
 		}
 		
+		public static function assertIs(val1:*, val2:*):void 
+		{			
+			if (val1 is val2)
+				trace(PASSED, val1, "is", val2);
+			else
+				trace(FAILED, val1, "is not", val2);
+		}
+		
 		public static function assertFalse(val:Boolean):void 
 		{
 			if (!val)

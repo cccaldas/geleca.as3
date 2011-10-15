@@ -4,22 +4,21 @@ package com.geleca.as3.test.website.view
 	import com.geleca.as3.mvc.core.MVCView;
 	import com.geleca.as3.loading.AssetLoaderItem;
 	import com.geleca.as3.debugger.GLog;
-	import com.geleca.as3.loading.FileLoaderItem;
 	import dupin.parsers.yaml.YAML;
 	import flash.text.TextFieldAutoSize;
 	import com.geleca.as3.loading.YAMLLoaderItem;
 	
-	public class HomeView extends MVCView
+	public class ContactView extends MVCView
 	{
 
-		public function HomeView()
+		public function ContactView()
 		{
 			super();
 		}
 		
 		override public function load():void
 		{
-			loader.addLoaderItem(new YAMLLoaderItem("lang", app.config["path_lang"] + "pt-br/home.yaml"));
+			loader.addLoaderItem(new YAMLLoaderItem("lang", app.config["path_lang"] + "pt-br/contact.yaml"));
 			
 			super.load();			
 		}

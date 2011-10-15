@@ -19,6 +19,7 @@ Mask					msk_object
 Modal					mdl_object
 VideoPlayer				vdp_object
 Control					ctr_object
+View					view_object
 
 #PACKAGE ASSETS
 com.{project}.asset.{type}.{asset}Asset

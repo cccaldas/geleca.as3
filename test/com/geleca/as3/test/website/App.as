@@ -6,7 +6,7 @@ package com.geleca.as3.test.website
 	import com.geleca.as3.mvc.core.Route;
 	import com.geleca.as3.ui.CustomContextMenu;
 	import com.geleca.as3.util.FunctionUtil;
-	import com.geleca.as3.test.website.controller.HomeController;
+	import com.geleca.as3.test.website.controller.*;
     
     public class App extends MVCApp
     {
@@ -37,7 +37,8 @@ package com.geleca.as3.test.website
 		{
 			super.setup();
 			
-			router.add(new Route("home", "/", HomeController, "index", true));
+			router.add(new Route("home", "/", 				HomeController, "index", true));
+			router.add(new Route("products", "/products/", 	ProductsController, "index"));
 			
 			//GLog.log();
 		}
@@ -45,6 +46,11 @@ package com.geleca.as3.test.website
 		override protected function initialize():void 
 		{
 			super.initialize();
+			
+			if(isDebug())
+			{
+				navigateURL("/products/");
+			}
 			
 			//trace(new ViewModelDAO().getMasterViewModel());
 		}

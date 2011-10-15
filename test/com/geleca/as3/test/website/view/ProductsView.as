@@ -7,19 +7,18 @@ package com.geleca.as3.test.website.view
 	import com.geleca.as3.loading.FileLoaderItem;
 	import dupin.parsers.yaml.YAML;
 	import flash.text.TextFieldAutoSize;
-	import com.geleca.as3.loading.YAMLLoaderItem;
 	
-	public class HomeView extends MVCView
+	public class ProductsView extends MVCView
 	{
 
-		public function HomeView()
+		public function ProductsView()
 		{
 			super();
 		}
 		
 		override public function load():void
 		{
-			loader.addLoaderItem(new YAMLLoaderItem("lang", app.config["path_lang"] + "pt-br/home.yaml"));
+
 			
 			super.load();			
 		}
@@ -28,12 +27,17 @@ package com.geleca.as3.test.website.view
 		{
 			super.setup();
 			
-			var lang:* = loader.getItem("lang");
+			var lang:* = viewData["lang"];
 			
 			var txt_description:TextField = new TextField();
 			txt_description.autoSize = TextFieldAutoSize.LEFT;
 			txt_description.multiline = true;
 			txt_description.htmlText = lang["description"];
+			txt_description.htmlText += "<br />";
+			
+			for each (var product:Object in viewData["products"])
+				txt_description.htmlText += product["price"] + ": " + product["name"] + "<br />";
+				
 			
 			addChild(txt_description);
 		}
