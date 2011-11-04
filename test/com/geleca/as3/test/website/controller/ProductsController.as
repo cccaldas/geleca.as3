@@ -10,6 +10,8 @@ package com.geleca.as3.test.website.controller
 	import com.geleca.as3.loading.JSONLoaderItem;
 	
 	import com.geleca.as3.test.website.view.*;
+	import com.geleca.as3.test.website.model.*;
+	import com.geleca.as3.test.website.model.vo.*;
 
 	public class ProductsController extends Controller
 	{
@@ -48,8 +50,16 @@ package com.geleca.as3.test.website.controller
 		
 		public function index():ActionResult
 		{
-			viewData["products"] = loader.getItem("data");
+			viewData["products"] = new ProductsModel(loader.getItem("data")).getProducts();
+			
 			viewData["lang"] = loader.getItem("lang");
+			
+			var loadingItems:Array = [];
+			
+			for each (var product:ProductVO in viewData["products"])
+			{
+				loadingItems.push(new FileEntityLoaderItem(product.photo));
+			}
 			
 			/*var medias:Vector.<MediaVO> = new MediasModel(this.app, XML(loader.getItem("data.xml"))).getMedias();
 			
@@ -66,7 +76,7 @@ package com.geleca.as3.test.website.controller
 			
 			//GLog.log(medias);
 			
-			return new ActionResult(ProductsView, null, null);
+			return new ActionResult(ProductsView, null, loadingItems);
 		}
 	}
 }

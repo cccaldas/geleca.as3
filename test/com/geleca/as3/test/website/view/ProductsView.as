@@ -7,6 +7,8 @@ package com.geleca.as3.test.website.view
 	import com.geleca.as3.loading.FileLoaderItem;
 	import dupin.parsers.yaml.YAML;
 	import flash.text.TextFieldAutoSize;
+	import flash.display.Bitmap;
+	import com.geleca.as3.test.website.model.vo.ProductVO;
 	
 	public class ProductsView extends MVCView
 	{
@@ -35,8 +37,14 @@ package com.geleca.as3.test.website.view
 			txt_description.htmlText = lang["description"];
 			txt_description.htmlText += "<br />";
 			
-			for each (var product:Object in viewData["products"])
+			for each (var product:ProductVO in viewData["products"])
+			{
+				var photo:Bitmap = product.photo.data;
+				photo.x = 132 * product.id;
+				photo.y = 100;
+				addChild(photo)
 				txt_description.htmlText += product["price"] + ": " + product["name"] + "<br />";
+			}
 				
 			
 			addChild(txt_description);

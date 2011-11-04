@@ -11,7 +11,7 @@ package com.geleca.as3.data.entity
 		
 		public function AbstractFileEntity() 
 		{
-			
+			super();
 		}
 		
 		override public function destroy():void 

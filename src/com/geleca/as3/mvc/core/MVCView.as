@@ -35,6 +35,8 @@ package com.geleca.as3.mvc.core
 		public var viewData									:Dictionary = new Dictionary();
 		public var app										:MVCApp;
 		
+		public var result									:ActionResult;
+		
 		public function MVCView() 
 		{
 			super();

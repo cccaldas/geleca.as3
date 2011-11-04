@@ -33,6 +33,7 @@ package
 	import com.geleca.as3.test.component.ComponentTest;
 	import com.geleca.as3.test.yaml.YAMLTest1;
 	import com.geleca.as3.test.website.WebsiteTest;
+	import com.geleca.as3.test.process.*;
 
 	/**
 	 * Application entry point for geleca-framework.
@@ -71,7 +72,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		
 			//new DebuggerTest().run();
-			//new YAMLTest1().run();
+			new YAMLTest1().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
 			//new FunctionUtilTest().run();
@@ -79,7 +80,7 @@ package
 			//new PlayerUtilTest().run();
 			//new OSUtilTest().run();
 			//new ConfigurationTest().run();
-			new WebsiteTest().run(this);
+			//new WebsiteTest().run(this);
 			//new ComponentTest().run(stage);
 			//new CollectionTest().run();
 			//new ORMXmlTest().run();
@@ -91,6 +92,7 @@ package
 			//new GLoaderTest().run(stage);
 			//new LangTest().run();
 			//new VideoPlayerTest().run(stage);
+			//new GroupProcessTest().run();
 			
 		}
 	

@@ -43,7 +43,7 @@ package com.geleca.as3.mvc.core
 			
 			function controller_progress(e:ProgressEvent):void 
 			{
-				//20%
+				//30%
 				updateProgress(_controller.loader.progress * .3);
 			}
 			
@@ -69,7 +69,7 @@ package com.geleca.as3.mvc.core
 		private function controller_render():void 
 		{
 			_result = _controller.render();
-			_result.loader.addEventListener(ProgressEvent.PROGRESS,	result_progress);
+			_result.loader.addEventListener(ProgressEvent.PROGRESS,		result_progress);
 			_result.loader.addEventListener(Event.COMPLETE, 			result_complete);
 			_result.loader.load();
 			
@@ -77,7 +77,7 @@ package com.geleca.as3.mvc.core
 			
 			function result_progress(e:ProgressEvent):void 
 			{
-				updateProgress((_result.loader.progress * .5) + .3);
+				updateProgress((_result.loader.progress * .7) + .3);
 			}
 			
 			function result_complete(e:Event):void 
@@ -96,19 +96,27 @@ package com.geleca.as3.mvc.core
 			if (_appview.viewRender.getCurrent() is result.view)
 			{
 				view = _appview.viewRender.getCurrent();
-				view.loader.removeAll();
+				//view.loader.removeAll();
 			}
 			else
 				view = new result.view();
 				
 			view.app 	= _controller.app;
 			view.model 	= _result.model;
+			view.result = _result;
 			
-			view.loader.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
-			view.loader.addEventListener(Event.COMPLETE, 			view_complete);
-			view.load();
+			//view.loader.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
+			//view.loader.addEventListener(Event.COMPLETE, 			view_complete);
+			//view.load();
 			
-			//GLog.log(view);
+			updateProgress(1);
+			
+			view.viewData = _controller.viewData;
+			_appview.showView(view);
+			
+			view[_controller.action.route.action].call();
+			finish();
+			
 			
 			function view_progress(e:ProgressEvent):void 
 			{

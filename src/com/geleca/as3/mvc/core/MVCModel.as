@@ -11,6 +11,8 @@ package com.geleca.as3.mvc.core
 		public function MVCModel(app:MVCApp)
 		{
 			this.app = app;
+			
+			super();
 		}
 		
 		override public function destroy():void 

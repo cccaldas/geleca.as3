@@ -1,4 +1,6 @@
+debug: true
 var_1: 'Variable 1'
 var_2: 'Variable 2'
-path_1: '../path_1/'
-path_2: '%(path_1)path_2/'
+path_asset: '/asset/'
+path_bitmap: '{path_asset}bitmap/'
+path_bitmap_background: '{path_bitmap}background/'

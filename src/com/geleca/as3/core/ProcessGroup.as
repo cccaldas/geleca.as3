@@ -24,9 +24,7 @@ package com.geleca.as3.core
 				_processes = [];
 				
 				for each (var process:Process in processes) 
-				{
 					add(process);
-				}
 			}
 		}
 		
@@ -87,7 +85,7 @@ package com.geleca.as3.core
 			process.removeEventListener(ProcessEvent.PROGRESS, 	process_progress);
 			process.removeEventListener(ProcessEvent.FINISH, 	process_finish);
 			
-			dispatchEvent(new ProcessEvent(ProcessEvent.PROGRESS));
+			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
 				
 			if (_current == length -1)
 			{
@@ -120,15 +118,20 @@ package com.geleca.as3.core
 		public function get current():uint { return _current; }
 		
 		public function get progress():Number
-		{ 
-			var progress:Number = 0;
+		{
+			//if(_complete)
+				//return 1;
+				
+			var progress	:Number = 0;
+			var weight		:Number = 0;
 			
 			for each(var process:Process in _processes) 
 			{
-				progress += process.progress;
+				progress 	+= (process.progress / 1) * process.weight;
+				weight 		+= process.weight;
 			}
 			
-			return progress / length; 
+			return progress / weight;
 		}
 		
 		public function removeAll():void 

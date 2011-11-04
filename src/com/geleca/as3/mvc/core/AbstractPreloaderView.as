@@ -16,6 +16,12 @@ package com.geleca.as3.mvc.core
 
 		public function set progress(value:Number):void
 		{
+			if(value > 1)
+				value = 1;
+				
+			if(value < _progress)
+				return;
+				
 			_progress = value;
 			
 			updateProgress();

@@ -8,12 +8,13 @@ package com.geleca.as3.core
 	 */
 	public class Process extends SimpleEventDispatcher
 	{
+		
 		private var _id								:String;
 		private var _running						:Boolean = false;
 		private var _progress						:Number = 0;
+		private var _weight							:Number = 1;
 		
 		public var result							:Object;
-		
 		public var onStart							:Function;
 		
 		public function Process() 
@@ -73,6 +74,13 @@ package com.geleca.as3.core
 		{
 			_id = value;
 		}
+		
+		public function set weight(value:Number):void
+		{
+			_weight = value;
+		}
+		
+		public function get weight():Number { return _weight; }
 		
 		public function get progress():Number { return _progress; }
 		

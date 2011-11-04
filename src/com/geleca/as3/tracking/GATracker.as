@@ -5,7 +5,7 @@ package com.geleca.as3.tracking
 	 * ...
 	 * @author Cristiano Caldas
 	 */
-	public class GATracker
+	public class GATracker implements ITracker
 	{
 		
 		public function GATracker() 
@@ -13,7 +13,7 @@ package com.geleca.as3.tracking
 			
 		}
 		
-		public function trackPageview(url:String):void 
+		public function track(url:String):void 
 		{
 			if (ExternalInterface.available)
 				ExternalInterface.call("function() { _gaq.push (['_trackPageview', '" + url + "']); } "); 

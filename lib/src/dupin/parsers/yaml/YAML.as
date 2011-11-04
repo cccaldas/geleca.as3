@@ -60,7 +60,18 @@ package dupin.parsers.yaml
 		 */
 		public static function decode(str:String):*
 		{
-			return new YAML(str).parse();
+			var yaml:Object = new YAML(str).parse();
+			
+			for (var key:String in yaml)
+			{
+				for (var key2:String in yaml)
+				{
+					if(yaml[key2] is String)
+						yaml[key2] = yaml[key2].replace("{" + key + "}", yaml[key]);
+				}
+			}				
+			
+			return yaml;
 		}
 		
 		private function context(str:*):String {

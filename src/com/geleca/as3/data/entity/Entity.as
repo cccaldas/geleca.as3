@@ -10,7 +10,7 @@ package com.geleca.as3.data.entity
 		
 		public function Entity() 
 		{
-			
+			super();
 		}
 		
 		/* INTERFACE com.geleca.as3.core.IDestroyable */

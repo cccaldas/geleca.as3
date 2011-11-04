@@ -14,6 +14,9 @@ package com.geleca.as3.component.button
 	
 	public class Button extends Component
 	{
+		public static const STATE_CLICK		:String = "click";
+		public static const STATE_ROLL_OVER	:String = "rollOver";
+		public static const STATE_ROLL_OUT	:String = "rollOut";
 		
 		public function Button(asset:Sprite) 
 		{
@@ -37,13 +40,22 @@ package com.geleca.as3.component.button
 		private function asset_click(e:MouseEvent):void 
 		{
 			dispatchEvent(e);
-			click();
+			if(state != STATE_CLICK)
+			{
+				state = STATE_CLICK;
+				click();
+			}
 		}
 		
 		private function asset_rollOver(e:MouseEvent):void 
 		{
 			dispatchEvent(e);
-			rollOver();
+			
+			if(state != STATE_ROLL_OVER)
+			{
+				state = STATE_ROLL_OVER;
+				rollOver();
+			}
 		}
 		
 		private function asset_rollOut(e:MouseEvent):void 
@@ -51,7 +63,12 @@ package com.geleca.as3.component.button
 			if (enabled)
 			{
 				dispatchEvent(e);
-				rollOut();
+				
+				if(state != STATE_ROLL_OUT)
+				{
+					state = STATE_ROLL_OUT;
+					rollOut();
+				}
 			}
 		}
 		
@@ -129,7 +146,7 @@ package com.geleca.as3.component.button
 				stage.addEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown, false, 0, true);
 				
 			if (enabled)
-				rollOver();
+				asset_rollOver(new MouseEvent(MouseEvent.ROLL_OVER));
 			
 			super.focusIn();
 		}
@@ -140,7 +157,7 @@ package com.geleca.as3.component.button
 				stage.removeEventListener(KeyboardEvent.KEY_DOWN, focusIn_stage_keyDown);
 			
 			if (enabled)
-				rollOut();
+				asset_rollOut(new MouseEvent(MouseEvent.ROLL_OUT));
 			
 			super.focusOut();
 		}
@@ -148,7 +165,8 @@ package com.geleca.as3.component.button
 		private function focusIn_stage_keyDown(e:KeyboardEvent):void 
 		{
 			if (e.keyCode == Keyboard.SPACE || e.keyCode == Keyboard.ENTER)
-				dispatchEvent(new MouseEvent(MouseEvent.CLICK));
+				asset_click(new MouseEvent(MouseEvent.CLICK));
+				//dispatchEvent(new MouseEvent(MouseEvent.CLICK));
 		}
 		
 		override protected function disable():void 
@@ -165,9 +183,9 @@ package com.geleca.as3.component.button
 		{
 			asset.removeEventListener(MouseEvent.CLICK, 		asset_click);
 			asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
+			asset.removeEventListener(MouseEvent.ROLL_OUT, 		asset_rollOut);
 			asset.removeEventListener(MouseEvent.MOUSE_DOWN, 	asset_mouseDown);
-			asset.removeEventListener(MouseEvent.MOUSE_UP, 	asset_mouseUp);
+			asset.removeEventListener(MouseEvent.MOUSE_UP, 		asset_mouseUp);
 			asset.removeEventListener(MouseEvent.MOUSE_WHEEL,	asset_mouseWheel);
 			
 			if (stage)
