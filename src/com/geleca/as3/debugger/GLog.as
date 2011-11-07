@@ -29,7 +29,7 @@ package com.geleca.as3.debugger
 			
 			if (!PlayerUtil.isDebugger())
 				return;
-				
+			
 			var stackTrace	:String;
 			
 			try
@@ -49,6 +49,8 @@ package com.geleca.as3.debugger
 			var path	:String;
 			var line	:int = -1;
 			var time	:int = getTimer();
+			
+			//return;
 
 			if (isDebug)
 			{
@@ -56,7 +58,6 @@ package com.geleca.as3.debugger
 				var matches	:Array = regex.exec(lines[int(2)]);
 				
 				//trace("matches", matches[0]);
-
 				path = matches[int(1)];
 
 				//file:line = matches[2]
@@ -64,10 +65,14 @@ package com.geleca.as3.debugger
 			}
 			else
 			{
+				return;
 				path = (lines[int(2)] as String).substring(4);
 			}
 			
 			line = matches[0].split(".as:")[1].replace("]", "");
+			
+			//return;
+			
 			//line = int(m.substring(m.indexOf(".as:"), m.indexOf("]")));
 			//trace("LINE", l);
 			//trace("GLog", "line", line, "path", path);
@@ -86,6 +91,7 @@ package com.geleca.as3.debugger
 			trace(output);
 			if(ExternalInterface.available)
 				ExternalInterface.call("function() { window.console.log('" + output + "'); }");
+			
 			
 			_logs.push(output);
 		}

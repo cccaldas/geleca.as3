@@ -71,8 +71,8 @@ package
 		
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		
-			//new DebuggerTest().run();
-			new YAMLTest1().run();
+			new DebuggerTest().run();
+			//new YAMLTest1().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
 			//new FunctionUtilTest().run();

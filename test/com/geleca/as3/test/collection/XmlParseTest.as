@@ -6,7 +6,7 @@ package com.geleca.as3.test.collection
 
 	public class XmlParseTest
 	{
-		[Embed(source = "../../../../../../bin-debug/xml/data/orm.xml",  mimeType="application/octet-stream")]
+		//[Embed(source = "../../../../../../deploy/xml/data/orm.xml",  mimeType="application/octet-stream")]
 		private var _data			:Class;
 		
 		public function XmlParseTest()

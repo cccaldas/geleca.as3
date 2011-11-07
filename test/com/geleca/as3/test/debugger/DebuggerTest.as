@@ -13,7 +13,7 @@ package com.geleca.as3.test.debugger
 		
 		public function DebuggerTest() 
 		{
-			
+			super();
 		}
 		
 		public function run():void

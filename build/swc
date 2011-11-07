@@ -7,7 +7,7 @@ rm $BASE_PATH/deploy/swc/$OUTPUT
 $FLEX_SDK/bin/compc \
 -target-player=10 \
 -output $BASE_PATH/deploy/swc/$OUTPUT \
--compiler.debug=false \
+-compiler.debug=true \
 -include-sources+=$BASE_PATH/src,$BASE_PATH/lib/src/ \
 -source-path=$BASE_PATH/src,$BASE_PATH/lib/src/ \
 -library-path+=$BASE_PATH/lib/bin/as3corelib.swc \

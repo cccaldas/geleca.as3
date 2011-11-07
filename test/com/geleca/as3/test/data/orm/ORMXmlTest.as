@@ -9,7 +9,7 @@ package com.geleca.as3.test.data.orm
 
 	public class ORMXmlTest
 	{
-		[Embed(source = "../../../../../../../bin-debug/xml/data/orm.xml",  mimeType="application/octet-stream")]
+		//[Embed(source = "../../../../../../../deploy/xml/data/orm.xml",  mimeType="application/octet-stream")]
 		private var _xmlData		:Class;
 		private var _xml			:XML;
 		private var _context		:DataContext;

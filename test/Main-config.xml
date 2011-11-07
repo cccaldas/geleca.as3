@@ -33,7 +33,7 @@
 		<source-path>
 			<path-element>../src/</path-element>
 			<path-element>../lib/src</path-element>
-			<!--<path-element>../test/src/</path-element>-->
+			<path-element>../test/src/</path-element>
 		</source-path>
 		
 	</compiler>
