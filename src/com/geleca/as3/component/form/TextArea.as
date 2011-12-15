@@ -17,16 +17,16 @@ package com.geleca.as3.component.form
 		{
 			super.init();
 			
-			textField.multiline = true;
-			textField.height = background.height - (textField.y * 2);
+			txt_textInput.multiline = true;
+			txt_textInput.height = bg_textInput.height - (txt_textInput.y * 2);
 		}
 		
 		public function set wordWrap(value:Boolean):void 
 		{
-			textField.wordWrap = value
+			txt_textInput.wordWrap = value
 		}
 		
-		public function get wordWrap():Boolean { return textField.wordWrap; }
+		public function get wordWrap():Boolean { return txt_textInput.wordWrap; }
 		
 	}
 

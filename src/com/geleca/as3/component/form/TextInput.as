@@ -12,22 +12,21 @@ package com.geleca.as3.component.form
 	 */
 	public class TextInput extends Input
 	{
-		private var _textField				:TextField;
-		private var _background				:Sprite;
 		private var _padding				:Number = 0;
 		
 		public function TextInput(asset:Sprite) 
 		{
 			super(asset);
-			
-			_background = Sprite(asset.getChildByName("bg_textInput"));
-			_textField	= TextField(asset.getChildByName("txt_textInput"));
 		}
+		
+		public function get bg_textInput()	:Sprite 	{ return asset["bg_textInput"]; }
+		public function get txt_textInput()	:TextField 	{ return asset["txt_textInput"]; }
 		
 		override public function setup():void 
 		{
-			super.setup();			
-			_padding 	= (_textField.x + _textField.y) * .5;
+			super.setup();
+			
+			_padding 	= (txt_textInput.x + txt_textInput.y) * .5;
 			
 			var width:Number = this.width;
 			var height:Number = this.height;
@@ -64,59 +63,56 @@ package com.geleca.as3.component.form
 		
 		override public function set width(value:Number):void 
 		{
-			if (background)
+			if (bg_textInput)
 			{
-				background.width 	= value;
+				bg_textInput.width 	= value;
 				applyPadding();
 			}
-			else textField.width = value;
+			else txt_textInput.width = value;
 		}
 		
 		override public function set height(value:Number):void 
 		{
-			if (background)
+			if (bg_textInput)
 			{
-				background.height 	= value;
+				bg_textInput.height 	= value;
 				applyPadding();
 			}
-			else textField.height = value;
+			else txt_textInput.height = value;
 		}
 		
 		public function set text(value:String):void 
 		{
-			textField.text = value;
+			txt_textInput.text = value;
 		}
 		
 		//Calcula o padding do textField
 		private function applyPadding():void 
 		{
-			if (background)
+			if (bg_textInput)
 			{
-				textField.x 		= padding;
-				textField.width 	= background.width - (padding * 2);
+				txt_textInput.x 		= padding;
+				txt_textInput.width 	= bg_textInput.width - (padding * 2);
 				
-				textField.y 		= padding;
-				textField.height 	= background.height - (padding * 2);
+				txt_textInput.y 		= padding;
+				txt_textInput.height 	= bg_textInput.height - (padding * 2);
+				
+				bg_textInput_resize();
 			}
 		}
 		
-		public function get text():String { return textField.text; }
-		
-		public function get textField():TextField
+		protected function bg_textInput_resize():void
 		{
-			return _textField;
+			
 		}
 		
-		public function get background():Sprite
-		{
-			return _background;
-		}
+		public function get text():String { return txt_textInput.text; }
 		
 		override protected function focusIn():void 
 		{
 			super.focusIn();
 			
-			stage.focus = textField;
+			stage.focus = txt_textInput;
 		}
 		
 		private function textInput_focusOut(e:FocusEvent):void 
@@ -129,46 +125,51 @@ package com.geleca.as3.component.form
 			e.stopImmediatePropagation();
 		}
 		
-		override public function get tabIndex():int { return textField.tabIndex; }
+		override public function get tabIndex():int { return txt_textInput.tabIndex; }
 		
 		override public function set tabIndex(value:int):void 
 		{
-			textField.tabIndex = value;
+			txt_textInput.tabIndex = value;
 		}
 		
-		public function get maxChars():int { return textField.maxChars; }
+		public function get maxChars():int { return txt_textInput.maxChars; }
 		public function set maxChars(value:int):void 
 		{
-			textField.maxChars = value;
+			txt_textInput.maxChars = value;
 		}
 		
 		public function setSelection(beginIndex:int, endIndex:int):void 
 		{
-			textField.setSelection(beginIndex, endIndex);
+			txt_textInput.setSelection(beginIndex, endIndex);
 		}
 		
 		public function selectText():void 
 		{
 			focusIn();
-			textField.setSelection(0, textField.text.length + 1);
+			txt_textInput.setSelection(0, txt_textInput.text.length + 1);
 		}
 		
-		public function get restrict():String { return textField.restrict; }
+		public function get restrict():String { return txt_textInput.restrict; }
 		public function set restrict(value:String):void 
 		{
-			textField.restrict = value;
+			txt_textInput.restrict = value;
 		}
 		
 		public function get padding():Number { return _padding; }
 		
 		public function get displayAsPassword():Boolean
 		{
-			return textField.displayAsPassword;
+			return txt_textInput.displayAsPassword;
 		}
 		
 		public function set displayAsPassword(value:Boolean):void
 		{
-			textField.displayAsPassword = value;
+			txt_textInput.displayAsPassword = value;
+		}
+		
+		override public function reset():void
+		{
+			this.text = "";
 		}
 		
 		override public function destroy():void 
@@ -176,10 +177,7 @@ package com.geleca.as3.component.form
 			asset.removeEventListener(FocusEvent.FOCUS_OUT, 	textInput_focusOut);
 			
 			asset.removeEventListener(MouseEvent.ROLL_OVER, 	asset_rollOver);
-			asset.removeEventListener(MouseEvent.ROLL_OUT, 	asset_rollOut);
-			
-			_textField 		= null;
-			_background 	= null;
+			asset.removeEventListener(MouseEvent.ROLL_OUT, 		asset_rollOut);
 			
 			super.destroy();
 		}

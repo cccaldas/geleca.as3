@@ -41,11 +41,12 @@ package com.geleca.as3.view
 		private var _loaded									:Boolean;
 		private var _setup									:Boolean;
 		
+		private var _lang									:*;
+		
 		//private var _switcher								:ViewSwitcher;
 		
 		protected var self									:View;
 		public var layout									:Layout;
-		//protected var lang									:Lang;
 		
 		public function View() 
 		{
@@ -285,6 +286,19 @@ package com.geleca.as3.view
 		public function get loader():GLoader { return _loader; }
 		
 		public function get loaded():Boolean { return _loaded; }
+		
+		public function set lang(value:*):void
+		{
+			_lang = value;
+			updateLang();
+		}
+		
+		protected function updateLang():void
+		{
+			
+		}
+		
+		public function get lang():* { return _lang; }
 		
 		//public function get switcher():ViewSwitcher { return _switcher; }
 		

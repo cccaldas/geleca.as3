@@ -4,3 +4,8 @@ var_2: 'Variable 2'
 path_asset: '/asset/'
 path_bitmap: '{path_asset}bitmap/'
 path_bitmap_background: '{path_bitmap}background/'
+
+array:
+   - item1
+   - item2
+   - [0, 1, 2, 3]

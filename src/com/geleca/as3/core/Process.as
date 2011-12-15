@@ -7,8 +7,7 @@ package com.geleca.as3.core
 	 * @author Cristiano Caldas
 	 */
 	public class Process extends SimpleEventDispatcher
-	{
-		
+	{	
 		private var _id								:String;
 		private var _running						:Boolean = false;
 		private var _progress						:Number = 0;

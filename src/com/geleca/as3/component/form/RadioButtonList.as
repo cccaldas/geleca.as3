@@ -27,7 +27,7 @@ package com.geleca.as3.component.form
 		
 		public function get length():uint { return _radios.length; }
 		
-		public function reset():void 
+		override public function reset():void 
 		{
 			if(_radios.length != 0)
 				_radios[0].checked = true;

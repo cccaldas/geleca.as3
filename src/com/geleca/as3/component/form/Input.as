@@ -22,8 +22,11 @@ package com.geleca.as3.component.form
 			if (_valid != value)
 			{
 				_valid = value;
-				if (value) status_valid();
-				else status_invalid();
+				
+				if(value)
+					status_valid();
+				else
+					status_invalid();
 			}
 		}
 		
@@ -33,6 +36,16 @@ package com.geleca.as3.component.form
 		}
 		
 		protected function status_invalid():void 
+		{
+			
+		}
+		
+		public function validate():Boolean
+		{
+			return true;
+		}
+		
+		public function reset():void
 		{
 			
 		}

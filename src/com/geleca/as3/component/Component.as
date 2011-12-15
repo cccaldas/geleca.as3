@@ -35,6 +35,8 @@ package com.geleca.as3.component
 		
 		private var _state									:String;
 		
+		private var _lang									:*;
+		
 		protected var self									:Component;
 		
 		public function Component(asset:Sprite) 
@@ -243,6 +245,19 @@ package com.geleca.as3.component
 			else
 				asset.width = value;
 		}
+		
+		public function set lang(value:*):void
+		{
+			_lang = value;
+			updateLang();
+		}
+		
+		protected function updateLang():void
+		{
+			
+		}
+		
+		public function get lang():* { return _lang; }
 		
 		public function get height():Number { return (hitArea) ? hitArea.height : asset.height; }
 		
