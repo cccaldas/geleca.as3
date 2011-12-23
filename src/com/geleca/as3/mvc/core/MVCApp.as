@@ -131,7 +131,7 @@ package com.geleca.as3.mvc.core
 		{
 			_container.addChild(_preloader);
 			_preloader.addEventListener(Event.COMPLETE, preloader_complete);
-			_preloader.load();
+			//_preloader.load();
 			
 			this.load();
 			

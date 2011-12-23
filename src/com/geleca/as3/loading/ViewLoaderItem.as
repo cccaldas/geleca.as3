@@ -24,15 +24,15 @@ package com.geleca.as3.loading
 		{
 			super.process_start();
 			
-			_view.loader.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
-			_view.loader.addEventListener(Event.COMPLETE, 			view_complete);
+			//_view.loader.addEventListener(ProgressEvent.PROGRESS, 	view_progress);
+			//_view.loader.addEventListener(Event.COMPLETE, 			view_complete);
 			
-			_view.load();
+			//_view.load();
 		}
 		
 		private function view_progress(e:ProgressEvent):void 
 		{
-			updateProgress(_view.loader.progress);
+			//updateProgress(_view.loader.progress);
 		}
 		
 		private function view_complete(e:Event):void 

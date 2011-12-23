@@ -291,6 +291,16 @@
 		
 		public function get items():Vector.<ItemTemplate> { return _items; }
 		
+		public function each(fn:Function):void
+		{
+			_items.forEach(forEach);
+
+			function forEach(element:*, index:int, vec:Vector.<ItemTemplate>):void
+			{
+				fn(element);
+			}
+		}
+		
 		override public function destroy():void 
 		{
 			_itemTemplateClass 		= null;

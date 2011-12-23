@@ -27,17 +27,17 @@ package com.geleca.as3.mvc.core
 			addChild(viewRender);
 		}
 		
-		override public function load():void 
+		public function load():void 
 		{
 			//GLog.log("");
 			
-			if (_controllerLoader)
-				loader.addLoaderItem(_controllerLoader);
+			//if (_controllerLoader)
+				//loader.addLoaderItem(_controllerLoader);
 			
-			super.load();
+			//super.load();
 		}
 		
-		override protected function loader_complete():void 
+		protected function loader_complete():void 
 		{
 			
 		}
@@ -46,7 +46,7 @@ package com.geleca.as3.mvc.core
 		{
 			super.initialize();
 			
-			loader.removeItem("controller");
+			//loader.removeItem("controller");
 		}
 		
 		public function render(controller:Controller):void 
@@ -55,10 +55,10 @@ package com.geleca.as3.mvc.core
 			
 			var item:ControllerLoaderItem = new ControllerLoaderItem("controller", controller, this);
 			
-			if (loaded)
-				renderController(item);
-			else 
-				_controllerLoader = item;
+			//if (loaded)
+			//	renderController(item);
+			//else 
+			//	_controllerLoader = item;
 			/*result.addEventListener(ProcessEvent.START, 	result_start);
 			result.addEventListener(ProcessEvent.PROGRESS, 	result_progress);
 			result.addEventListener(ProcessEvent.FINISH, 	result_finish);*/

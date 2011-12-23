@@ -257,6 +257,13 @@ package com.geleca.as3.component
 			
 		}
 		
+		public function set filters(value:Array):void
+		{
+			asset.filters = value;
+		}
+		
+		public function get filters():Array { return asset.filters; }
+		
 		public function get lang():* { return _lang; }
 		
 		public function get height():Number { return (hitArea) ? hitArea.height : asset.height; }

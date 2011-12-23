@@ -6,8 +6,6 @@ package com.geleca.as3.view
 	import com.geleca.as3.events.SimpleEventDispatcher;
 	import com.geleca.as3.events.StateEvent;
 	import com.geleca.as3.i18n.Lang;
-	import com.geleca.as3.loading.GLoader;
-	import com.geleca.as3.loading.LoaderItem;
 	import com.geleca.as3.ui.component.UIComponent;
 	import com.geleca.as3.util.ContainerUtil;
 	import com.geleca.as3.util.DictionaryUtil;
@@ -36,8 +34,6 @@ package com.geleca.as3.view
 		private var _components								:Vector.<IComponent> = new Vector.<IComponent>();
 		private var _views									:Vector.<View> 		= new Vector.<View>();
 		
-		private var _loader									:GLoader = new GLoader();
-		
 		private var _loaded									:Boolean;
 		private var _setup									:Boolean;
 		
@@ -55,45 +51,9 @@ package com.geleca.as3.view
 			this.self = this;
 		}
 		
-		public function load():void 
-		{
-			//setup();
-			_loader.addEventListener(Event.COMPLETE, _loader_complete, false, 100);
-			_loader.load();
-		}
-		
-		private function _loader_complete(e:Event):void
-		{
-			_loaded = true;
-			
-			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));
-			
-			//i18n
-			//GLog.log("lang", _loader.getItem("lang"));
-			
-			/*if(_loader.getItem("lang") != null)
-				lang = _loader.getItem("lang");*/
-			
-			//_loader.addEventListener(Event.INIT, 					dispatchEvent);
-			_loader.removeEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
-			_loader.removeEventListener(Event.COMPLETE, 			_loader_complete);
-			loader_complete();
-			dispatchEvent(e);
-		}
-		
-		protected function loader_complete():void 
-		{
-			
-		}
-		
 		public function setup():void 
 		{
 			this.focusRect = false;
-			
-			//_loader.addEventListener(Event.INIT, 				dispatchEvent);
-			//_loader.addEventListener(ProgressEvent.PROGRESS, 	dispatchEvent);
-			
-			//_setup = true;
 		}
 		
 		protected function initialize():void 
@@ -109,16 +69,6 @@ package com.geleca.as3.view
 			initialize();
 			
 			return this;
-		}
-		
-		protected function addLoaderItem(item:LoaderItem):void 
-		{
-			_loader.addLoaderItem(item);
-		}
-		
-		protected function getLoaderItem(id:String):*
-		{
-			return _loader.getItem(id);
 		}
 		
 		private function initializeViews():void 
@@ -283,10 +233,6 @@ package com.geleca.as3.view
 				super.height = value;
 		}
 		
-		public function get loader():GLoader { return _loader; }
-		
-		public function get loaded():Boolean { return _loaded; }
-		
 		public function set lang(value:*):void
 		{
 			_lang = value;
@@ -300,18 +246,8 @@ package com.geleca.as3.view
 		
 		public function get lang():* { return _lang; }
 		
-		//public function get switcher():ViewSwitcher { return _switcher; }
-		
-		/*public function set switcher(value:ViewSwitcher):void 
-		{
-			_switcher = value;
-		}*/
-		
 		public function destroy():void 
 		{
-			_loader.destroy();
-			_loader = null;
-			
 			if (hitArea)
 				this.removeChild(hitArea);
 				
@@ -323,7 +259,6 @@ package com.geleca.as3.view
 			
 			_views 			= null;
 			_components 	= null;
-			//_switcher 		= null;
 			this.self 		= null;
 			
 			ContainerUtil.removeAllChilds(this);

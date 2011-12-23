@@ -14,12 +14,12 @@ package com.geleca.as3.mvc.core
 			_gmlURL = gmlURL;
 		}
 		
-		override public function load():void
+		public function load():void
 		{
-			loader.addLoaderItem(new FileLoaderItem("gml", _gmlURL));
+			//;oader.addLoaderItem(new FileLoaderItem("gml", _gmlURL));
 			
 			// TODO Auto Generated method stub
-			super.load();
+			//super.load();
 		}
 		
 		override public function setup():void
@@ -27,7 +27,7 @@ package com.geleca.as3.mvc.core
 			// TODO Auto Generated method stub
 			super.setup();
 			
-			_gml = new GML(XML(loader.getItem("gml")));
+			//_gml = new GML(XML(loader.getItem("gml")));
 			
 			new GMLParse(this, _gml);
 		}

@@ -120,13 +120,13 @@ package com.geleca.as3.mvc.core
 			
 			function view_progress(e:ProgressEvent):void 
 			{
-				updateProgress((view.loader.progress * .2) + .8);
+				//updateProgress((view.loader.progress * .2) + .8);
 			}
 			
 			function view_complete(e:Event):void 
 			{
-				view.loader.removeEventListener(ProgressEvent.PROGRESS, 	view_progress);
-				view.loader.removeEventListener(Event.COMPLETE, 			view_complete);
+				//view.loader.removeEventListener(ProgressEvent.PROGRESS, 	view_progress);
+				//view.loader.removeEventListener(Event.COMPLETE, 			view_complete);
 				
 				//GLog.log("");
 				updateProgress(1);
