@@ -22,7 +22,7 @@ package com.geleca.as3.component
 		private var _initialized							:Boolean = false;
 		
 		public var asset									:Sprite;
-		private var _hitArea								:HitArea;
+		private var _hitArea								:Sprite;
 		
 		private var _components								:Vector.<IComponent> = new Vector.<IComponent>();
 		
@@ -57,12 +57,13 @@ package com.geleca.as3.component
 				
 			if (asset.getChildByName("sp_hitArea"))
 			{
-				var hit:Sprite = Sprite(asset.getChildByName("sp_hitArea"));
-				hitArea = new HitArea(hit.width, hit.height);
-				hitArea.x = hit.x;
-				hitArea.y = hit.y;
+				hitArea = asset["sp_hitArea"];
+				//var hit:Sprite = Sprite(asset.getChildByName("sp_hitArea"));
+				//hitArea = new HitArea(hit.width, hit.height);
+				//hitArea.x = hit.x;
+				//hitArea.y = hit.y;
 				
-				hit.parent.removeChild(hit);
+				//hit.parent.removeChild(hit);
 			}
 			
 			asset.focusRect = false;
@@ -139,9 +140,9 @@ package com.geleca.as3.component
 		public final function get enabled()			:Boolean 	{ return _enabled; }
 		public final function get initialized()		:Boolean 	{ return _initialized; }
 		
-		public function get hitArea():HitArea { return _hitArea; }
+		public function get hitArea():Sprite { return _hitArea; }
 		
-		public function set hitArea(value:HitArea):void 
+		public function set hitArea(value:Sprite):void 
 		{
 			if (value)
 			{
