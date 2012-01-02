@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>src/com/geleca/as3/util/DictionaryUtil.as</string>
+	<string>src/com/geleca/as3/util/StatsMonitor.as</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -440,14 +440,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>4</integer>
 				<key>line</key>
-				<integer>251</integer>
+				<integer>54</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>231</integer>
+			<integer>44</integer>
 		</dict>
 		<key>src/com/geleca/as3/component/IComponent.as</key>
 		<dict>
@@ -561,7 +561,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
 		<key>src/com/geleca/as3/component/form/RadioButtonList.as</key>
 		<dict>
@@ -596,14 +596,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>160</integer>
+				<integer>164</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>135</integer>
+			<integer>140</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>22</integer>
+				<key>line</key>
+				<integer>164</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>39</integer>
+				<key>line</key>
+				<integer>164</integer>
+			</dict>
 		</dict>
 		<key>src/com/geleca/as3/component/preloader/Preloader.as</key>
 		<dict>
@@ -804,6 +820,36 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>66</integer>
+		</dict>
+		<key>src/com/geleca/as3/display/HitArea.as</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>40</integer>
+				<key>line</key>
+				<integer>20</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>3</integer>
+				<key>line</key>
+				<integer>20</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>40</integer>
+				<key>line</key>
+				<integer>20</integer>
+			</dict>
 		</dict>
 		<key>src/com/geleca/as3/display/RectangularSprite.as</key>
 		<dict>
@@ -1612,9 +1658,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>56</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1670,9 +1716,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>11</integer>
+				<integer>52</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>15</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1749,7 +1795,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
 		<key>src/com/geleca/as3/util/TextUtil.as</key>
 		<dict>
@@ -1800,9 +1846,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>23</integer>
+				<integer>21</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -1821,21 +1867,21 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>17</integer>
+			<integer>0</integer>
 		</dict>
 		<key>src/com/geleca/as3/view/View.as</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>233</integer>
+				<integer>57</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>212</integer>
+			<integer>44</integer>
 		</dict>
 		<key>test-old/Configuration/Geleca Framework - Configuration.as3proj</key>
 		<dict>
@@ -2454,6 +2500,7 @@
 		<string>src/com/geleca/as3/util/ColorUtil.as</string>
 		<string>src/com/geleca/as3/effects/transition/ColorTransition.as</string>
 		<string>src/com/geleca/as3/component/Component.as</string>
+		<string>src/com/geleca/as3/display/HitArea.as</string>
 		<string>src/com/geleca/as3/data/paging/Paging.as</string>
 		<string>src/com/geleca/as3/util/DateUtil.as</string>
 		<string>deploy/docs/com/geleca/as3/i18n/Lang.html</string>

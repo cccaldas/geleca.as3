@@ -58,6 +58,7 @@ package com.geleca.as3.component
 			if (asset.getChildByName("sp_hitArea"))
 			{
 				hitArea = asset["sp_hitArea"];
+				hitArea.mouseEnabled = hitArea.mouseChildren = false;
 				//var hit:Sprite = Sprite(asset.getChildByName("sp_hitArea"));
 				//hitArea = new HitArea(hit.width, hit.height);
 				//hitArea.x = hit.x;
