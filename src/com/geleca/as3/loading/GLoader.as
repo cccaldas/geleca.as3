@@ -71,6 +71,8 @@ package com.geleca.as3.loading
 			_processGroup.removeAll();
 		}
 		
+		public function get items():Array { return _processGroup.processes; }
+		
 		private function timer_timer(e:TimerEvent):void 
 		{
 			dispatchEvent(new ProgressEvent(ProgressEvent.PROGRESS));

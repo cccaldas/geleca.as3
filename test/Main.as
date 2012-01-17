@@ -34,6 +34,8 @@ package
 	import com.geleca.as3.test.yaml.YAMLTest1;
 	import com.geleca.as3.test.website.WebsiteTest;
 	import com.geleca.as3.test.process.*;
+	import com.geleca.as3.test.timer.*;
+	import com.geleca.as3.test.date.*;
 
 	/**
 	 * Application entry point for geleca-framework.
@@ -72,7 +74,7 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 		
 			//new DebuggerTest().run();
-			new YAMLTest1().run();
+			//new YAMLTest1().run();
 			//new ArrayUtilTest().run();
 			//new DateUtilTest().run();
 			//new FunctionUtilTest().run();
@@ -90,6 +92,8 @@ package
 			//new DrawUtilTest().run(stage);
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);
+			//new TimerTest().run();
+			new MonthDaysTest().run();
 			//new LangTest().run();
 			//new VideoPlayerTest().run(stage);
 			//new GroupProcessTest().run();

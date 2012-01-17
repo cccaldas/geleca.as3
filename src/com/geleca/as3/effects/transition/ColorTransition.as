@@ -3,6 +3,7 @@ package com.geleca.as3.effects.transition
 	import caurina.transitions.properties.ColorShortcuts;
 	import caurina.transitions.Tweener;
 	import flash.display.DisplayObject;
+	import fl.motion.Color;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -30,6 +31,20 @@ package com.geleca.as3.effects.transition
 			checkInit();
 			
 			Tweener.addTween(target, { _color:color, time:time, onComplete:onComplete } );
+		}
+		
+		public static function tintTo(target:DisplayObject, color:uint, alpha:Number=1, time:Number=.7, onComplete:Function=null):void 
+		{
+			checkInit();
+			
+			Tweener.addTween(target, { _color:color, time:time, onUpdate:onUpdate, onComplete:onComplete } );
+			
+			function onUpdate():void
+			{
+				var cl:Color = new Color();
+				cl.setTint(target.transform.colorTransform.color, alpha);
+				target.transform.colorTransform = cl;
+			}
 		}
 		
 		public static function toGrayScale(target:DisplayObject, time:Number=.5, saturation:Number=0, onComplete:Function=null):void 

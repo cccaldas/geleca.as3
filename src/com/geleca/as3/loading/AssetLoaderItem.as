@@ -1,4 +1,4 @@
-	package com.geleca.as3.loading
+package com.geleca.as3.loading
 {
 	import flash.display.Loader;
 	import flash.events.Event;
@@ -16,11 +16,13 @@
 		private var _loader							:Loader = new Loader();
 		private var _src							:String;
 		
-		public function AssetLoaderItem(id:String, src:String) 
+		public function AssetLoaderItem(id:String, src:String, weight:Number=1) 
 		{
 			super(id);
 			
-			_src = src;	
+			_src = src;
+			
+			this.weight = weight;
 		}
 		
 		override protected function process_start():void 

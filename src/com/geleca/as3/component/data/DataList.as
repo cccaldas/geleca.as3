@@ -188,6 +188,11 @@
 			return _items[index];
 		}
 		
+		public function getItemByDataSource(dataSource:Object):ItemTemplate
+		{
+			return getItemAt((dataSource as Array).indexOf(dataSource));
+		}
+		
 		public function removeItem(item:ItemTemplate):ItemTemplate
 		{
 			var index:int = _items.indexOf(item);

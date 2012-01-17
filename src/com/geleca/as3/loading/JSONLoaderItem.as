@@ -15,9 +15,9 @@ package com.geleca.as3.loading
 	public class JSONLoaderItem extends FileLoaderItem
 	{
 		
-		public function JSONLoaderItem(id:String, src:String) 
+		public function JSONLoaderItem(id:String, src:String, weight:Number=1) 
 		{
-			super(id, src);
+			super(id, src, weight);
 		}
 		
 		override protected function process_finish():void 

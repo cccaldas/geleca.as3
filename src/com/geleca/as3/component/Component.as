@@ -171,6 +171,13 @@ package com.geleca.as3.component
 			dispatchEvent(new StateEvent(StateEvent.CHANGE, oldState, newState));
 		}
 		
+		public function set blendMode(value:String):void
+		{
+			asset.blendMode = value;
+		}
+		
+		public function get blendMode():String { return asset.blendMode; }
+		
 		protected function state_change(oldState:String, newState:String):void 
 		{
 			

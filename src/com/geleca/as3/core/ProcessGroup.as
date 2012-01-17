@@ -134,6 +134,8 @@ package com.geleca.as3.core
 			return progress / weight;
 		}
 		
+		public function get processes():Array { return _processes; }
+		
 		public function removeAll():void 
 		{
 			for each(var process:Process in _processes) 

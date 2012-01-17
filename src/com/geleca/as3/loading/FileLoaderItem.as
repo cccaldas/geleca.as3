@@ -15,11 +15,12 @@ package com.geleca.as3.loading
 		private var _loader							:URLLoader = new URLLoader();
 		private var _src							:String;
 		
-		public function FileLoaderItem(id:String, src:String) 
+		public function FileLoaderItem(id:String, src:String, weight:Number=1) 
 		{
 			super(id);
 			
 			_src = src;
+			this.weight = weight;
 		}
 		
 		override protected function process_start():void 

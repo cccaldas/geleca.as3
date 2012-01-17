@@ -15,6 +15,7 @@
 +	Component: Implementar o rollOver e rollOut no component e não no button, pois o textfield tbm usa
 +	component, implementar o releaseOutSide
 
++	ProcessGroup - as vezes o progress fica Infinity
 #	Button - Implementar o releaseOutSide
 #	DataList - Implementar o Width e Height dinamico de acordo com o Direction do datalist
 #	List - implementar o "any", ex: List.where("id", "any", [13,24,54]);
