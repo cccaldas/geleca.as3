@@ -58,6 +58,11 @@ package com.geleca.as3.date
 			return DateUtil.toString(_date, format);
 		}
 		
+		public function toDate():Date
+		{
+			return _date;
+		}
+		
 		public static function convertMillisecondsToHours(milliseconds:int):int
 		{
 			return Math.round(milliseconds / (60*60*1000));

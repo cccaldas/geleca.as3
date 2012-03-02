@@ -2,8 +2,9 @@ package com.geleca.as3.display
 {
 	import flash.display.BitmapData;
 	import flash.display.Shape;
+	import com.geleca.as3.core.IDestroyable;
 
-	public class BitmapPatternBackground extends Shape
+	public class BitmapPatternBackground extends Shape implements IDestroyable
 	{
 		private var _width								:Number;
 		private var _height								:Number;
@@ -48,6 +49,12 @@ package com.geleca.as3.display
 			this.graphics.beginBitmapFill(_data, null, true, true);
 			this.graphics.drawRect(0, 0, _width, _height);
 			this.graphics.endFill();
+		}
+		
+		public function destroy():void
+		{
+			this.graphics.clear();
+			_data.dispose();
 		}
 	}
 }

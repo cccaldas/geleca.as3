@@ -55,10 +55,18 @@
 			
 		}
 		
-		protected function addItem(caption:String):ContextMenuItem
+		public function addItem(caption:String, onItemSelect:Function=null):ContextMenuItem
 		{
 			var item:ContextMenuItem = new ContextMenuItem(caption);
 			contextMenu.customItems.push(item);
+			
+			item.addEventListener(ContextMenuEvent.MENU_ITEM_SELECT, item_select);
+			
+			function item_select(e:ContextMenuEvent):void 
+			{
+				if(onItemSelect != null)
+					onItemSelect(caption);
+			}
 			
 			return item;
 		}

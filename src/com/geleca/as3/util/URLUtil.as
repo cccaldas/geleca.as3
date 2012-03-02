@@ -16,7 +16,7 @@
 		
 		public static function mailto(email:String):void 
 		{
-			getURL("mailto:" + email);
+			getURL("mailto:" + email, "_self");
 		}
 		
 	}

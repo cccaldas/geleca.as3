@@ -36,6 +36,7 @@ package
 	import com.geleca.as3.test.process.*;
 	import com.geleca.as3.test.timer.*;
 	import com.geleca.as3.test.date.*;
+	import com.geleca.as3.test.stage.*;
 
 	/**
 	 * Application entry point for geleca-framework.
@@ -93,7 +94,8 @@ package
 			//new GMLTest().run(stage);
 			//new GLoaderTest().run(stage);
 			//new TimerTest().run();
-			new MonthDaysTest().run();
+			//new MonthDaysTest().run();
+			new ActivateTest().run(stage);
 			//new LangTest().run();
 			//new VideoPlayerTest().run(stage);
 			//new GroupProcessTest().run();

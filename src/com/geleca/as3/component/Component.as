@@ -12,6 +12,7 @@ package com.geleca.as3.component
 	import flash.events.FocusEvent;
 	import flash.geom.Rectangle;
 	import flash.system.System;
+	import com.geleca.as3.core.GPUManager;
 	/**
 	 * ...
 	 * @author Cristiano Caldas
@@ -36,6 +37,8 @@ package com.geleca.as3.component
 		private var _state									:String;
 		
 		private var _lang									:*;
+		
+		private var _gpu									:GPUManager;
 		
 		protected var self									:Component;
 		
@@ -181,6 +184,19 @@ package com.geleca.as3.component
 		protected function state_change(oldState:String, newState:String):void 
 		{
 			
+		}
+		
+		
+		public function get scaleX():Number { return asset.scaleX; }
+		public function set scaleX(value:Number):void
+		{
+			asset.scaleX = value;
+		}
+		
+		public function get scaleY():Number { return asset.scaleY; }
+		public function set scaleY(value:Number):void
+		{
+			asset.scaleY = value;
 		}
 		
 		protected function enable():void 
@@ -359,6 +375,13 @@ package com.geleca.as3.component
 		public function set layout(value:Layout):void
 		{
 			_layout = value;
+		}
+		
+		public function get gpu():GPUManager { return _gpu; }
+		
+		public function set gpu(value:GPUManager):void
+		{
+			_gpu = value;
 		}
 		
 		override public function destroy():void 
