@@ -17,23 +17,22 @@
 		
 		public static function removeAllChilds(container:DisplayObjectContainer, recursive:Boolean=false):void 
 		{
-			trace("ContainerUtil::removeAllChilds()", container, recursive);
+			//trace("ContainerUtil::removeAllChilds()", container, recursive, container.numChildren);
+			var length:uint = container.numChildren;
+			var child:DisplayObject;
 			
-			if (container != null) 
+			for (var i:int = 0; i < length; i++)
 			{
-				var dsp:DisplayObject;
+				child = container.getChildAt(0);
 				
-				while (container.numChildren != 0) 
-				{
-					dsp = container.removeChildAt(0);
-					if (dsp is DisplayObjectContainer && recursive)
-						removeAllChilds(DisplayObjectContainer(dsp), true);
-					dsp = null;
-				}
-				
-				System.gc();
+				if(child is DisplayObjectContainer && recursive)
+					removeAllChilds(DisplayObjectContainer(child), true);
+					
+				if(child)
+					container.removeChild(child);
 			}
-			
+				
+			System.gc();			
 		}
 		
 		public static function findChild(container:DisplayObjectContainer, path:String="insidecontainer.sprite.sp_object"):DisplayObject
